@@ -1,0 +1,11 @@
+model {
+  for (j in 1:41) {
+    p[j] <- 1/41
+    d.value[j] <- 2 + (j-1)*0.1
+  }
+  for (i in 1:1000) {
+    y[i] ~ dt(0,1,d)
+  }
+  K ~ dcat(p[])
+  d <- d.value[K]
+}
