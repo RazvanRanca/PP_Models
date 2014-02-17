@@ -1,6 +1,6 @@
 from venture.shortcuts import *
 import sys
-sys.path.append("/home/haggis/Desktop/ModelTesting/Venture/")
+sys.path.append("../../")
 from postSamp import posterior_samples
 import numpy as np
 from collections import Counter
