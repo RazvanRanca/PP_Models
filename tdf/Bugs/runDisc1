@@ -1,5 +1,5 @@
-modelCheck('t-dfModelDisc1')
-modelData('../t-dfdata.txt')
+modelCheck('tdfModelDisc1')
+modelData('../tdfdata.txt')
 modelCompile(1)
 modelGenInits()
 modelUpdate(1000)
