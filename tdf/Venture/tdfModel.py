@@ -1,15 +1,15 @@
 from venture.shortcuts import *
 import sys
 sys.path.append("../../")
-import ventureUtils as vu
+import ppUtils as pu
 from collections import Counter
 import numpy as np
 import os
 
 def genTdf(v):
   v.assume("y", "(student_t 4)")
-  samples = vu.posterior_samples(v, "y", no_samples=1000, no_burns=0, int_mh=100)
-  vu.save_samples(samples, os.getcwd(), "gen")
+  samples = pu.posterior_samples(v, "y", no_samples=1000, no_burns=0, int_mh=100)
+  pu.save_samples(samples, os.getcwd(), "gen")
 
 def readData():
   with open('../tdfdata.txt','r') as f:
@@ -31,10 +31,10 @@ def runModel(v, ys, mType):
     raise Exception("Unknown model type: " + mType)
 
   [v.observe("(y)", str(ys[i])) for i in range(len(ys))]
-  samples = vu.posterior_samples(v, "d", no_samples=100, no_burns=100, int_mh=1)
+  samples = pu.posterior_samples(v, "d", no_samples=10000, no_burns=1000, int_mh=1)
   vals = map(lambda x:x[1], samples)
   print "Sample mean: ", np.mean(vals), " Sample Stdev: ", np.std(vals)
-  vu.save_samples(samples, os.getcwd(), mType)
+  pu.save_samples(samples, os.getcwd(), mType)
 
 if __name__ == "__main__":
   modelType = sys.argv[1]
