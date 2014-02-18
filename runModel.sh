@@ -14,7 +14,9 @@ outputFile=$3"Samples"
 if [[ $language == "v" ]]
 then
   cd $model"/Venture"
-  ( /usr/bin/time -f "\n%e" python $model"Model.py" $3; ) 2>> $outputFile
+  ( /usr/bin/time -f "\n%e" python $model"Model.py" $3; ) 2>> "temp"
+  cat "temp" >> $outputFile
+  rm "temp"
 fi
 
 if [[ $language == "b" ]]

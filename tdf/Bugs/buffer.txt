@@ -1,1 +1,1 @@
-****** Sorry something went wrong in procedure Updater.LoadChain in module UpdaterUnivariate ******
+****** Sorry something went wrong ******

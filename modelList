@@ -1,5 +1,5 @@
-    6 doc/Examples/t-dfmodel.txt
-    7 doc/Examples/Surgicalmodel.txt
+    6 doc/Examples/t-dfmodel.txt        implemented
+    7 doc/Examples/Surgicalmodel.txt    need binomial primitive
    10 doc/Examples/Asiamodel.txt
    10 doc/Examples/Linemodel.txt
    11 doc/Examples/Airmodel.txt
