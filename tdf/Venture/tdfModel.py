@@ -21,6 +21,9 @@ def runModel(v, ys, mType, sample, burn, lag, timeTest = False):
   elif mType == "disc2":
     v.assume("d", "(/ (uniform_discrete 20 60) 10)")
     v.assume("y", "(lambda () (student_t d))")
+  elif mType == "disc21":
+    v.assume("d", "(uniform_discrete 20 60)")
+    v.assume("y", "(lambda () (student_t (/ d 10)))")
   else:
     raise Exception("Unknown model type: " + mType)
 
@@ -36,6 +39,6 @@ if __name__ == "__main__":
   v = make_church_prime_ripl()
   modelType = sys.argv[1]
   ys = pu.readData("tdf")
-  runModel(v, ys, modelType, 1000, 1000, 100)
+  runModel(v, ys, modelType, 1000, 0, 1, True)
 
 
