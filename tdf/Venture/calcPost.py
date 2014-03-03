@@ -28,12 +28,31 @@ if __name__ == "__main__":
 
   ls = []
   ds = []
-  for d in np.arange(2,100,0.1):
-    ls.append(logLiks(samples, d))
-    ds.append(d)
+  tp = "ll"
+
+  if tp == "l":
+    norm = 0.0
+    fac = 5
+    title = "Posterior for tdf"
+    for d in np.arange(2,100,0.01):
+      #print d
+      cur = liks(samples, d, fac)
+      norm += cur
+      if d <= 6.5:
+        ls.append(cur)
+        ds.append(d)
+
+    ls = [l/norm for l in ls]
+    print sum(ls)
+
+  elif tp == "ll":
+    title = "Log Likelihood for tdf"
+    for d in np.arange(2,100,0.1):
+      ls.append(logLiks(samples, d))
+      ds.append(d)
 
   plt.plot(ds, ls)
-  plt.title("Log Likelihood tdf")
+  plt.title(title)
   plt.xlabel("degrees of freedom")
   plt.show()
 
