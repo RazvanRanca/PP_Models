@@ -3,6 +3,7 @@ import numpy as np
 import sys
 from matplotlib import pyplot as plt
 from itertools import groupby
+import matplotlib
 
 langs = ["Venture", "Bugs"]
 
@@ -190,12 +191,45 @@ def dispSamples(fn):
       if not samples == []:
         jumps.append(s - samples[-1])
       samples.append(s)
-  plt.hist(samples,400, normed=True)
-  plt.title("tdf 5var Sample dist")
+
+  fig, ax = plt.subplots()
+  ax.hist(samples,1000)
+  ax.set_title("tdf 5var Sample dist")
+  #ax.set_xscale("log")
+  ax.set_xticks(range(1,10))
+  ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+  ax.set_xlim([1,10])
+  ax.set_xlabel("Sample")
+  ax.set_ylabel("Number of samples out of 10000")
   plt.show()
-  plt.hist(jumps,400, normed=True)
-  plt.title("tdf 5var Jump dist")
+
+  print max(map(abs,jumps)), min([x for x in map(abs,jumps) if x > 0])
+  plt.hist(map(lambda x: abs(x),jumps),bins=np.logspace(-9, 2, 300))
+  plt.title("tdf 5var non-zero Jump dist")
+  plt.xscale('log')
+  #plt.yscale('log')
+  plt.xlabel("Jump length")
+  plt.ylabel("Number of jumps out of 10000")
+  #plt.xlim(0.00000001,100)
   plt.show()
+
+def plotConsSamps(fn, tp = 0):
+  samps = []
+  with open(fn, 'r') as f:
+    for line in f:
+      if tp == 0:
+        samps.append(float(line.strip()))
+      elif tp == 1:
+        c, v = map(float, line.strip().split())
+        samps += [v]*c
+
+  plt.plot(samps)
+  plt.title("Tdf sample evolution")
+  plt.xlabel("Iteration")
+  plt.ylabel("Current estimate")
+  plt.yscale('log')
+  plt.show()
+
 
 if __name__ == "__main__":
   #title = "Model: " + sys.argv[1].title() + "-" + sys.argv[2].title()
@@ -206,3 +240,4 @@ if __name__ == "__main__":
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
   dispSamples("tdf/Venture/tdf5Samples")
+  #plotConsSamps("tdf/Venture/tdfSamples")
