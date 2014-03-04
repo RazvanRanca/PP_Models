@@ -47,14 +47,18 @@ def genTdf(v):
   samples = pu.posterior_samples(v, "y", no_samples=1000, no_burns=0, int_mh=1)
   #pu.save_samples(samples, os.getcwd(), "gen")
 
-def runModel(v, ys, mType, sample, burn, lag, timeTest = False):
+def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = False):
+  timeStart = time.time()
   if mType == "cont":
-    v.assume("d1", "(uniform_continuous 0 99.9978)")
+    v.assume("d", "(uniform_continuous 2 100)")
+    v.assume("y", "(lambda () (student_t d))")
+  elif mType == "cont5var":
+    v.assume("d1", "(uniform_continuous 2 100)")
     v.assume("d2", "(uniform_continuous 0 0.001)")
     v.assume("d3", "(uniform_continuous 0 0.001)")
     v.assume("d4", "(uniform_continuous 0 0.0001)")
     v.assume("d5", "(uniform_continuous 0 0.0001)")
-    v.assume("d", "(+ d1 d2 d3 d4 d5)")#(uniform_continuous 0 5) (uniform_continuous 0 1))")
+    v.assume("d", "(+ d1 d2 d3 d4 d5)") #(uniform_continuous 0 5) (uniform_continuous 0 1))")
     v.assume("y", "(lambda () (student_t d))")
   elif mType == "disc1":
     v.assume("d", "(uniform_discrete 2 50)")
@@ -69,11 +73,12 @@ def runModel(v, ys, mType, sample, burn, lag, timeTest = False):
     raise Exception("Unknown model type: " + mType)
 
   [v.observe("(y)", str(ys[i])) for i in range(len(ys))]
-  samples = pu.posterior_samples(v, "d", no_samples=sample, no_burns=burn, int_mh=lag)
+  samples = pu.posterior_samples(v, "d", no_samples=sample, no_burns=burn, int_mh=lag, silent = silentSamp)
+
+  if timeTest:
+    return time.time() - timeStart
   print '\n'.join([str(samples[i][1]) for i in range(len(samples)) if i%10==0])
   #v.infer(11000000)
-  if timeTest:
-    return
   vals = map(lambda x:x[1], samples)
   print "Sample mean: ", np.mean(vals), " Sample Stdev: ", np.std(vals)
   #pu.save_samples(samples, os.getcwd(), mType)
@@ -152,14 +157,74 @@ def repeatCont(ys, sample, burn, lag):
       f.flush()
     f.write(str(("Total: ", np.mean(means), np.mean(times))))
 
+def checkDistRuntime(tp = 0):
+  times = []
+  xs = []
+  for d in np.logspace(-7,2,100):
+    v = make_church_prime_ripl()
+    timeStart = time.time()
+    if tp == 0:
+      v.assume("y", "(student_t %f)" % d)
+    elif tp == 1:
+      v.assume("y", "(uniform_continuous 0 %f)" % d)
+    samples = pu.posterior_samples(v, "y", no_samples=100, no_burns=0, int_mh=1, silent=True)
+    vals = map(lambda x:x[1], samples)
+    times.append(time.time() - timeStart)
+    xs.append(d)
+    print d, np.mean(vals), times[-1]
+
+  print xs
+  print times
+
+  plt.plot(xs,times, '-x')
+
+  if tp == 0:
+    plt.xlabel("Degrees of freedom")
+    plt.ylabel("Seconds")
+    plt.title("Speed of generating 100 unconditioned student_t samples")
+    plt.ylim([0,max(max(times),1)])
+  elif tp == 1:
+    plt.xlabel("Upper limit of interval (x)")
+    plt.ylabel("Seconds")
+    plt.title("Speed of generating 100 unconditioned (uniform_continuous 0 x) samples")
+    plt.xscale("log")
+    plt.ylim([0,max(max(times),1)])
+  plt.show()
+
+def runtimeVarObs(ys):
+  conts = []
+  cont5vars = []
+  yrs = []
+  for yr in range(0,1001,10):
+    yrs.append(yr)
+    v = make_church_prime_ripl()
+    conts.append(runModel(v, ys[:yr], "cont", 100, 0, 1, True, True))
+    v = make_church_prime_ripl()
+    cont5vars.append(runModel(v, ys[:yr], "cont5var", 100, 0, 1, True, True))
+    print yrs[-1], conts[-1], cont5vars[-1]
+
+  print yrs
+  print conts
+  print cont5vars
+
+  p1, = plt.plot(yrs, conts, '-xb')
+  p2, = plt.plot(yrs, cont5vars, '-dr')
+  plt.xlabel("Number of observations")
+  plt.ylabel("Seconds")
+  plt.title("Runtime vs. number of observations conditioned on")
+  plt.legend([p1,p2],["cont","cont5var"])
+  plt.show()
+
 if __name__ == "__main__":
   ys = pu.readData("tdf")
+  #runtimeVarObs(ys)
   v = make_church_prime_ripl()
   #modelType = sys.argv[1]
-  #runModel(v, ys, modelType, 1000, 200, 1, False)
+  #print runModel(v, ys, modelType, 1000, 0, 1, True, True)
   #testCont(ys,1000,0,1)
   #dispContPerf()
   #repeatCont(ys,1000,200,10)
+  """
   v.assume("d1", "(uniform_continuous 0 50)")
   v.assume("d2", "(uniform_continuous 0 25)")
   v.assume("d3", "(uniform_continuous 0 15)")
@@ -172,5 +237,9 @@ if __name__ == "__main__":
   [v.observe("(y)", str(ys[i])) for i in range(len(ys))]
   samples = pu.posterior_samples(v, "d", no_samples=1000, no_burns=0, int_mh=1)
   print '\n'.join(map(lambda x: str(x[1]), samples))
-
+  """
+  #checkDistRuntime(1)
+  v.assume("y", "(student_t 20000000)")
+  samples = pu.posterior_samples(v, "y", no_samples=100, no_burns=0, int_mh=1, silent=True)
+  #print samples
 

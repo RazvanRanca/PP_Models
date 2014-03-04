@@ -15,10 +15,11 @@ def readData(model, sz = None):
     return reducePrec(ys, sz)
   return ys
 
-def posterior_samples(v, var_name,no_samples,no_burns,int_mh):
+def posterior_samples(v, var_name,no_samples,no_burns,int_mh, silent=False):
     s=[];
     v.infer(no_burns)
-    print "Burned", no_burns, "samples"
+    if not silent:
+      print "Burned", no_burns, "samples"
 
     counter = no_burns
     for sample in range(no_samples):
@@ -27,7 +28,7 @@ def posterior_samples(v, var_name,no_samples,no_burns,int_mh):
         label = var_name + str(np.random.randint(10**5))+str(sample)
         v.predict(var_name,label)
         s.append((counter,v.report(label)))
-        if sample % 100 == 0:
+        if sample % 100 == 0 and not silent:
           print "Collected", sample, "samples"
     return s
 
@@ -182,7 +183,7 @@ def showPerfStats(fn):
   plt.show()
 """
 
-def dispSamples(fn):
+def readSamples(fn):
   samples = []
   jumps = []
   with open(fn,'r') as f:
@@ -191,6 +192,10 @@ def dispSamples(fn):
       if not samples == []:
         jumps.append(s - samples[-1])
       samples.append(s)
+  return samples, jumps
+
+def dispSamples(fn):
+  samples, jumps = readSamples(fn)
 
   fig, ax = plt.subplots()
   ax.hist(samples,1000)
@@ -213,15 +218,8 @@ def dispSamples(fn):
   #plt.xlim(0.00000001,100)
   plt.show()
 
-def plotConsSamps(fn, tp = 0):
-  samps = []
-  with open(fn, 'r') as f:
-    for line in f:
-      if tp == 0:
-        samps.append(float(line.strip()))
-      elif tp == 1:
-        c, v = map(float, line.strip().split())
-        samps += [v]*c
+def plotConsSamps(fn):
+  samps = readSamples(fn)
 
   plt.plot(samps)
   plt.title("Tdf sample evolution")
@@ -230,6 +228,19 @@ def plotConsSamps(fn, tp = 0):
   plt.yscale('log')
   plt.show()
 
+def autocorrSamps(fn):
+  samples, _ = readSamples(fn)
+  samples = samples[1000:]
+  #ac = np.correlate(samples, samples, mode='same')
+  n = len(samples)
+  var = np.var(samples, ddof=0)
+  samples = samples - np.mean(samples)
+  ac = np.correlate(samples, samples, mode='full')[-n:]
+  #assert np.allclose(ac, np.array([(samples[:n-k]*samples[-(n-k):]).sum() for k in range(n)]))
+  nac = ac / (var * n)
+  plt.plot(nac)
+  plt.title("cont5var Autocorrelation with 1000 burn in")
+  plt.show()
 
 if __name__ == "__main__":
   #title = "Model: " + sys.argv[1].title() + "-" + sys.argv[2].title()
@@ -239,5 +250,6 @@ if __name__ == "__main__":
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
-  dispSamples("tdf/Venture/tdf5Samples")
+  #dispSamples("tdf/Venture/tdf5Samples")
   #plotConsSamps("tdf/Venture/tdfSamples")
+  autocorrSamps("tdf/Venture/tdf5Samples")
