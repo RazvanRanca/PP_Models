@@ -7,6 +7,12 @@ import numpy as np
 import os
 import time
 from matplotlib import pyplot as plt
+import calcPost as cp
+import random
+import math
+import cPickle
+from itertools import chain
+import scipy
 
 def testPerf(ys):
   with open('rtRes', 'w') as f:
@@ -84,8 +90,8 @@ def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = Fal
   #pu.save_samples(samples, os.getcwd(), mType)
 
 def testCont(ys, sample, burn, lag):
-  pals = [0,0.0001,0.001,0.01,0.1,1,10]
-  with open("contRTsss",'w') as f:
+  pals = [0,0.5,1,2,5,10,20]
+  with open("contConvRT",'w') as f:
     for i1 in range(len(pals)):
       for i2 in range(len(pals))[i1:]:
         for i3 in range(len(pals))[i2:]:
@@ -113,15 +119,15 @@ def testCont(ys, sample, burn, lag):
               v.assume("d4", "(uniform_continuous 0 " + str(p4) + ")")
             else:
               v.assume("d4", "0")
-            v.assume("r", "(uniform_continuous 0 " + str(rest) + ")")
+            v.assume("r", "(uniform_continuous 2 " + str(rest) + ")")
             v.assume("d", "(+ d1 d2 d3 d4 r)")#(uniform_continuous 0 5) (uniform_continuous 0 1))")
             v.assume("y", "(lambda () (student_t d))")
 
             [v.observe("(y)", str(ys[i])) for i in range(len(ys))]
             samples = pu.posterior_samples(v, "d", no_samples=sample, no_burns=burn, int_mh=lag)
             vals = map(lambda x:x[1], samples)
-            print rest, p1, p2, p3, p4, np.mean(vals), time.time() - timeStart
-            f.write(str((rest,p1,p2,p3,p4,np.mean(vals),time.time() - timeStart)) + "\n")
+            print rest, p1, p2, p3, p4, np.mean(vals), np.var(vals), time.time() - timeStart
+            f.write("==== " + str((rest,p1,p2,p3,p4,time.time() - timeStart)) + "\n" + str(vals))
             f.flush()
 
 def dispContPerf():
@@ -215,10 +221,283 @@ def runtimeVarObs(ys):
   plt.legend([p1,p2],["cont","cont5var"])
   plt.show()
 
+def testConv(ys):
+  lens = []
+  for x in range(100):
+    v = make_church_prime_ripl()
+    #timeStart = time.time()
+    v.assume("d1", "(uniform_continuous 0 9)")
+    v.assume("d2", "(uniform_continuous 2 89)")
+    v.assume("d", "(+ d1 d2)") #v.assume("d", "(uniform_continuous 2 100)") 
+    v.assume("y", "(lambda () (student_t d))")
+
+    [v.observe("(y)", str(ys[i])) for i in range(len(ys))]
+    samples = pu.posterior_samples_conv(v, "d", conv = 4.214, eps=0.25)
+    #vals = map(lambda x:x[1], samples)
+    lens.append(len(samples))
+    print x, len(samples)
+    #print len(vals), np.mean(vals), np.var(vals), time.time() - timeStart
+    #print '\n'.join(map(str,vals))
+  print lens
+  print np.mean(lens)
+
+def simConv(ys):
+  lens = []
+  eps = 0.1
+  mode = 4.214
+  ds = [2,96]
+  with open("posteriorDict",'r') as f:
+    fac, pd = cPickle.load(f)
+
+  for i in range(1000):
+    ss = []
+    for d in ds:
+      ss.append(random.random()*d)
+
+    samples = [sum(ss) + 2]
+    curLL = pd[round(samples[-1]*fac)] # cp.logLiks(ys,samples[-1], base=2)
+
+    count = 0
+    while abs(samples[-1] - mode) > eps:
+      ind = random.randrange(len(ss))
+      ps = random.random()*ds[ind]
+
+      prop = sum(ss) - ss[ind] + ps + 2
+      propLL = pd[round(prop*fac)]
+      if propLL >= curLL:
+        samples.append(prop)
+        curLL = propLL
+        ss[ind] = ps
+      else:
+        accProb = 2**(propLL - curLL)
+        if random.random() < accProb:
+          samples.append(prop)
+          curLL = propLL
+          ss[ind] = ps
+        else:
+          samples.append(samples[-1])
+      count += 1
+
+    if i % 100 == 0:
+      print i, len(samples)
+    lens.append(len(samples))
+  #print '\n'.join(map(str,samples))
+  print np.mean(lens), np.var(lens)
+
+def simConvSearch(ys):
+  eps = 0.5
+  mode = 4.214
+  with open("posteriorDict",'r') as f:
+    fac, pd = cPickle.load(f)
+
+  pals = [0,0.5,1,2,5,7,10,15,20,25,30,35,40,45]
+  with open("modeTimeSim05",'w') as f:
+    for i1 in range(len(pals)):
+      for i2 in range(len(pals))[i1:]:
+        for i3 in range(len(pals))[i2:]:
+          for i4 in range(len(pals))[i3:]:
+            if pals[i1] + pals[i2] + pals[i3] + pals[i4] > 98:
+              continue
+            ds = [d for d in [pals[i1], pals[i2], pals[i3], pals[i4], 98 - pals[i1] - pals[i2] - pals[i3] - pals[i4]] if d != 0]
+            lens = []
+            for i in range(1000):
+              ss = []
+              for d in ds:
+                ss.append(random.random()*d)
+
+              samples = [sum(ss) + 2]
+              curLL = pd[round(samples[-1]*fac)] # cp.logLiks(ys,samples[-1], base=2)
+
+              count = 0
+              while abs(samples[-1] - mode) > eps:
+                ind = random.randrange(len(ss))
+                ps = random.random()*ds[ind]
+                prop = sum(ss) - ss[ind] + ps + 2
+                propLL = pd[round(prop*fac)]
+                if propLL >= curLL:
+                  samples.append(prop)
+                  curLL = propLL
+                  ss[ind] = ps
+                else:
+                  accProb = 2**(propLL - curLL)
+                  if random.random() < accProb:
+                    samples.append(prop)
+                    curLL = propLL
+                    ss[ind] = ps
+                  else:
+                    samples.append(samples[-1])
+                count += 1
+                #if count % 100 == 0:
+                #  print "Considered", count, "samples"
+
+              #if i % 100 == 0:
+              #  print i, len(samples)
+              lens.append(len(samples))
+            #print '\n'.join(map(str,samples))
+            print ds, np.mean(lens), np.var(lens), len(lens)
+            f.write(str((ds, np.mean(lens), np.var(lens))) + "\n")
+            f.flush()
+            #plt.hist(lens,100)
+            #plt.show()
+
+def estConvBin(eps):
+  p = float(2 * eps) / 98
+  negp = 1-p
+  probs = []
+  curNeg = 1
+  for i in range(1,70000):
+    probs.append(curNeg * p)
+    curNeg *= negp
+
+  norm = sum(probs)
+  probs = [p / norm for p in probs]
+    
+
+  pMean = sum([i*probs[i] for i in range(len(probs))])
+  stdDev = math.sqrt(sum([i*i*probs[i] for i in range(len(probs))]) - pMean*pMean)
+  plot1, = plt.plot(probs)
+  plt.legend([plot1, plot1],["Mean: " + str(pMean)[:5], "Std Dev: " + str(stdDev)[:5]])
+
+  plt.show()
+
+def irwinHall():
+  probs = []
+  for n in range(1,101):
+    x = 4.214*n/98
+    s = 0
+    for k in range(n+1):
+      s += (-1)**k * scipy.misc.comb(n,k) * (x-k)**(n-1) * math.copysign(1,x-k)
+    s = s/(2 * math.factorial(n-1))
+    probs.append(s)
+  print '\n'.join(map(str, probs))
+
+def procModeTimes(fn):
+  lens = {}
+  with open(fn,'r') as f:
+    for line in f:
+      tp, mean, var = line.strip()[1:-1].rsplit(',',2)
+      mean, var = float(mean), float(var)
+      lens[tp] = mean
+  print '\n'.join(map(str, sorted(lens.items(), key=lambda x:x[1])[:10]))
+
+def simMix(ys):
+  mixs = []
+  mode = 4.214
+  iters = 1000
+  ds = [1,15,15,35,32]
+  with open("posteriorDict",'r') as f:
+    fac, pd = cPickle.load(f)
+
+  for i in range(1000):
+    ss = []
+    for d in ds:
+      ss.append((mode-2)*(d/98.0))
+
+    samples = [sum(ss) + 2]
+    assert(samples[-1] == mode)
+    curLL = pd[round(samples[-1]*fac)] # cp.logLiks(ys,samples[-1], base=2)
+
+    count = 0
+    for it in range(iters):
+      ind = random.randrange(len(ss))
+      ps = random.random()*ds[ind]
+
+      prop = sum(ss) - ss[ind] + ps + 2
+
+      propLL = pd[round(prop*fac)]
+      if propLL >= curLL:
+        samples.append(prop)
+        curLL = propLL
+        ss[ind] = ps
+      else:
+        accProb = 2**(propLL - curLL)
+        if random.random() < accProb:
+          samples.append(prop)
+          curLL = propLL
+          ss[ind] = ps
+        else:
+          samples.append(samples[-1])
+      count += 1
+
+    if i % 100 == 0:
+      print i, len(samples)
+    mixs.append(getMix(samples))
+  #print '\n'.join(map(str,samples))
+  print np.mean(mixs), np.var(mixs)
+
+def simMixSearch(ys):
+  mode = 4.214
+  iters = 1000
+  with open("posteriorDict",'r') as f:
+    fac, pd = cPickle.load(f)
+
+  pals = [0,0.5,1,2,5,7,10,15,20,25,30,35,40,45]
+  with open("modeMixSim",'w') as f:
+    for i1 in range(len(pals)):
+      for i2 in range(len(pals))[i1:]:
+        for i3 in range(len(pals))[i2:]:
+          for i4 in range(len(pals))[i3:]:
+            if pals[i1] + pals[i2] + pals[i3] + pals[i4] > 98:
+              continue
+            ds = [d for d in [pals[i1], pals[i2], pals[i3], pals[i4], 98 - pals[i1] - pals[i2] - pals[i3] - pals[i4]] if d != 0]
+            mixs = []
+            for i in range(100):
+              ss = []
+              for d in ds:
+                ss.append((mode-2)*(d/98.0))
+
+              samples = [sum(ss) + 2]
+              assert(samples[-1] == mode)
+              curLL = pd[round(samples[-1]*fac)] # cp.logLiks(ys,samples[-1], base=2)
+
+              count = 0
+              for it in range(iters):
+                ind = random.randrange(len(ss))
+                ps = random.random()*ds[ind]
+
+                prop = sum(ss) - ss[ind] + ps + 2
+                propLL = pd[round(prop*fac)]
+                if propLL >= curLL:
+                  samples.append(prop)
+                  curLL = propLL
+                  ss[ind] = ps
+                else:
+                  accProb = 2**(propLL - curLL)
+                  if random.random() < accProb:
+                    samples.append(prop)
+                    curLL = propLL
+                    ss[ind] = ps
+                  else:
+                    samples.append(samples[-1])
+                count += 1
+                #if count % 100 == 0:
+                #  print "Considered", count, "samples"
+
+              #if i % 100 == 0:
+              #  print i, len(samples)
+              mixs.append(getMix(samples))
+            #print '\n'.join(map(str,samples))
+            print ds, np.mean(mixs), np.var(mixs), len(mixs)
+            f.write(str((ds, np.mean(mixs), np.var(mixs))) + "\n")
+            f.flush()
+            #plt.hist(lens,100)
+            #plt.show()
+
+def getMix(samples):
+  return sum([abs(samples[i]-samples[i+1]) for i in range(len(samples)-1)])
+
 if __name__ == "__main__":
   ys = pu.readData("tdf")
+  #procModeTimes("modeTimeSim05")
+  simMixSearch(ys)
+  #testConv(ys)
+  #simConv2(ys)
+  #estConvBin(0.01)
+  #irwinHall()
+  #simMix(ys)
+
   #runtimeVarObs(ys)
-  v = make_church_prime_ripl()
+  #v = make_church_prime_ripl()
   #modelType = sys.argv[1]
   #print runModel(v, ys, modelType, 1000, 0, 1, True, True)
   #testCont(ys,1000,0,1)
@@ -239,7 +518,7 @@ if __name__ == "__main__":
   print '\n'.join(map(lambda x: str(x[1]), samples))
   """
   #checkDistRuntime(1)
-  v.assume("y", "(student_t 20000000)")
-  samples = pu.posterior_samples(v, "y", no_samples=100, no_burns=0, int_mh=1, silent=True)
+  #v.assume("y", "(student_t 20000000)")
+  #samples = pu.posterior_samples(v, "y", no_samples=100, no_burns=0, int_mh=1, silent=True)
   #print samples
 

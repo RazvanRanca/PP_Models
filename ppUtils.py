@@ -32,6 +32,60 @@ def posterior_samples(v, var_name,no_samples,no_burns,int_mh, silent=False):
           print "Collected", sample, "samples"
     return s
 
+def posterior_samples_conv(v, var_name, conv, eps = 0.5, repeat=1, int_mh=1, silent=False):
+    s=[];
+
+    counter = 0
+    inConv = 0
+    sample = 0
+    while inConv < repeat:
+        v.infer(int_mh)
+        counter += int_mh
+        label = var_name + str(np.random.randint(10**5))+str(sample)
+        v.predict(var_name,label)
+        val = v.report(label)
+        s.append((counter,val))
+        if sample % 100 == 0 and not silent:
+          print "Collected", sample, "samples"
+        sample += 1
+        if abs(val-conv) < eps:
+          inConv += 1
+        elif inConv > 0:
+          inConv = 0
+          print "+++++ Jumped out of conv range" 
+    return s
+
+def posterior_samples_from_conv(v, var_name, conv, eps = 0.5, extra=1000, int_mh=1, silent=False):
+    s1=[]
+
+    counter = 0
+    sample = 0
+    while True:
+        v.infer(int_mh)
+        counter += int_mh
+        label = var_name + str(np.random.randint(10**5))+str(sample)
+        v.predict(var_name,label)
+        val = v.report(label)
+        s1.append((counter,val))
+        if sample % 100 == 0 and not silent:
+          print "Collected", sample, "samples"
+        sample += 1
+        if abs(val-conv) < eps:
+          break
+
+    print "Reached mode"
+    s2 = []
+    counter = 0
+    for sample in range(no_samples):
+        v.infer(int_mh)
+        counter += int_mh
+        label = var_name + str(np.random.randint(10**5))+str(sample)
+        v.predict(var_name,label)
+        s2.append((counter,v.report(label)))
+        if sample % 100 == 0 and not silent:
+          print "Collected", sample, "samples"
+    return s1,s2
+
 def save_samples(samples, path, model):
   fn = path + "/" + model + "Samples"
   with open(fn, 'w') as f:
@@ -242,6 +296,25 @@ def autocorrSamps(fn):
   plt.title("cont5var Autocorrelation with 1000 burn in")
   plt.show()
 
+def dispModeTimes(fn):
+  times = {}
+  with open(fn, 'r') as f:
+    for line in f:
+      if len(line.strip()) == 0:
+        continue
+      name, dst, val = map(lambda x: x.strip(), line.split(" ",2))
+      val = map(lambda x: int(x.strip()), val[1:-1].split(','))
+      times[name] = (dst, val)
+
+  for name,(dst, vals) in times.items():
+    plt.hist(vals,200)
+    plt.title(name, size=30)
+    plt.xlabel("No. samples needed to reach mode +/- " + dst)
+    plt.ylabel("Frequency of chain length")
+    plot1, = plt.plot(0,0,"b")
+    plt.legend([plot1, plot1],["Mean: " + str(np.mean(vals))[:5], "Std Dev: " + str(np.std(vals))[:5]])
+    plt.show()
+
 if __name__ == "__main__":
   #title = "Model: " + sys.argv[1].title() + "-" + sys.argv[2].title()
   #times, samples = readSamples(sys.argv[1], sys.argv[2])
@@ -252,4 +325,5 @@ if __name__ == "__main__":
   #showPerfStats("tdf/Venture/rtStats")
   #dispSamples("tdf/Venture/tdf5Samples")
   #plotConsSamps("tdf/Venture/tdfSamples")
-  autocorrSamps("tdf/Venture/tdf5Samples")
+  #autocorrSamps("tdf/Venture/tdf5Samples")
+  dispModeTimes("tdf/Venture/modeTime")
