@@ -243,9 +243,9 @@ def testConv(ys):
 
 def simConv(ys):
   lens = []
-  eps = 0.1
+  eps = 0.01
   mode = 4.214
-  ds = [2,96]
+  ds = [0.5,2,95.5]
   with open("posteriorDict",'r') as f:
     fac, pd = cPickle.load(f)
 
@@ -384,7 +384,7 @@ def simMix(ys):
   mixs = []
   mode = 4.214
   iters = 1000
-  ds = [1,15,15,35,32]
+  ds = [98]
   with open("posteriorDict",'r') as f:
     fac, pd = cPickle.load(f)
 
@@ -486,12 +486,29 @@ def simMixSearch(ys):
 def getMix(samples):
   return sum([abs(samples[i]-samples[i+1]) for i in range(len(samples)-1)])
 
+def calcExpJump():
+  mode = 4.214
+  with open("posteriorDict",'r') as f:
+    fac, pd = cPickle.load(f)
+
+  modeLL = pd[int(mode*fac)]
+  expJump = 0
+  norm = 0
+  for jump in np.arange(2,100.01,0.01):
+    prob = 2**(pd[int(jump*fac)] - modeLL)
+    expJump += prob*abs(jump-mode)
+    norm += 1
+
+  expJump /= norm
+  print expJump
+
 if __name__ == "__main__":
   ys = pu.readData("tdf")
+  calcExpJump()
   #procModeTimes("modeTimeSim05")
-  simMixSearch(ys)
+  #simMixSearch(ys)
   #testConv(ys)
-  #simConv2(ys)
+  #simConv(ys)
   #estConvBin(0.01)
   #irwinHall()
   #simMix(ys)
