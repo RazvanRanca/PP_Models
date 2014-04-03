@@ -1,4 +1,4 @@
-from venture.shortcuts import *
+#from venture.shortcuts import *
 import numpy as np
 import sys
 from matplotlib import pyplot as plt
@@ -72,7 +72,6 @@ def posterior_samples_from_conv(v, var_name, conv, eps = 0.5, extra=1000, int_mh
         sample += 1
         if abs(val-conv) < eps:
           break
-
     print "Reached mode"
     s2 = []
     counter = 0
@@ -326,6 +325,7 @@ def dispTest(fn):
     data = map(lambda x: map(float, x.split()), f.read().split('\n'))[:-1]
 
   lines = {}
+  targetInt = (data[0][1], data[0][2])
   for row in data:
     x =  row[3]
     y = row[4]
@@ -344,7 +344,7 @@ def dispTest(fn):
   plt.legend(legs, map(str, acc))
   plt.xlabel("Binomial depth")
   plt.ylabel("Mean chain length")
-
+  plt.title("Burn-in time to target interval " + str(targetInt))
   plt.show()
 
 if __name__ == "__main__":

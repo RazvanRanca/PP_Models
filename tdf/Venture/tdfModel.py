@@ -1,4 +1,8 @@
-from venture.shortcuts import *
+try:
+  from venture.shortcuts import *
+  import scipy
+except:
+  pass
 import sys
 sys.path.append("../../")
 import ppUtils as pu
@@ -12,7 +16,7 @@ import random
 import math
 import cPickle
 from itertools import chain
-import scipy
+
 
 def testPerf(ys):
   with open('rtRes', 'w') as f:
@@ -667,7 +671,7 @@ def binConvInt(depths, start, end): # start,end in [0,1]
     #print '\n'.join(map(str,samples))
     print start, end, depth, np.mean(lens), np.var(lens)
 
-def binConvInt1(depths, start, end, stuckProb=0.5): # start,end in [0,1]
+def binConvInt4(depths, start, end, stuckProb=0.5): # start,end in [0,1]
   for depth in depths:
     lens = []
     rest = 2**(-depth)
@@ -741,6 +745,137 @@ def binConvInt1(depths, start, end, stuckProb=0.5): # start,end in [0,1]
     #print '\n'.join(map(str,samples))
     print stuckProb, start, end, depth, np.mean(lens), np.var(lens)
 
+def binConvInt21(depths, start, end, posShifts = None): # start,end in [0,1]
+  for depth in depths:
+    lens = []
+    rest = 2**(-depth)
+    ds = []
+    shifts = [0]
+    for d in range(1, depth+1):
+      ds.append(2**(-d))
+      shift = ds[-1]
+      if posShifts == None or shift in posShifts:
+        shifts.append(shift)
+
+    print depth, shifts
+    stuckShifts = set()
+    #print ds, rest
+    for i in range(100):
+      ss = {}
+      samples = {}
+      partSamples = {}
+      curDist = {}
+      tss = []
+      for d in ds:
+        tss.append((random.random() >= 0.5)*d)
+
+      tss.append(random.random()*rest)
+      for shift in shifts:
+        ss[shift] = list(tss)
+        samples[shift] = [sum(tss)]
+        partSamples[shift] = [[samples[shift][-1]] + list(tss)]
+        curDist[shift] = distToInt(samples[shift][-1],start,end)
+
+      minCurDist = curDist[0]
+      bestShift = 0
+      while minCurDist > 0:
+        shift = random.choice(shifts)
+        ind = random.randrange(len(ss[shift]))
+        #assert( len(ss) == len(ds) + 1)
+        if ind < len(ds):
+          ps = (random.random() >= 0.5) *ds[ind]
+        else:
+          ps = random.random() * rest
+
+        prop = (sum(ss[shift]) - ss[shift][ind] + ps)
+        shiftedProp = (prop+shift)%1
+        propDist = distToInt(shiftedProp,start,end) 
+
+        if propDist < curDist[shift]:
+          samples[shift].append(prop)
+          curDist[shift] = propDist
+          ss[shift][ind] = ps
+          if propDist < minCurDist:
+            bestShift = shift
+            minCurDist = propDist          
+        else:
+          samples[shift].append(samples[shift][-1])
+
+        partSamples[shift].append([bestShift, curDist[shift], samples[shift][-1]] + list(ss[shift]))
+        if len(samples[shift]) > 1000:
+          print "----", shift, '\n'.join(map(str,partSamples[shift]))
+          shifts.remove(shift)
+          if len(shifts) == 0:
+            assert(False)
+
+      #if i % 1000 == 0:
+      #  print i, len(samples)
+      lens.append(len(samples[bestShift]))
+    #print '\n'.join(map(str,samples))
+    print start, end, depth, np.mean(lens), np.var(lens)
+
+def binConvInt2(depths, start, end, posShifts = None): # start,end in [0,1]
+  for depth in depths:
+    lens = []
+    rest = 2**(-depth)
+    ds = []
+    shifts = [0]
+    for d in range(1, depth+1):
+      ds.append(2**(-d))
+      shift = ds[-1] / 2
+      if posShifts == None or shift in posShifts:
+        shifts.append(shift)
+      shift *= -1
+      if posShifts == None or shift in posShifts:
+        shifts.append(shift)
+
+    #print depth, shifts
+    #print ds, rest
+    for i in range(10000):
+      ss = []
+      for d in ds:
+        ss.append((random.random() >= 0.5)*d)
+
+      ss.append(random.random()*rest)
+      samples = [sum(ss)]
+      partSamples = [[samples[-1]] + list(ss)]
+
+      bestShift = 0
+      curDist = 1
+      while curDist > 0:
+        shift = random.choice(shifts)
+
+        ind = random.randrange(len(ss))
+        #assert( len(ss) == len(ds) + 1)
+        if ind < len(ds):
+          ps = (random.random() >= 0.5) *ds[ind]
+        else:
+          ps = random.random() * rest
+
+        prop = (sum(ss) - ss[ind] + ps)
+        shiftedProp = (prop+shift)%1
+        propDist = distToInt(shiftedProp,start,end) 
+        curDist = distToInt((samples[-1] + shift)%1,start,end)
+
+        if propDist < curDist:
+          samples.append(prop)
+          curDist = propDist
+          ss[ind] = ps
+          bestShift = shift       
+        else:
+          samples.append(samples[-1])
+
+        partSamples.append([bestShift, curDist, samples[-1]] + list(ss))
+        if len(samples) > 100000:
+          print '\n'.join(map(str,partSamples))
+          assert(False)
+
+      #if i % 1000 == 0:
+      #  print i, len(samples)
+      lens.append(len(samples))
+    #print '\n'.join(map(str,samples))
+    print start, end, depth, np.mean(lens), np.var(lens)
+
 def binaryExp(no, depth, ds = None):
   if ds == None:
     ds = []
@@ -774,8 +909,11 @@ if __name__ == "__main__":
   #procModeTimes("modeTimeSim05")
   #simMixSearch(ys)
   #testConv(ys)
-  for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]:
-    binConvInt1(range(20),0.049,0.05, prob)
+
+  for d in range(30):
+    binConvInt2([d],0.049,0.05, [2**(-d-1), -1 * 2**(-d-1)])
+  #for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]:
+  #  binConvInt1(range(2),0.51,0.52, prob)
 
   #for eps in [1]:#,0.25,0.1,0.01]:
   #  for d in range(0,10):
