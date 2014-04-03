@@ -7,10 +7,10 @@ import matplotlib
 
 langs = ["Venture", "Bugs"]
 
-def readData(model, sz = None):
-  with open("../" + model + "Data",'r') as f:
+def readData(path, sz = None):
+  with open(path,'r') as f:
     raw = f.read()
-    ys = map(float, raw.split('\n',2)[-1][:-2].translate(None,'\n\r').split(','))
+    ys = map(float, raw.split('\n',2)[-1].strip()[:-2].translate(None,'\n\r').split(','))
   if sz:
     return reducePrec(ys, sz)
   return ys
@@ -242,7 +242,10 @@ def readSamples(fn):
   jumps = []
   with open(fn,'r') as f:
     for line in f:
-      s = float(line.strip())
+      if len(line.split()) == 1:
+        s = float(line.strip())
+      else:
+        s = float(line.strip().split()[1])
       if not samples == []:
         jumps.append(s - samples[-1])
       samples.append(s)
@@ -251,13 +254,16 @@ def readSamples(fn):
 def dispSamples(fn):
   samples, jumps = readSamples(fn)
 
+  samples = samples[1000:]
   fig, ax = plt.subplots()
-  ax.hist(samples,1000)
-  ax.set_title("tdf 5var Sample dist")
+  start, end = 2.5, 6.5
+  ax.hist(samples, bins = np.arange(start, end, 0.05))
+  ax.set_title("Custom \"lightweight implementations\" tdf sample dist")
   #ax.set_xscale("log")
-  ax.set_xticks(range(1,10))
-  ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
-  ax.set_xlim([1,10])
+  #ax.set_xticks(range(1,10))
+  #ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
+  ax.set_xlim([start,end])
+  #ax.set_ylim([0,250])
   ax.set_xlabel("Sample")
   ax.set_ylabel("Number of samples out of 10000")
   plt.show()
@@ -273,10 +279,10 @@ def dispSamples(fn):
   plt.show()
 
 def plotConsSamps(fn):
-  samps = readSamples(fn)
+  samps,_ = readSamples(fn)
 
   plt.plot(samps)
-  plt.title("Tdf sample evolution")
+  plt.title("[1,2,95] partition sample evolution")
   plt.xlabel("Iteration")
   plt.ylabel("Current estimate")
   plt.yscale('log')
@@ -293,7 +299,7 @@ def autocorrSamps(fn):
   #assert np.allclose(ac, np.array([(samples[:n-k]*samples[-(n-k):]).sum() for k in range(n)]))
   nac = ac / (var * n)
   plt.plot(nac)
-  plt.title("cont5var Autocorrelation with 1000 burn in")
+  plt.title("[1,2,95] partition Autocorrelation with 1000 burn in")
   plt.show()
 
 def dispModeTimes(fn):
@@ -316,14 +322,15 @@ def dispModeTimes(fn):
     plt.show()
 
 if __name__ == "__main__":
-  #title = "Model: " + sys.argv[1].title() + "-" + sys.argv[2].title()
-  #times, samples = readSamples(sys.argv[1], sys.argv[2])
+  #title = "Model: " + sys.argv[1].title()
+  #times, samples = readSamples(sys.argv[1])
   #showDists(samples, times, np.arange(3.5, 6.5, 0.05), title) # np.arange(3.5, 6.5, 0.25)
   #showMixDists(samples, np.arange(1, 30, 1), title)
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
-  #dispSamples("tdf/Venture/tdf5Samples")
-  #plotConsSamps("tdf/Venture/tdfSamples")
-  #autocorrSamps("tdf/Venture/tdf5Samples")
-  dispModeTimes("tdf/Venture/modeTime")
+  fn = "custTdfSamps" #"tdf/Venture/flipSamples"
+  dispSamples(fn)
+  plotConsSamps(fn)
+  autocorrSamps(fn)
+  #dispModeTimes("tdf/Venture/modeTime")

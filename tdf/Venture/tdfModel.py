@@ -66,6 +66,28 @@ def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = Fal
     v.assume("d5", "(uniform_continuous 0 0.0001)")
     v.assume("d", "(+ d1 d2 d3 d4 d5)") #(uniform_continuous 0 5) (uniform_continuous 0 1))")
     v.assume("y", "(lambda () (student_t d))")
+  elif mType == "contBin":
+    v.assume("f1", "(* 0.5 (categorical 0.5 0.5))")
+    v.assume("r", "(uniform_continuous 0 0.5)")
+    v.assume("d", "(+ f1 r)")
+    v.assume("y", "(lambda () (student_t d))")
+  elif mType == "contMix":
+    v.assume("d1", "(uniform_continuous 2 97)")
+    v.assume("d2", "(uniform_continuous 0 1)")
+    v.assume("d3", "(uniform_continuous 0 2)") 
+    v.assume("d", "(+ d1 d2 d3)") #(uniform_continuous 0 5) (uniform_continuous 0 1))")
+    v.assume("y", "(lambda () (student_t d))")
+  elif mType == "flip":
+    v.assume("d0", "(uniform_continuous 0 1)")
+    v.assume("f0", "(uniform_discrete 0 2)")
+    v.assume("f1", "(* 2 (uniform_discrete 0 2))")
+    v.assume("f2", "(* 4 (uniform_discrete 0 2))")
+    v.assume("f3", "(* 8 (uniform_discrete 0 2))")
+    v.assume("f4", "(* 16 (uniform_discrete 0 2))")
+    v.assume("f5", "(* 32 (uniform_discrete 0 2))")
+    v.assume("f6", "(* 64 (uniform_discrete 0 2))")
+    v.assume("d", "(+ (+ (+ d0 f0) (+ f1 f2)) (+ (+ f3 f4) (+ f5 f6)))") #(uniform_continuous 0 5) (uniform_continuous 0 1))")
+    v.assume("y", "(lambda () (student_t d))")
   elif mType == "disc1":
     v.assume("d", "(uniform_discrete 2 50)")
     v.assume("y", "(lambda () (student_t d))")
@@ -87,7 +109,7 @@ def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = Fal
   #v.infer(11000000)
   vals = map(lambda x:x[1], samples)
   print "Sample mean: ", np.mean(vals), " Sample Stdev: ", np.std(vals)
-  #pu.save_samples(samples, os.getcwd(), mType)
+  pu.save_samples(samples, os.getcwd(), mType)
 
 def testCont(ys, sample, burn, lag):
   pals = [0,0.5,1,2,5,10,20]
@@ -226,36 +248,71 @@ def testConv(ys):
   for x in range(100):
     v = make_church_prime_ripl()
     #timeStart = time.time()
-    v.assume("d1", "(uniform_continuous 0 9)")
-    v.assume("d2", "(uniform_continuous 2 89)")
-    v.assume("d", "(+ d1 d2)") #v.assume("d", "(uniform_continuous 2 100)") 
+
+    v.assume("f1", "(* 0.5 (uniform_discrete 0 2))")
+    v.assume("f2", "(* 0.25 (uniform_discrete 0 2))")
+    v.assume("f3", "(* 0.125 (uniform_discrete 0 2))")
+    v.assume("f4", "(* 0.0625 (uniform_discrete 0 2))")
+    v.assume("f5", "(* 0.03125 (uniform_discrete 0 2))")
+    v.assume("f6", "(* 0.015625 (uniform_discrete 0 2))")
+    v.assume("f7", "(* 0.0078125 (uniform_discrete 0 2))")
+    v.assume("r", "(uniform_continuous 0 0.0078125)")
+    v.assume("d", "(+ 2 (* 98 (+ f1 f2 f3 f4 f5 f6 f7 r)))")
+
+    #v.assume("d1", "(uniform_continuous 0 9)")
+    #v.assume("d2", "(uniform_continuous 2 89)")
+    #v.assume("d", "(+ d1 d2)") #
+    #v.assume("d", "(uniform_continuous 2 100)") 
     v.assume("y", "(lambda () (student_t d))")
 
     [v.observe("(y)", str(ys[i])) for i in range(len(ys))]
-    samples = pu.posterior_samples_conv(v, "d", conv = 4.214, eps=0.25)
-    #vals = map(lambda x:x[1], samples)
+    samples = pu.posterior_samples_conv(v, "d", conv = 4.214, eps=0.5, silent=True)
+    vals = map(lambda x:x[1], samples)
+    #print vals
     lens.append(len(samples))
     print x, len(samples)
     #print len(vals), np.mean(vals), np.var(vals), time.time() - timeStart
     #print '\n'.join(map(str,vals))
   print lens
-  print np.mean(lens)
+  print "5", np.mean(lens)
 
-def simConv(ys):
+pd = None
+fac=None
+def getLL(ys,d,dof=4):
+  global pd
+  global fac
+  if dof == 4:
+    if pd == None:
+      print "loading Dict"
+      with open("posteriorDict",'r') as f:
+        fac, pd = cPickle.load(f)
+    return pd[round(d*fac)]
+  elif dof == 21:
+    if pd == None:
+      print "loading Dict"
+      with open("posteriorDict21",'r') as f:
+        fac, pd = cPickle.load(f)
+    return pd[round(d*fac)]
+  else:
+    return cp.logLiks(ys, d, base=2)
+
+  
+def simConv(ys, dof=4):
   lens = []
-  eps = 0.01
-  mode = 4.214
-  ds = [0.5,2,95.5]
-  with open("posteriorDict",'r') as f:
-    fac, pd = cPickle.load(f)
-
+  eps = 0.1
+  if dof == 4:
+    mode = 4.214
+  elif dof == 21:
+    mode = 11.5
+  ds = [98]
+  
   for i in range(1000):
     ss = []
     for d in ds:
       ss.append(random.random()*d)
 
     samples = [sum(ss) + 2]
-    curLL = pd[round(samples[-1]*fac)] # cp.logLiks(ys,samples[-1], base=2)
+    curLL = getLL(ys,samples[-1],dof)
 
     count = 0
     while abs(samples[-1] - mode) > eps:
@@ -263,7 +320,8 @@ def simConv(ys):
       ps = random.random()*ds[ind]
 
       prop = sum(ss) - ss[ind] + ps + 2
-      propLL = pd[round(prop*fac)]
+      propLL = getLL(ys,prop,dof) 
+
       if propLL >= curLL:
         samples.append(prop)
         curLL = propLL
@@ -502,21 +560,237 @@ def calcExpJump():
   expJump /= norm
   print expJump
 
+def simConvBin(ys, depth, eps, dof=4):
+  lens = []
+  if dof == 4:
+    mode = 4.214
+  elif dof == 21:
+    mode = 11.5
+
+  rest = 2**(-depth)
+  ds = []
+  for d in range(1, depth+1):
+    ds.append(2**(-d))
+
+  for i in range(1000):
+    ss = []
+    for d in ds:
+      ss.append((random.random() >= 0.5)*d)
+
+    ss.append(random.random()*rest)
+    samples = [sum(ss)*98 + 2]
+    curLL = getLL(ys,samples[-1],dof)
+    count = 0
+    while abs(samples[-1] - mode) > eps:
+      ind = random.randrange(len(ss))
+      if ind < len(ds):
+        ps = (random.random() >= 0.5) *ds[ind]
+        #ps = (not ss[ind]) *ds[ind]
+      else:
+        ps = random.random() * rest
+
+      prop = (sum(ss) - ss[ind] + ps)*98 + 2
+      propLL = getLL(ys,prop,dof) 
+
+      if propLL >= curLL:
+        samples.append(prop)
+        curLL = propLL
+        ss[ind] = ps
+      else:
+        accProb = 2**(propLL - curLL)
+        if random.random() < accProb:
+          samples.append(prop)
+          curLL = propLL
+          ss[ind] = ps
+        else:
+          samples.append(samples[-1])
+      count += 1
+
+    #if i % 1000 == 0:
+    #  print i, len(samples)
+    lens.append(len(samples))
+  #print '\n'.join(map(str,samples))
+  print eps, depth, np.mean(lens), np.var(lens)
+
+def distToInt(sample, start, end):
+  if sample > end:
+    return sample - start
+  elif sample < start:
+    return start - sample
+  else:
+    return 0
+
+def binConvInt(depths, start, end): # start,end in [0,1]
+  for depth in depths:
+    lens = []
+    rest = 2**(-depth)
+    ds = []
+    for d in range(1, depth+1):
+      ds.append(2**(-d))
+
+    #print ds, rest
+    for i in range(100):
+      ss = []
+      for d in ds:
+        ss.append((random.random() >= 0.5)*d)
+
+      ss.append(random.random()*rest)
+      samples = [sum(ss)]
+      partSamples = [[samples[-1]] + list(ss)]
+      curDist = distToInt(samples[-1],start,end)
+      while curDist > 0:
+        ind = random.randrange(len(ss))
+        #assert( len(ss) == len(ds) + 1)
+        if ind < len(ds):
+          ps = (random.random() >= 0.5) *ds[ind]
+        else:
+          ps = random.random() * rest
+
+        prop = (sum(ss) - ss[ind] + ps)
+        propDist = distToInt(prop,start,end) 
+
+        if propDist < curDist:
+          samples.append(prop)
+          curDist = propDist
+          ss[ind] = ps
+        else:
+          samples.append(samples[-1])
+    
+        partSamples.append([samples[-1]] + list(ss))
+        if len(samples) > 1000:
+          print '\n'.join(map(str,partSamples))
+          assert(False)
+
+      #if i % 1000 == 0:
+      #  print i, len(samples)
+      lens.append(len(samples))
+    #print '\n'.join(map(str,samples))
+    print start, end, depth, np.mean(lens), np.var(lens)
+
+def binConvInt1(depths, start, end, stuckProb=0.5): # start,end in [0,1]
+  for depth in depths:
+    lens = []
+    rest = 2**(-depth)
+    ds = []
+    minStuckBV = (end - start)
+    intervals = []
+    prevBV = 1
+    for d in range(1, depth+1):
+      bv = 2**(-d)
+      ds.append(bv)
+      if bv > minStuckBV:
+        intervals.append([(bt+0.5*bv,bt+1.5*bv) for bt in np.arange(0, 1, prevBV)])
+      prevBV = bv
+
+    #print minStuckBV, stuckProb, intervals
+    #print depth, intervals
+    #print ds, rest
+    for i in range(1000):
+      ss = []
+      for d in ds:
+        ss.append((random.random() >= 0.5)*d)
+
+      ss.append(random.random()*rest)
+      samples = [sum(ss)]
+      partSamples = [[samples[-1]] + list(ss)]
+      curDist = distToInt(samples[-1],start,end)
+      while curDist > 0:
+        curPosStuck = inIntervals(samples[-1], intervals)
+        #print samples[-1], curPosStuck
+        if len(curPosStuck) == 0 or random.random() > stuckProb:
+          ind = random.randrange(len(ss))
+          #assert( len(ss) == len(ds) + 1)
+          if ind < len(ds):
+            ps = (random.random() >= 0.5) *ds[ind]
+          else:
+            ps = random.random() * rest
+          prop = (sum(ss) - ss[ind] + ps)
+          propDist = distToInt(prop,start,end) 
+
+          if propDist < curDist:
+            samples.append(prop)
+            curDist = propDist
+            ss[ind] = ps
+          else:
+            samples.append(samples[-1])
+        else:
+          ind = random.choice(curPosStuck)
+          ps = random.random() * (ds[ind] / 2)
+          if ss[ind] == 0:
+            prop = sum(ss[:ind]) + ds[ind] + ps
+          else:
+            prop = sum(ss[:ind]) + ds[ind] - ps
+
+          propDist = distToInt(prop,start,end) 
+          if propDist < curDist:
+            samples.append(prop)
+            curDist = propDist
+            ss = binaryExp(prop, depth, ds)
+            #print prop, ss
+          else:
+            samples.append(samples[-1])
+
+        partSamples.append([samples[-1]] + list(ss))
+        if len(samples) > 100000:
+          #print '\n'.join(map(str,partSamples))
+          assert(False)
+
+      #if i % 1000 == 0:
+      #  print i, len(samples)
+      lens.append(len(samples))
+    #print '\n'.join(map(str,samples))
+    print stuckProb, start, end, depth, np.mean(lens), np.var(lens)
+
+def binaryExp(no, depth, ds = None):
+  if ds == None:
+    ds = []
+    for d in range(1, depth+1):
+      bv = 2**(-d)
+      ds.append(bv)
+
+  ss = []
+  for d in ds:
+    if d < no:
+      ss.append(d)
+      no -= d
+    else:
+      ss.append(0)
+
+  ss.append(no)
+  return ss
+
+def inIntervals(no, intervals):
+  ind = []
+  for i in range(len(intervals)):
+    for (s,e) in intervals[i]:
+      if no >= s and no <= e:
+        ind.append(i)
+        break
+  return ind
+
 if __name__ == "__main__":
-  ys = pu.readData("tdf")
-  calcExpJump()
+  ys = pu.readData("../tdfData")
+  #calcExpJump()
   #procModeTimes("modeTimeSim05")
   #simMixSearch(ys)
   #testConv(ys)
-  #simConv(ys)
+  for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
+    binConvInt1(range(30),0.034,0.05, prob)
+
+  #for eps in [1]:#,0.25,0.1,0.01]:
+  #  for d in range(0,10):
+  #    simConvBin(ys, d, eps, 4)
+  
   #estConvBin(0.01)
   #irwinHall()
   #simMix(ys)
 
   #runtimeVarObs(ys)
+
   #v = make_church_prime_ripl()
   #modelType = sys.argv[1]
-  #print runModel(v, ys, modelType, 1000, 0, 1, True, True)
+  #runModel(v, ys, modelType, 10000, 0, 1, timeTest = False, silentSamp = False)
+  
   #testCont(ys,1000,0,1)
   #dispContPerf()
   #repeatCont(ys,1000,200,10)
