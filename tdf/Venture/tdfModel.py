@@ -774,8 +774,8 @@ if __name__ == "__main__":
   #procModeTimes("modeTimeSim05")
   #simMixSearch(ys)
   #testConv(ys)
-  for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]:
-    binConvInt1(range(30),0.034,0.05, prob)
+  for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]:
+    binConvInt1(range(20),0.049,0.05, prob)
 
   #for eps in [1]:#,0.25,0.1,0.01]:
   #  for d in range(0,10):

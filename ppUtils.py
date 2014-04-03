@@ -321,6 +321,32 @@ def dispModeTimes(fn):
     plt.legend([plot1, plot1],["Mean: " + str(np.mean(vals))[:5], "Std Dev: " + str(np.std(vals))[:5]])
     plt.show()
 
+def dispTest(fn):
+  with open("tdf/Venture/" + fn, 'r') as f:
+    data = map(lambda x: map(float, x.split()), f.read().split('\n'))[:-1]
+
+  lines = {}
+  for row in data:
+    x =  row[3]
+    y = row[4]
+    try:
+      lines[row[0]][0].append(x)
+      lines[row[0]][1].append(y)
+    except:
+      lines[row[0]] = ([x],[y])
+
+  legs = []
+  acc = [0.1,0.3,0.5,0.7,0.9]
+  for k in acc:
+    (xs,ys) = lines[k]
+    leg, = plt.plot(xs,ys)
+    legs.append(leg)
+  plt.legend(legs, map(str, acc))
+  plt.xlabel("Binomial depth")
+  plt.ylabel("Mean chain length")
+
+  plt.show()
+
 if __name__ == "__main__":
   #title = "Model: " + sys.argv[1].title()
   #times, samples = readSamples(sys.argv[1])
@@ -329,8 +355,11 @@ if __name__ == "__main__":
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
+  dispTest("test2")
+  """
   fn = "custTdfSamps" #"tdf/Venture/flipSamples"
   dispSamples(fn)
   plotConsSamps(fn)
   autocorrSamps(fn)
+  """
   #dispModeTimes("tdf/Venture/modeTime")
