@@ -822,7 +822,7 @@ def binConvInt2(depths, start, end, posShifts = None): # start,end in [0,1]
     shifts = [0]
     for d in range(1, depth+1):
       ds.append(2**(-d))
-      shift = ds[-1] / 2
+      shift = (ds[-1] + ds[-1] / 2) / 2
       if posShifts == None or shift in posShifts:
         shifts.append(shift)
       shift *= -1
@@ -831,7 +831,7 @@ def binConvInt2(depths, start, end, posShifts = None): # start,end in [0,1]
 
     #print depth, shifts
     #print ds, rest
-    for i in range(10000):
+    for i in range(1000):
       ss = []
       for d in ds:
         ss.append((random.random() >= 0.5)*d)
@@ -867,8 +867,9 @@ def binConvInt2(depths, start, end, posShifts = None): # start,end in [0,1]
 
         partSamples.append([bestShift, curDist, samples[-1]] + list(ss))
         if len(samples) > 100000:
-          print '\n'.join(map(str,partSamples))
-          assert(False)
+          print "==========", '\n'.join(map(str,partSamples))
+          break
+          #assert(False)
 
       #if i % 1000 == 0:
       #  print i, len(samples)
@@ -910,8 +911,8 @@ if __name__ == "__main__":
   #simMixSearch(ys)
   #testConv(ys)
 
-  for d in range(30):
-    binConvInt2([d],0.049,0.05, [2**(-d-1), -1 * 2**(-d-1)])
+  for start in np.arange(0,1,0.01):
+    binConvInt2(range(20),start,start + 0.01,)
   #for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]:
   #  binConvInt1(range(2),0.51,0.52, prob)
 
