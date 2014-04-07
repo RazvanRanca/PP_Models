@@ -320,7 +320,7 @@ def dispModeTimes(fn):
     plt.legend([plot1, plot1],["Mean: " + str(np.mean(vals))[:5], "Std Dev: " + str(np.std(vals))[:5]])
     plt.show()
 
-def dispTest(fn):
+def dispExpStuck(fn):
   with open("tdf/Venture/" + fn, 'r') as f:
     data = map(lambda x: map(float, x.split()), f.read().split('\n'))[:-1]
 
@@ -347,6 +347,24 @@ def dispTest(fn):
   plt.title("Burn-in time to target interval " + str(targetInt))
   plt.show()
 
+def dispShifted(fn):
+  with open("tdf/Venture/" + fn, 'r') as f:
+    data = map(lambda x: map(float, x.split()), f.read().split('\n'))[:-1]
+
+  depths = {}
+  for row in data:
+    try:
+      depths[row[2]].append(row[3])
+    except:
+      depths[row[2]] = [row[3]]
+
+  plt.boxplot(depths)
+  plt.xlabel("Binomial depth")
+  plt.ylabel("Mean chain length")
+  plt.title("Burn-in time on all 0.001 target intervals for Med shifts")
+  plt.ylim([0,4000])
+  plt.show()
+
 if __name__ == "__main__":
   #title = "Model: " + sys.argv[1].title()
   #times, samples = readSamples(sys.argv[1])
@@ -355,7 +373,7 @@ if __name__ == "__main__":
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
-  dispTest("test2")
+  dispShifted("shiftMed0001")
   """
   fn = "custTdfSamps" #"tdf/Venture/flipSamples"
   dispSamples(fn)
