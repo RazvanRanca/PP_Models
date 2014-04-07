@@ -362,7 +362,7 @@ def dispShifted(fn):
   plt.xlabel("Binomial depth")
   plt.ylabel("Mean chain length")
   plt.title("Burn-in time on all 0.001 target intervals for Med shifts")
-  plt.ylim([0,4000])
+  #plt.ylim([0,4000])
   plt.show()
 
 if __name__ == "__main__":
@@ -373,7 +373,7 @@ if __name__ == "__main__":
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
-  dispShifted("shiftMed0001")
+  dispShifted("shift0175025001")
   """
   fn = "custTdfSamps" #"tdf/Venture/flipSamples"
   dispSamples(fn)

@@ -814,20 +814,23 @@ def binConvInt21(depths, start, end, posShifts = None): # start,end in [0,1]
     #print '\n'.join(map(str,samples))
     print start, end, depth, np.mean(lens), np.var(lens)
 
-def binConvInt2(depths, start, end, posShifts = None): # start,end in [0,1]
+def binConvInt2(depths, start, end, shifts = None, posShifts = None): # start,end in [0,1]
   for depth in depths:
     lens = []
     rest = 2**(-depth)
     ds = []
-    shifts = [0]
     for d in range(1, depth+1):
       ds.append(2**(-d))
-      shift = (ds[-1] + ds[-1] / 2) / 2
-      if posShifts == None or shift in posShifts:
-        shifts.append(shift)
-      shift *= -1
-      if posShifts == None or shift in posShifts:
-        shifts.append(shift)
+
+    if shifts == None:
+      shifts = [0]
+      for d in range(1, depth+1):
+        shift = 2**(-d)
+        if posShifts == None or shift in posShifts:
+          shifts.append(shift)
+        shift *= -1
+        if posShifts == None or shift in posShifts:
+          shifts.append(shift)
 
     #print depth, shifts
     #print ds, rest
@@ -912,7 +915,7 @@ if __name__ == "__main__":
   #testConv(ys)
 
   for start in np.arange(0,1,0.01):
-    binConvInt2(range(20),start,start + 0.01,)
+    binConvInt2(range(20),start,start + 0.01,[0, 0.175, 0.25])
   #for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]:
   #  binConvInt1(range(2),0.51,0.52, prob)
 
