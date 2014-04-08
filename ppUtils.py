@@ -373,7 +373,7 @@ if __name__ == "__main__":
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
-  dispShifted("shift0175025001")
+  dispShifted("shiftMin0001_p")
   """
   fn = "custTdfSamps" #"tdf/Venture/flipSamples"
   dispSamples(fn)

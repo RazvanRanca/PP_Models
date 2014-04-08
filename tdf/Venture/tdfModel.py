@@ -815,6 +815,9 @@ def binConvInt21(depths, start, end, posShifts = None): # start,end in [0,1]
     print start, end, depth, np.mean(lens), np.var(lens)
 
 def binConvInt2(depths, start, end, shifts = None, posShifts = None): # start,end in [0,1]
+  allShifts = False
+  if not shifts:
+    allShifts = True
   for depth in depths:
     lens = []
     rest = 2**(-depth)
@@ -822,19 +825,19 @@ def binConvInt2(depths, start, end, shifts = None, posShifts = None): # start,en
     for d in range(1, depth+1):
       ds.append(2**(-d))
 
-    if shifts == None:
+    if allShifts:
       shifts = [0]
       for d in range(1, depth+1):
-        shift = 2**(-d)
+        shift = 2**(-d-1)
         if posShifts == None or shift in posShifts:
           shifts.append(shift)
-        shift *= -1
-        if posShifts == None or shift in posShifts:
-          shifts.append(shift)
+        #shift *= -1
+        #if posShifts == None or shift in posShifts:
+        #  shifts.append(shift)
 
     #print depth, shifts
     #print ds, rest
-    for i in range(1000):
+    for i in range(100):
       ss = []
       for d in ds:
         ss.append((random.random() >= 0.5)*d)
@@ -845,7 +848,9 @@ def binConvInt2(depths, start, end, shifts = None, posShifts = None): # start,en
 
       bestShift = 0
       curDist = 1
+      shift = 0
       while curDist > 0:
+        #if random.random() > 0.5:
         shift = random.choice(shifts)
 
         ind = random.randrange(len(ss))
@@ -870,7 +875,7 @@ def binConvInt2(depths, start, end, shifts = None, posShifts = None): # start,en
 
         partSamples.append([bestShift, curDist, samples[-1]] + list(ss))
         if len(samples) > 100000:
-          print "==========", '\n'.join(map(str,partSamples))
+          print "==========", shifts, '\n'.join(map(str,partSamples))
           break
           #assert(False)
 
@@ -914,8 +919,8 @@ if __name__ == "__main__":
   #simMixSearch(ys)
   #testConv(ys)
 
-  for start in np.arange(0,1,0.01):
-    binConvInt2(range(20),start,start + 0.01,[0, 0.175, 0.25])
+  for start in np.arange(0,1,0.001):
+    binConvInt2(range(20),start,start + 0.001) #,[0, 0.175, 0.25])
   #for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]:
   #  binConvInt1(range(2),0.51,0.52, prob)
 
