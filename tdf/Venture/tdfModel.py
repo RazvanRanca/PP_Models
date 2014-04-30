@@ -17,7 +17,6 @@ import math
 import cPickle
 from itertools import chain
 
-
 def testPerf(ys):
   with open('rtRes', 'w') as f:
     for samples in [10000]:
@@ -618,7 +617,7 @@ def simConvBin(ys, depth, eps, dof=4):
 
 def distToInt(sample, start, end):
   if sample > end:
-    return sample - start
+    return sample - end
   elif sample < start:
     return start - sample
   else:
@@ -890,9 +889,8 @@ def binConvInt3(depths, start, end, shifts = None, posShifts = None): # start,en
   if not shifts:
     allShifts = True
 
-  iters = 1000
+  iters = 500
   for depth in depths:
-    lens = []
     rest = 2**(-depth)
     ds = []
     for d in range(1, depth+1):
@@ -915,6 +913,7 @@ def binConvInt3(depths, start, end, shifts = None, posShifts = None): # start,en
       bInit = bin(init)[2:].zfill(depth)
       iss = []
       stuckSamples = []
+      lens = []
 
       for b in range(len(bInit)):
         iss.append(int(bInit[b]) * ds[b])
@@ -954,8 +953,9 @@ def binConvInt3(depths, start, end, shifts = None, posShifts = None): # start,en
             samples.append(samples[-1])
 
           partSamples.append([bestShift, curDist, samples[-1]] + list(ss))
-          if len(samples) > 10000:
-            stuckSamples.append(samples[-1]) #print "==========", shifts, '\n'.join(map(str,partSamples))
+          if len(samples) > 5000:
+            stuckSamples.append(samples[-1]) 
+            #print "==========", shifts, '\n'.join(map(str,partSamples))
             break
             #assert(False)
 
@@ -964,6 +964,7 @@ def binConvInt3(depths, start, end, shifts = None, posShifts = None): # start,en
         lens.append(len(samples))
     #print '\n'.join(map(str,samples))
       print depth, init, (start + end)/2.0, (end - start)/2.0, 1 - float(len(stuckSamples)) / iters, np.mean(lens), np.var(lens)
+      #print len(lens)
       print stuckSamples
 
 def binaryExp(no, depth, ds = None):
@@ -1002,6 +1003,9 @@ if __name__ == "__main__":
 
   for start in np.arange(0,1,0.01):
     binConvInt3(range(1,6),start,start + 0.01 ,[0])
+
+  #binConvInt3([5],0.02,0.03 ,[0])
+
   #for prob in [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]:
   #  binConvInt1(range(2),0.51,0.52, prob)
 

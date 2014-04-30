@@ -250,14 +250,14 @@ def readSamples(fn):
       samples.append(s)
   return samples, jumps
 
-def dispSamples(fn):
+def dispSamples(fn, tp):
   samples, jumps = readSamples(fn)
 
   samples = samples[1000:]
   fig, ax = plt.subplots()
   start, end = 2.5, 6.5
-  ax.hist(samples, bins = np.arange(start, end, 0.05))
-  ax.set_title("Custom \"lightweight implementations\" tdf sample dist")
+  ax.hist(samples, bins = np.arange(start, end, 0.025))
+  ax.set_title(tp + " sample dist")
   #ax.set_xscale("log")
   #ax.set_xticks(range(1,10))
   #ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
@@ -269,7 +269,7 @@ def dispSamples(fn):
 
   print max(map(abs,jumps)), min([x for x in map(abs,jumps) if x > 0])
   plt.hist(map(lambda x: abs(x),jumps),bins=np.logspace(-9, 2, 300))
-  plt.title("tdf 5var non-zero Jump dist")
+  plt.title(tp + " non-zero Jump dist")
   plt.xscale('log')
   #plt.yscale('log')
   plt.xlabel("Jump length")
@@ -277,17 +277,17 @@ def dispSamples(fn):
   #plt.xlim(0.00000001,100)
   plt.show()
 
-def plotConsSamps(fn):
+def plotConsSamps(fn, tp):
   samps,_ = readSamples(fn)
 
   plt.plot(samps)
-  plt.title("[1,2,95] partition sample evolution")
+  plt.title(tp + " sample evolution")
   plt.xlabel("Iteration")
   plt.ylabel("Current estimate")
   plt.yscale('log')
   plt.show()
 
-def autocorrSamps(fn):
+def autocorrSamps(fn, tp):
   samples, _ = readSamples(fn)
   samples = samples[1000:]
   #ac = np.correlate(samples, samples, mode='same')
@@ -298,7 +298,7 @@ def autocorrSamps(fn):
   #assert np.allclose(ac, np.array([(samples[:n-k]*samples[-(n-k):]).sum() for k in range(n)]))
   nac = ac / (var * n)
   plt.plot(nac)
-  plt.title("[1,2,95] partition Autocorrelation with 1000 burn in")
+  plt.title(tp + " autocorrelation")
   plt.show()
 
 def dispModeTimes(fn):
@@ -374,11 +374,16 @@ if __name__ == "__main__":
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
-  dispShifted("shiftMax0001_p")
+  #dispShifted("shiftMax0001_p")
   """
   fn = "custTdfSamps" #"tdf/Venture/flipSamples"
   dispSamples(fn)
   plotConsSamps(fn)
   autocorrSamps(fn)
   """
+  #autocorrSamps("samplingTests/metropolisMix", "Metropolis")
+  #autocorrSamps("samplingTests/sliceMix", "Slice Sampling")
+
+  dispSamples("samplingTests/metropolisMix", "Metropolis")
+  dispSamples("samplingTests/sliceMix", "Slice Sampling")
   #dispModeTimes("tdf/Venture/modeTime")
