@@ -384,6 +384,10 @@ if __name__ == "__main__":
   #autocorrSamps("samplingTests/metropolisMix", "Metropolis")
   #autocorrSamps("samplingTests/sliceMix", "Slice Sampling")
 
-  dispSamples("samplingTests/metropolisMix", "Metropolis")
-  dispSamples("samplingTests/sliceMix", "Slice Sampling")
+  #dispSamples("samplingTests/metropolisMix", "Metropolis")
+  #dispSamples("samplingTests/sliceMix", "Slice Sampling")
+
+  plotConsSamps("samplingTests/sliceMixLik", "Slice Sampling")
+  autocorrSamps("samplingTests/sliceMixLik", "Slice Sampling")
+  dispSamples("samplingTests/sliceMixLik", "Slice Sampling")
   #dispModeTimes("tdf/Venture/modeTime")
