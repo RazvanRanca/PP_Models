@@ -253,7 +253,7 @@ if __name__ == "__main__":
   iters = 100
   dof = 4
 
-  printSamples(sliceSamplingMixTdf(ys, 10000, 1)[0])
+  #printSamples(sliceSamplingMixTdf(ys, 10000, 1)[0])
   #printSamples(metropolisMixTdf(ys, 10000))
   #for eps in [0.05]: #np.arange(1,0,-0.01):
   #  print eps, metropolisTdf(ys, iters, eps, dof)
@@ -268,7 +268,7 @@ if __name__ == "__main__":
   #for w in np.logspace(-2,2,50):
   #  print w, sliceSamplingGauss(iters, 0.5, scipy.stats.norm(50,2), w)
   
-  #plotSimpleLog("slicePerfWidth", "Slice sampling initial width", "Number of likelihood computations", "Avg. likelihood computations when generating 100 samples for Normal(50,2)")
+  plotSimpleLog("slicePerfWidth", "Slice sampling initial width", "Number of likelihood computations", "Avg. likelihood computations when generating 100 samples for Normal(50,2)")
 
   #plotGauss(50,20)
 
