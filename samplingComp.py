@@ -102,7 +102,7 @@ def metropolisTdfSim(iters):
     lens.append(len(metropolis(ll, prop, stop)))
   print np.mean(lens), np.std(lens)
 
-def sliceSampling(lik, x, w, stop): # assume proposal distribution is symmetric
+def sliceSampling(lik, x, iw, stop): # assume proposal distribution is symmetric
   samples = [x]
 
   rejected = 0
@@ -110,12 +110,18 @@ def sliceSampling(lik, x, w, stop): # assume proposal distribution is symmetric
     y = random.uniform(0, lik(samples[-1]))
 
     r = random.random()
-    xl = samples[-1] - r*w
-    xr = samples[-1] + (1-r)*w
+    xl = samples[-1] - r*iw
+    xr = samples[-1] + (1-r)*iw
+    w = iw
     while lik(xl) > y:
+      rejected += 1
       xl -= w
+      w *= 2
+    w = iw
     while lik(xr) > y:
+      rejected += 1
       xr += w
+      w *= 2
 
     #print samples[-1], y, xl, xr
     while True:
@@ -247,7 +253,7 @@ if __name__ == "__main__":
   iters = 100
   dof = 4
 
-  #printSamples(sliceSamplingMixTdf(ys, 10000)[0])
+  printSamples(sliceSamplingMixTdf(ys, 10000, 1)[0])
   #printSamples(metropolisMixTdf(ys, 10000))
   #for eps in [0.05]: #np.arange(1,0,-0.01):
   #  print eps, metropolisTdf(ys, iters, eps, dof)
@@ -262,7 +268,7 @@ if __name__ == "__main__":
   #for w in np.logspace(-2,2,50):
   #  print w, sliceSamplingGauss(iters, 0.5, scipy.stats.norm(50,2), w)
   
-  plotSimpleLog("slicePerfWidth", "Slice sampling initial width", "Number of rejected proposals", "Avg. rejected proposals when generating 100 samples for Normal(50,2)")
+  #plotSimpleLog("slicePerfWidth", "Slice sampling initial width", "Number of likelihood computations", "Avg. likelihood computations when generating 100 samples for Normal(50,2)")
 
   #plotGauss(50,20)
 
