@@ -9,6 +9,17 @@ import numpy as np
 import scipy.stats
 from matplotlib import pyplot as plt
 
+corp = []
+def getCorp(ind):
+  global corp
+  if len(corp) > ind:
+    return corp[ind]
+  else:
+    start = len(corp) + 1
+    end = start + max(len(corp)*2,1000)
+    corp = corp + [float(int(s,2)) / 2**(len(s)) for s in [bin(i)[2:][::-1] for i in range(start,end)]]
+    return corp[ind]
+
 pd = None
 fac=None
 maxPd = None
@@ -40,11 +51,11 @@ def getLL(ys, d, dof=4, fn="tdf/Venture/posteriorDict"):
     return cp.logLiks(ys, d, base=2)
 
 def metropolis(ll, prop, stop): # assume proposal distribution is symmetric
-  samples = [prop(None)]
+  samples = [prop([])]
   curLL = ll(samples[-1])
 
   while not stop(samples):
-    curProp = prop(samples[-1])
+    curProp = prop(samples)
     propLL = ll(curProp) 
 
     if propLL >= curLL:
@@ -85,7 +96,7 @@ def metropolisMixTdf(ys, sampleNo, dof=4):
     mode = 11.5
 
   ll = lambda sample: getLL(ys, sample, dof)
-  prop = lambda s: 2 + random.random()*98 if s else mode
+  prop = lambda s: 2 + random.random()*98 if len(s) > 0 else mode
   stop = lambda samples: len(samples) >= sampleNo
 
   return metropolis(ll, prop, stop)
@@ -94,7 +105,7 @@ def metropolisTdfSim(iters):
   mode = 4.214
   eps = 0.25
   ll = lambda sample: -1 * abs(sample - mode)
-  prop = lambda _: random.random() * 100
+  prop = lambda s: random.random()*100
   stop = lambda samples: samples[-1] >= mode-eps and samples[-1] < mode+eps
 
   lens = []
@@ -102,11 +113,31 @@ def metropolisTdfSim(iters):
     lens.append(len(metropolis(ll, prop, stop)))
   print np.mean(lens), np.std(lens)
 
+def metropolisTdfCorp(ys, iters, eps, dof=4):
+  if dof == 4:
+    mode = 4.214
+  elif dof == 21:
+    mode = 11.5
+
+  ll = lambda sample: getLL(ys, sample, dof)
+  prop = lambda s : getCorp(len(s))*100
+  stop = lambda samples: samples[-1] >= mode-eps and samples[-1] < mode+eps
+
+  lens = []
+  for i in range(iters):
+    samples = metropolis(ll, prop, stop)
+    lens.append(len(samples))
+    #print samples
+    
+  return np.mean(lens), np.std(lens)
+
 def sliceSampling(lik, x, iw, stop): # assume proposal distribution is symmetric
   samples = [x]
-
+  
+  llCalc = 0
   rejected = 0
-  while not stop(samples, rejected):
+  while not stop(samples, llCalc):
+    llCalc += 2 # not 3 because one likelihood calculation implicit in the samples' existence
     y = random.uniform(0, lik(samples[-1]))
 
     r = random.random()
@@ -114,12 +145,12 @@ def sliceSampling(lik, x, iw, stop): # assume proposal distribution is symmetric
     xr = samples[-1] + (1-r)*iw
     w = iw
     while lik(xl) > y:
-      rejected += 1
+      llCalc += 1
       xl -= w
       w *= 2
     w = iw
     while lik(xr) > y:
-      rejected += 1
+      llCalc += 1
       xr += w
       w *= 2
 
@@ -132,12 +163,13 @@ def sliceSampling(lik, x, iw, stop): # assume proposal distribution is symmetric
         break
       else:
         rejected += 1
+        llCalc += 1
         if prop > samples[-1]:
           xr = prop
         else:
           xl = prop
   
-  return samples, rejected
+  return samples, llCalc + len(samples)
 
 def sliceSamplingTdf(ys, iters, eps, w = 1, dof=4):
   if dof == 4:
@@ -173,15 +205,18 @@ def sliceSamplingGauss(iters, eps, gauss, w = 1):
   stop = lambda samples, _: samples[-1] >= gauss.mean()-eps and samples[-1] < gauss.mean()+eps
 
   lens = []
-  rejs = []
+  calcs = []
   for i in range(iters):
     init = random.random() * 100
-    samples, rej = sliceSampling(ll, init, w, stop)
-    rejs.append(rej)
+    samples, calc = sliceSampling(ll, init, w, stop)
+    calcs.append(calc)
     lens.append(len(samples))
     #print i
 
-  return np.mean(lens), np.std(lens), np.mean(rejs)
+  mLens = np.mean(lens)
+  mStds = np.std(lens)
+  mCalcs = np.mean(calcs)
+  return mLens, mStds, (mLens + mCalcs) / float(mLens)  
 
 def plotLogs(fn = "samplingLogs"):
   dicLogs = {}
@@ -253,10 +288,29 @@ if __name__ == "__main__":
   iters = 100
   dof = 4
 
-  #printSamples(sliceSamplingMixTdf(ys, 10000, 1)[0])
+  #print len(sliceSamplingMixTdf(ys, 100, w = 1)[0])
+  #printSamples(sliceSamplingMixTdf(ys, 10000, w = 1)[0])
   #printSamples(metropolisMixTdf(ys, 10000))
-  #for eps in [0.05]: #np.arange(1,0,-0.01):
+  
+  """
+  cur = 0
+  eps = 0.5
+  mode = 4.214
+  ind = 0
+  lenToModes = {}
+  while len(lenToModes) < 100:
+    cur = getCorp(ind)*100
+    ind += 1
+    mode = round(cur+eps)
+    if mode not in lenToModes:
+      lenToModes[mode] = ind
+  print lenToModes
+  print np.mean(lenToModes.values())
+  """
+
+  #for eps in np.arange(1,0,-0.1):
   #  print eps, metropolisTdf(ys, iters, eps, dof)
+  #  print eps, metropolisTdfCorp(ys, iters, eps, dof)
   #  print eps, sliceSamplingTdf(ys, iters, eps, dof)
 
   #for std in range(2,21):
@@ -265,11 +319,11 @@ if __name__ == "__main__":
   #for mean in range(1,100):
   #  print mean, sliceSamplingGauss(iters, 0.5, scipy.stats.norm(mean,3))
 
-  #for w in np.logspace(-2,2,50):
+  #for w in np.logspace(-1,3,50):
   #  print w, sliceSamplingGauss(iters, 0.5, scipy.stats.norm(50,2), w)
   
-  plotSimpleLog("slicePerfWidth", "Slice sampling initial width", "Number of likelihood computations", "Avg. likelihood computations when generating 100 samples for Normal(50,2)")
-
+  plotSimpleLog("slicePerfWidth", "Slice sampling initial width", "Number of likelihood computations per sample", "Avg. likelihood computations per sample for Normal(50,2)")
+  #plotLogs("sliceMixLik")
   #plotGauss(50,20)
 
   #sliceSamplingTdf(ys, iters, eps, dof)

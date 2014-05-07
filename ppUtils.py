@@ -4,6 +4,7 @@ import sys
 from matplotlib import pyplot as plt
 from itertools import groupby
 import matplotlib
+import time
 
 langs = ["Venture", "Bugs"]
 
@@ -30,6 +31,26 @@ def posterior_samples(v, var_name,no_samples,no_burns,int_mh, silent=False):
         s.append((counter,v.report(label)))
         if sample % 100 == 0 and not silent:
           print "Collected", sample, "samples"
+    return s
+
+def posterior_samples_timed(v, var_name, maxTime, no_burns, int_mh, silent=False):
+    startTime = time.time()
+    s=[];
+    v.infer(no_burns)
+    if not silent:
+      print "Burned", no_burns, "samples"
+
+    counter = no_burns
+    sample = 0
+    while time.time() - startTime < maxTime:
+        v.infer(int_mh)
+        counter += int_mh
+        label = var_name + str(np.random.randint(10**5))+str(sample)
+        v.predict(var_name,label)
+        s.append((counter,v.report(label)))
+        if sample % 100 == 0 and not silent:
+          print "Collected", sample, "samples", time.time() - startTime
+        sample += 1
     return s
 
 def posterior_samples_conv(v, var_name, conv, eps = 0.5, repeat=1, int_mh=1, silent=False):

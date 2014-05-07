@@ -56,6 +56,17 @@ def genTdf(v):
   samples = pu.posterior_samples(v, "y", no_samples=1000, no_burns=0, int_mh=1)
   #pu.save_samples(samples, os.getcwd(), "gen")
 
+def runTimedCont(v, ys, maxTime, burn, lag):
+  v.assume("d", "(uniform_continuous 2 100)")
+  v.assume("y", "(lambda () (student_t d))")
+
+  [v.observe("(y)", str(ys[i])) for i in range(len(ys))]
+  samples = pu.posterior_samples_timed(v, "d", maxTime=maxTime, no_burns=burn, int_mh=lag)
+
+  vals = map(lambda x:x[1], samples)
+  print "Sample mean: ", np.mean(vals), " Sample Stdev: ", np.std(vals)
+  pu.save_samples(samples, os.getcwd(), "cont600")
+
 def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = False):
   timeStart = time.time()
   if mType == "cont":
@@ -1001,8 +1012,10 @@ if __name__ == "__main__":
   #simMixSearch(ys)
   #testConv(ys)
 
-  for start in np.arange(0,1,0.01):
-    binConvInt3(range(1,6),start,start + 0.01 ,[0])
+  v = make_church_prime_ripl()
+  runTimedCont(v, ys, 600, 0, 1)
+  #for start in np.arange(0,1,0.01):
+  #  binConvInt3(range(1,6),start,start + 0.01 ,[0])
 
   #binConvInt3([5],0.02,0.03 ,[0])
 
