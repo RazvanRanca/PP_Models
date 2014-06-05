@@ -1,0 +1,24 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}
+\BOOKMARK [1][-]{section.1.1}{Background}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Related Work}{}
+\BOOKMARK [0][-]{chapter.3}{Comparing Venture and OpenBUGS}{}
+\BOOKMARK [1][-]{section.3.1}{Motivation}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{Preliminaries}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.2.1}{Webchurch's performance}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{Number of MCMC steps}{section.3.2}
+\BOOKMARK [1][-]{section.3.3}{Empirical results}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{Tdf model description}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.2}{Tdf model true posteriors}{section.3.3}
+\BOOKMARK [2][-]{subsection.3.3.3}{Tdf model results}{section.3.3}
+\BOOKMARK [1][-]{section.3.4}{Analysis of Venture's performance}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{Partitioned Priors}{}
+\BOOKMARK [1][-]{section.4.1}{Preliminaries}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.1.1}{Local Metropolis-Hastings}{section.4.1}
+\BOOKMARK [2][-]{subsection.4.1.2}{Expected number of iterations to a neighbourhood of the mode}{section.4.1}
+\BOOKMARK [2][-]{subsection.4.1.3}{Mixing properties around the mode}{section.4.1}
+\BOOKMARK [1][-]{section.4.2}{Sum of uniforms}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{Finding a good sum decomposition}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{Evaluating the \(1,2,95\) sum decomposition}{section.4.2}
+\BOOKMARK [1][-]{section.4.3}{Bit decomposition}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.3.1}{Definition}{section.4.3}
+\BOOKMARK [0][-]{chapter.5}{Summary and Conclusions}{}

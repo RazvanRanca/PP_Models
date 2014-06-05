@@ -1,0 +1,26 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Related Work}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Comparing Venture and OpenBUGS}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Motivation}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Preliminaries}{6}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Webchurch's performance}{6}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Number of MCMC steps}{6}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Empirical results}{7}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Tdf model description}{8}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Tdf model true posteriors}{8}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Tdf model results}{11}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Analysis of Venture's performance}{18}{section.3.4}
+\contentsline {chapter}{\numberline {4}Partitioned Priors}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Preliminaries}{22}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Local Metropolis-Hastings}{22}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Expected number of iterations to a neighbourhood of the mode}{22}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Mixing properties around the mode}{23}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Sum of uniforms}{23}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Finding a good sum decomposition}{24}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Evaluating the (1,2,95) sum decomposition}{27}{subsection.4.2.2}
+\contentsline {subsubsection}{The Tdf21 model}{31}{section*.14}
+\contentsline {subsubsection}{Evaluating the decomposition on the Tdf21 model}{33}{section*.15}
+\contentsline {section}{\numberline {4.3}Bit decomposition}{38}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Definition}{38}{subsection.4.3.1}
+\contentsline {chapter}{\numberline {5}Summary and Conclusions}{39}{chapter.5}

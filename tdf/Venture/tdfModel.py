@@ -16,6 +16,8 @@ import random
 import math
 import cPickle
 from itertools import chain
+import stocPy
+from scipy import interpolate
 
 def testPerf(ys):
   with open('rtRes', 'w') as f:
@@ -85,6 +87,24 @@ def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = Fal
     v.assume("r", "(uniform_continuous 0 0.5)")
     v.assume("d", "(+ f1 r)")
     v.assume("y", "(lambda () (student_t d))")
+  elif mType == "contBin3":
+    v.assume("f0", "(* 0.5 (uniform_discrete 0 2))")
+    v.assume("f1", "(* 0.25 (uniform_discrete 0 2))")
+    v.assume("f2", "(* 0.125 (uniform_discrete 0 2))")
+    v.assume("r", "(uniform_continuous 0 0.125)")
+    v.assume("d", "(+ 2 (* 98 (+ f0 f1 f2 r)))")
+    v.assume("y", "(lambda () (student_t d))")
+  elif mType == "contBin7":
+    v.assume("f0", "(* 0.5 (uniform_discrete 0 2))")
+    v.assume("f1", "(* 0.25 (uniform_discrete 0 2))")
+    v.assume("f2", "(* 0.125 (uniform_discrete 0 2))")
+    v.assume("f3", "(* 0.0625 (uniform_discrete 0 2))")
+    v.assume("f4", "(* 0.03125 (uniform_discrete 0 2))")
+    v.assume("f5", "(* 0.015625 (uniform_discrete 0 2))")
+    v.assume("f6", "(* 0.0078125 (uniform_discrete 0 2))")
+    v.assume("r", "(uniform_continuous 0 0.0078125)")
+    v.assume("d", "(+ 2 (* 98 (+ f0 f1 f2 f3 f4 f5 f6 r)))")
+    v.assume("y", "(lambda () (student_t d))")
   elif mType == "contMix":
     v.assume("d1", "(uniform_continuous 2 97)")
     v.assume("d2", "(uniform_continuous 0 1)")
@@ -123,7 +143,7 @@ def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = Fal
   #v.infer(11000000)
   vals = map(lambda x:x[1], samples)
   print "Sample mean: ", np.mean(vals), " Sample Stdev: ", np.std(vals)
-  pu.save_samples(samples, os.getcwd(), mType)
+  pu.save_samples(samples, os.getcwd(), "21"+mType)
 
 def testCont(ys, sample, burn, lag):
   pals = [0,0.5,1,2,5,10,20]
@@ -257,12 +277,13 @@ def runtimeVarObs(ys):
   plt.legend([p1,p2],["cont","cont5var"])
   plt.show()
 
-def testConv(ys):
+def testConv(ys, eps):
   lens = []
   for x in range(100):
     v = make_church_prime_ripl()
     #timeStart = time.time()
 
+    
     v.assume("f1", "(* 0.5 (uniform_discrete 0 2))")
     v.assume("f2", "(* 0.25 (uniform_discrete 0 2))")
     v.assume("f3", "(* 0.125 (uniform_discrete 0 2))")
@@ -272,23 +293,29 @@ def testConv(ys):
     v.assume("f7", "(* 0.0078125 (uniform_discrete 0 2))")
     v.assume("r", "(uniform_continuous 0 0.0078125)")
     v.assume("d", "(+ 2 (* 98 (+ f1 f2 f3 f4 f5 f6 f7 r)))")
+    
 
-    #v.assume("d1", "(uniform_continuous 0 9)")
-    #v.assume("d2", "(uniform_continuous 2 89)")
-    #v.assume("d", "(+ d1 d2)") #
+    """
+    v.assume("d1", "(uniform_continuous 0 1)")
+    v.assume("d2", "(uniform_continuous 0 2)")
+    v.assume("r", "(uniform_continuous 2 97)")
+    v.assume("d", "(+ d1 d2 r)") #
     #v.assume("d", "(uniform_continuous 2 100)") 
+    """
     v.assume("y", "(lambda () (student_t d))")
 
     [v.observe("(y)", str(ys[i])) for i in range(len(ys))]
-    samples = pu.posterior_samples_conv(v, "d", conv = 4.214, eps=0.5, silent=True)
+    samples = pu.posterior_samples_conv(v, "d", conv = 11.5, eps=eps, silent=True)
     vals = map(lambda x:x[1], samples)
     #print vals
     lens.append(len(samples))
-    print x, len(samples)
+    print eps, x, len(samples)
+    sys.stdout.flush()
     #print len(vals), np.mean(vals), np.var(vals), time.time() - timeStart
     #print '\n'.join(map(str,vals))
   print lens
-  print "5", np.mean(lens)
+  print eps, np.mean(lens)
+  sys.stdout.flush()
 
 pd = None
 fac=None
@@ -1005,15 +1032,79 @@ def inIntervals(no, intervals):
         break
   return ind
 
+def getCumDist(samps, cutOff = float("inf"), burnIn = 0):
+  sampDic = {}
+  for c, samp in sorted(samps.items()):
+    if samp > cutOff or c < burnIn:
+      continue
+    c = c - burnIn
+    try:
+      sampDic[samp] += 1
+    except:
+      sampDic[samp] = 1.0
+
+  return pu.norm(sampDic)
+
+def calcVentPerf(mType):
+  pfn = "Posterior4" + mType.title()
+  
+  ventSamps = {}
+  burn = None
+  with open(mType + "Samples", 'r') as f:
+    for line in f:
+      if len(line.strip().split()) == 2:
+        it, val = line.strip().split()
+        if not burn:
+          burn = int(it) - 1
+        ventSamps[int(it)] = float(val)
+
+  bugsSamps = {}
+  burn = None
+  with open("../Bugs/" + mType + "Samples", 'r') as f:
+    for line in f:
+      if len(line.strip().split()) == 2:
+        it, val = line.strip().split()
+        if not burn:
+          burn = int(it) - 1
+        bugsSamps[int(it)] = float(val)
+
+  if mType[:4] == "disc":
+    with open(pfn, 'r') as f:
+      post = dict(map(lambda (k,v) : (round(k,1),v), zip(*cPickle.load(f))))
+    ventKLDiv = stocPy.getKLDiv(getCumDist(ventSamps), post)
+    plt.plot([1000,120000],[ventKLDiv, ventKLDiv], 'k', linewidth=2)
+    print stocPy.calcKLTests(post, [[bugsSamps], [ventSamps]], names=["OpenBUGS","Venture"], alpha=1, xlim=120000)
+  else:
+    postFun = interpolate.interp1d(*stocPy.plotCumPost(pfn, plot=False, zipRez=False))
+    maxKey = max(ventSamps.keys())
+    ventKSDiff = stocPy.calcKSDiff(postFun, ventSamps.values())
+    xs,ys = stocPy.calcKSRun(bugsSamps, postFun, aggFreq=np.logspace(1,math.log(maxKey,10),100))
+    plt.plot([1000,120000],[ventKSDiff, ventKSDiff], 'k', linewidth=2)
+    ax1, = plt.plot(xs,ys,'b')
+    xs,ys = stocPy.calcKSRun(ventSamps, postFun, aggFreq=np.logspace(1,math.log(maxKey,10),100))
+    ax2, = plt.plot(xs,ys,'r')
+    plt.legend([ax1,ax2], ["OpenBUGS","Venture"], prop={'size':20})
+    plt.xscale("log")
+    plt.yscale("log", basey=2)
+    plt.xlim([0, 120000])
+    plt.xlabel("Number of MCMC Iterations", size=20)
+    plt.ylabel("KS difference from posterior", size=20)
+    plt.title("Convergence to Posterior",size=30)
+    plt.show()
+
+
 if __name__ == "__main__":
-  ys = pu.readData("../tdfData")
+  #calcVentPerf(sys.argv[1])
+  ys = pu.readData("../tdfData21")
   #calcExpJump()
   #procModeTimes("modeTimeSim05")
   #simMixSearch(ys)
-  #testConv(ys)
+  #for eps in [0.5,0.25,0.1,0.01]:
+  #  testConv(ys, eps)
 
   v = make_church_prime_ripl()
-  runTimedCont(v, ys, 600, 0, 1)
+  runModel(v, ys, "contBin7", 10000, 1000, 1)
+  #runTimedCont(v, ys, 600, 0, 1)
   #for start in np.arange(0,1,0.01):
   #  binConvInt3(range(1,6),start,start + 0.01 ,[0])
 

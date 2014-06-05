@@ -1,5 +1,5 @@
 modelCheck('tdfModelCont')
-modelData('../tdfData21')
+modelData('../tdfData')
 modelCompile(1)
 modelGenInits()
 modelUpdate(1000)

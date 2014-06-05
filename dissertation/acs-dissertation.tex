@@ -1,0 +1,72 @@
+%% 
+%% ACS project dissertation template. 
+%% 
+%% Currently designed for printing two-sided, but if you prefer to 
+%% print single-sided just remove ",twoside,openright" from the 
+%% \documentclass[] line below. 
+%%
+%%
+%%   SMH, May 2010. 
+
+
+\documentclass[a4paper,12pt,twoside,openright]{report}
+
+
+%%
+%% EDIT THE BELOW TO CUSTOMIZE
+%%
+
+\def\authorname{Razvan Ranca\xspace}
+\def\authorcollege{Queens' College\xspace}
+\def\authoremail{ranca.razvan@gmail.com}
+\def\dissertationtitle{Modelling choices and their effects on inference performance in probabilistic programming languages}
+\def\wordcount{14,235}
+
+
+\usepackage{epsfig,graphicx,parskip,setspace,tabularx,xspace}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage[textsize=small]{todonotes}
+\usepackage[pagebackref]{hyperref}
+\usepackage{float}
+
+
+\graphicspath{ {/home/haggis/Desktop/dissertation/imgs/} }
+%% START OF DOCUMENT
+\begin{document}
+
+
+%% FRONTMATTER (TITLE PAGE, DECLARATION, ABSTRACT, ETC) 
+\pagestyle{empty}
+\singlespacing
+\input{titlepage}
+\onehalfspacing
+\input{declaration}
+\singlespacing
+\input{abstract}
+
+\pagenumbering{roman}
+\setcounter{page}{0}
+\pagestyle{plain}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\onehalfspacing
+
+%% START OF MAIN TEXT 
+
+\input{introduction}
+\input{relatedWork}
+\input{perfComp}
+\input{partPrior}
+\input{conclusions}
+
+\appendix
+\singlespacing
+
+\bibliographystyle{unsrt} 
+%\bibliography{dissertation} 
+
+\end{document}

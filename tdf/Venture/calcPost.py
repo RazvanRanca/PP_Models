@@ -51,7 +51,7 @@ if __name__ == "__main__":
   if tp == "l":
     norm = 0.0
     fac = 5
-    title = "Posterior for tdf"
+    title = "Posterior for Tdf21"
     count = 0
     for d in np.arange(2,100,0.01):
       count += 1
@@ -64,14 +64,80 @@ if __name__ == "__main__":
         ds.append(d)
 
     ls = [l/norm for l in ls]
-    with open("Posterior4",'w') as f:
+    with open("Posterior21",'w') as f:
+      cPickle.dump((ds,ls), f)
+    print sum(ls)
+    plt.plot(ds,ls)
+
+  elif tp == "lDisc1":
+    norm = 0.0
+    fac = 5
+    title = "Posterior for Tdf - Course Discrete"
+    count = 0
+    for d in np.arange(2,50,1):
+      count += 1
+      if count % 100 == 0:
+        print d
+      cur = liks(samples, d, fac)
+      norm += cur
+      if d < 10:
+        ls.append(cur)
+        ds.append(d)
+
+    ls = [l/norm for l in ls]
+    plt.plot(ds,ls,'D', markersize=10)
+
+    with open("Posterior4Disc1",'w') as f:
       cPickle.dump((ds,ls), f)
     print sum(ls)
 
-  elif tp == "rl":
+  elif tp == "lDisc2":
+    norm = 0.0
+    fac = 5
+    title = "Posterior for Tdf - Fine Discrete"
+    count = 0
+    for d in np.arange(2,6.1,0.1):
+      count += 1
+      if count % 100 == 0:
+        print d
+      cur = liks(samples, d, fac)
+      norm += cur
+      if d < 10:
+        ls.append(cur)
+        ds.append(d)
+
+    ls = [l/norm for l in ls]
+    plt.plot(ds,ls,'D', markersize=10)
+
+    with open("Posterior4Disc2",'w') as f:
+      cPickle.dump((ds,ls), f)
+    print sum(ls)
+
+  elif tp == "rlc": #cumulative
+    title = "Cumulative dist. of posterior for tdf"
+    with open("Posterior4",'r') as f:
+      ds, ls = cPickle.load(f)
+      cls = []
+      curSum = 0
+      for l in ls:
+        curSum += l
+        cls.append(curSum)
+      ls = cls
+
+  elif tp == "rl": 
     title = "Posterior for tdf"
     with open("Posterior4",'r') as f:
       ds, ls = cPickle.load(f)
+
+  elif tp == "rl21": 
+    title = "True posterior of Tdf21"
+    with open("Posterior21",'r') as f:
+      ds, ls = cPickle.load(f)
+
+  elif tp == "rll21": 
+    title = "True posterior of Tdf21"
+    with open("posteriorDict21",'r') as f:
+      print cPickle.load(f)
 
   elif tp == "ul":
     norm = 0.0
@@ -90,10 +156,14 @@ if __name__ == "__main__":
     print maxL, maxD
 
   elif tp == "ll":
-    title = "Log Likelihood for tdf"
+    title = "Log Likelihood for Tdf"
     for d in np.arange(2,100,0.1):
       ls.append(logLiks(samples, d))
       ds.append(d)
+
+    with open("PosteriorLL4",'w') as f:
+      cPickle.dump((ds,ls), f)
+    print sum(ls)
 
   elif tp == "sll":
     title = "Log Likelihood for tdf"
@@ -122,9 +192,9 @@ if __name__ == "__main__":
     rezs = [sumPrior(2, [1,2,95]) for i in range(10000000)]
     print min(rezs), max(rezs)
     print plt.hist(rezs, min(200, len(set(rezs))))
-    plt.xlabel("Sample")
-    plt.ylabel("No. Samples out of 10,000,000")
-    plt.title("Empirical prior for [1,2,95] partition")
+    plt.xlabel("Degrees of Freedom", size=20)
+    plt.ylabel("Sample Frequency", size=20)
+    plt.title("Tdf - [1,2,95] induced prior", size=30)
     plt.show()
 
   try:
@@ -139,8 +209,9 @@ if __name__ == "__main__":
   except:
     pass
   plt.plot(ds, ls)
-  plt.title(title)
-  plt.xlabel("degrees of freedom")
+  plt.title(title, size=30)
+  plt.xlabel("Degrees of freedom", size=20)
+  plt.ylabel("Probability", size=20)
   plt.show()
 
   

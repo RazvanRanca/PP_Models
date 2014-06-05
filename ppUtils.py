@@ -111,15 +111,15 @@ def save_samples(samples, path, model):
   with open(fn, 'w') as f:
     f.write('\n'.join([str(s[0]) + " " + str(s[1]) for s in samples]))
 
-def readSamples(model, mType):
+def readSamples1(model, mType, getNaive = False):
   samples = {}
   times = {}
   lastInds = []
   facs = {"Venture":1, "Bugs":1}
   for lang in langs:
     fn = model + "/" + lang + "/" + mType + "Samples"
-    #if lang == "Venture":
-    #  fn += "Naive"
+    if getNaive and lang == "Venture":
+      fn += "Naive"
     try:
       with open(fn,'r') as f:
         vals = f.read().strip().split('\n')
@@ -136,19 +136,34 @@ def readSamples(model, mType):
 
   return times, samples
 
+def norm(vals):
+  if isinstance(vals, list):
+    norm = sum(vals)
+    return map(lambda x: x/norm, vals)
+  elif isinstance(vals, dict):
+    norm = sum(vals.values())
+    nvals = {}
+    for k,v in vals.items():
+      nvals[k] = v/norm
+    return nvals
+  else:
+    raise Exception("Unknown datatype given to norm:" + vals)
+
 def getStats(samples):
   return dict([(k, np.mean(v)) for k,v in samples.items()]), dict([(k, np.std(v)) for k,v in samples.items()])
 
 def showDists(samples, times, bins, sTitle):
   means, sds = getStats(samples)
-  f, axs = plt.subplots(len(samples.keys()), sharex=True, sharey=True)
+  f, axs = plt.subplots(len(samples.keys()), sharex=True)
   count = 0
   for lang in samples.keys():
     ax = axs[count]
-    ax.hist(samples[lang], bins, normed=True, align = 'left')
-    ax.set_title(lang + ",  m:" + str(means[lang])[:5] + ",  sd:" + str(sds[lang])[:5] + ",  rt:" + str(times[lang]) + "s", size=20)
+    ax.hist(samples[lang], bins, align = 'left', rwidth = 1)
+    ax.set_title(lang + ";  m:" + str(means[lang])[:5] + ",  sd:" + str(sds[lang])[:5] + ",  rt:" + str(times[lang]) + "s", size=20)
     plt.setp(ax.get_xticklabels(), visible=True)
     count += 1
+    ax.set_xlabel("Degrees of freedom", size=17)
+    ax.set_ylabel("Sample frequency", size=17)
   f.suptitle(sTitle, size=30)
   f.tight_layout()
   plt.subplots_adjust(top=0.85)
@@ -160,9 +175,11 @@ def showMixDists(samples, bins, sTitle):
   for lang in samples.keys():
     mix = [len(list(g)) for k,g in groupby(samples[lang])]
     ax = axs[count]
-    ax.hist(mix,bins, normed=True)
+    ax.hist(mix,bins, align='left', rwidth=0.8)
     ax.set_title(lang + " stretches of consecutive, identical, samples", size=20)
     plt.setp(ax.get_xticklabels(), visible=True)
+    ax.set_xlabel("Run length", size=17)
+    ax.set_ylabel("Run frequency", size=17)
     count += 1
   f.subplots_adjust(hspace=0.3)
   f.suptitle(sTitle, size=30)
@@ -271,55 +288,60 @@ def readSamples(fn):
       samples.append(s)
   return samples, jumps
 
-def dispSamples(fn, tp):
+def dispSamples(fn, tp, burn=0):
   samples, jumps = readSamples(fn)
 
-  samples = samples[1000:]
+  samples = samples[burn:-1]
   fig, ax = plt.subplots()
   start, end = 2.5, 6.5
+  #start, end = 5, 40
   ax.hist(samples, bins = np.arange(start, end, 0.025))
-  ax.set_title(tp + " sample dist")
+  ax.set_title(tp + " sample distribution", size=30)
   #ax.set_xscale("log")
   #ax.set_xticks(range(1,10))
   #ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
   ax.set_xlim([start,end])
   #ax.set_ylim([0,250])
-  ax.set_xlabel("Sample")
-  ax.set_ylabel("Number of samples out of 10000")
+  ax.set_xlabel("Degrees of freedom", size=20)
+  ax.set_ylabel("Sample Frequency", size=20)
   plt.show()
 
   print max(map(abs,jumps)), min([x for x in map(abs,jumps) if x > 0])
   plt.hist(map(lambda x: abs(x),jumps),bins=np.logspace(-9, 2, 300))
-  plt.title(tp + " non-zero Jump dist")
+  plt.title(tp + " non-zero Jump dist", size=30)
   plt.xscale('log')
   #plt.yscale('log')
-  plt.xlabel("Jump length")
-  plt.ylabel("Number of jumps out of 10000")
+  plt.xlabel("Jump length", size=20)
+  plt.ylabel("Number of jumps out of 10000", size=20)
   #plt.xlim(0.00000001,100)
   plt.show()
 
-def plotConsSamps(fn, tp):
+def plotConsSamps(fn, tp, burn=0):
   samps,_ = readSamples(fn)
 
-  plt.plot(samps)
-  plt.title(tp + " sample evolution")
-  plt.xlabel("Iteration")
-  plt.ylabel("Current estimate")
+  print samps
+  plt.plot(samps[burn:-1])
+  plt.title(tp + " sample evolution", size=30)
+  plt.xlabel("Iteration", size=20)
+  plt.ylabel("Sampled DoF", size=20)
   plt.yscale('log')
+  plt.ylim([1,100])
   plt.show()
 
-def autocorrSamps(fn, tp):
+def autocorrSamps(fn, tp, burn=0):
   samples, _ = readSamples(fn)
-  samples = samples[1000:]
+  samples = samples[burn:-1]
   #ac = np.correlate(samples, samples, mode='same')
   n = len(samples)
   var = np.var(samples, ddof=0)
   samples = samples - np.mean(samples)
   ac = np.correlate(samples, samples, mode='full')[-n:]
-  #assert np.allclose(ac, np.array([(samples[:n-k]*samples[-(n-k):]).sum() for k in range(n)]))
+  assert np.allclose(ac, np.array([(samples[:n-k]*samples[-(n-k):]).sum() for k in range(n)]))
   nac = ac / (var * n)
   plt.plot(nac)
-  plt.title(tp + " autocorrelation")
+  plt.title(tp + " autocorrelation", size=30)
+  plt.ylabel("Autocorrelation", size=20)
+  plt.xlabel("Sample distance", size=20)
   plt.show()
 
 def dispModeTimes(fn):
@@ -388,10 +410,10 @@ def dispShifted(fn):
   plt.show()
 
 if __name__ == "__main__":
-  #title = "Model: " + sys.argv[1].title()
-  #times, samples = readSamples(sys.argv[1])
-  #showDists(samples, times, np.arange(3.5, 6.5, 0.05), title) # np.arange(3.5, 6.5, 0.25)
-  #showMixDists(samples, np.arange(1, 30, 1), title)
+  title = "Tdf - Bin7"
+  #times, samples = readSamples1(sys.argv[1], sys.argv[2])
+  #showDists(samples, times, np.arange(2.5, 6.5, 0.025), title) # np.arange(3.5, 6.5, 0.25)
+  #showMixDists(samples, np.arange(1, 10, 1), title)
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
@@ -408,7 +430,9 @@ if __name__ == "__main__":
   #dispSamples("samplingTests/metropolisMix", "Metropolis")
   #dispSamples("samplingTests/sliceMix", "Slice Sampling")
 
-  plotConsSamps("samplingTests/sliceMixLik", "Slice Sampling")
-  autocorrSamps("samplingTests/sliceMixLik", "Slice Sampling")
-  dispSamples("samplingTests/sliceMixLik", "Slice Sampling")
+  #fn = "tdf/Venture/contMix21Samples"
+  fn = "tdf/Venture/contBin7Samples"
+  plotConsSamps(fn, title)
+  autocorrSamps(fn, title)
+  dispSamples(fn, title)
   #dispModeTimes("tdf/Venture/modeTime")
