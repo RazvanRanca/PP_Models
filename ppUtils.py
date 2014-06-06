@@ -293,8 +293,11 @@ def dispSamples(fn, tp, burn=0):
 
   samples = samples[burn:-1]
   fig, ax = plt.subplots()
-  start, end = 2.5, 6.5
-  #start, end = 5, 40
+  if "2" in fn:
+    start, end = 5, 40
+  else:
+    start, end = 2.5, 6.5
+
   ax.hist(samples, bins = np.arange(start, end, 0.025))
   ax.set_title(tp + " sample distribution", size=30)
   #ax.set_xscale("log")
@@ -403,10 +406,10 @@ def dispShifted(fn):
 
   bp = plt.boxplot(depths)
   print [line.get_xydata()[1] for line in bp["medians"]]
-  plt.xlabel("Binomial depth")
-  plt.ylabel("Mean chain length")
-  plt.title("Burn-in time on all 0.001 target intervals for Max shifts")
-  #plt.ylim([0,4000])
+  plt.xlabel("Bit decomposition depth", size=20)
+  plt.ylabel("Mean chain length", size=20)
+  plt.title("Avg. burn-in time to 0.001 interval", size=30)
+  plt.xticks(range(1, 21), range(20))
   plt.show()
 
 if __name__ == "__main__":
@@ -417,7 +420,7 @@ if __name__ == "__main__":
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
-  #dispShifted("shiftMax0001_p")
+  dispShifted("shiftMin0001")
   """
   fn = "custTdfSamps" #"tdf/Venture/flipSamples"
   dispSamples(fn)
@@ -431,8 +434,8 @@ if __name__ == "__main__":
   #dispSamples("samplingTests/sliceMix", "Slice Sampling")
 
   #fn = "tdf/Venture/contMix21Samples"
-  fn = "tdf/Venture/contBin7Samples"
-  plotConsSamps(fn, title)
-  autocorrSamps(fn, title)
-  dispSamples(fn, title)
+  #fn = "tdf/Venture/21contBin7Samples"
+  #plotConsSamps(fn, title)
+  #autocorrSamps(fn, title)
+  #dispSamples(fn, title)
   #dispModeTimes("tdf/Venture/modeTime")

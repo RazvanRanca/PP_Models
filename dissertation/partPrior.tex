@@ -24,7 +24,7 @@ When using local Metropolis-Hastings with an unpartitioned uniform prior, it is 
 For partitioned priors it will usually not be possible to analytically determine the expected number of steps to $[mode - \epsilon, mode + \epsilon]$, so we shall instead make use of empirical tests.
 
 \subsection{Mixing properties around the mode}
-Once the markov chain has reached the mode we will wish to see how well it manages to mix around it. Here we will look at different metrics that might give us an idea of the mixing properties. Visually inspecting the sample evolution will show if the inference tends to get stuck on certain values for longs stretch. A numerical estimate of this can be obtained by measuring the ``distance'' traveled by the merkov chain around the mode (i.e. the sum of absolute differences between consecutive samples). We can also inspect the sample autocorrelation, with the idea that good mixing properties should imply a small autocorrelation within a sample run.
+Once the markov chain has reached the mode we will wish to see how well it manages to mix around it. Here we will look at different metrics that might give us an idea of the mixing properties. Visually inspecting the sample evolution will show if the inference tends to get stuck on certain values for longs stretch. A numerical estimate of this can be obtained by measuring the ''distance'' traveled by the merkov chain around the mode (i.e. the sum of absolute differences between consecutive samples). We can also inspect the sample autocorrelation, with the idea that good mixing properties should imply a small autocorrelation within a sample run.
 
 \section{Sum of uniforms}
 
@@ -70,7 +70,7 @@ Table \ref{tab:bestParts} contains the empirical performance for the unpartition
 
 The best partition seems to depend somewhat on the size of the neighbourhood, but there also seem to be partitions that consistently and significantly outperform the unpartitioned prior on all the neighbourhood sizes looked at above. In fact, for epsilon values of 0.1 and 0.01 the unpartitioned prior performs worse than any of the partitioned variants. 
 
-It also seems that, as epsilon gets smaller, it’s useful to have smaller partition components, such that we get the 0.5 partition in the best solution for a mode neighbourhood of size 0.02, while this partition size makes no appearance in the top partition lists for other neighbourhood sizes.
+It also seems that, as epsilon gets smaller, it's useful to have smaller partition components, such that we get the 0.5 partition in the best solution for a mode neighbourhood of size 0.02, while this partition size makes no appearance in the top partition lists for other neighbourhood sizes.
 
 The second aspect of convergence that a partition might help with is the mixing rate around the mode. In order to test the priors' mixing properties we can consider what happens after the markov chain reaches the mode. Specifically, we set the initial sample to the mode of the true posterior distribution and check how much the chain moves over the next 1000 samples. Repeating this test 100 times and averaging the sum of jumps gives us the results in Table \ref{tab:partMix}.
 
@@ -255,18 +255,219 @@ Looking at mixing rates \ref{fig} shows that a 3rd degree bit decomposition obta
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{TdfBin3SampDist.png}
+    \includegraphics[width=0.8\textwidth]{TdfBin3SampDist}
     \caption{The sample distribution obtained from 10,000 samples using a 3rd degree bit decomposition on the Tdf model.}
     \label{fig:B3SampDist}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Tdf21Bin3SampDist.png}
+    \includegraphics[width=0.8\textwidth]{Tdf21Bin3SampDist}
     \caption{The sample distribution obtained from 10,000 samples using a 3rd degree bit decomposition on the Tdf21 model.}
     \label{fig:21B3SampDist}
 \end{figure}
 
-Turning to the expected time to reach (see Table \ref{tab}) the mode reveals that the 3rd degree binomial provides a significant improvement on the unpartitioned prior, though not as significant as the sum of uniforms does. \todo{talk about how binomials of different depth perform here}
+Turning to the expected time to reach (see Table \ref{tab}) the mode reveals that the 3rd degree binomial provides a significant improvement on the unpartitioned prior, though not as significant as the sum of uniforms does. \todo{talk about how binomials of different depth perform here}. On the depth 7 bit decomposition, we see good results on the small neighbourhoods but erratic ones on the larger neighbourhoods. The reason is again the fact that bit decomposition can get stuck, as discussed in Section \ref{ttt}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{llllll}
+    \toprule
+    \multirow{2}{*}{Model} & \multirow{2}{*}{Partition} & \multicolumn{4}{l}{Target neighbourhood size} \\
+    \cmidrule(r){3-6} 
+    & & 1 & 0.5 & 0.2 & 0.02 \\
+    \midrule
+    Both & Unpartitioned & 98 & 196 & 490 & 4900 \\
+    \midrule
+    \multirow{3}{*}{Tdf Continuous} & (1, 2, 95) & 130.06 & 155.48  & 186.83 & 317.31 \\
+    & Bit 3 & 52 & 95.3  & 272.6 & 2232.4 \\
+    & Bit 7 & 1080.78 & 866.64 & 776.26 & 1433.37 \\
+    \midrule
+    \multirow{3}{*}{Tdf21 Continuous} & (1, 2, 95) & 93.5 & 128.8  & 173.9 & 714.98 \\
+    & Bit 3 & 117.52 & 170.65  & 401.5 & 2969.9 \\
+    & Bit 7 & 161.86 & 177.22 & 284.99 & 1739.84 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Expected number of steps to neighbourhoods of the mode on the Tdf and Tdf21 continuous models for an unpartitioned prior, the (1,2,95) sum decomposition and 2 bit decompositions.}
+  \label{tab:bestParts}
+\end{table}
+
+\subsection{Getting stuck on a bad sample}
+A problem with the bit decomposition is that it is possible to construct scenarios in which a sample will never reach a particular neighbourhood of the mode.
+
+One simple such scenario can be constructed by assuming a guiding posterior log-likelihood that is convex, symmetric around the mode and steep enough such the probability a sample will move significantly further away from the mode is neglijible. In such a scenario it is possible to get stuck in local optima outside of our desired mode neighbourhood.
+
+The simplest example of getting stuck can be observed by considering the bit decomposition of depth 1: 
+(uniform-continuous 0 1) = $flip*2^{-1} +$ (uniform-continuous 0 $2^{-1}$) In this case, if the the mode is in the interval $[0.5 + \epsilon , 0.75]$ (where $[mode - \epsilon, mode + \epsilon]$ is our target neighbourhood), then it is possible for the prior to get stuck.
+ 
+A concrete example would be:
+$mode = 0.6;
+\epsilon = 0.05;
+flip = 0;$
+(uniform-continuous 0 0.5) = 0.4
+
+In this case, setting flip to true would be very likely rejected since jumping from 0.4 to $0.4 + 0.5 = 0.9$ takes us much further away from the mode at 0.6 then we currently are. Further the uniform can only successfully resamples values between (0.4, 0.5), which won't change the situation. So in order for us to get unstuck we would need either a very unlikely bit flip to be accepted or the uniform to accept a very unlikely resample close to 0 and then for the bit shift to be accepted. We will therefore be likely stuck in this interval for a long time before reaching a neighbourhood of the mode.
+
+Some possible solutions to avoid getting stuck would be:
+\begin{itemize}
+
+\item 
+Having the option of changing multiple bits at a time (eg: sample a variable to determine how many bits to change). This would ensure there are no hard local maximas. However, situations would still arise where a large number of bits would need to be concurrently changed to specific values in order for a sample to be accepted, which means we might still be stuck in a certain position for a long time untill just the right combination of bits are pickes. \todo{is a more thorough analysis feasible here?}
+
+\item
+Using multiple shifted variants of the prior (shifted by x means mapping sample s to (x + s)\%1). It seems that by choosing the shifted priors carefully we could ensure it is impossible for a sample to get stuck in all priors. It can be shown (see Section \ref{fff}) that a single shift is enough to avoid getting stuck. However the effect on performance of adding shifts is complex, since performing a shift in an unstuck position can lead to us moving further away from the mode. More analysis of the effect of shifts is presented in \ref{fff}.
+
+\item
+Using multiple variants of the prior with different bit depths. If a sample is stuck on bit b, then moving it into a prior with depth < b will unstick it. However, this will result in the bits with the highest values being resampled more often, since they will be present in the most priors, which will have a negative effect on the mixing benefits offered by the decomposition.
+
+\end{itemize}
+
+One idea that seems to not work but is tempting to consider is to attempt to determine, with some likelihood, when a certain markov chain has become stuck based on its sample history. This would allow us to explicitly correct for the chain getting stuck. We could toss a coin to decide if we think we're currently stuck. If we don't think we're stuck we sample normally. If we do think we're stuck, we can determine in which bits we might be stuck and pick one of these. We can then determine the interval in which the mode should be if we're indeed stuck on this bit (for $flip*2^{-k}$ the interval will have size $2^{-k-1}$) and pick a potential sample uniformly from that interval. If this sample had better log likelihood we would accept. 
+
+The problem with this idea is that it isn't just picking proposals from a static prior or proposal kernel anymore, but the proposal pattern will actually be influenced by the log likelihood distribution. \todo{explain why this is wrong}
+
+\subsection{Mixtures of shifted bit decompositions}
+
+Here we explore two variants of the mixture of shifted bits solution. First we look at what is necessary simply to ensure that we'll never get stuck. Second we look at what is needed to be able to move from any stuck position to a neighbourhood of the mode in one jump. This second variant ends up providing a better performance.
+
+\subsubsection{Avoiding getting stuck}
+
+It turns out that a combination of bit decomposition, one of which is a shifted variant of the other, is sufficient to ensure that it is impossible to get stuck.
+
+However it seems we need to use a mixture of K priors in order to ensure that the binomial of depth K can move from any stuck position to the mode in one step. 
+
+To see this consider the formulation:
+total = flip1*0.5 + flip2*0.25 + (uniform-continuous 0 0.25)
+mode = 0.25 - $\epsilon$
+flip1 = 0
+flip2 = 1
+(uniform-continuous 0 0.25) = $\epsilon$ 
+=> total = 0.25 + $\epsilon$
+where $\epsilon$ can be an arbitrarily small positive number
+
+Here we are stuck since changing the flip to False will be rejected as having lower LL. We want to determine what size of a shift needs to exist in order for us to be able to become unstuck.
+For any shift s we choose, the shifted prior will be:
+shiftTotal = (0.25 + s + $\epsilon$) \% 1 
+And flipping the second bit to False would result in a proposal:
+proposal = s + $\epsilon$
+
+If our shift s is such that 
+s < 0.125 - 2$\epsilon$
+Then the proposal will be rejected since:
+|shiftTotal - mode| = |0.25 + s + $\epsilon$ - 0.25 + $\epsilon$| = s + 2$\epsilon$ < 0.125
+|proposal - mode| = | s + $\epsilon$ - 0.25 + $\epsilon$ | = 0.25 - s + 2$\epsilon$ > 0.125
+The only other proposal we might make are flipping the first bit to 1 or increasing the uniform, both of which are also rejected since they move away from the mode in both shifts.
+
+Therefore, for the shift to be usefull on a stuck 2nd bit, we need that s > 0.125. In general, to get unstuck on the kth bit we require that $2^{-k-1}$ <= s. So any shift larger than 0.25 will guarantee that we never get stuck.
+
+If we also want to be able to reach the mode in one jump from a stuck position, we must also consider:
+total = flip1*0.5 + flip2*0.25 + (uniform-continuous 0 0.25)
+mode = 0.375 - $\epsilon$
+flip1 = 0
+flip2 = 0
+(uniform-continuous 0 0.25) = 0.25 - $\epsilon$ 
+=> total = 0.25 - $\epsilon$
+
+For any shift s we choose, the shifted prior will be:
+shiftTotal = (0.375 + s - $\epsilon$) \% 1 
+
+If our shift s is such that
+s > 0.25 + 2*$\epsilon$
+Then the distance to the mode is:
+|shiftTotal - mode| = |0.375 + s - $\epsilon$ - 0.375 - $\epsilon$| = s - 2*$\epsilon$ > 0.25
+
+Therefore, setting the uniform to 0 would still leave the shiftTotal' > mode + $\epsilon$  and thus leave us unable to reach the mode in one step.
+
+Note that, in this situation we are not stuck, since setting the uniform to 0 leaves us with shiftTotal' > mode + $\epsilon$ that means the shift will accept any reduction to the uniform. Specifically if we accept (uniform-continuous 0 0.25) = $\epsilon$ Then switching back to the original 0 shift results in total = mode + $\epsilon$ - s - $\epsilon$ = mode - s And since s > 0.25 + 2*$\epsilon$ We are now in a position to accept switching the 2nd bit to 1, which would unstick us.
+
+However, if we wish to jump to the mode from a postiion stuck on the second bit, we've shown that the shift must have the property:
+0.125 <= s <= 0.25
+And in general, to guarantee that we can jump to the mode when stuck on the kth bit, we need to have a shift s such that:
+$2^{-k-1} <= s <= 2^{-k}$ Which means that each bit would need a different sized shift. 
+
+\subsubsection{Empirical performance}
+
+Based on the arguments in the previous section, it seems that the placement of the mode can significantly affects the likelihood of getting stuck for binomials of certain depths. In order to get a better idea of the effect of the mode location we test the burn-in time for different mode placements. 
+
+First we look at performance averaged over all mode placements where $m \in [0.0005, 0.0015,…, 0.9995]$ and $\epsilon = 0.0005$
+
+We first look at the case where we resample the shift on each iteration and we have shifts of size $2^{-k}$ (called maximum shifts) for each bit position k.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{AllShiftsMax0001}
+    \caption{Time to 0.001 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depths using a shift for every bit.}
+    \label{fig:AllShiftsMax0001}
+\end{figure}
+
+Here the unpartitioned prior corresponds to the bit decomposition of depth 0. While the improvements in burn-in rate are not as significant when averaging over all mode placements as they were for our initial experiments on the Tdf models, a 2x speed-up can still be obtained.
+
+Next we see if the choice of shift size within the interval $2^{-k-1} <= s <= 2^{-k}$ is significant by looking at the burn-in rate for shifts of size $2^{-k-1}$ (called minimum shifts) for each bit position k.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{AllShiftsMin0001}
+    \caption{Time to 0.001 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depths using a shift for every bit.}
+    \label{fig:AllShiftsMin0001}
+\end{figure}
+
+The choice of shift length withing the $[2^{-k-1}, 2^{-k}]$ doesn't appear to be significant.
+
+We would also like to see what happens as the size of the target neighbourhood changes. We repeat the above experiment for a target neighbourhood of size 0.01 (10x larger).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{AllShiftsMax001}
+    \caption{Time to 0.01 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depths using a shift for every bit.}
+    \label{fig:AllShiftsMax001}
+\end{figure}
+
+While the bit decomposition still gives some advantage, as the size of the target neighbourhood increases this advantage appears to become less significant, since a larger number of the small bits become irrelevant to our ending up in the desired region.
+
+Finally, we would also like to see what happens to the performance if we do not provide k shifts for k bits, but instead only 1 or 2 shifts that are sufficiently large to stop bits from getting stuck. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{05Shift001}
+    \caption{Time to 0.01 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depth using only a shift of size 0.5}
+    \label{fig:05Shift001}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{02505Shift001}
+    \caption{Time to 0.01 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depth using only a shift of size 0.25 and 0.5}
+    \label{fig:02505Shift001}
+\end{figure}
+
+The performance with a small number of shifts seems significantly worse. It seems using 1 or 2 shifts still allows the algorithm to avoid getting stuck, but the extra number of steps it has to perform to reach the mode from a stuck position degrades the performance.
+\todo{talk about distributions over shifts, and more about benefits/drawback of shifts and/or changing depths}
+
+\subsubsection{Determining optimal shifts and shift transitions}
+It seems we have a wide variety of options regarding what shifts to use and how to transition between them. It therefore seems worthwhile to consider the question of whether we can determine any optimal solutions analytically. 
+
+In order to do so, we make some observations:
+\begin{itemize}
+
+\item
+The location of the mode neighbourhood determines which regions are traps (i.e. in which regions, once you enter, you can no longer reach the mode without shifting)
+
+\item
+The current sample determines what portion of the traps (if any) are still accessible. Here we make the assumption that the LL of consecutive samples is non-decreasing
+
+\item
+I don't think the prob. of getting to the mode or falling in a trap can be modelled with (mixtures of) geometric distributions since a sample's probability distribution depends on the previous samples (and is therefore not uniform, unless we integrate out its history)
+
+\item
+For a set mode and LL function we can represent the transition between samples via a bit-level markov chain which ignores the trailing uniform. We can then create absorbing states representing the mode neighbourhood and the traps.
+
+\item
+ If, for instance, the neighbourhood is only 0.1 of the length of the smallest bit we would implicitly represent the uniform only in the corresponding bit state by giving a 0.1 transition from this bit state to the mode-neighbourhood absorbing state. (this however ignores the movement of the uniform during normal sampling which may end up biasing the results since, for instance, if the mode is in the leftmost bit the uniform will likely already have a very small value by the time the correct bit state is reached. There seem to be heuristic ways to address this but I'll wait to see if it's actually a big issue)
+
+\item
+Using this formulation we should be able to analytically derive the probability of getting stuck and the expected number of steps to the mode. Representing shifted priors should also be possible. The simplest way would be to have 2x the nodes for a combination of 2 shifted priors.
+
+\end{itemize}
+\todo{try to get some results using markov chain implementation. Otherwise there's not much point in describing it ...}
 
 

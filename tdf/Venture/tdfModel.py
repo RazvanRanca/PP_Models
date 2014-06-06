@@ -69,7 +69,7 @@ def runTimedCont(v, ys, maxTime, burn, lag):
   print "Sample mean: ", np.mean(vals), " Sample Stdev: ", np.std(vals)
   pu.save_samples(samples, os.getcwd(), "cont600")
 
-def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = False):
+def runModel(v, ys, mType, sample, burn, lag, fnAdd = "", timeTest = False, silentSamp = False):
   timeStart = time.time()
   if mType == "cont":
     v.assume("d", "(uniform_continuous 2 100)")
@@ -143,7 +143,7 @@ def runModel(v, ys, mType, sample, burn, lag, timeTest = False, silentSamp = Fal
   #v.infer(11000000)
   vals = map(lambda x:x[1], samples)
   print "Sample mean: ", np.mean(vals), " Sample Stdev: ", np.std(vals)
-  pu.save_samples(samples, os.getcwd(), "21"+mType)
+  pu.save_samples(samples, os.getcwd(), fnAdd+mType)
 
 def testCont(ys, sample, burn, lag):
   pals = [0,0.5,1,2,5,10,20]
@@ -1095,7 +1095,7 @@ def calcVentPerf(mType):
 
 if __name__ == "__main__":
   #calcVentPerf(sys.argv[1])
-  ys = pu.readData("../tdfData21")
+  ys = pu.readData("../tdfData")
   #calcExpJump()
   #procModeTimes("modeTimeSim05")
   #simMixSearch(ys)

@@ -23,4 +23,10 @@
 \contentsline {subsubsection}{Evaluating the decomposition on the Tdf21 model}{33}{section*.15}
 \contentsline {section}{\numberline {4.3}Bit decomposition}{38}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Definition}{38}{subsection.4.3.1}
-\contentsline {chapter}{\numberline {5}Summary and Conclusions}{39}{chapter.5}
+\contentsline {subsection}{\numberline {4.3.2}Evaluation on Tdf and Tdf21}{38}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Getting stuck on a bad sample}{41}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Mixtures of shifted bit decompositions}{43}{subsection.4.3.4}
+\contentsline {subsubsection}{Avoiding getting stuck}{43}{section*.20}
+\contentsline {subsubsection}{Empirical performance}{45}{section*.21}
+\contentsline {subsubsection}{Determining optimal shifts and shift transitions}{50}{section*.23}
+\contentsline {chapter}{\numberline {5}Summary and Conclusions}{53}{chapter.5}
