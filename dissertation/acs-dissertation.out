@@ -4,13 +4,13 @@
 \BOOKMARK [0][-]{chapter.3}{Comparing Venture and OpenBUGS}{}
 \BOOKMARK [1][-]{section.3.1}{Motivation}{chapter.3}
 \BOOKMARK [1][-]{section.3.2}{Preliminaries}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.2.1}{Webchurch's performance}{section.3.2}
-\BOOKMARK [2][-]{subsection.3.2.2}{Number of MCMC steps}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.1}{Number of MCMC steps}{section.3.2}
 \BOOKMARK [1][-]{section.3.3}{Empirical results}{chapter.3}
 \BOOKMARK [2][-]{subsection.3.3.1}{Tdf model description}{section.3.3}
 \BOOKMARK [2][-]{subsection.3.3.2}{Tdf model true posteriors}{section.3.3}
 \BOOKMARK [2][-]{subsection.3.3.3}{Tdf model results}{section.3.3}
 \BOOKMARK [1][-]{section.3.4}{Analysis of Venture's performance}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.4.1}{Webchurch's performance}{section.3.4}
 \BOOKMARK [0][-]{chapter.4}{Partitioned Priors}{}
 \BOOKMARK [1][-]{section.4.1}{Preliminaries}{chapter.4}
 \BOOKMARK [2][-]{subsection.4.1.1}{Local Metropolis-Hastings}{section.4.1}
@@ -24,4 +24,13 @@
 \BOOKMARK [2][-]{subsection.4.3.2}{Evaluation on Tdf and Tdf21}{section.4.3}
 \BOOKMARK [2][-]{subsection.4.3.3}{Getting stuck on a bad sample}{section.4.3}
 \BOOKMARK [2][-]{subsection.4.3.4}{Mixtures of shifted bit decompositions}{section.4.3}
-\BOOKMARK [0][-]{chapter.5}{Summary and Conclusions}{}
+\BOOKMARK [0][-]{chapter.5}{Novel PPL inference techniques}{}
+\BOOKMARK [1][-]{section.5.1}{Preliminaries}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.1.1}{Slice sampling}{section.5.1}
+\BOOKMARK [2][-]{subsection.5.1.2}{Basic PPL Construction}{section.5.1}
+\BOOKMARK [1][-]{section.5.2}{Stochastic Python}{chapter.5}
+\BOOKMARK [1][-]{section.5.3}{Slice sampling inference engine}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.3.1}{Custom Slice Sampling and Metropolis on Tdf models}{section.5.3}
+\BOOKMARK [2][-]{subsection.5.3.2}{Generic, lightweight, slice sampling inference engine}{section.5.3}
+\BOOKMARK [1][-]{section.5.4}{Quasi-Monte Carlo}{chapter.5}
+\BOOKMARK [0][-]{chapter.6}{Summary and Conclusions}{}

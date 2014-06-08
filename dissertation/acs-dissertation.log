@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.5.30)  5 JUN 2014 21:13
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.5.30)  8 JUN 2014 18:52
 entering extended mode
  %&-line parsing enabled.
 **acs-dissertation
@@ -14,8 +14,8 @@ orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
 rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/size12.clo
-File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@chapter=\count80
@@ -162,8 +162,27 @@ G,.JBIG2,.JB2,.eps]
 (/usr/share/texmf-texlive/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2009/10/26 v1.1 Configuration of epstopdf for TeX Live
 )))
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+Package: caption 2009/10/09 v3.1k Customizing captions (AR)
+
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+\captionmargin=\dimen127
+\captionmargin@=\dimen128
+\captionwidth=\dimen129
+\caption@indent=\dimen130
+\caption@parindent=\dimen131
+\caption@hangindent=\dimen132
+)
+\c@ContinuedFloat=\count94
+)
+(/usr/share/texmf-texlive/tex/latex/caption/subcaption.sty
+Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
+\c@subfigure=\count95
+\c@subtable=\count96
+)
 (/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen127
+\bigstrutjot=\dimen133
 )
 (/usr/share/texmf-texlive/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2009/08/01 .dtx Todonotes source and documentation.
@@ -178,7 +197,7 @@ Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
 (/usr/share/texmf-texlive/tex/generic/xkeyval/xkeyval.tex
 \XKV@toks=\toks17
 \XKV@tempa@toks=\toks18
-\XKV@depth=\count94
+\XKV@depth=\count97
 File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
 ))
 (/usr/share/texmf/tex/latex/xcolor/xcolor.sty
@@ -227,20 +246,20 @@ Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
 \pgfkeys@tmptoks=\toks22
 ))
-\pgf@x=\dimen128
-\pgf@y=\dimen129
-\pgf@xa=\dimen130
-\pgf@ya=\dimen131
-\pgf@xb=\dimen132
-\pgf@yb=\dimen133
-\pgf@xc=\dimen134
-\pgf@yc=\dimen135
+\pgf@x=\dimen134
+\pgf@y=\dimen135
+\pgf@xa=\dimen136
+\pgf@ya=\dimen137
+\pgf@xb=\dimen138
+\pgf@yb=\dimen139
+\pgf@xc=\dimen140
+\pgf@yc=\dimen141
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count95
-\c@pgf@countb=\count96
-\c@pgf@countc=\count97
-\c@pgf@countd=\count98
+\c@pgf@counta=\count98
+\c@pgf@countb=\count99
+\c@pgf@countc=\count100
+\c@pgf@countd=\count101
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -255,8 +274,8 @@ File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
 )))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count99
-\pgfsyssoftpath@bigbuffer@items=\count100
+\pgfsyssoftpath@smallbuffer@items=\count102
+\pgfsyssoftpath@bigbuffer@items=\count103
 )
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -268,8 +287,8 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen136
-\pgfmath@count=\count101
+\pgfmath@dimen=\dimen142
+\pgfmath@count=\count104
 \pgfmath@box=\box27
 \pgfmath@toks=\toks23
 \pgfmath@stack@operand=\toks24
@@ -284,51 +303,51 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count102
+\c@pgfmathroundto@lastzeros=\count105
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
-\pgf@picminx=\dimen137
-\pgf@picmaxx=\dimen138
-\pgf@picminy=\dimen139
-\pgf@picmaxy=\dimen140
-\pgf@pathminx=\dimen141
-\pgf@pathmaxx=\dimen142
-\pgf@pathminy=\dimen143
-\pgf@pathmaxy=\dimen144
-\pgf@xx=\dimen145
-\pgf@xy=\dimen146
-\pgf@yx=\dimen147
-\pgf@yy=\dimen148
-\pgf@zx=\dimen149
-\pgf@zy=\dimen150
+\pgf@picminx=\dimen143
+\pgf@picmaxx=\dimen144
+\pgf@picminy=\dimen145
+\pgf@picmaxy=\dimen146
+\pgf@pathminx=\dimen147
+\pgf@pathmaxx=\dimen148
+\pgf@pathminy=\dimen149
+\pgf@pathmaxy=\dimen150
+\pgf@xx=\dimen151
+\pgf@xy=\dimen152
+\pgf@yx=\dimen153
+\pgf@yy=\dimen154
+\pgf@zx=\dimen155
+\pgf@zy=\dimen156
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
-\pgf@path@lastx=\dimen151
-\pgf@path@lasty=\dimen152
+\pgf@path@lastx=\dimen157
+\pgf@path@lasty=\dimen158
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
-\pgf@shorten@end@additional=\dimen153
-\pgf@shorten@start@additional=\dimen154
+\pgf@shorten@end@additional=\dimen159
+\pgf@shorten@start@additional=\dimen160
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
 \pgfpic=\box28
 \pgf@hbox=\box29
 \pgf@layerbox@main=\box30
-\pgf@picture@serial@count=\count103
+\pgf@picture@serial@count=\count106
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
-\pgflinewidth=\dimen155
+\pgflinewidth=\dimen161
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
-\pgf@pt@x=\dimen156
-\pgf@pt@y=\dimen157
-\pgf@pt@temp=\dimen158
+\pgf@pt@x=\dimen162
+\pgf@pt@y=\dimen163
+\pgf@pt@temp=\dimen164
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -344,8 +363,8 @@ File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
-\pgf@max=\dimen159
-\pgf@sys@shading@range@num=\count104
+\pgf@max=\dimen165
+\pgf@sys@shading@range@num=\count107
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
@@ -372,8 +391,8 @@ File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen160
-\pgf@nodesepend=\dimen161
+\pgf@nodesepstart=\dimen166
+\pgf@nodesepend=\dimen167
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
@@ -383,8 +402,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
 (/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
-\pgffor@iter=\dimen162
-\pgffor@skip=\dimen163
+\pgffor@iter=\dimen168
+\pgffor@skip=\dimen169
 \pgffor@stack=\toks26
 \pgffor@toks=\toks27
 ))
@@ -393,47 +412,47 @@ Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count105
-\pgfplotmarksize=\dimen164
+\pgf@plot@mark@count=\count108
+\pgfplotmarksize=\dimen170
 )
-\tikz@lastx=\dimen165
-\tikz@lasty=\dimen166
-\tikz@lastxsaved=\dimen167
-\tikz@lastysaved=\dimen168
-\tikzleveldistance=\dimen169
-\tikzsiblingdistance=\dimen170
+\tikz@lastx=\dimen171
+\tikz@lasty=\dimen172
+\tikz@lastxsaved=\dimen173
+\tikz@lastysaved=\dimen174
+\tikzleveldistance=\dimen175
+\tikzsiblingdistance=\dimen176
 \tikz@figbox=\box33
 \tikz@tempbox=\box34
-\tikztreelevel=\count106
-\tikznumberofchildren=\count107
-\tikznumberofcurrentchild=\count108
-\tikz@fig@count=\count109
+\tikztreelevel=\count109
+\tikznumberofchildren=\count110
+\tikznumberofcurrentchild=\count111
+\tikz@fig@count=\count112
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count110
-\pgfmatrixcurrentcolumn=\count111
-\pgf@matrix@numberofcolumns=\count112
+\pgfmatrixcurrentrow=\count113
+\pgfmatrixcurrentcolumn=\count114
+\pgf@matrix@numberofcolumns=\count115
 )
-\tikz@expandcount=\count113
+\tikz@expandcount=\count116
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 ))) (/usr/share/texmf-texlive/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count114
-\calc@Bcount=\count115
-\calc@Adimen=\dimen171
-\calc@Bdimen=\dimen172
+\calc@Acount=\count117
+\calc@Bcount=\count118
+\calc@Adimen=\dimen177
+\calc@Bdimen=\dimen178
 \calc@Askip=\skip45
 \calc@Bskip=\skip46
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count116
+\calc@Ccount=\count119
 \calc@Cskip=\skip47
 )
-\c@@todonotes@numberoftodonotes=\count117
+\c@@todonotes@numberoftodonotes=\count120
 )
 (/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
@@ -456,9 +475,9 @@ O)
 (/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
-\@linkdim=\dimen173
-\Hy@linkcounter=\count118
-\Hy@pagecounter=\count119
+\@linkdim=\dimen179
+\Hy@linkcounter=\count121
+\Hy@pagecounter=\count122
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -492,9 +511,9 @@ Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
 (/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
 Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
 ))
-\Fld@menulength=\count120
-\Field@Width=\dimen174
-\Fld@charsize=\dimen175
+\Fld@menulength=\count123
+\Field@Width=\dimen180
+\Fld@charsize=\dimen181
 \Field@toks=\toks28
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
@@ -507,17 +526,17 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count121
-\c@Item=\count122
+\Hy@abspage=\count124
+\c@Item=\count125
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count123
+\Fld@listcount=\count126
 )
 (/usr/share/texmf-texlive/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count124
+\c@float@type=\count127
 \float@exts=\toks29
 \float@box=\box35
 \@float@everytoks=\toks30
@@ -531,19 +550,13 @@ File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 )) (./acs-dissertation.aux
 
-LaTeX Warning: Label `fig:tdfCourseDiscSamp' multiply defined.
-
-
-LaTeX Warning: Label `fig:tdfCourseDiscSamp' multiply defined.
-
-
-LaTeX Warning: Label `fig:tdfCourseDiscSamp' multiply defined.
-
-
-LaTeX Warning: Label `fig:tdfFineDiscConv' multiply defined.
-
-
 LaTeX Warning: Label `tab:bestParts' multiply defined.
+
+
+LaTeX Warning: Label `fig:tdf21PSampDist' multiply defined.
+
+
+LaTeX Warning: Label `fig:tdf21PSampDist' multiply defined.
 
 
 LaTeX Warning: Label `tab:bestParts' multiply defined.
@@ -551,34 +564,39 @@ LaTeX Warning: Label `tab:bestParts' multiply defined.
 )
 \openout1 = `acs-dissertation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
  (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen176
+\scratchcounter=\count128
+\scratchdimen=\dimen182
 \scratchbox=\box37
-\nofMPsegments=\count126
-\nofMParguments=\count127
+\nofMPsegments=\count129
+\nofMParguments=\count130
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count128
-\MPscratchDim=\dimen177
-\MPnumerator=\count129
+\MPscratchCnt=\count131
+\MPscratchDim=\dimen183
+\MPnumerator=\count132
 \everyMPtoPDFconversion=\toks32
-) ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring OFF on input line 38.
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+ ABD: EveryShipout initializing macros
+Package hyperref Info: Link coloring OFF on input line 40.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -586,10 +604,10 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count130
+\c@section@level=\count133
 )
-LaTeX Info: Redefining \ref on input line 38.
-LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \ref on input line 40.
+LaTeX Info: Redefining \pageref on input line 40.
 
 (./acs-dissertation.out) (./acs-dissertation.out)
 \@outlinefile=\write4
@@ -597,54 +615,57 @@ LaTeX Info: Redefining \pageref on input line 38.
 
 \AtBeginShipoutBox=\box38
  (./titlepage.tex
-<CUni3.pdf, id=114, 614.295pt x 794.97pt>
+<CUni3.pdf, id=150, 330.23375pt x 69.25874pt>
 File: CUni3.pdf Graphic file (type pdf)
- <use CUni3.pdf>
-Overfull \hbox (224.29349pt too wide) in paragraph at lines 17--18
- [][] 
- []
+ <use CUni3.pdf> [1
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-Overfull \vbox (202.96806pt too high) has occurred while \output is active []
-
-
-[3 <./CUni3.pdf>] [4]) (./declaration.tex [5]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./CUni3.pdf>]) (./declarat
+ion.tex
+[2]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 25.
-
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+ (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 25.
- [6]) (./abstract.tex
-[7] [8]) [0] (./acs-dissertation.toc
+ [3]) (./abstract.tex
+[4] [5]) [0] (./acs-dissertation.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 2.
+(Font)              <7> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
+(Font)              <5> on input line 2.
  [1
 
 ])
 \tf@toc=\write5
 \openout5 = `acs-dissertation.toc'.
 
- [2] (./acs-dissertation.lof [3
+ [2] (./acs-dissertation.lof
+Underfull \vbox (badness 4543) has occurred while \output is active []
 
-])
+ [3
+
+]
+
+LaTeX Warning: Reference `fig' on page iv undefined on input line 28.
+
+
+LaTeX Warning: Reference `fig' on page iv undefined on input line 29.
+
+
+Overfull \hbox (26.13162pt too wide) in paragraph at lines 36--36
+ [][] [][]\T1/cmr/m/n/10 Sample dis-tri-bu-tion from run-ning cus-tom, lightwei
+ght style, Metropolis- 
+ []
+
+
+Underfull \vbox (badness 2809) has occurred while \output is active []
+
+ [4])
 \tf@lof=\write6
 \openout6 = `acs-dissertation.lof'.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
 [5] [6
 
 ] (./acs-dissertation.lot)
@@ -665,17 +686,18 @@ identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1 \chapter
-            {Related Work} [2]
+            {Related Work} [2
+
+]
 Chapter 2.
 ) (./perfComp.texpdfTeX warning (ext4): destination with the same identifier (n
 ame{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1 \chapter
-            {Comparing Venture and OpenBUGS} [3
-
-]pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
- been already used, duplicate ignored
+            {Comparing Venture and OpenBUGS} [3]pdfTeX warning (ext4): destinat
+ion with the same identifier (name{page.4}) has been already used, duplicate ig
+nored
 <to be read again> 
                    \relax 
 l.1 \chapter
@@ -687,632 +709,753 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.10 
-      [5]
+l.11 \section
+             {Preliminaries} [5]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 12.
-pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.23 
-      [6]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 46.
- (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
+ [6]
+
+LaTeX Warning: Marginpar on page 7 moved.
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 41.
+(/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Underfull \vbox (badness 6094) has occurred while \output is active []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.48 
-      [7pdfTeX warning (ext4): destination with the same identifier (name{table
-.3.1}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.48 
-     ]
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf, id=480
+, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf Gr
+aphic file (type pdf)
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.55 
-      [8]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.png, id=394
-, 586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.png Gr
-aphic file (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf, id=482, 
+587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf Grap
+hic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.png>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.png, id=396, 
-586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.png Grap
-hic file (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf, id=484, 587.
+19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf Graphic 
+file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf> [7]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf, id=49
+7, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf G
+raphic file (type pdf)
 
- [9pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
-}) has been already used, duplicate ignored
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf, id=499
+, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf Gr
+aphic file (type pdf)
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.71 
-      </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.png>]
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf, id=502,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf Gra
+phic file (type pdf)
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.png, id=402, 586.
-8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.png Graphic 
-file (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf, id=504, 
+587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf Grap
+hic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf>
 
- [10pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-2}) has been already used, duplicate ignored
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.78 
-      </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.png, id=40
-8, 586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.png G
-raphic file (type png)
+[8 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf> </h
+ome/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf> </home/hagg
+is/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf> </home/haggis/Desktop/P
+P_Models/dissertation/imgs/TdfCourseDiscSamps.pdf> </home/haggis/Desktop/PP_Mod
+els/dissertation/imgs/TdfCourseDiscConv.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf, id=718, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf Graphic
+ file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf, id=720, 587.
+19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf Graphic 
+file (type pdf)
 
- [11pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-3}) has been already used, duplicate ignored
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf>
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.87 
-      </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.png, id=415
-, 586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.png Gr
-aphic file (type png)
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[9 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf> </ho
+me/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf, id=818, 587.
+19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf Graphic 
+file (type pdf)
 
- [12pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-4}) has been already used, duplicate ignored
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf>
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.96 
-      </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.png>
-]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.png, id=421,
- 586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.png Gra
-phic file (type png)
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[10 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf> </home/
+haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf>]
 
- [13pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-5}) has been already used, duplicate ignored
+LaTeX Warning: Marginpar on page 11 moved.
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.106 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.png>
-]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.png, id=428, 
-586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.png Grap
-hic file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-6}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.117 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.png>]
-
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.png, id=435, 586
-.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.png Graphic
- file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-7}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.126 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.png, id=441, 586.
-8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.png Graphic 
-file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-8}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.137 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.png>]
-Underfull \vbox (badness 2460) has occurred while \output is active []
-
- [17pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
-9}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.145 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.png, id=452, 586.
-8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.png Graphic 
-file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.png>
-
-LaTeX Warning: Reference `whoKnows' on page 18 undefined on input line 155.
-
-[18pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
-0}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.156 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.png>]
-
-LaTeX Warning: Marginpar on page 19 moved.
-
-) (./partPrior.tex
-
-LaTeX Warning: Marginpar on page 19 moved.
-
-[19] [20
+) (./partPrior.tex [11 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCon
+tRuns.pdf>] [12
 
 ]
 Chapter 4.
 
-LaTeX Warning: Reference `whoKnows' on page 21 undefined on input line 9.
+LaTeX Warning: Reference `whoKnows' on page 13 undefined on input line 9.
+
+[13] [14]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf, id=980, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf Graphic
+ file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf>
+[15 </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf>]
+[16]
+
+LaTeX Warning: Reference `tab:partMix' on page 17 undefined on input line 76.
 
 
-Underfull \vbox (badness 1286) has occurred while \output is active []
-
- [21]
-[22]
-
-LaTeX Warning: Reference `next' on page 23 undefined on input line 33.
-
-
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.png, id=482, 586
-.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.png Graphic
- file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.png>
-[23] [24pdfTeX warning (ext4): destination with the same identifier (name{figur
-e.4.1}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.47 
-      </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.png>]
-
-LaTeX Warning: Reference `tab:partMix' on page 25 undefined on input line 75.
-
-[25pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}
-) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.76 
-     ]
-Overfull \hbox (11.26204pt too wide) in paragraph at lines 81--98
+Overfull \hbox (1.95189pt too wide) in paragraph at lines 82--99
  [][] 
  []
 
 
-LaTeX Warning: Reference `next' on page 26 undefined on input line 102.
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf, id=1036, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf Graphic 
+file (type pdf)
 
-[26pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}
-) has been already used, duplicate ignored
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf, id=1038,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf Grap
+hic file (type pdf)
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.105 
-      ]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.png, id=504, 586.
-8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.png Graphic 
-file (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf>
+[17]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf, id=1045, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf Graphic 
+file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.png>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.png, id=505, 
-586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.png Grap
-hic file (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf, id=1047,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf Grap
+hic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf, id=1051, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf Graphic 
+file (type pdf)
 
- [27pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-2}) has been already used, duplicate ignored
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf, id=1053,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf Grap
+hic file (type pdf)
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.123 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.png, id=511, 586.
-8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.png Graphic 
-file (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf>
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.png>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.png, id=512, 
-586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.png Grap
-hic file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.png>
-[28pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3
-}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.137 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-4.4}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.137 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.png> <
-/home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.png>]
-
-LaTeX Warning: Reference `past' on page 29 undefined on input line 138.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.png, id=519, 586.
-8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.png Graphic 
-file (type png)
+Underfull \vbox (badness 4792) has occurred while \output is active []
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [18 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf> </home/
+haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf> </home/haggis/D
+esktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf> </home/haggis/Desktop/PP_Mo
+dels/dissertation/imgs/Tdf1295AutoCorr.pdf>]
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf Graphic 
+file (type pdf)
 
- [29pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-5}) has been already used, duplicate ignored
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf, id=1205, 587.1
+9376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf Graphic fi
+le (type pdf)
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.148 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.png, id=525, 
-586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.png Grap
-hic file (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf, id=1207, 587.1
+9376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf Graphic fi
+le (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.png>
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf, id=1209, 594.420
+76pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf Graphic file
+ (type pdf)
 
-LaTeX Warning: Reference `blah' on page 30 undefined on input line 156.
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf>
 
-[30pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6
-}) has been already used, duplicate ignored
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.157 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-4.7}) has been already used, duplicate ignored
+[19 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf> </home/h
+aggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf> </home/haggis/De
+sktop/PP_Models/dissertation/imgs/Tdf21Post.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf, id=1331, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf Graphi
+c file (type pdf)
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.157 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.png> </hom
-e/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.png, id=533, 586.83
-24pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.png Graphic fi
-le (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf, id=133
+3, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf Gr
+aphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.png> [31pdfTeX 
-warning (ext4): destination with the same identifier (name{figure.4.8}) has bee
-n already used, duplicate ignored
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf>
+[20 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf> </home/hag
+gis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf> </home/haggis/Desktop/PP_M
+odels/dissertation/imgs/Tdf21SampEvol.pdf> </home/haggis/Desktop/PP_Models/diss
+ertation/imgs/Tdf211295SampEvol.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf, id=1494, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf Graphi
+c file (type pdf)
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.170 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.png, id=540, 586.83
-24pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.png Graphic fi
-le (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf, id=149
+6, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf Gr
+aphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.png>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.png, id=541, 586.8324
-pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.png Graphic file
- (type png)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf, id=1499, 6
+10.68152pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf Graphi
+c file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf, id=150
+1, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf Gr
+aphic file (type pdf)
 
- [32pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-9}) has been already used, duplicate ignored
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf>
+[21 </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf> </home
+/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf> </home/haggi
+s/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf> </home/haggis/Desktop/
+PP_Models/dissertation/imgs/Tdf211295SampDist.pdf>]
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.186 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.png, id=548, 58
-6.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.png Graphi
-c file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [33pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-10}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.198 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.png, id=555
-, 586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.png Gr
-aphic file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.png>
-[34pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1
-1}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.207 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-4.12}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.207 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.png> </h
-ome/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.png, id=562, 58
-6.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.png Graphi
-c file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.png>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.png, id=563
-, 586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.png Gr
-aphic file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [35pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-13}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.221 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.png>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.png, id=569, 61
-5.0177pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.png Graphi
-c file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-14}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.232 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.png>
-]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.png, id=575
-, 586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.png Gr
-aphic file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.png>
-[37pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1
-5}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.241 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-4.16}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.241 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.png> </h
-ome/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.png>]
-
-LaTeX Warning: Reference `blah' on page 38 undefined on input line 243.
+LaTeX Warning: Reference `fig' on page 22 undefined on input line 254.
 
 
-LaTeX Warning: Reference `fig' on page 38 undefined on input line 254.
+LaTeX Warning: Reference `dd' on page 22 undefined on input line 254.
 
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf Graphic 
+file (type pdf)
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf, id=1662,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf Grap
+hic file (type pdf)
 
-LaTeX Warning: Reference `dd' on page 38 undefined on input line 254.
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf Graphi
+c file (type pdf)
 
-[38]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.png, id=590, 
-586.8324pt x 442.2924pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.png Grap
-hic file (type png)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.png>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf, id=591
-, 587.19376pt x 442.65375pt>
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf, id=166
+4, 587.19376pt x 442.65375pt>
 File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf Gr
 aphic file (type pdf)
 
 <use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf>
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-17}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.269 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.png>]
-
-LaTeX Warning: Reference `tab' on page 40 undefined on input line 270.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `ttt' on page 40 undefined on input line 270.
+LaTeX Warning: Reference `tab' on page 22 undefined on input line 282.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `ttt' on page 22 undefined on input line 282.
 
- [40pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-18}) has been already used, duplicate ignored
+[22 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf>]
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.294 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf>
-] [41pdfTeX warning (ext4): destination with the same identifier (name{table.4.
-3}) has been already used, duplicate ignored
+LaTeX Warning: Marginpar on page 23 moved.
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.309 I
-       n this case, setting flip to true would be very likely rejected since...
-]
+[23 </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf>]
 
-LaTeX Warning: Reference `fff' on page 42 undefined on input line 318.
+LaTeX Warning: Reference `fff' on page 24 undefined on input line 330.
 
 
-LaTeX Warning: Reference `fff' on page 42 undefined on input line 318.
+LaTeX Warning: Reference `fff' on page 24 undefined on input line 330.
 
-[42]
-Overfull \hbox (3.72464pt too wide) in paragraph at lines 339--347
-[]\T1/cmr/m/n/12 To see this con-sider the for-mu-la-tion: to-tal = flip1*0.5 +
- flip2*0.25 + (uniform-
- []
+[24] [25]
+Underfull \vbox (badness 5260) has occurred while \output is active []
 
-[43] [44]
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ¦ in font cmr12!
+ [26]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ¦ in font cmr10!
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf, id=663,
- 587.19376pt x 442.65375pt>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf, id=1773
+, 587.19376pt x 442.65375pt>
 File: /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf Gra
 phic file (type pdf)
 
 <use /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf, id=670,
- 587.19376pt x 442.65375pt>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf, id=1775
+, 587.19376pt x 442.65375pt>
 File: /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf Gra
 phic file (type pdf)
 
 <use /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [46pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-19}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.413 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf>]
-
-</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf, id=716, 
-587.19376pt x 442.65375pt>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf, id=1777,
+ 587.19376pt x 442.65375pt>
 File: /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf Grap
 hic file (type pdf)
 
 <use /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf>
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-20}) has been already used, duplicate ignored
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.424 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf>]
-
-</home/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf, id=762, 587.1
-9376pt x 442.65375pt>
+[27 </home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf> </h
+ome/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf, id=1864, 587.
+19376pt x 442.65375pt>
 File: /home/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf Graphic f
 ile (type pdf)
 
 <use /home/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [48pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-21}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.435 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf, id=808, 58
-7.19376pt x 442.65375pt>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf, id=1866, 5
+87.19376pt x 442.65375pt>
 File: /home/haggis/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf Graphi
 c file (type pdf)
 
 <use /home/haggis/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf>
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[28 </home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf> </ho
+me/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf> </home/haggis/Des
+ktop/PP_Models/dissertation/imgs/02505Shift001.pdf>]
 
- [49pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-22}) has been already used, duplicate ignored
+LaTeX Warning: Marginpar on page 29 moved.
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.442 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf>]
-[50pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2
-3}) has been already used, duplicate ignored
+[29]
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.457 
-       </home/haggis/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf>])
-(./conclusions.tex [51] [52
+LaTeX Warning: Marginpar on page 30 moved.
+
+) (./infEngine.tex [30]
+Chapter 5.
+[31
 
 ]
-Chapter 5.
-) [53] (./acs-dissertation.aux)
+
+LaTeX Warning: Marginpar on page 32 moved.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf, id=2011
+, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf Gra
+phic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf, id=2013, 
+587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf Graph
+ic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf>
+[32 </home/haggis/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf, id=2057, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf>
+
+LaTeX Warning: Reference `fig' on page 33 undefined on input line 49.
+
+
+LaTeX Warning: Reference `fig' on page 33 undefined on input line 49.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf, id=2059, 587.1937
+6pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf Graphic file 
+(type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf>
+
+LaTeX Warning: Reference `fig' on page 33 undefined on input line 54.
+
+
+LaTeX Warning: Reference `fig' on page 33 undefined on input line 54.
+
+
+Underfull \vbox (badness 3375) has occurred while \output is active []
+
+ [33 </home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf> </ho
+me/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf, id=2140, 587.193
+76pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf Graphic file
+ (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf>
+
+LaTeX Warning: Reference `fig' on page 34 undefined on input line 61.
+
+
+LaTeX Warning: Reference `fig' on page 34 undefined on input line 61.
+
+
+LaTeX Warning: Reference `chap' on page 34 undefined on input line 65.
+
+[34 </home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf> </home/haggis
+/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf, id=2214, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf, id=2216, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf, id=2218, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [35 </home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf> </home/
+haggis/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf, id=2286, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf, id=2288, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36 </home/haggis/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf> </home/
+haggis/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf, id=2357, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37 </home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf> </home/
+haggis/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf>]
+
+LaTeX Warning: Reference `sect' on page 38 undefined on input line 133.
+
+
+LaTeX Warning: Reference `fig' on page 38 undefined on input line 138.
+
+
+LaTeX Warning: Reference `fig' on page 38 undefined on input line 138.
+
+
+LaTeX Warning: Reference `fig' on page 38 undefined on input line 138.
+
+
+Underfull \vbox (badness 3199) has occurred while \output is active []
+
+ [38]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf, id=2442, 6
+12.48827pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf, id=244
+4, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf Gr
+aphic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf, id=2446,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf Grap
+hic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf>
+[39 </home/haggis/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf> </home
+/haggis/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf>]
+
+LaTeX Warning: Reference `fig' on page 40 undefined on input line 161.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf, id=2519, 
+587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf Graph
+ic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40 </home/haggis/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf, id=2556, 604
+.35785pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [41 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf>]
+Overfull \hbox (2.59416pt too wide) detected at line 193
+\OML/cmm/m/it/10 NormalMean\OT1/cmr/m/n/10 2 : \OML/cmm/m/it/10 m \OMS/cmsy/m/n
+/10 ^^X \OML/cmm/m/it/10 N\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 
+1)\OML/cmm/m/it/10 v \OMS/cmsy/m/n/10 ^^X \OML/cmm/m/it/10 invGamma\OT1/cmr/m/n
+/10 (3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)\OML/cmm/m/it/10 observeN\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 m; v\OT1/cmr/m/n/10 ) = 5\OML/cmm/m/it/10 predictm
+ []
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf, id=2605, 607
+.068pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf>
+Overfull \hbox (89.8448pt too wide) detected at line 211
+\OML/cmm/m/it/10 NormalMean\OT1/cmr/m/n/10 3 : \OML/cmm/m/it/10 m \OMS/cmsy/m/n
+/10 ^^X \OML/cmm/m/it/10 N\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 
+1)\OML/cmm/m/it/10 ifm < \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 v \OMS/cmsy/m/n/10 ^
+^X \OML/cmm/m/it/10 invGamma\OT1/cmr/m/n/10 (3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/1
+0 1)\OML/cmm/m/it/10 elsev \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 =\OT1/cmr/m/n/10
+ 3\OML/cmm/m/it/10 observeN\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m; v\OT1/cmr/m/n/1
+0 ) = 5\OML/cmm/m/it/10 predictm
+ []
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal3Post.pdf, id=2607, 611
+.58487pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal3Post.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal3Post.pdf> [42 </ho
+me/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf> </home/haggis/De
+sktop/PP_Models/dissertation/imgs/Normal2Post.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf, id=2685, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [43 </home/haggis/Desktop/PP_Models/dissertation/imgs/Normal3Post.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf, id=2727, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf, id=2729, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf> [44 </ho
+me/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf> </home/haggis/De
+sktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf, id=2816, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf>
+[45 </home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf> </home/h
+aggis/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf, id=2901, 587
+.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf Graphic 
+file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf, id=2903, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>
+
+LaTeX Warning: Reference `sec' on page 46 undefined on input line 270.
+
+
+LaTeX Warning: Reference `sec' on page 46 undefined on input line 270.
+
+
+Underfull \vbox (badness 4872) has occurred while \output is active []
+
+ [46 </home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf> </home/
+haggis/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>]
+Overfull \hbox (221.52676pt too wide) detected at line 288
+\OML/cmm/m/it/10 Branching\OT1/cmr/m/n/10 3 : \OML/cmm/m/it/10 pois\OT1/cmr/m/n
+/10 1 \OMS/cmsy/m/n/10 ^^X \OML/cmm/m/it/10 Poisson\OT1/cmr/m/n/10 (4)\OML/cmm/
+m/it/10 ifr > \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = 6\OML/cmm/m
+/it/10 elsepois\OT1/cmr/m/n/10 2 \OMS/cmsy/m/n/10 ^^X \OML/cmm/m/it/10 Poisson\
+OT1/cmr/m/n/10 (4)\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 fib\OT1
+/cmr/m/n/10 (3 \OMS/cmsy/m/n/10 ^^C \OML/cmm/m/it/10 pois\OT1/cmr/m/n/10 1) + \
+OML/cmm/m/it/10 pois\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 observePoisson\OT1/cmr/m/
+n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 6\OML/cmm/m/it/10 predictpois\OT1/c
+mr/m/n/10 1
+ []
+
+
+LaTeX Warning: Reference `fig' on page 47 undefined on input line 292.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf, id=2989, 587.
+19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf Graphic f
+ile (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf, id=2998, 587.
+19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf Graphic f
+ile (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf, id=3000, 58
+7.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf Graphic
+ file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>
+[48 </home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf> </home/ha
+ggis/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf>] [49 </home/haggis/Des
+ktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>]
+
+LaTeX Warning: Marginpar on page 50 moved.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf, id=3128,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf Grap
+hic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf, id=313
+0, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf Gr
+aphic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [50 </home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf>]
+
+LaTeX Warning: Reference `sec' on page 51 undefined on input line 347.
+
+
+LaTeX Warning: Reference `fig' on page 51 undefined on input line 349.
+
+[51 </home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf>]
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf, id=3222, 
+587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf Graph
+ic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf>
+
+LaTeX Warning: Reference `Fig' on page 52 undefined on input line 358.
+
+
+LaTeX Warning: Reference `fig' on page 52 undefined on input line 360.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf, id=3
+224, 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf 
+Graphic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [52 </home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf>]
+
+LaTeX Warning: Reference `fig' on page 53 undefined on input line 369.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf, id=3259,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf Grap
+hic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf>
+[53 </home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf> 
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf>]
+
+LaTeX Warning: Reference `fig' on page 54 undefined on input line 385.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf, id=3334, 5
+87.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf Graphi
+c file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf, id=3336,
+ 587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf Grap
+hic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [54 </home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf>]
+
+LaTeX Warning: Reference `fig' on page 55 undefined on input line 402.
+
+
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf, id=3384, 58
+7.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf Graphic
+ file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf>
+</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf, id=3386, 
+587.19376pt x 442.65375pt>
+File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf Graph
+ic file (type pdf)
+
+<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf>
+[55 </home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf> </ho
+me/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf>])
+(./conclusions.tex [56 </home/haggis/Desktop/PP_Models/dissertation/imgs/Branch
+TDQuarts.pdf>]
+Chapter 6.
+) [57
+
+] (./acs-dissertation.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1321,31 +1464,31 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14103 strings out of 493848
- 258470 string characters out of 1152823
- 315223 words of memory out of 3000000
- 16855 multiletter control sequences out of 15000+50000
- 14994 words of font info for 35 fonts, out of 3000000 for 9000
+ 15358 strings out of 493848
+ 289006 string characters out of 1152823
+ 339358 words of memory out of 3000000
+ 18025 multiletter control sequences out of 15000+50000
+ 13793 words of font info for 28 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 63i,10n,74p,946b,778s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,10n,90p,946b,778s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-
-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/shar
-e/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/
-public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx
-1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share
-/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/p
-ublic/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1
-200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/
-texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/pu
-blic/cm-super/sfti1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt12
-00.pfb>
-Output written on acs-dissertation.pdf (70 pages, 1632870 bytes).
+texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/shar
+e/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx
+1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share
+/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/p
+ublic/cm-super/sfcc1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0
+900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/
+texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/pu
+blic/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti12
+00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on acs-dissertation.pdf (71 pages, 46336900 bytes).
 PDF statistics:
- 1004 PDF objects out of 1200 (max. 8388607)
- 153 named destinations out of 1000 (max. 500000)
- 399 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3626 PDF objects out of 4296 (max. 8388607)
+ 198 named destinations out of 1000 (max. 500000)
+ 651 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -27,27 +27,28 @@ For partitioned priors it will usually not be possible to analytically determine
 Once the markov chain has reached the mode we will wish to see how well it manages to mix around it. Here we will look at different metrics that might give us an idea of the mixing properties. Visually inspecting the sample evolution will show if the inference tends to get stuck on certain values for longs stretch. A numerical estimate of this can be obtained by measuring the ''distance'' traveled by the merkov chain around the mode (i.e. the sum of absolute differences between consecutive samples). We can also inspect the sample autocorrelation, with the idea that good mixing properties should imply a small autocorrelation within a sample run.
 
 \section{Sum of uniforms}
+\label{sect:sumUnif}
 
 We first consider partitioning the uniform prior into a sum of uniforms. This choice is made for simplicity and in order to observe some basic properties concerning local Metropolis-Hasting's performance on partitioned priors.
 
-Such a partitioning, however, should not be used in actual probabilistic program compilation techniques since it does not leave the prior invariant (that is to say, a sum of uniform variables is not a uniform variable, see Figure \ref{fig:1295Prior}). The invariance is due to the uniform distribution not being infinitely divisible. The approach presented here could be safely used on other distributions, such as Gammas and Gaussians, which are infinitely divisible. In Section \ref{next} we will present a partitioning technique which does leave the uniform prior unchanged.
+Such a partitioning, however, should not be used in actual probabilistic program compilation techniques since it does not leave the prior invariant (that is to say, a sum of uniform variables is not a uniform variable, see Figure \ref{fig:1295Prior}). The invariance is due to the uniform distribution not being infinitely divisible. The approach presented here could be safely used on other distributions, such as Gammas and Gaussians, which are infinitely divisible. In Section \ref{sect:bitDecomp} we will present a partitioning technique which does leave the uniform prior unchanged.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Tdf1295Prior.png}
+    \includegraphics[width=0.8\textwidth]{Tdf1295Prior}
     \caption{Prior distribution induced by partitioning the prior (uniform-continuous 2 100) into (uniform-continuous 2 95) + (uniform-continuous 0 2) (uniform-continuous 0 1).}
     \label{fig:1295Prior}
 \end{figure}
 
 \subsection{Finding a good sum decomposition}
-
+\label{sect:goodSum}
 First we look at the expected number of steps needed to reach a neighbourhood of the mode. As explained in Section \ref{section:sampsToMode}, the expected number of steps to $[mode - \epsilon, mode + \epsilon]$ of the mode can be analytically computed for the unpartitioned prior (uniform-continuous a b) as being $(b-a)/(2\epsilon)$.
 
 For the partitioned priors, we instead perform empirical tests. These tests measure how many samples it takes for different partitions to reach neighbourhoods of the mode of different sizes. One thousand runs are done for each partition and neighbourhoods of 0.5, 0.25, 0.1 and 0.01 are considered. The partitions consited of between 2 and 5 values which were drawn with replacement from [0, 0.5, 1, 2, 5, 7, 10, 15, 20, 25, 30, 35, 40, 45]. A final component value is added such that the sum of all components is the uniform prior specified in the Tdf model, namely (uniform-continuous 2 100). We specify partitions in the format (x,y,z) meaning (uniform-continuous 0 x) + (uniform-continuous 0 y) + (uniform-continuous 2 z). All considered partitions respect the constraint $x+y+z = 98$.
 
 Table \ref{tab:bestParts} contains the empirical performance for the unpartitioned prior and for the best 2 partitions on each neighbourhood size.
 
-\begin{table}[H]
+\begin{table}[h]
   \centering
   \begin{tabular}{lllll}
     \toprule
@@ -76,7 +77,7 @@ The second aspect of convergence that a partition might help with is the mixing 
 
 The format is (partitions, average distance travelled, variance)
 
-\begin{table}[H]
+\begin{table}[h]
   \centering
   \begin{tabular}{lll}
     \toprule
@@ -99,89 +100,92 @@ The format is (partitions, average distance travelled, variance)
   \label{tab:bestParts}
 \end{table}
 
-This test only measures the average distance travelled (i.e. sum of absolute differences between consecutive samples), which could be a misleading measure of mixing. The large difference between the unpartitioned and the partitioned variants do suggest that there is some improvement here though. The mixing reate is investigates more thoroughly in Section \ref{next}
+This test only measures the average distance travelled (i.e. sum of absolute differences between consecutive samples), which could be a misleading measure of mixing. The large difference between the unpartitioned and the partitioned variants do suggest that there is some improvement here though. The mixing reate is investigates more thoroughly in Section \ref{sect:1295Eval}
 
 Based on the above results, we decide to further investigate the performance of the (1, 2, 95) partitioned prior, since this decomposition performs well both in reaching the mode and in mixing around it.
 
 \subsection{Evaluating the (1,2,95) sum decomposition}
+\label{sect:1295Eval}
 
-Table \ref{tab:bestParts} makes clear the increased speed in reaching a neighbourhood of the mode offered by the decompositions. The potential benefit conferred in mixing rate is less clear however. To test this we look at the sample evolution and autocorrelation plots for two runs obtained with an unpartitioned and a (1,2,95) partitioned prior.
+Table \ref{tab:bestParts} makes clear the increased speed in reaching a neighbourhood of the mode offered by the decompositions. The potential benefit conferred in mixing rate is less clear however. To test this we look at the sample evolution (Figure \ref{fig:tdfPSampEvol}) and autocorrelation plots (Figure \ref{fig:tdfPAutoCorr}) for two runs obtained with an unpartitioned and a (1,2,95) partitioned prior.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{TdfSampEvol.png}
-    \caption{The sample evolution, over 10,000 samples, for the unpartitioned prior.}
-    \label{fig:UnpSampEvol}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{TdfSampEvol}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf1295SampEvol}
+    \end{subfigure}
+    \caption{Sample evolutions for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples.}
+    \label{fig:tdfPSampEvol}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Tdf1295SampEvol.png}
-    \caption{The sample evolution, over 10,000 samples, for the (1, 2, 95) partitioned prior.}
-    \label{fig:1295SampEvol}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{TdfAutoCorr}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf1295AutoCorr}
+    \end{subfigure}
+    \caption{Sample autocorrelations for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples on the Tdf continuous model.}
+    \label{fig:tdfPAutoCorr}
 \end{figure}
 
-\begin{figure}[H]
+These graphs confirm our preliminary results from Section \ref{sect:goodSum}, and show that the partitioned prior does help with mixing around the mode and with eliminating large correlations between consecutive samples.
+
+The final test in determining the quality of the decomposition is to look at the actual sample distributions obtained under the two different prior formulations (see Figure \ref{fig:tdfPDist}).
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{TdfAutoCorr.png}
-    \caption{The autocorrelation, over 10,000 samples, for the unpartitioned prior.}
-    \label{fig:UnpAutoCorr}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{TdfSampDist}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf1295SampDist}
+    \end{subfigure}
+    \caption{Sample distributions for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples on the Tdf continuous model.}
+    \label{fig:tdfPDist}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Tdf1295AutoCorr.png}
-    \caption{The autocorrelation, over 10,000 samples, for the (1, 2, 95) partitioned prior.}
-    \label{fig:1295AutoCorr}
-\end{figure}
-
-These graphs confirm our preliminary results from Section \ref{past}, and show that the partitioned prior does help with mixing around the mode and with eliminating large correlations between consecutive samples.
-
-The final test in determining the quality of the decomposition is to look at the actual sample distributions obtained under the two different prior formulations.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{TdfSampDist.png}
-    \caption{The sample distribution obtained from 10,000 samples using an unpartitioned prior.}
-    \label{fig:UnpSampDist}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Tdf1295SampDist.png}
-    \caption{The sample distribution obtained from 10,000 samples using an (1, 2, 95) partitioned prior.}
-    \label{fig:1295SampDist}
-\end{figure}
-
-The true posterior for the Tdf continuous model was given in Section \ref{blah}. Looking at these it is quite clear the partitioned prior outperforms the origina, unpartitioned, variant. However, this result may be misleading since we are evaluating it on the same distribution which we used to choose the form of the partition. To test the robustness of our partition we repeat the above tests on a new model.
+For convenience, the true posterior for the Tdf continuous model is shown again in Figure \ref{fig:tdfPLL}. Looking at the sample distributions it is quite clear the partitioned prior outperforms the original, unpartitioned, variant. However, this result may be misleading since we are evaluating it on the same distribution which we used to choose the form of the partition. To test the robustness of our partition we repeat the above tests on a new model.
 
 \subsubsection{The Tdf21 model}
-In order to test our decomposition on a different posterior distribution, we generate 1,000 datapoints from a Student t distribution with 21 degrees of freedom and condition the Tdf Continuous model on this new dataset. The resulting posterior is shown in Figure \ref{fig:21Post}.
+In order to test our decomposition on a different posterior distribution, we generate 1,000 datapoints from a Student t distribution with 21 degrees of freedom and condition the Tdf Continuous model on this new dataset. The resulting posterior is shown in Figure \ref{fig:tdfPPost}.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Tdf21Post.png}
-    \caption{The true posterior of the Tdf21 model}
-    \label{fig:21Post}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{TdfContPost}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf21Post}
+    \end{subfigure}
+    \caption{The true posteriors of the Tdf continuous and the Tdf21 continuous models.}
+    \label{fig:tdfPPost}
 \end{figure}
 
 The mode here is actually 11.5. This is probably due to the fact that 1000 datapoints are not enough to accurately pinpoint a student-t with so many degrees of freedom (21) since, as the number of degrees of freedom increases, the differences between corresponding student-t distributions shrinks. 
 The posterior distribution is however significantly different from the one for the previous dataset, which should be sufficient for testing the properties of the priors.
 
-In order to better understand how the Metropolis-Hastings algorithm will be affected by this change we can also look at the log-likelihoods induced by the original Tdf Continuous model and by the Tdf21 model.
+In order to better understand how the Metropolis-Hastings algorithm will be affected by this change we can also look at the log-likelihoods induced by the original Tdf Continuous model and by the Tdf21 model (see Figure {fig:tdfPLL}).
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{TdfContLL.png}
-    \caption{The log-likelihood of the Tdf Continuous model.}
-    \label{fig:TdfLL}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Tdf21LL.png}
-    \caption{The log-likelihood of the Tdf21 model.}
-    \label{fig:Tdf21LL}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{TdfContLL}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf21LL}
+    \end{subfigure}
+    \caption{The true log-likelihoods of the Tdf continuous and the Tdf21 continuous models.}
+    \label{fig:tdfPLL}
 \end{figure}
 
 As can be seen, the Tdf21 log-likelihood is much flatter than the one for the original model. By repeating the mixing tests performed above we can test the effect of this difference.
@@ -189,58 +193,54 @@ As can be seen, the Tdf21 log-likelihood is much flatter than the one for the or
 \subsubsection{Evaluating the decomposition on the Tdf21 model}
 On this new model posterior we can now test the convergence of the priors by once again plotting the sample evolution, the sample autocorrelation and the sample distributions. The partitioned prior is the same one we used on the previous datapoints, namely (1,2,95)
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Tdf21SampEvol.png}
-    \caption{The sample evolution, on the Tdf21 model for, the unpartitioned prior.}
-    \label{fig:21UnpSampEvol}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf21SampEvol}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf211295SampEvol}
+    \end{subfigure}
+    \caption{Sample evolutions for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples on the Tdf21 model.}
+    \label{fig:tdf21PSampEvol}
 \end{figure}
 
-\begin{figure}[H]
+From the sample evolutions (Figure \ref{fig:tdf21PSampEvol}) we can see that the partitioned samples tend to clump a little more since bigger changes in the samples only occur when the 95 component changes. Both versions seem to mix well though.
+
+The autocorrelation plots shown in Figure \ref{fig:tdf21PAutoCorr} are also more similar than in the case of the original Tdf model. The unpartitioned prior does quite well here since the flat shape of the log-likelihood means there is a higher chance that a proposition drawn from the prior will be accepted by the Metropolis-Hastings algorithm.
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Tdf211295SampEvol.png}
-    \caption{The sample evolution, on the Tdf21 model for, for the (1, 2, 95) partitioned prior.}
-    \label{fig:211295SampEvol}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf21AutoCorr}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf211295AutoCorr}
+    \end{subfigure}
+    \caption{Sample autocorrelations for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples on the Tdf21 model.}
+    \label{fig:tdf21PAutoCorr}
 \end{figure}
 
-From the sample evolutions we can see that the partitioned samples tend to clump a little more since bigger changes in the samples only occur when the 95 component changes. Both versions seem to mix well though.
+Figure \ref{fig:tdf21PSampDist} shows the sample distributions, where we can see that the partitioned prior results in a smoother distribution that does a better job of representing the true posterior.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Tdf21AutoCorr.png}
-    \caption{The autocorrelation, on the Tdf21 model for, for the unpartitioned prior.}
-    \label{fig:21UnpAutoCorr}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf21SampDist}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf211295SampDist}
+    \end{subfigure}
+    \caption{Sample distributions for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples on the Tdf21 model.}
+    \label{fig:tdf21PSampDist}
 \end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Tdf211295AutoCorr.png}
-    \caption{The autocorrelation, on the Tdf21 model for, for the (1, 2, 95) partitioned prior.}
-    \label{fig:211295AutoCorr}
-\end{figure}
-
-The autocorrelation plots are also more similar than in the case of the original Tdf model. The unpartitioned prior does quite well here since the flat shape of the log-likelihood means there is a higher chance that a proposition drawn from the prior will be accepted by the Metropolis-Hastings algorithm.
-
-The final test has to again be the actual sample distributions.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Tdf21SampDist.png}
-    \caption{The sample distribution obtained from 10,000 samples using an unpartitioned prior on the Tdf21 model.}
-    \label{fig:21UnpSampDist}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Tdf211295SampDist.png}
-    \caption{The sample distribution obtained from 10,000 samples using an (1, 2, 95) partitioned prior on the Tdf21 model.}
-    \label{fig:211295SampDist}
-\end{figure}
-
-Here we can see that the partitioned prior still results in a smoother distribution that does a better job of representing the true posterior.
 
 \section{Bit decomposition}
-As mentioned in Section \ref{blah}, one problem with the sum of uniforms decomposition is that it alters the shape of the prior. We would like to come up with decompositions that leave the prior invariant so that, since such decompositions could be applied indescriminately to re-write any probabilistic program. A family of invariant partitions of an uniform prior can be constructed by considering the bit representation of the uniform samples up to a certain depth and then adding a single uniform-continuous value of the correct size.
+\label{sect:bitDecomp}
+As mentioned in Section \ref{sect:sumUnif}, one problem with the sum of uniforms decomposition is that it alters the shape of the prior. We would like to come up with decompositions that leave the prior invariant so that, since such decompositions could be applied indescriminately to re-write any probabilistic program. A family of invariant partitions of an uniform prior can be constructed by considering the bit representation of the uniform samples up to a certain depth and then adding a single uniform-continuous value of the correct size.
 
 \subsection{Definition}
 In order to partition any uniform interval (uniform-continuous a b) it is sufficient to be able to partition the interval (uniform-continuous 0 1). Once this is accomplished, the target interval can be obtained as (uniform-continuous a b) = a + (b-a) * (partitioned(uniform-continuous 0 1)).
@@ -253,18 +253,30 @@ To get an idea of the properties of this decomposition we perform an empirical e
 
 Looking at mixing rates \ref{fig} shows that a 3rd degree bit decomposition obtains similar performance to the unpartitioned prior. Intuitively this is because we are still subjecting proposals to the Metropolis-Hastings acceptance ratio, so if our program decides to flip one of the leading bits the proposal will be rejected, leading to bad mixing. As the depth of the bit decomposition increases, however, the smaller the probability that one of the leading bits are picked and therefore the better we will expect the mixing to be. \todo{Should be possible to give some more formal results here.} We, however, restrict ourselves to a 3rd degree decomposition here since a higher degree variant would exhibit other problems, which are discussed in Section \ref{dd}.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{TdfBin3SampDist}
-    \caption{The sample distribution obtained from 10,000 samples using a 3rd degree bit decomposition on the Tdf model.}
-    \label{fig:B3SampDist}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{TdfSampDist}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{TdfBin3SampDist}
+    \end{subfigure}
+    \caption{Sample distributions for an unpartitioned and a 3 bit decomposition prior, over 10,000 samples on the Tdf model.}
+    \label{fig:tdf21PSampDist}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Tdf21Bin3SampDist}
-    \caption{The sample distribution obtained from 10,000 samples using a 3rd degree bit decomposition on the Tdf21 model.}
-    \label{fig:21B3SampDist}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf21SampDist}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{Tdf21Bin3SampDist}
+    \end{subfigure}
+    \caption{Sample distributions for an unpartitioned and a 3 bit decomposition prios, over 10,000 samples on the Tdf21 model.}
+    \label{fig:tdf21PSampDist}
 \end{figure}
 
 Turning to the expected time to reach (see Table \ref{tab}) the mode reveals that the 3rd degree binomial provides a significant improvement on the unpartitioned prior, though not as significant as the sum of uniforms does. \todo{talk about how binomials of different depth perform here}. On the depth 7 bit decomposition, we see good results on the small neighbourhoods but erratic ones on the larger neighbourhoods. The reason is again the fact that bit decomposition can get stuck, as discussed in Section \ref{ttt}
@@ -393,29 +405,31 @@ First we look at performance averaged over all mode placements where $m \in [0.0
 
 We first look at the case where we resample the shift on each iteration and we have shifts of size $2^{-k}$ (called maximum shifts) for each bit position k.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{AllShiftsMax0001}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{AllShiftsMax0001}
+      \caption{Maximum sized shifts.}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{AllShiftsMin0001}
+      \caption{Minimum sized shifts.}
+    \end{subfigure}
     \caption{Time to 0.001 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depths using a shift for every bit.}
-    \label{fig:AllShiftsMax0001}
+    \label{fig:allShifts}
 \end{figure}
+
 
 Here the unpartitioned prior corresponds to the bit decomposition of depth 0. While the improvements in burn-in rate are not as significant when averaging over all mode placements as they were for our initial experiments on the Tdf models, a 2x speed-up can still be obtained.
 
 Next we see if the choice of shift size within the interval $2^{-k-1} <= s <= 2^{-k}$ is significant by looking at the burn-in rate for shifts of size $2^{-k-1}$ (called minimum shifts) for each bit position k.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{AllShiftsMin0001}
-    \caption{Time to 0.001 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depths using a shift for every bit.}
-    \label{fig:AllShiftsMin0001}
-\end{figure}
-
 The choice of shift length withing the $[2^{-k-1}, 2^{-k}]$ doesn't appear to be significant.
 
 We would also like to see what happens as the size of the target neighbourhood changes. We repeat the above experiment for a target neighbourhood of size 0.01 (10x larger).
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{AllShiftsMax001}
     \caption{Time to 0.01 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depths using a shift for every bit.}
@@ -426,18 +440,19 @@ While the bit decomposition still gives some advantage, as the size of the targe
 
 Finally, we would also like to see what happens to the performance if we do not provide k shifts for k bits, but instead only 1 or 2 shifts that are sufficiently large to stop bits from getting stuck. 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{05Shift001}
-    \caption{Time to 0.01 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depth using only a shift of size 0.5}
-    \label{fig:05Shift001}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{02505Shift001}
-    \caption{Time to 0.01 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depth using only a shift of size 0.25 and 0.5}
-    \label{fig:02505Shift001}
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{05Shift001}
+      \caption{Shift of size 0.5}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{02505Shift001}
+      \caption{Shift of size 0.25 and 0.5}
+    \end{subfigure}
+    \caption{Time to 0.01 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depth using a small number of shifts.}
+    \label{fig:fewShifts}
 \end{figure}
 
 The performance with a small number of shifts seems significantly worse. It seems using 1 or 2 shifts still allows the algorithm to avoid getting stuck, but the extra number of steps it has to perform to reach the mode from a stuck position degrades the performance.

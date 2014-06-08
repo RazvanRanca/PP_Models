@@ -4,29 +4,42 @@
 \contentsline {chapter}{\numberline {3}Comparing Venture and OpenBUGS}{5}{chapter.3}
 \contentsline {section}{\numberline {3.1}Motivation}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}Preliminaries}{6}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Webchurch's performance}{6}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Number of MCMC steps}{6}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Empirical results}{7}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Tdf model description}{8}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Tdf model true posteriors}{8}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Tdf model results}{11}{subsection.3.3.3}
-\contentsline {section}{\numberline {3.4}Analysis of Venture's performance}{18}{section.3.4}
-\contentsline {chapter}{\numberline {4}Partitioned Priors}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Preliminaries}{22}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Local Metropolis-Hastings}{22}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Expected number of iterations to a neighbourhood of the mode}{22}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Mixing properties around the mode}{23}{subsection.4.1.3}
-\contentsline {section}{\numberline {4.2}Sum of uniforms}{23}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Finding a good sum decomposition}{24}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Evaluating the (1,2,95) sum decomposition}{27}{subsection.4.2.2}
-\contentsline {subsubsection}{The Tdf21 model}{31}{section*.14}
-\contentsline {subsubsection}{Evaluating the decomposition on the Tdf21 model}{33}{section*.15}
-\contentsline {section}{\numberline {4.3}Bit decomposition}{38}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Definition}{38}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Evaluation on Tdf and Tdf21}{38}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Getting stuck on a bad sample}{41}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Mixtures of shifted bit decompositions}{43}{subsection.4.3.4}
-\contentsline {subsubsection}{Avoiding getting stuck}{43}{section*.20}
-\contentsline {subsubsection}{Empirical performance}{45}{section*.21}
-\contentsline {subsubsection}{Determining optimal shifts and shift transitions}{50}{section*.23}
-\contentsline {chapter}{\numberline {5}Summary and Conclusions}{53}{chapter.5}
+\contentsline {subsection}{\numberline {3.2.1}Number of MCMC steps}{6}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Empirical results}{6}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Tdf model description}{7}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Tdf model true posteriors}{7}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Tdf model results}{8}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Analysis of Venture's performance}{10}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Webchurch's performance}{11}{subsection.3.4.1}
+\contentsline {chapter}{\numberline {4}Partitioned Priors}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Preliminaries}{13}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Local Metropolis-Hastings}{14}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Expected number of iterations to a neighbourhood of the mode}{14}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Mixing properties around the mode}{14}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Sum of uniforms}{15}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Finding a good sum decomposition}{16}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Evaluating the (1,2,95) sum decomposition}{17}{subsection.4.2.2}
+\contentsline {subsubsection}{The Tdf21 model}{19}{section*.26}
+\contentsline {subsubsection}{Evaluating the decomposition on the Tdf21 model}{20}{section*.29}
+\contentsline {section}{\numberline {4.3}Bit decomposition}{21}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Definition}{22}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Evaluation on Tdf and Tdf21}{22}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Getting stuck on a bad sample}{23}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Mixtures of shifted bit decompositions}{25}{subsection.4.3.4}
+\contentsline {subsubsection}{Avoiding getting stuck}{25}{section*.40}
+\contentsline {subsubsection}{Empirical performance}{27}{section*.41}
+\contentsline {subsubsection}{Determining optimal shifts and shift transitions}{29}{section*.46}
+\contentsline {chapter}{\numberline {5}Novel PPL inference techniques}{31}{chapter.5}
+\contentsline {section}{\numberline {5.1}Preliminaries}{31}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Slice sampling}{31}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Basic PPL Construction}{31}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Stochastic Python}{32}{section.5.2}
+\contentsline {section}{\numberline {5.3}Slice sampling inference engine}{32}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Custom Slice Sampling and Metropolis on Tdf models}{32}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Generic, lightweight, slice sampling inference engine}{38}{subsection.5.3.2}
+\contentsline {subsubsection}{Slice sampling on Tdf model}{39}{section*.62}
+\contentsline {subsubsection}{Slice sampling on gaussian mean inference models}{41}{section*.67}
+\contentsline {subsubsection}{Branching Model}{47}{section*.77}
+\contentsline {subsubsection}{Trans-dimensional slice sampling}{51}{section*.85}
+\contentsline {section}{\numberline {5.4}Quasi-Monte Carlo}{56}{section.5.4}
+\contentsline {chapter}{\numberline {6}Summary and Conclusions}{57}{chapter.6}
