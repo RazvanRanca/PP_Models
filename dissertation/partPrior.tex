@@ -1,12 +1,10 @@
 \chapter{Partitioned Priors}
 
-One way in which we may try to improve the performance of local, single-site, Metropolis-Hastings is by paritioning the prior distribution into several component parts. The idea behind this approach is that we may be able to guide the resampling process as to improve the convergence to the mode and the mixing properties of simple Metropolis-Hastings. \todo{say something about proposal kernels vs. sampling from prior?}
+One way in which we may try to improve the performance of local, single-site, Metropolis-Hastings is by paritioning the prior distribution into several component parts. The idea behind this approach is that we may be able to guide the resampling process as to improve the rate of convergence to the mode and the mixing properties of local Metropolis-Hastings. \todo{say something about proposal kernels vs. sampling from prior?} If this approach proves succesful, it would enable us to design a light pre-inference rewriting of a probabilistic program which splits up its priors so that the subsequent inference step is performed more efficiently.
 
-Based on this idea, it may be possible to design a light pre-inference rewriting of a probabilistic program which splits up its priors so that the subsequent inference step is performed more efficiently.
+In this chapter we focus on the splitting of uniform continuous priors. Not only are such priors commonly used in models, but sampling from any distribution ultimately relies on uniformly drawn random bits. Speeding up inference on uniform priors may therefore lead to speed ups on other distributions, assuming certain desirable properties, such that small changes in the uniform bits correspond to small changes in the final distribution. \todo{not sure if this makes much sense. Need to research it or remove}
 
-In this chapter we focus on the splitting of uniform continuous priors. Not only are such priors commonly used in models, but sampling from any distribution ultimately relies on uniformly drawn random bits. Speeding up inference on uniform priors may therefore lead to speed ups on other distributions, assuming certain desirable properties, such that small changes in the uniform bits correspond to small changes in the final distribution. \todo{not sure if this makes much sense. Need to research it more or remove}
-
-For simplicity, we also focus on models with a uni-modal posterior distribution. The analysis for multi-modal distributions would follow similar lines to the one presented here, but would also have to additionally account for mode-switching. We will look closer at this problem in Chapter \ref{whoKnows}.
+For simplicity, we focus on models with a uni-modal posterior distribution. The analysis for multi-modal distributions would follow similar lines to the one presented here, but would also have to additionally account for mode-switching.
 
 \section{Preliminaries}
 
@@ -17,36 +15,36 @@ In order to explore the partitioned prior idea we need to have an understanding 
 
 \subsection{Expected number of iterations to a neighbourhood of the mode}
 \label{section:sampsToMode}
-The first test of the efficiency of a partition which we propose is, on average, how many iterations the algorithm will have to go through before the markov chain reaches a state close to the mode of the posterior. Since we are interested in seeing our markov chain mix around the posterior's mode, we want it to get close to the mode as soon as possible. The average number of iterations to the mode can also be viewed as a way to estimate a lower bound on the burn-in we should set for our algorithm.
+The first test of the efficiency of a partition is, on average, how many iterations the algorithm will have to go through before the markov chain reaches a state close to the mode of the posterior. Since we are interested in seeing our markov chain mix around the posterior's mode, we want it to get close to the mode as soon as possible. The average number of iterations to the mode can also be viewed as a way to estimate a lower bound on the burn-in we should set for our algorithm.
 
-When using local Metropolis-Hastings with an unpartitioned uniform prior, it is easy to analytically calculate the expected number of iterations to a mode's neifghbourhood. Using the unpartitioned prior (uniform-continuous a b), we end up sampling from the uniform distribution and accepting or rejecting those samples according to the Metroplis-Hastings acceptance ratio. In order to reach some neighbourhood of the mode $[mode - \epsilon, mode + \epsilon]$, we need to actually sample a number in that range from the prior (sample which will definitely be accepted since it will have higher log likelihood than anything outside that range). This means the number of samples it will take to get close to the mode with an unpartitioned prior will follow a geometric distribution with $p = (2\epsilon)/(b-a)$. The expected number of samples it takes to reach the neighbourhood will then be $(b-a)/(2\epsilon)$.
+When using local Metropolis-Hastings with an unpartitioned uniform prior, it is easy to analytically calculate the expected number of iterations to a mode's neighbourhood. Using the unpartitioned prior (uniform-continuous a b), we end up sampling from the uniform distribution and accepting or rejecting those samples according to the Metroplis-Hastings acceptance ratio. In order to reach some neighbourhood of the mode $[mode - \epsilon, mode + \epsilon]$, we need to actually sample a number in that range from the prior (sample which will definitely be accepted since it will have higher log likelihood than anything outside that range). This means the number of samples it will take to get close to the mode with an unpartitioned prior will follow a geometric distribution with $p = (2\epsilon)/(b-a)$. The expected number of samples it takes to reach the neighbourhood will then be $(b-a)/(2\epsilon)$.
 
-For partitioned priors it will usually not be possible to analytically determine the expected number of steps to $[mode - \epsilon, mode + \epsilon]$, so we shall instead make use of empirical tests.
+For partitioned priors it will usually not be possible to analytically determine the expected number of steps to $[mode - \epsilon, mode + \epsilon]$, so we shall instead perform empirical tests.
 
 \subsection{Mixing properties around the mode}
-Once the markov chain has reached the mode we will wish to see how well it manages to mix around it. Here we will look at different metrics that might give us an idea of the mixing properties. Visually inspecting the sample evolution will show if the inference tends to get stuck on certain values for longs stretch. A numerical estimate of this can be obtained by measuring the ''distance'' traveled by the merkov chain around the mode (i.e. the sum of absolute differences between consecutive samples). We can also inspect the sample autocorrelation, with the idea that good mixing properties should imply a small autocorrelation within a sample run.
+Once the markov chain has reached the mode we wish to see how well it manages to mix around it. Here we look at different metrics that might give us an idea of the mixing properties. Visually inspecting the sample evolution will show if the inference tends to get stuck on certain values for long stretches. A numerical estimate of this can be obtained by measuring the ''distance'' traveled by the markov chain around the mode (i.e. the sum of absolute differences between consecutive samples). We can also inspect the sample autocorrelation, based on the idea that good mixing should imply a small autocorrelation within a sample run.
 
 \section{Sum of uniforms}
 \label{sect:sumUnif}
 
-We first consider partitioning the uniform prior into a sum of uniforms. This choice is made for simplicity and in order to observe some basic properties concerning local Metropolis-Hasting's performance on partitioned priors.
+We first consider partitioning the uniform prior into a sum of uniforms. This choice is made both for simplicity and so that we can observe some basic properties concerning local Metropolis-Hasting's performance on partitioned priors.
 
-Such a partitioning, however, should not be used in actual probabilistic program compilation techniques since it does not leave the prior invariant (that is to say, a sum of uniform variables is not a uniform variable, see Figure \ref{fig:1295Prior}). The invariance is due to the uniform distribution not being infinitely divisible. The approach presented here could be safely used on other distributions, such as Gammas and Gaussians, which are infinitely divisible. In Section \ref{sect:bitDecomp} we will present a partitioning technique which does leave the uniform prior unchanged.
+Such a partitioning, however, should not be used in actual probabilistic program compilation techniques since it does not leave the prior invariant (that is to say, a sum of uniform variables is not a uniform variable, see Figure \ref{fig:1295Prior}). The invariance is due to the uniform distribution not being infinitely divisible. The approach presented in this section could be safely used on other distributions, such as Gammas and Gaussians, which are infinitely divisible. In Section \ref{sect:bitDecomp} we will present a partitioning technique which does leave the uniform prior unchanged.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{Tdf1295Prior}
-    \caption{Prior distribution induced by partitioning the prior (uniform-continuous 2 100) into (uniform-continuous 2 95) + (uniform-continuous 0 2) (uniform-continuous 0 1).}
+    \caption{Distribution induced by partitioning the prior (uniform-continuous 2 100) into (uniform-continuous 2 95) + (uniform-continuous 0 2) (uniform-continuous 0 1).}
     \label{fig:1295Prior}
 \end{figure}
 
 \subsection{Finding a good sum decomposition}
 \label{sect:goodSum}
-First we look at the expected number of steps needed to reach a neighbourhood of the mode. As explained in Section \ref{section:sampsToMode}, the expected number of steps to $[mode - \epsilon, mode + \epsilon]$ of the mode can be analytically computed for the unpartitioned prior (uniform-continuous a b) as being $(b-a)/(2\epsilon)$.
+First we look at the expected number of steps needed to reach a neighbourhood of the mode. As explained in Section \ref{section:sampsToMode}, the expected number of steps to $[mode - \epsilon, mode + \epsilon]$ can be analytically computed for the unpartitioned prior (uniform-continuous a b) as $(b-a)/(2\epsilon)$.
 
-For the partitioned priors, we instead perform empirical tests. These tests measure how many samples it takes for different partitions to reach neighbourhoods of the mode of different sizes. One thousand runs are done for each partition and neighbourhoods of 0.5, 0.25, 0.1 and 0.01 are considered. The partitions consited of between 2 and 5 values which were drawn with replacement from [0, 0.5, 1, 2, 5, 7, 10, 15, 20, 25, 30, 35, 40, 45]. A final component value is added such that the sum of all components is the uniform prior specified in the Tdf model, namely (uniform-continuous 2 100). We specify partitions in the format (x,y,z) meaning (uniform-continuous 0 x) + (uniform-continuous 0 y) + (uniform-continuous 2 z). All considered partitions respect the constraint $x+y+z = 98$.
+For the partitioned priors, we instead perform empirical tests. These tests measure how many samples it takes for different partitions to reach mode neighbourhoods of different sizes. One thousand runs are done for each partition and neighbourhood sizes of of 1, 0.5, 0.2 and 0.02 are considered. The partitions consist of between 2 and 5 values which were drawn with replacement from [0, 0.5, 1, 2, 5, 7, 10, 15, 20, 25, 30, 35, 40, 45].
 
-Table \ref{tab:bestParts} contains the empirical performance for the unpartitioned prior and for the best 2 partitions on each neighbourhood size.
+Table \ref{tab:bestParts} contains the empirical performance for the unpartitioned prior and for the best 2 partitions on each neighbourhood size. We specify partitions in the format (x,y,z) meaning (uniform-continuous 0 x) + (uniform-continuous 0 y) + (uniform-continuous 2 z). All considered partitions respect the constraint $x+y+z = 98$, so that the sum of all the component samples will be in the [2, 100] range specified by the uniform prior of the Tdf model, (uniform-continuous 2 100). 
 
 \begin{table}[h]
   \centering
@@ -65,17 +63,13 @@ Table \ref{tab:bestParts} contains the empirical performance for the unpartition
     (1, 2, 95) & 130.06 & 155.48  & 186.83 & 317.31 \\
     \bottomrule
   \end{tabular}
-  \caption{Expected number of steps to neighbourhoods of the mode on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.}
+  \caption{Expected number of steps to mode neighbourhoods on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.}
   \label{tab:bestParts}
 \end{table}
 
-The best partition seems to depend somewhat on the size of the neighbourhood, but there also seem to be partitions that consistently and significantly outperform the unpartitioned prior on all the neighbourhood sizes looked at above. In fact, for epsilon values of 0.1 and 0.01 the unpartitioned prior performs worse than any of the partitioned variants. 
+The best partition depends on the size of the neighbourhood, but we can observe partitions that consistently and significantly outperform the unpartitioned prior on all the neighbourhood sizes looked at above. In fact, for epsilon values of 0.1 and 0.01 the unpartitioned prior performs worse than any of the partitioned variants. Additionally, as epsilon gets smaller, it becomes useful to have smaller partition components. This leads to the 0.5 partition appearing in the best solution for a mode neighbourhood of size 0.02, but not in any of the top solutions for larger neighbourhoods.
 
-It also seems that, as epsilon gets smaller, it's useful to have smaller partition components, such that we get the 0.5 partition in the best solution for a mode neighbourhood of size 0.02, while this partition size makes no appearance in the top partition lists for other neighbourhood sizes.
-
-The second aspect of convergence that a partition might help with is the mixing rate around the mode. In order to test the priors' mixing properties we can consider what happens after the markov chain reaches the mode. Specifically, we set the initial sample to the mode of the true posterior distribution and check how much the chain moves over the next 1000 samples. Repeating this test 100 times and averaging the sum of jumps gives us the results in Table \ref{tab:partMix}.
-
-The format is (partitions, average distance travelled, variance)
+The second aspect of convergence that a partition might help with is the mixing rate around the mode. In order to test the priors' mixing properties we need to consider what happens after the markov chain reaches the mode. We do this by setting the initial sample to the mode of the true posterior distribution and checking how much the chain moves over the next 1000 samples. Repeating this test 100 times and averaging the sum of absolute jump distances gives us the results in Table \ref{tab:partMix}.
 
 \begin{table}[h]
   \centering
@@ -100,14 +94,14 @@ The format is (partitions, average distance travelled, variance)
   \label{tab:bestParts}
 \end{table}
 
-This test only measures the average distance travelled (i.e. sum of absolute differences between consecutive samples), which could be a misleading measure of mixing. The large difference between the unpartitioned and the partitioned variants do suggest that there is some improvement here though. The mixing reate is investigates more thoroughly in Section \ref{sect:1295Eval}
+This test only measures the average distance travelled (i.e. sum of absolute differences between consecutive samples), which could be a misleading measure of mixing. However, the large difference between the unpartitioned and the partitioned variants do suggest that there is some improvement here. We perform further tests on the mixing rate in Section \ref{sect:1295Eval}.
 
 Based on the above results, we decide to further investigate the performance of the (1, 2, 95) partitioned prior, since this decomposition performs well both in reaching the mode and in mixing around it.
 
 \subsection{Evaluating the (1,2,95) sum decomposition}
 \label{sect:1295Eval}
 
-Table \ref{tab:bestParts} makes clear the increased speed in reaching a neighbourhood of the mode offered by the decompositions. The potential benefit conferred in mixing rate is less clear however. To test this we look at the sample evolution (Figure \ref{fig:tdfPSampEvol}) and autocorrelation plots (Figure \ref{fig:tdfPAutoCorr}) for two runs obtained with an unpartitioned and a (1,2,95) partitioned prior.
+Table \ref{tab:bestParts} makes clear the increased speed in reaching a neighbourhood of the mode offered by the decompositions. The potential benefit conferred in mixing rate is less clear however. To test this we look at the sample evolution (Figure \ref{fig:tdfPSampEvol}) and autocorrelation plots (Figure \ref{fig:tdfPAutoCorr}) for two runs obtained with an unpartitioned and a (1,2,95) partitioned prior. These experiments confirm our preliminary results from Section \ref{sect:goodSum}, and show that the partitioned prior does help with mixing around the mode and with eliminating large correlations between consecutive samples. 
 
 \begin{figure}[h]
     \centering
@@ -118,7 +112,7 @@ Table \ref{tab:bestParts} makes clear the increased speed in reaching a neighbou
     \begin{subfigure}[t]{0.48\textwidth}
       \includegraphics[width=\textwidth]{Tdf1295SampEvol}
     \end{subfigure}
-    \caption{Sample evolutions for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples.}
+    \caption{Sample evolutions for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples on the Tdf continuous model.}
     \label{fig:tdfPSampEvol}
 \end{figure}
 
@@ -135,9 +129,7 @@ Table \ref{tab:bestParts} makes clear the increased speed in reaching a neighbou
     \label{fig:tdfPAutoCorr}
 \end{figure}
 
-These graphs confirm our preliminary results from Section \ref{sect:goodSum}, and show that the partitioned prior does help with mixing around the mode and with eliminating large correlations between consecutive samples.
-
-The final test in determining the quality of the decomposition is to look at the actual sample distributions obtained under the two different prior formulations (see Figure \ref{fig:tdfPDist}).
+The final test in determining the quality of the decomposition is to look at the actual sample distributions obtained under the two different prior formulations . For convenience, the true posterior for the Tdf continuous model is shown again in Figure \ref{fig:tdfPLL}. Looking at the sample distributions in Figure \ref{fig:tdfPDist} it is quite clear the partitioned prior outperforms the original, unpartitioned, variant. However, this result may be misleading since we are evaluating it on the same distribution which we used to choose the form of the partition. To test the robustness of our partition we repeat the above tests on a new model.
 
 \begin{figure}[h]
     \centering
@@ -152,10 +144,8 @@ The final test in determining the quality of the decomposition is to look at the
     \label{fig:tdfPDist}
 \end{figure}
 
-For convenience, the true posterior for the Tdf continuous model is shown again in Figure \ref{fig:tdfPLL}. Looking at the sample distributions it is quite clear the partitioned prior outperforms the original, unpartitioned, variant. However, this result may be misleading since we are evaluating it on the same distribution which we used to choose the form of the partition. To test the robustness of our partition we repeat the above tests on a new model.
-
 \subsubsection{The Tdf21 model}
-In order to test our decomposition on a different posterior distribution, we generate 1,000 datapoints from a Student t distribution with 21 degrees of freedom and condition the Tdf Continuous model on this new dataset. The resulting posterior is shown in Figure \ref{fig:tdfPPost}.
+In order to test our decomposition on a different posterior distribution, we generate 1,000 datapoints from a Student t distribution with 21 degrees of freedom and condition the Tdf Continuous model on this new dataset. The resulting posterior is shown in Figure \ref{fig:tdfPPost}. The mode here is actually 11.5. This is probably due to the fact that 1000 datapoints are not enough to accurately pinpoint a student-t with so many degrees of freedom (21) since, as the number of degrees of freedom increases, the differences between corresponding student-t distributions shrinks. The posterior distribution is however significantly different from the one for the previous dataset, which should be sufficient for testing the properties of the priors.
 
 \begin{figure}[h]
     \centering
@@ -170,10 +160,7 @@ In order to test our decomposition on a different posterior distribution, we gen
     \label{fig:tdfPPost}
 \end{figure}
 
-The mode here is actually 11.5. This is probably due to the fact that 1000 datapoints are not enough to accurately pinpoint a student-t with so many degrees of freedom (21) since, as the number of degrees of freedom increases, the differences between corresponding student-t distributions shrinks. 
-The posterior distribution is however significantly different from the one for the previous dataset, which should be sufficient for testing the properties of the priors.
-
-In order to better understand how the Metropolis-Hastings algorithm will be affected by this change we can also look at the log-likelihoods induced by the original Tdf Continuous model and by the Tdf21 model (see Figure {fig:tdfPLL}).
+In order to better understand how the Metropolis-Hastings algorithm will be affected by this change, Figure \ref{fig:tdfPLL} also shows the log-likelihoods induced by the original Tdf Continuous model and by the Tdf21 continuous model. We can see that the Tdf21 log-likelihood is much flatter than the one for the original model. By repeating the mixing tests performed above we can test the effect of this difference.
 
 \begin{figure}[h]
     \centering
@@ -188,10 +175,9 @@ In order to better understand how the Metropolis-Hastings algorithm will be affe
     \label{fig:tdfPLL}
 \end{figure}
 
-As can be seen, the Tdf21 log-likelihood is much flatter than the one for the original model. By repeating the mixing tests performed above we can test the effect of this difference.
-
 \subsubsection{Evaluating the decomposition on the Tdf21 model}
-On this new model posterior we can now test the convergence of the priors by once again plotting the sample evolution, the sample autocorrelation and the sample distributions. The partitioned prior is the same one we used on the previous datapoints, namely (1,2,95)
+We now test the convergence of the priors on the Tdf21 model by plotting the sample evolution, the sample autocorrelation and the sample distributions. The partitioned prior is the same one we used on the previous datapoints, namely (1,2,95). From the sample evolutions (Figure \ref{fig:tdf21PSampEvol}) we can see that the partitioned samples tend to clump a little more since bigger changes in the samples only occur when the 95 component changes. Both versions seem to mix well though.
+
 
 \begin{figure}[h]
     \centering
@@ -205,8 +191,6 @@ On this new model posterior we can now test the convergence of the priors by onc
     \caption{Sample evolutions for the unpartitioned and the (1, 2, 95) partitioned priors, over 10,000 samples on the Tdf21 model.}
     \label{fig:tdf21PSampEvol}
 \end{figure}
-
-From the sample evolutions (Figure \ref{fig:tdf21PSampEvol}) we can see that the partitioned samples tend to clump a little more since bigger changes in the samples only occur when the 95 component changes. Both versions seem to mix well though.
 
 The autocorrelation plots shown in Figure \ref{fig:tdf21PAutoCorr} are also more similar than in the case of the original Tdf model. The unpartitioned prior does quite well here since the flat shape of the log-likelihood means there is a higher chance that a proposition drawn from the prior will be accepted by the Metropolis-Hastings algorithm.
 
@@ -223,7 +207,7 @@ The autocorrelation plots shown in Figure \ref{fig:tdf21PAutoCorr} are also more
     \label{fig:tdf21PAutoCorr}
 \end{figure}
 
-Figure \ref{fig:tdf21PSampDist} shows the sample distributions, where we can see that the partitioned prior results in a smoother distribution that does a better job of representing the true posterior.
+Finally, Figure \ref{fig:tdf21PSampDist} shows the sample distributions. Here we can see that, despite the similar performance of the two priors on the mixing tests, the partitioned prior still results in a significantly smoother distribution.
 
 \begin{figure}[h]
     \centering
@@ -240,18 +224,16 @@ Figure \ref{fig:tdf21PSampDist} shows the sample distributions, where we can see
 
 \section{Bit decomposition}
 \label{sect:bitDecomp}
-As mentioned in Section \ref{sect:sumUnif}, one problem with the sum of uniforms decomposition is that it alters the shape of the prior. We would like to come up with decompositions that leave the prior invariant so that, since such decompositions could be applied indescriminately to re-write any probabilistic program. A family of invariant partitions of an uniform prior can be constructed by considering the bit representation of the uniform samples up to a certain depth and then adding a single uniform-continuous value of the correct size.
+As mentioned in Section \ref{sect:sumUnif}, one problem with the sum of uniforms decomposition is that it alters the shape of a uniform prior. We would like to come up with decompositions that leave uniform priors invariant and that could therefore be applied indescriminately to re-write probabilistic programs containing such distributions. A family of invariant partitions of an uniform prior can be constructed by thinking in terms of the bit representation of the uniform samples. In order to be able to represent any real number, we can consider a bit representation of the number up to a certain prevision and then add a single uniform-continuous value to the bit's value. 
 
 \subsection{Definition}
-In order to partition any uniform interval (uniform-continuous a b) it is sufficient to be able to partition the interval (uniform-continuous 0 1). Once this is accomplished, the target interval can be obtained as (uniform-continuous a b) = a + (b-a) * (partitioned(uniform-continuous 0 1)).
+In order to partition any uniform interval (uniform-continuous a b) it is sufficient to be able to partition the interval (uniform-continuous 0 1). Once this is accomplished, the target interval can be obtained through the transformation: (uniform-continuous a b) = a + (b-a) * (uniform-continuous 0 1).
 
-In order to partition the interval (uniform-continuous 0 1) we first pick a bit depth, k, we wish to partition to such that $ k \in \{ 0, 1, \ldots \infty \} $ We then define (uniform-continuous 0 1) $= flip*2^{-1} + flip*2^{-2} \ldots + flip*2^{-k} +$ (uniform-continuous 0 $2^{-k}$), where flip is a function which flips a coin and return 0 or 1 with probability 1/2 each.
+In order to partition the interval (uniform-continuous 0 1) we first pick a bit depth, k, such that $ k \in \{ 0, 1, \ldots \infty \} $ We then define (uniform-continuous 0 1) $= flip*2^{-1} + flip*2^{-2} \ldots + flip*2^{-k} +$ (uniform-continuous 0 $2^{-k}$), where flip is a function which flips a coin and returns 0 or 1 with probability 1/2 each.
 
 \subsection{Evaluation on Tdf and Tdf21}
 
-To get an idea of the properties of this decomposition we perform an empirical evaluation on the Tdf continuous model and on the Tdf21 model.
-
-Looking at mixing rates \ref{fig} shows that a 3rd degree bit decomposition obtains similar performance to the unpartitioned prior. Intuitively this is because we are still subjecting proposals to the Metropolis-Hastings acceptance ratio, so if our program decides to flip one of the leading bits the proposal will be rejected, leading to bad mixing. As the depth of the bit decomposition increases, however, the smaller the probability that one of the leading bits are picked and therefore the better we will expect the mixing to be. \todo{Should be possible to give some more formal results here.} We, however, restrict ourselves to a 3rd degree decomposition here since a higher degree variant would exhibit other problems, which are discussed in Section \ref{dd}.
+To get an idea of the properties of bit decomposition we perform empirical evaluations on the Tdf and Tdf21 continuous models. Looking at the sample distributions in Figures \ref{fig:tdf21PSampDist} and \ref{fig:tdf21PSampDist} we can see that a 3rd degree bit decomposition obtains similar performance to an unpartitioned prior. Intuitively this is because we are still subjecting proposals to the Metropolis-Hastings acceptance ratio, so if our program decides to flip one of the leading bits the proposal will be rejected, leading to bad mixing. As the depth of the bit decomposition increases, however, the probability that one of the leading bits is picked diminishes and therefore we will expect the mixing rate to improve. \todo{Should be possible to give some more formal results here.} We, however, restrict ourselves to a 3rd degree decomposition here since a higher degree variant would exhibit the problem ``stuck samples'', which is discussed in Section \ref{sect:stuckSamples}.
 
 \begin{figure}[h]
     \centering
@@ -262,7 +244,7 @@ Looking at mixing rates \ref{fig} shows that a 3rd degree bit decomposition obta
     \begin{subfigure}[t]{0.48\textwidth}
       \includegraphics[width=\textwidth]{TdfBin3SampDist}
     \end{subfigure}
-    \caption{Sample distributions for an unpartitioned and a 3 bit decomposition prior, over 10,000 samples on the Tdf model.}
+    \caption{Sample distributions for an unpartitioned and a 3 bit decomposition prior, over 10,000 samples on the Tdf continuous model.}
     \label{fig:tdf21PSampDist}
 \end{figure}
 
@@ -279,7 +261,7 @@ Looking at mixing rates \ref{fig} shows that a 3rd degree bit decomposition obta
     \label{fig:tdf21PSampDist}
 \end{figure}
 
-Turning to the expected time to reach (see Table \ref{tab}) the mode reveals that the 3rd degree binomial provides a significant improvement on the unpartitioned prior, though not as significant as the sum of uniforms does. \todo{talk about how binomials of different depth perform here}. On the depth 7 bit decomposition, we see good results on the small neighbourhoods but erratic ones on the larger neighbourhoods. The reason is again the fact that bit decomposition can get stuck, as discussed in Section \ref{ttt}
+The expected time to reach a mode neighbourhood is analyzed in Table \ref{tab:bestParts}. Here we can see that the 3rd degree binomial provides a significant improvement over the unpartitioned prior, though not as significant as the sum of uniforms does. \todo{talk about how binomials of different depth perform here}. On the depth 7 bit decomposition, we see good results on the small neighbourhoods but erratic ones on the larger neighbourhoods. The reason is again the fact that bit decompositions can result in ``stuck samples'', which are discussed in Section \ref{sect:stuckSamples}.
 
 \begin{table}[H]
   \centering
@@ -305,48 +287,49 @@ Turning to the expected time to reach (see Table \ref{tab}) the mode reveals tha
 \end{table}
 
 \subsection{Getting stuck on a bad sample}
-A problem with the bit decomposition is that it is possible to construct scenarios in which a sample will never reach a particular neighbourhood of the mode.
+\label{sect:stuckSamples}
+A problem with the bit decomposition is that it is possible to construct scenarios in which a sample will get stuck and be arbitrarily unlikely to reach a particular neighbourhood of the mode. One simple such scenario can be constructed by assuming a guiding posterior log-likelihood that is convex, symmetric around the mode and steep enough that the probability of a sample moving significantly further away from the mode is negligible.
 
-One simple such scenario can be constructed by assuming a guiding posterior log-likelihood that is convex, symmetric around the mode and steep enough such the probability a sample will move significantly further away from the mode is neglijible. In such a scenario it is possible to get stuck in local optima outside of our desired mode neighbourhood.
-
-The simplest example of getting stuck can be observed by considering the bit decomposition of depth 1: 
-(uniform-continuous 0 1) = $flip*2^{-1} +$ (uniform-continuous 0 $2^{-1}$) In this case, if the the mode is in the interval $[0.5 + \epsilon , 0.75]$ (where $[mode - \epsilon, mode + \epsilon]$ is our target neighbourhood), then it is possible for the prior to get stuck.
+The simplest example of getting stuck can be observed by considering the bit decomposition of depth 1: (uniform-continuous 0 1) = $flip*2^{-1} +$ (uniform-continuous 0 $2^{-1}$). In this case, if the the mode is in the interval $[0.5 + \epsilon , 0.75]$, and $[mode - \epsilon, mode + \epsilon]$ is the mode neighbourhood we want to reach, then it is possible for the prior to get stuck outside of our target neighbourhood.
  
 A concrete example would be:
-$mode = 0.6;
-\epsilon = 0.05;
-flip = 0;$
-(uniform-continuous 0 0.5) = 0.4
+\begin{flalign*}
+  &\text{(uniform-continuous 0 1)} = flip*2^{-1} + \text{(uniform-continuous 0 }2^{-1})& \\
+  &\quad\quad\quad\quad mode \sim 0.6 &\\
+  &\quad\quad\quad\quad \epsilon \sim 0.05 &\\
+  &\quad\quad\quad\quad flip \sim 0 &\\
+  &\quad\quad\quad\quad \text{(uniform-continuous 0 }2^{-1}) \sim 0.4 &
+\end{flalign*}
 
-In this case, setting flip to true would be very likely rejected since jumping from 0.4 to $0.4 + 0.5 = 0.9$ takes us much further away from the mode at 0.6 then we currently are. Further the uniform can only successfully resamples values between (0.4, 0.5), which won't change the situation. So in order for us to get unstuck we would need either a very unlikely bit flip to be accepted or the uniform to accept a very unlikely resample close to 0 and then for the bit shift to be accepted. We will therefore be likely stuck in this interval for a long time before reaching a neighbourhood of the mode.
+In this case, setting flip to $1$ would be very likely rejected since jumping from $0.4$ to $0.4 + 0.5 = 0.9$ takes us much further away from the mode at $0.6$ then we currently are. Further the uniform is likely to only accept resampled values in the $(0.4, 0.5)$ interval, which won't change the above situation. In order for us to get unstuck we would need either a very unlikely bit flip to be accepted or the uniform to accept a very unlikely resample close to 0, which could then be followed by a bit flip. Assuming we can make the log-likelihood arbitrarily steep around the mode, then we can expect to be stuck in this local optimum for an arbitrarily long number of samples.
 
 Some possible solutions to avoid getting stuck would be:
 \begin{itemize}
 
-\item 
-Having the option of changing multiple bits at a time (eg: sample a variable to determine how many bits to change). This would ensure there are no hard local maximas. However, situations would still arise where a large number of bits would need to be concurrently changed to specific values in order for a sample to be accepted, which means we might still be stuck in a certain position for a long time untill just the right combination of bits are pickes. \todo{is a more thorough analysis feasible here?}
+\item
+Having the option of changing multiple bits at a time (eg: sample a variable to determine how many bits to change). This would ensure there are no hard local maximas. However, situations would still arise where a large number of bits would need to be concurrently changed to specific values in order for a sample to be accepted, which means we might still be stuck in a certain position for a long time untill just the right combination of bits is picked. \todo{is a more thorough analysis feasible here?}
 
 \item
-Using multiple shifted variants of the prior (shifted by x means mapping sample s to (x + s)\%1). It seems that by choosing the shifted priors carefully we could ensure it is impossible for a sample to get stuck in all priors. It can be shown (see Section \ref{fff}) that a single shift is enough to avoid getting stuck. However the effect on performance of adding shifts is complex, since performing a shift in an unstuck position can lead to us moving further away from the mode. More analysis of the effect of shifts is presented in \ref{fff}.
+Using multiple shifted variants of the prior, where shifting by $shift$ means mapping sample $x$ to $(x + shift)\%1$). It can be shown that a single shift is enough to avoid getting stuck. However the effect on performance of adding shifts is complex, since performing a shift in an unstuck position can lead to us moving further away from the mode. More analysis of the effect of shifts is presented in \ref{sect:shifts}.
 
 \item
-Using multiple variants of the prior with different bit depths. If a sample is stuck on bit b, then moving it into a prior with depth < b will unstick it. However, this will result in the bits with the highest values being resampled more often, since they will be present in the most priors, which will have a negative effect on the mixing benefits offered by the decomposition.
+Using multiple variants of the prior with different bit depths. If a sample is stuck on bit b, then moving it into a prior with depth < b will unstick it. However, this will result in the bits with the highest values being resampled more often, since they will be present in the most priors, which will have a negative effect on the mixing benefits offered by the decomposition. \todo{add more analysis on this}
 
 \end{itemize}
 
-One idea that seems to not work but is tempting to consider is to attempt to determine, with some likelihood, when a certain markov chain has become stuck based on its sample history. This would allow us to explicitly correct for the chain getting stuck. We could toss a coin to decide if we think we're currently stuck. If we don't think we're stuck we sample normally. If we do think we're stuck, we can determine in which bits we might be stuck and pick one of these. We can then determine the interval in which the mode should be if we're indeed stuck on this bit (for $flip*2^{-k}$ the interval will have size $2^{-k-1}$) and pick a potential sample uniformly from that interval. If this sample had better log likelihood we would accept. 
+One idea that is tempting but incorrect is to determine, with some likelihood, when a certain markov chain has become stuck based on its sample history. This would allow us to explicitly correct for the chain getting stuck. We could toss a coin to decide if we think we're currently stuck and if we decided we were not stucj we could sample normally. If we did think we were stuck, we could determine in which bits we might be stuck and pick one of these. We could then determine the interval in which the mode should be if we were indeed stuck on the bit we picked and sample uniformly from that interval.
 
-The problem with this idea is that it isn't just picking proposals from a static prior or proposal kernel anymore, but the proposal pattern will actually be influenced by the log likelihood distribution. \todo{explain why this is wrong}
+This approach is atractive because, for the kth bit $flip*2^{-k}$, the target interval we would determine the mode to be in would be of size $2^{-k-1}$. However, the problem with this idea is that it isn't just picking proposals from a static prior or proposal kernel, but the proposal pattern is actually influenced by the shape of the log likelihood. \todo{explain why this is wrong}
 
 \subsection{Mixtures of shifted bit decompositions}
-
-Here we explore two variants of the mixture of shifted bits solution. First we look at what is necessary simply to ensure that we'll never get stuck. Second we look at what is needed to be able to move from any stuck position to a neighbourhood of the mode in one jump. This second variant ends up providing a better performance.
+\label{sect:shifts}
+In this section we explore two variants of the mixture of shifted bits. First we look at what is necessary simply to ensure that we'll never get stuck. Second we look at what is needed to be able to move from any stuck position to a neighbourhood of the mode in one jump. This second variant ends up providing better performance.
 
 \subsubsection{Avoiding getting stuck}
+\label{sect:stuckMath}
+\todo{fix the math formatting in this section}
 
-It turns out that a combination of bit decomposition, one of which is a shifted variant of the other, is sufficient to ensure that it is impossible to get stuck.
-
-However it seems we need to use a mixture of K priors in order to ensure that the binomial of depth K can move from any stuck position to the mode in one step. 
+It turns out that a mixture of 2 bit decompositions, one of which is a shifted variant of the other, is sufficient to ensure that it is impossible to get stuck. However it seems we need to use a mixture of K priors in order to ensure that the binomial of depth K can move from any stuck position to the mode in one step. 
 
 To see this consider the formulation:
 total = flip1*0.5 + flip2*0.25 + (uniform-continuous 0 0.25)
@@ -357,7 +340,8 @@ flip2 = 1
 => total = 0.25 + $\epsilon$
 where $\epsilon$ can be an arbitrarily small positive number
 
-Here we are stuck since changing the flip to False will be rejected as having lower LL. We want to determine what size of a shift needs to exist in order for us to be able to become unstuck.
+Here we are stuck since changing the flip2 to 0 will be rejected as having lower likelihood. We want to determine what size of a shift needs to exist in order for us to be able to become unstuck. 
+
 For any shift s we choose, the shifted prior will be:
 shiftTotal = (0.25 + s + $\epsilon$) \% 1 
 And flipping the second bit to False would result in a proposal:
@@ -368,11 +352,11 @@ s < 0.125 - 2$\epsilon$
 Then the proposal will be rejected since:
 |shiftTotal - mode| = |0.25 + s + $\epsilon$ - 0.25 + $\epsilon$| = s + 2$\epsilon$ < 0.125
 |proposal - mode| = | s + $\epsilon$ - 0.25 + $\epsilon$ | = 0.25 - s + 2$\epsilon$ > 0.125
-The only other proposal we might make are flipping the first bit to 1 or increasing the uniform, both of which are also rejected since they move away from the mode in both shifts.
+The only other proposal we might make is flipping the first bit to 1 or increasing the uniform, both of which are also rejected since they move away from the mode in both shifts.
 
 Therefore, for the shift to be usefull on a stuck 2nd bit, we need that s > 0.125. In general, to get unstuck on the kth bit we require that $2^{-k-1}$ <= s. So any shift larger than 0.25 will guarantee that we never get stuck.
 
-If we also want to be able to reach the mode in one jump from a stuck position, we must also consider:
+If, in addition to not getting stuck, we also want to be able to reach the mode in one jump from a stuck position, we must also consider:
 total = flip1*0.5 + flip2*0.25 + (uniform-continuous 0 0.25)
 mode = 0.375 - $\epsilon$
 flip1 = 0
@@ -380,7 +364,7 @@ flip2 = 0
 (uniform-continuous 0 0.25) = 0.25 - $\epsilon$ 
 => total = 0.25 - $\epsilon$
 
-For any shift s we choose, the shifted prior will be:
+Then, for any shift s we choose, the shifted prior will be:
 shiftTotal = (0.375 + s - $\epsilon$) \% 1 
 
 If our shift s is such that
@@ -395,39 +379,35 @@ Note that, in this situation we are not stuck, since setting the uniform to 0 le
 However, if we wish to jump to the mode from a postiion stuck on the second bit, we've shown that the shift must have the property:
 0.125 <= s <= 0.25
 And in general, to guarantee that we can jump to the mode when stuck on the kth bit, we need to have a shift s such that:
-$2^{-k-1} <= s <= 2^{-k}$ Which means that each bit would need a different sized shift. 
+$2^{-k-1} <= s <= 2^{-k}$ Which means that each bit would need a different sized shift.
 
 \subsubsection{Empirical performance}
 
-Based on the arguments in the previous section, it seems that the placement of the mode can significantly affects the likelihood of getting stuck for binomials of certain depths. In order to get a better idea of the effect of the mode location we test the burn-in time for different mode placements. 
+The arguments in the previous section suggest that the placement of the mode can significantly affect the likelihood of getting stuck. In order to get a better idea of the effect of the mode location we test the burn-in time for different mode placements. First we look at burn-in time averaged over all mode placements $m$, where $m \in [0.0005, 0.0015,…, 0.9995]$ and $\epsilon = 0.0005$.
 
-First we look at performance averaged over all mode placements where $m \in [0.0005, 0.0015,…, 0.9995]$ and $\epsilon = 0.0005$
-
-We first look at the case where we resample the shift on each iteration and we have shifts of size $2^{-k}$ (called maximum shifts) for each bit position k.
+In \ref{fig:allMaxShifts} we look at the case where we resample the shift on each iteration and we have shifts of size $2^{-k}$ (called maximum shifts) for each bit position k. Here the unpartitioned prior corresponds to the bit decomposition of depth 0. While the improvements in burn-in rate are not as significant when averaging over all mode placements as they were for our initial experiments on the Tdf models, a 2x speed-up can still be obtained.
 
 \begin{figure}[h]
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
       \includegraphics[width=\textwidth]{AllShiftsMax0001}
       \caption{Maximum sized shifts.}
+      \label{fig:allMaxShifts}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.48\textwidth}
       \includegraphics[width=\textwidth]{AllShiftsMin0001}
       \caption{Minimum sized shifts.}
+      \label{fig:allMinShifts}
     \end{subfigure}
     \caption{Time to 0.001 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depths using a shift for every bit.}
     \label{fig:allShifts}
 \end{figure}
 
 
-Here the unpartitioned prior corresponds to the bit decomposition of depth 0. While the improvements in burn-in rate are not as significant when averaging over all mode placements as they were for our initial experiments on the Tdf models, a 2x speed-up can still be obtained.
+As explained in Section \ref{sect:stuckMath}, the shift size $s$ for bit $k$ needs to respect $2^{-k-1} <= s <= 2^{-k}$ in order for us to be able to jump to the mode in one step. In \ref{fig:allMinShifts} we check whether the choice of shift size within this interval is significant, by looking at the burn-in rate for shifts of size $2^{-k-1}$ (called minimum shifts) for each bit position k. The results are quite similar to those obtained for the maximum shifts, which suggests that the performance isn't sensitive to the choice of shift length within $[2^{-k-1}, 2^{-k}]$.
 
-Next we see if the choice of shift size within the interval $2^{-k-1} <= s <= 2^{-k}$ is significant by looking at the burn-in rate for shifts of size $2^{-k-1}$ (called minimum shifts) for each bit position k.
-
-The choice of shift length withing the $[2^{-k-1}, 2^{-k}]$ doesn't appear to be significant.
-
-We would also like to see what happens as the size of the target neighbourhood changes. We repeat the above experiment for a target neighbourhood of size 0.01 (10x larger).
+We would also like to see what happens as the size of the target neighbourhood changes. In Figure \ref{fig:AllShiftsMax001} we repeat the max shift experiment for a target neighbourhood of size 0.01 (10x larger). While the bit decomposition still gives some advantage, as the size of the target neighbourhood increases this advantage appears to become less significant. Intuitively this happens because a larger number of the less significant bits become irrelevant as far as ending up in the desired region is concerned.
 
 \begin{figure}[h]
     \centering
@@ -436,9 +416,7 @@ We would also like to see what happens as the size of the target neighbourhood c
     \label{fig:AllShiftsMax001}
 \end{figure}
 
-While the bit decomposition still gives some advantage, as the size of the target neighbourhood increases this advantage appears to become less significant, since a larger number of the small bits become irrelevant to our ending up in the desired region.
-
-Finally, we would also like to see what happens to the performance if we do not provide k shifts for k bits, but instead only 1 or 2 shifts that are sufficiently large to stop bits from getting stuck. 
+Finally, we would also like to see what happens to the performance if we do not provide k shifts for k bits, but instead only 1 or 2 shifts. As explained in section \ref{sect:stuckMath}, a single properly sized shift is sufficient to stop us from getting stuck. However, without k shifts for k bits, we sacrifice the ability of always moving from a stuck position to the mode in one step. As seen in Figure \ref{fig:fewShifts}, this seems to have a significant negative effect on the decompositions' performance. \todo{talk about distributions over shifts, and more about benefits/drawback of shifts and/or changing depths}
 
 \begin{figure}[h]
     \centering
@@ -455,9 +433,6 @@ Finally, we would also like to see what happens to the performance if we do not 
     \label{fig:fewShifts}
 \end{figure}
 
-The performance with a small number of shifts seems significantly worse. It seems using 1 or 2 shifts still allows the algorithm to avoid getting stuck, but the extra number of steps it has to perform to reach the mode from a stuck position degrades the performance.
-\todo{talk about distributions over shifts, and more about benefits/drawback of shifts and/or changing depths}
-
 \subsubsection{Determining optimal shifts and shift transitions}
 It seems we have a wide variety of options regarding what shifts to use and how to transition between them. It therefore seems worthwhile to consider the question of whether we can determine any optimal solutions analytically. 
 
@@ -468,19 +443,19 @@ In order to do so, we make some observations:
 The location of the mode neighbourhood determines which regions are traps (i.e. in which regions, once you enter, you can no longer reach the mode without shifting)
 
 \item
-The current sample determines what portion of the traps (if any) are still accessible. Here we make the assumption that the LL of consecutive samples is non-decreasing
+The current sample determines what portion of the traps (if any) are still accessible (based on the assumption that it is arbitrarily unlikely for the log-likelihood to decrease between consecutive samples).
 
 \item
-I don't think the prob. of getting to the mode or falling in a trap can be modelled with (mixtures of) geometric distributions since a sample's probability distribution depends on the previous samples (and is therefore not uniform, unless we integrate out its history)
+The probability of getting to the mode or falling in a trap cannot be modelled with (mixtures of) geometric distributions since a sample's probability distribution depends on the previous samples (and is therefore not uniform, unless we integrate out its history)
 
 \item
-For a set mode and LL function we can represent the transition between samples via a bit-level markov chain which ignores the trailing uniform. We can then create absorbing states representing the mode neighbourhood and the traps.
+For a set mode and log-likelihood function we can represent the transition between samples via a bit-level markov chain which ignores the trailing uniform. We can then create absorbing states representing the mode neighbourhood and the traps.
 
 \item
- If, for instance, the neighbourhood is only 0.1 of the length of the smallest bit we would implicitly represent the uniform only in the corresponding bit state by giving a 0.1 transition from this bit state to the mode-neighbourhood absorbing state. (this however ignores the movement of the uniform during normal sampling which may end up biasing the results since, for instance, if the mode is in the leftmost bit the uniform will likely already have a very small value by the time the correct bit state is reached. There seem to be heuristic ways to address this but I'll wait to see if it's actually a big issue)
+If, for instance, the neighbourhood is only 0.1 of the length of the smallest bit we would implicitly represent the uniform only in the corresponding bit state by giving a 0.1 transition from this bit state to the mode-neighbourhood absorbing state. This however ignores the movement of the uniform during normal sampling which may end up biasing the results since, for instance, if the mode is in the leftmost bit the uniform will likely already have a very small value by the time the correct bit state is reached. \todo{There seem to be heuristic ways to address this}
 
 \item
-Using this formulation we should be able to analytically derive the probability of getting stuck and the expected number of steps to the mode. Representing shifted priors should also be possible. The simplest way would be to have 2x the nodes for a combination of 2 shifted priors.
+Using this formulation we can analytically derive the probability of getting stuck and the expected number of steps to the mode. Representing shifted priors is also possible. The simplest way would be to have 2x the nodes for a combination of 2 shifted priors.
 
 \end{itemize}
 \todo{try to get some results using markov chain implementation. Otherwise there's not much point in describing it ...}
