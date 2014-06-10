@@ -280,12 +280,11 @@ In order to further test the slice sampling inference engine we look at the Bran
   \\&\quad x = 6
   \\&else
   \\&\quad pois2 \sim Poisson(4)
-  \\&\quad x = fib(3 * pois1) + pois2
+  \\&\quad x = fib(3 * pois1) + pois2 \tag{$fib$ is the fibonacci function}
   \\&\text{observe }Poisson(x) = 6
   \\&\text{predict }pois1
 \end{align*}
-
-Where $fib$ is the fibonacci function. \todo{mention the discrepancy with the paper?}
+\todo{mention the discrepancy with the paper?}
 
 In order to test the convergence rate of the inference engines we must first analytically derive the true posterior for this model. This is given, up to values of 20 in Figure \ref{fig:BranchPost}.
 

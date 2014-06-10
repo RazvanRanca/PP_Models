@@ -46,9 +46,22 @@ For all 3 Tdf models, OpenBUGS uses 1,000 steps for burn-in and then extracts 10
 \subsection{Tdf model true posteriors}
 \label{sect:truePost}
 
-Given the simplicity of the Tdf models, we can calculate the true posteriors analytically.
+Given the simplicity of the Tdf models, we can calculate the true posteriors analytically. If $X$ represents a vector of the observed datapoints ($x$), and $\nu$ represents the student T distribution's degrees of freedom, then: 
 
-\missingfigure{Add formula used to derive posterior, as in the log}
+\[P(\nu|X) \propto P(X|\nu)P(\nu)\]
+\[P(X|\nu) = \prod_{x \in X} P(x|\nu) = \prod_{x \in X} \frac{\Gamma \left( \frac{\nu+1}{2} \right)}{\Gamma \left( \frac{\nu}{2} \right) \sqrt{\nu \pi}} \left( 1 + \frac{x^2}{\nu} \right)^{-\frac{\nu+1}{2}} \]
+
+Further, in all of the Tdf models the prior on $\nu$ is uniform, therefore the posterior will be directly proportional to the likelihood. The only role of the prior is to determine the normalization constant by defining what the domain of our posterior is. Specifically, we have:
+\[P(\nu|X) \propto 
+  \prod_{x \in X} \frac{\Gamma \left( \frac{\nu+1}{2} \right)}{\Gamma \left( \frac{\nu}{2} \right) \sqrt{\nu \pi}} \left( 1 + \frac{x^2}{\nu} \right)^{-\frac{\nu+1}{2}}
+  \left\{
+	  \begin{array}{lll}
+		  \nu \in [2,100] \mbox{ for Tdf continuous} \\
+		  \nu \in \{2, 3, \ldots 50\} \mbox{ for Tdf course discrete} \\
+      \nu \in \{2.0, 2.1, \ldots 6.0\} \mbox{ for Tdf fine discrete}
+	  \end{array}
+  \right.\]
+
 
 Using this formulation we calculate the true posteriors for all 3 Tdf model as shown in Figure \ref{fig:tdfPosts}.
 
