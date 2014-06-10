@@ -91,7 +91,7 @@ The second aspect of convergence that a partition might help with is the mixing 
     \bottomrule
   \end{tabular}
   \caption{Average distance travelled around the mode on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.}
-  \label{tab:bestParts}
+  \label{tab:partMix}
 \end{table}
 
 This test only measures the average distance travelled (i.e. sum of absolute differences between consecutive samples), which could be a misleading measure of mixing. However, the large difference between the unpartitioned and the partitioned variants do suggest that there is some improvement here. We perform further tests on the mixing rate in Section \ref{sect:1295Eval}.
@@ -233,7 +233,7 @@ In order to partition the interval (uniform-continuous 0 1) we first pick a bit 
 
 \subsection{Evaluation on Tdf and Tdf21}
 
-To get an idea of the properties of bit decomposition we perform empirical evaluations on the Tdf and Tdf21 continuous models. Looking at the sample distributions in Figures \ref{fig:tdf21PSampDist} and \ref{fig:tdf21PSampDist} we can see that a 3rd degree bit decomposition obtains similar performance to an unpartitioned prior. Intuitively this is because we are still subjecting proposals to the Metropolis-Hastings acceptance ratio, so if our program decides to flip one of the leading bits the proposal will be rejected, leading to bad mixing. As the depth of the bit decomposition increases, however, the probability that one of the leading bits is picked diminishes and therefore we will expect the mixing rate to improve. \todo{Should be possible to give some more formal results here.} We, however, restrict ourselves to a 3rd degree decomposition here since a higher degree variant would exhibit the problem ``stuck samples'', which is discussed in Section \ref{sect:stuckSamples}.
+To get an idea of the properties of bit decomposition we perform empirical evaluations on the Tdf and Tdf21 continuous models. Looking at the sample distributions in Figures \ref{fig:tdfPSampDist} and \ref{fig:tdf21PSampDist} we can see that a 3rd degree bit decomposition obtains similar performance to an unpartitioned prior. Intuitively this is because we are still subjecting proposals to the Metropolis-Hastings acceptance ratio, so if our program decides to flip one of the leading bits the proposal will be rejected, leading to bad mixing. As the depth of the bit decomposition increases, however, the probability that one of the leading bits is picked diminishes and therefore we will expect the mixing rate to improve. \todo{Should be possible to give some more formal results here.} We, however, restrict ourselves to a 3rd degree decomposition here since a higher degree variant would exhibit the problem ``stuck samples'', which is discussed in Section \ref{sect:stuckSamples}.
 
 \begin{figure}[h]
     \centering
@@ -245,7 +245,7 @@ To get an idea of the properties of bit decomposition we perform empirical evalu
       \includegraphics[width=\textwidth]{TdfBin3SampDist}
     \end{subfigure}
     \caption{Sample distributions for an unpartitioned and a 3 bit decomposition prior, over 10,000 samples on the Tdf continuous model.}
-    \label{fig:tdf21PSampDist}
+    \label{fig:tdfPSampDist}
 \end{figure}
 
 \begin{figure}[h]

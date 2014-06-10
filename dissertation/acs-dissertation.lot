@@ -1,7 +1,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Strategies for extracting S samples from a model with V unconditioned variables\relax }}{6}{table.caption.5}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Strategies for extracting S samples from a model with V unconditioned variables\relax }}{6}{table.caption.6}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Expected number of steps to mode neighbourhoods on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.\relax }}{16}{table.caption.21}
 \contentsline {table}{\numberline {4.2}{\ignorespaces Average distance travelled around the mode on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.\relax }}{17}{table.caption.22}
