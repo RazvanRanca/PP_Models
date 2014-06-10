@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {3.3.2}Tdf model true posteriors}{7}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}Tdf model results}{8}{subsection.3.3.3}
 \contentsline {section}{\numberline {3.4}Analysis of Venture's performance}{10}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Webchurch's performance}{10}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.1}Webchurch's performance}{11}{subsection.3.4.1}
 \contentsline {chapter}{\numberline {4}Partitioned Priors}{13}{chapter.4}
 \contentsline {section}{\numberline {4.1}Preliminaries}{13}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Local Metropolis-Hastings}{14}{subsection.4.1.1}
