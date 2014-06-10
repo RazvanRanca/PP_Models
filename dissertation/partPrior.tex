@@ -10,8 +10,34 @@ For simplicity, we focus on models with a uni-modal posterior distribution. The 
 
 In order to explore the partitioned prior idea we need to have an understanding of the basic Metropolis-Hastings algorithm. We also need a way to evaluate the performance of a certain partition, which we propose to do by looking separately at the time it takes for our Markov Chain to reach the true posterior's mode and at the chain's mixing properties around this mode.
 
-\subsection{Local Metropolis-Hastings}
-\todo{add basic explanation}
+\subsection{Metropolis-Hastings}
+The Metropolis-Hastings algorithm is a method of drawing samples from a probability distribution $P(x)$ when we can only compute values of the proportional function $P^*(x) = P(x)*Z$. This method is usefull when we want to estimate distributions (or expectations under distributions) that we cannot directly evaluate, which is a common problem in Bayesian modelling, since the probability distribution's normalization factor is often difficult to estimate.
+
+Metropolis-Hastings is a Markov Chain Monte Carlo algorithm, which is to say that the algorithm will generate samples according to the Markov, memoryless, property where the choice of current sample depends only on the previous sample. Additionally, the markov chain implied by this sequence of samples will have $P(x)$ as its stationary distribution. This implies that, if we run metropolis-hastings long enough for the underlying markov chain to be sampling from it's stationary distribution, then we will be drawing samples from $P(x)$.
+
+In order to create an underlying markov chain that has $P(x)$ as its stationary distribution it is usefull to split the state transition into two components, a proposal function and an acceptance probability. Since we must respect the Markov, memoryless, property, the proposal function can only take the current sample as its input and is therefore of the form $Q(x_{n+1} | x_{n})$. It can then be shown \todo{add citation} that in order for the markov chain to converge to the right distribution, it is sufficient to define the acceptance ratio for as:
+\[ \alpha = \frac{P(x_{n+1})}{P(x_{n})}\frac{Q(x_{n} | x_{n+1})}{Q(x_{n+1} | x_{n})} = \frac{P^*(x_{n+1})}{P^*(x_{n})}\frac{Q(x_{n} | x_{n+1})}{Q(x_{n+1} | x_{n})} \]
+
+For the purpose of inference in probabilistic programming languages, a simplification to the Metropolis-Hastings algorithm is usually made by assuming that the proposal kernel is symmetric: $Q(x_{n+1} | x_{n}) = Q(x_{n} | x_{n+1}) \forall x_{n+1}, x_{n}$, which leads to removing the 2nd term for the acceptance ration. The full algorithm can then be described as:
+
+\begin{flalign*}
+&\text{1 Pick a first sample }x_0 &\\
+&\text{2 Pick a proposal kernel }Q(x_{t+1} | x_{t}) &\\
+&\text{3 Pick a desired number of samples to extract } N &\\
+&\text{4 For t=0; t<N; t++} &\\
+&\text{4.1 \quad\quad Generate proposal }prop \sim Q(x_{t+1} | x_{t}) &\\
+&\text{4.2 \quad\quad Calculate acceptance ratio } \alpha = \frac{P^*(prop)}{P^*(x_{t})} &\\
+&\text{4.3 \quad\quad Sample a uniformly random number } r \sim \text{(uniform-continuous 0 1)} &\\
+&\text{4.4 \quad\quad Decide whether to accept the proposal } 
+  \left\{
+	  \begin{array}{ll}
+      x_{t+1} = prop \text{, if } r < \alpha \\
+      x_{t+1} = x_{t} \text{, otherwise}
+	  \end{array}
+  \right. &\\
+\end{flalign*}
+
+Intuitively we can see that the acceptance ratio checks how likely the proposal is in comparison to the current sample. If the proposal is more likely it is always accepted. Otherwise it is accepted with a probability that decreases the more unlikely the proposal is. In this way, the markov chain will have a chance to explore less likely probability regions while preferring to stay in the high-density areas.
 
 \subsection{Expected number of iterations to a neighbourhood of the mode}
 \label{section:sampsToMode}
