@@ -8,7 +8,35 @@ In order to implement a PPL based on a new inference technique we need to unders
 
 \subsection{Slice sampling}
 \label{sect:sliceBack}
-\todo{add basic description of slice sampling}
+Like the Metropolis-Hastings method presented in Section \ref{sect:MH}, slice sampling is a Markov Chain Monte Carlo algorithm that can extract samples from a distribution $P(x)$ given that we have a function $P^*(x)$ which we can evaluate and that respects $P^*(x) = P(x)*Z$. The idea behind slice sampling is that, by using an auxiliary heigh variable $u$, we can sample uniformly from the region under the graph of the density function of $P(x)$.
+
+For ease of explanation, we consider slice-sampling in a one dimensional setting. Here we can view the algorithm as a method of transitioning from a point $(x,u)$ which lies under the curve $P^*(x)$ to another point $(x',u')$ lying under the same curve. The addition of the auxiliary variable $u$ means that we need only sample uniformly from the area under the curve $P^*(x)$.
+
+A basic slice sampling algorithm can be described as:
+
+\begin{flalign*}
+&\text{1 Pick an initial width } w_{init} &\\
+&\text{2 Pick an initial sample $x_0$ such that }P^*(x_0) > 0 &\\
+&\text{3 Pick a desired number of samples to extract } N &\\
+&\text{4 For( t=0; t<N; t++)} &\\
+&\text{\quad\quad 4.1 Sample a height } u \sim \text{(uniform-continuous 0 } P^*(x_t)) &\\
+&\text{\quad\quad 4.2 Define a horizontal line across the $P^*(x)$ curve at the $u$ height} &\\
+&\text{\quad\quad\quad\quad 4.2.1 Initialize } x_l = x_t &\\
+&\text{\quad\quad\quad\quad 4.2.2 For (iter=0; $P^*(x_l) > u$; iter++)} &\\
+&\text{\quad\quad\quad\quad\quad\quad 4.2.2.1 Exponentially decrease left bound } x_l = x_l - 2^{iter}*w_{init} &\\
+&\text{\quad\quad\quad\quad 4.2.3 Initialize } x_r = x_t &\\
+&\text{\quad\quad\quad\quad 4.2.4 For (iter=0; $P^*(x_r) > u$; iter++)} &\\
+&\text{\quad\quad\quad\quad\quad\quad 4.2.4.1 Exponentially increase right bound } x_r = x_r + 2^{iter}*w_{init} &\\
+&\text{\quad\quad 4.3 Sample uniformly from the slice above the line between $x_l$ and $x_r$} &\\
+&\text{\quad\quad\quad\quad 4.3.1 Sample a proposition} prop \sim \text{(uniform-continuous $x_l$ $x_r$)} &\\
+&\text{\quad\quad\quad\quad 4.3.2 While ($P^*(prop) \leq u$)} &\\
+&\text{\quad\quad\quad\quad\quad\quad 4.3.2.1 If (prop > $x_t$) \{$x_r$ = prop\}} &\\
+&\text{\quad\quad\quad\quad\quad\quad 4.3.2.2 Else \{$x_l$ = prop\}} &\\
+&\text{\quad\quad\quad\quad\quad\quad 4.3.2.3 Resample } prop \sim \text{(uniform-continuous $x_l$ $x_r$)} &\\
+&\text{\quad\quad 4.4 Accept the proposition } x_{t+1} = prop &
+\end{flalign*}
+
+One of the main advantages of the above formulation over Metropolis-Hastings is that slice sampling self-tunes the step size. In MH, picking a wrong step size can significantly hamper progress either by unnecesarily slowing down the random walk's progress or by resulting in a large proportion of rejected sampled. Slice sampling, however, adjusts an inadequate step size of size N with a cost that is only logarithmic in the size of N (because of the exponential stepping out and shrinking methods).
 
 \subsection{Basic PPL Construction}
 \todo{add basic description of lightweight style PPL construction}
@@ -20,7 +48,7 @@ In order to implement a PPL based on a new inference technique we need to unders
 \section{Slice sampling inference engine}
 \subsection{Custom Slice Sampling and Metropolis on Tdf models}
 
-As a preliminary test, we implement custom slice sampling and local metropolis-hastings algorithms for the Tdf continuous and Tdf21 continuous models. A comparison of the burn-in needed to reach a neighbourhood of the mode is presented in Figure \ref{fig:SliceMetCustPerf}. Slice sampling has a much shorter burn-in on these models. In fact slice sampling does better than any of the partitioned priors did (averaged over the all posterior mode placements).
+As a preliminary test, we implement custom slice sampling and local metropolis-hastings algorithms for the Tdf continuous and Tdf21 continuous models. A comparison of the burn-in needed to reach a neighbourhood of the mode is presented in Figure \ref{fig:SliceMetCustPerf}. Slice sampling has a much shorter burn-in on these models. In fact slice sampling does better than any of the partitioned priors did (averaged over all the posterior mode placements).
 
 \begin{figure}[h]
     \centering

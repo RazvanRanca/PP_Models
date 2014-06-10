@@ -32,14 +32,14 @@
 \contentsline {chapter}{\numberline {5}Novel PPL inference techniques}{33}{chapter.5}
 \contentsline {section}{\numberline {5.1}Preliminaries}{33}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Slice sampling}{33}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Basic PPL Construction}{33}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Stochastic Python}{34}{section.5.2}
-\contentsline {section}{\numberline {5.3}Slice sampling inference engine}{34}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Custom Slice Sampling and Metropolis on Tdf models}{34}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Generic, lightweight, slice sampling inference engine}{37}{subsection.5.3.2}
-\contentsline {subsubsection}{Slice sampling on the Tdf model}{37}{section*.61}
-\contentsline {subsubsection}{Slice sampling on gaussian mean inference models}{38}{section*.64}
-\contentsline {subsubsection}{Branching Model}{41}{section*.69}
-\contentsline {subsubsection}{Trans-dimensional slice sampling}{43}{section*.76}
-\contentsline {section}{\numberline {5.4}Quasi-Monte Carlo}{45}{section.5.4}
-\contentsline {chapter}{\numberline {6}Summary and Conclusions}{47}{chapter.6}
+\contentsline {subsection}{\numberline {5.1.2}Basic PPL Construction}{35}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Stochastic Python}{35}{section.5.2}
+\contentsline {section}{\numberline {5.3}Slice sampling inference engine}{35}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Custom Slice Sampling and Metropolis on Tdf models}{35}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Generic, lightweight, slice sampling inference engine}{38}{subsection.5.3.2}
+\contentsline {subsubsection}{Slice sampling on the Tdf model}{38}{section*.60}
+\contentsline {subsubsection}{Slice sampling on gaussian mean inference models}{39}{section*.63}
+\contentsline {subsubsection}{Branching Model}{42}{section*.68}
+\contentsline {subsubsection}{Trans-dimensional slice sampling}{44}{section*.75}
+\contentsline {section}{\numberline {5.4}Quasi-Monte Carlo}{46}{section.5.4}
+\contentsline {chapter}{\numberline {6}Summary and Conclusions}{49}{chapter.6}

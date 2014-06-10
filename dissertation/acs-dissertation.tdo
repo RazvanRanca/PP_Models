@@ -16,11 +16,10 @@
 \contentsline {todo}{{talk about distributions over shifts, and more about benefits/drawback of shifts and/or changing depths}}{31}{section*.46}
 \contentsline {todo}{{There seem to be heuristic ways to address this}}{32}{section*.49}
 \contentsline {todo}{{try to get some results using markov chain implementation. Otherwise there's not much point in describing it ...}}{32}{section*.50}
-\contentsline {todo}{{add basic description of slice sampling}}{33}{section*.51}
-\contentsline {todo}{{add basic description of lightweight style PPL construction}}{33}{section*.52}
-\contentsline {todo}{{add description of implementation, space permitting}}{34}{section*.53}
-\contentsline {todo}{{change this after bibliography exists}}{37}{section*.60}
-\contentsline {todo}{{change this once bibliography exists}}{41}{section*.70}
-\contentsline {todo}{{mention the discrepancy with the paper?}}{41}{section*.71}
-\contentsline {todo}{{talk about the continuous vs. discrete aspect and the domain in which we expect slice to be good}}{43}{section*.74}
-\contentsline {todo}{{mention buggy metropolis version that also samples from this}}{44}{section*.78}
+\contentsline {todo}{{add basic description of lightweight style PPL construction}}{35}{section*.51}
+\contentsline {todo}{{add description of implementation, space permitting}}{35}{section*.52}
+\contentsline {todo}{{change this after bibliography exists}}{38}{section*.59}
+\contentsline {todo}{{change this once bibliography exists}}{42}{section*.69}
+\contentsline {todo}{{mention the discrepancy with the paper?}}{42}{section*.70}
+\contentsline {todo}{{talk about the continuous vs. discrete aspect and the domain in which we expect slice to be good}}{44}{section*.73}
+\contentsline {todo}{{mention buggy metropolis version that also samples from this}}{45}{section*.77}
