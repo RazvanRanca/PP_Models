@@ -233,18 +233,21 @@ def plotLogs(fn = "samplingLogs"):
           dicLogs[tp][1].append(mode)
 
   daxs = {}
+  count = 0
+  cols = ['b','r','k','c']
   for title,log in dicLogs.items():
-    ax, = plt.plot(log[0],log[1])
+    ax, = plt.plot(log[0],log[1], cols[count], linewidth=3)
     daxs[title] = ax
+    count += 1
 
   axs = [ax for _, ax in sorted(daxs.items())]
   titles = [title for title, _ in sorted(daxs.items())]
 
   plt.legend(axs,titles)
   plt.yscale("log")
-  plt.xlabel("Size of target neighbourhood")
-  plt.ylabel("Number of samples")
-  plt.title("Avg. no of samples to neighbourhood of mode") 
+  plt.xlabel("Size of target neighbourhood", size=20)
+  plt.ylabel("Number of samples", size=20)
+  plt.title("Avg. samples to mode neighbourhood", size=30) 
   plt.show()
 
 def plotSimpleLog(fn, xl, yl, ti):
@@ -253,17 +256,22 @@ def plotSimpleLog(fn, xl, yl, ti):
   zs = []
   with open("samplingTests/" + fn, 'r') as f:
     for row in f:
-      key, mode, var, rej = map(float, row.strip().split())
-      xs.append(key)
-      ys.append(mode)
-      zs.append(rej)
+      try:
+        key, mode, var, rej = map(float, row.strip().split())
+        xs.append(key)
+        ys.append(mode)
+        zs.append(rej)
+        plt.xscale("log")
+      except:
+        key, mode, var = map(float, row.strip().split())
+        xs.append(key)
+        zs.append(mode)
 
-  plt.plot(xs,zs)
-  #plt.ylim([0,20])
-  plt.xscale("log")
-  plt.xlabel(xl)
-  plt.ylabel(yl)
-  plt.title(ti)
+  plt.plot(xs,zs, linewidth=3)
+  plt.ylim([0,20])
+  plt.xlabel(xl, size=20)
+  plt.ylabel(yl, size=20)
+  plt.title(ti, size=30)
   plt.show()
 
 def plotGauss(mean, std):
@@ -273,10 +281,10 @@ def plotGauss(mean, std):
   for s in np.arange(0,100.001,0.1):
     xs.append(s)
     ys.append(n.pdf(s))
-  plt.plot(xs,ys)
-  plt.xlabel("x")
-  plt.ylabel("likelihood")
-  plt.title("Likelihood function with mean " + str(mean) + " and stDev " + str(std))
+  plt.plot(xs,ys, linewidth=3)
+  plt.xlabel("x", size=20)
+  plt.ylabel("Likelihood", size=20)
+  plt.title("Gauss. w/ mean " + str(mean) + " and stDev " + str(std), size=30)
   plt.show()
 
 def printSamples(samples):
@@ -284,9 +292,9 @@ def printSamples(samples):
     print s, samples[s]
 
 if __name__ == "__main__":
-  ys = pu.readData("tdf/tdfData")
-  iters = 100
-  dof = 4
+  #ys = pu.readData("tdf/tdfData")
+  #iters = 100
+  #dof = 4
 
   #print len(sliceSamplingMixTdf(ys, 100, w = 1)[0])
   #printSamples(sliceSamplingMixTdf(ys, 10000, w = 1)[0])
@@ -322,8 +330,12 @@ if __name__ == "__main__":
   #for w in np.logspace(-1,3,50):
   #  print w, sliceSamplingGauss(iters, 0.5, scipy.stats.norm(50,2), w)
   
-  plotSimpleLog("slicePerfWidth", "Slice sampling initial width", "Number of likelihood computations per sample", "Avg. likelihood computations per sample for Normal(50,2)")
-  #plotLogs("sliceMixLik")
+  #plotSimpleLog("slicePerfWidth", "Slice sampling initial width", "Likelihood comps", "Avg. likelihood comps. per sample")
+  #plotSimpleLog("slicePerfStd", "Likelihood's standard deviation", "Burn-in length", "Avg. samples to reach mode neigh.")
+  #plotSimpleLog("slicePerfMean", "Likelihood's mean", "Burn-in length", "Avg. samples to reach mode neigh.")
+  #plotSimpleLog("sliceMix", "Likelihood's mean", "Burn-in length", "Avg. samples to reach mode neigh.")
+  
+  plotLogs()
   #plotGauss(50,20)
 
   #sliceSamplingTdf(ys, iters, eps, dof)

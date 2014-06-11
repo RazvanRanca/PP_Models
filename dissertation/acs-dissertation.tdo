@@ -1,25 +1,25 @@
-\contentsline {todo}{{Add background info on Venture and OpenBUGS}}{6}{section*.5}
-\contentsline {todo}{{Maybe also evaluate one model that's not from the OpenBUGS repository, since BUGS might be unreasonably optimized on its own models.}}{7}{section*.7}
-\contentsline {todo}{{Add KL and KS difference results for these distributions}}{8}{section*.9}
-\contentsline {todo}{{Maybe do more runs and plot quartiles}}{8}{section*.11}
-\contentsline {todo}{{saw this mentioned in a paper, need to find direct source or remove}}{10}{section*.15}
-\contentsline {todo}{{Decide is there's anything worth reporting from the performance tests done on Venture. Log dates: 2014.02.19 and 2014.02.20}}{10}{section*.16}
-\contentsline {todo}{{say something about proposal kernels vs. sampling from prior?}}{13}{section*.17}
-\contentsline {todo}{{not sure if this makes much sense. Need to research it or remove}}{13}{section*.18}
-\contentsline {todo}{{add citation}}{14}{section*.19}
-\contentsline {todo}{{Should be possible to give some more formal results here.}}{24}{section*.33}
-\contentsline {todo}{{talk about how binomials of different depth perform here}}{24}{section*.36}
-\contentsline {todo}{{is a more thorough analysis feasible here?}}{26}{section*.38}
-\contentsline {todo}{{add more analysis on this}}{26}{section*.39}
-\contentsline {todo}{{explain why this is wrong}}{27}{section*.40}
-\contentsline {todo}{{not sure if this section is clear enough. add diagrams?}}{27}{section*.42}
-\contentsline {todo}{{talk about distributions over shifts, and more about benefits/drawback of shifts and/or changing depths}}{31}{section*.46}
-\contentsline {todo}{{There seem to be heuristic ways to address this}}{32}{section*.49}
-\contentsline {todo}{{try to get some results using markov chain implementation. Otherwise there's not much point in describing it ...}}{32}{section*.50}
-\contentsline {todo}{{add basic description of lightweight style PPL construction}}{35}{section*.51}
-\contentsline {todo}{{add description of implementation, space permitting}}{35}{section*.52}
-\contentsline {todo}{{change this after bibliography exists}}{38}{section*.59}
-\contentsline {todo}{{change this once bibliography exists}}{42}{section*.69}
-\contentsline {todo}{{mention the discrepancy with the paper?}}{42}{section*.70}
-\contentsline {todo}{{talk about the continuous vs. discrete aspect and the domain in which we expect slice to be good}}{44}{section*.73}
-\contentsline {todo}{{mention buggy metropolis version that also samples from this}}{45}{section*.77}
+\contentsline {todo}{{Maybe also evaluate one model that's not from the OpenBUGS repository, since BUGS might be unreasonably optimized on its own models.}}{8}{section*.6}
+\contentsline {todo}{{Add KL and KS difference results for these distributions}}{9}{section*.8}
+\contentsline {todo}{{Maybe do more runs and plot quartiles}}{10}{section*.10}
+\contentsline {todo}{{saw this mentioned in a paper, need to find direct source or remove}}{12}{section*.14}
+\contentsline {todo}{{Decide is there's anything worth reporting from the performance tests done on Venture. Log dates: 2014.02.19 and 2014.02.20}}{13}{section*.15}
+\contentsline {todo}{{say something about proposal kernels vs. sampling from prior?}}{15}{section*.16}
+\contentsline {todo}{{not sure if this makes much sense. Need to research it or remove}}{15}{section*.17}
+\contentsline {todo}{{add citation}}{16}{section*.18}
+\contentsline {todo}{{Should be possible to give some more formal results here.}}{26}{section*.32}
+\contentsline {todo}{{talk about how binomials of different depth perform here}}{26}{section*.35}
+\contentsline {todo}{{is a more thorough analysis feasible here?}}{28}{section*.37}
+\contentsline {todo}{{add more analysis on this}}{28}{section*.38}
+\contentsline {todo}{{explain why this is wrong}}{29}{section*.39}
+\contentsline {todo}{{not sure if this section is clear enough. add diagrams?}}{29}{section*.41}
+\contentsline {todo}{{talk about distributions over shifts, and more about benefits/drawback of shifts and/or changing depths}}{33}{section*.45}
+\contentsline {todo}{{There seem to be heuristic ways to address this}}{34}{section*.48}
+\contentsline {todo}{{try to get some results using markov chain implementation. Otherwise there's not much point in describing it ...}}{34}{section*.49}
+\contentsline {todo}{{citation}}{37}{section*.50}
+\contentsline {todo}{{link to github}}{37}{section*.51}
+\contentsline {todo}{{add citation}}{38}{section*.52}
+\contentsline {todo}{{change this after bibliography exists}}{40}{section*.59}
+\contentsline {todo}{{change this once bibliography exists}}{45}{section*.69}
+\contentsline {todo}{{mention the discrepancy with the paper?}}{46}{section*.70}
+\contentsline {todo}{{talk about the continuous vs. discrete aspect and the domain in which we expect slice to be good}}{47}{section*.73}
+\contentsline {todo}{{mention buggy metropolis version that also samples from this}}{49}{section*.77}

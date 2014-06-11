@@ -1095,15 +1095,16 @@ def calcVentPerf(mType):
 
 if __name__ == "__main__":
   #calcVentPerf(sys.argv[1])
-  ys = pu.readData("../tdfData")
+  checkDistRuntime()
+  #ys = pu.readData("../tdfData")
   #calcExpJump()
   #procModeTimes("modeTimeSim05")
   #simMixSearch(ys)
   #for eps in [0.5,0.25,0.1,0.01]:
   #  testConv(ys, eps)
 
-  v = make_church_prime_ripl()
-  runModel(v, ys, "contBin7", 10000, 1000, 1)
+  #v = make_church_prime_ripl()
+  #runModel(v, ys, "contBin7", 10000, 1000, 1)
   #runTimedCont(v, ys, 600, 0, 1)
   #for start in np.arange(0,1,0.01):
   #  binConvInt3(range(1,6),start,start + 0.01 ,[0])

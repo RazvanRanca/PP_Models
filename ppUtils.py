@@ -158,7 +158,7 @@ def showDists(samples, times, bins, sTitle):
   count = 0
   for lang in samples.keys():
     ax = axs[count]
-    ax.hist(samples[lang], bins, align = 'left', rwidth = 1)
+    ax.hist(samples[lang], bins, align = 'left', rwidth = 0.8)
     ax.set_title(lang + ";  m:" + str(means[lang])[:5] + ",  sd:" + str(sds[lang])[:5] + ",  rt:" + str(times[lang]) + "s", size=20)
     plt.setp(ax.get_xticklabels(), visible=True)
     count += 1
@@ -413,29 +413,34 @@ def dispShifted(fn):
   plt.show()
 
 if __name__ == "__main__":
-  title = "Tdf - Bin7"
+  title = "Tdf21 - Bin3"
   #times, samples = readSamples1(sys.argv[1], sys.argv[2])
-  #showDists(samples, times, np.arange(2.5, 6.5, 0.025), title) # np.arange(3.5, 6.5, 0.25)
+  #showDists(samples, times, np.arange(2.5, 6.5, 0.5), title) # np.arange(3.5, 6.5, 0.25)
   #showMixDists(samples, np.arange(1, 10, 1), title)
   #print readData("PP_Models/tdf/tdf")
   #print readData("PP_Models/tdf/tdf", 4)
   #showPerfStats("tdf/Venture/rtStats")
-  dispShifted("shiftMin0001")
+  #dispShifted("shiftMin0001")
   """
   fn = "custTdfSamps" #"tdf/Venture/flipSamples"
   dispSamples(fn)
   plotConsSamps(fn)
   autocorrSamps(fn)
   """
+
+  #plotConsSamps("samplingTests/metropolisMix", "Metropolis")
+  #plotConsSamps("samplingTests/sliceMixLik", "Slice Sampling")
+
   #autocorrSamps("samplingTests/metropolisMix", "Metropolis")
-  #autocorrSamps("samplingTests/sliceMix", "Slice Sampling")
+  #autocorrSamps("samplingTests/sliceMixLik", "Slice Sampling")
 
   #dispSamples("samplingTests/metropolisMix", "Metropolis")
-  #dispSamples("samplingTests/sliceMix", "Slice Sampling")
+  #dispSamples("samplingTests/sliceMixLik", "Slice Sampling")
 
+  #fn = "tdf/Venture/cont21Samples"
   #fn = "tdf/Venture/contMix21Samples"
-  #fn = "tdf/Venture/21contBin7Samples"
+  fn = "tdf/Venture/21contBin3Samples"
   #plotConsSamps(fn, title)
   #autocorrSamps(fn, title)
-  #dispSamples(fn, title)
+  dispSamples(fn, title)
   #dispModeTimes("tdf/Venture/modeTime")

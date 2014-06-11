@@ -4,7 +4,9 @@
 \BOOKMARK [0][-]{chapter.3}{Comparing Venture and OpenBUGS}{}
 \BOOKMARK [1][-]{section.3.1}{Motivation}{chapter.3}
 \BOOKMARK [1][-]{section.3.2}{Preliminaries}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.2.1}{Number of MCMC steps}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.1}{OpenBUGS}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.2}{Venture}{section.3.2}
+\BOOKMARK [2][-]{subsection.3.2.3}{Number of MCMC steps}{section.3.2}
 \BOOKMARK [1][-]{section.3.3}{Empirical results}{chapter.3}
 \BOOKMARK [2][-]{subsection.3.3.1}{Tdf model description}{section.3.3}
 \BOOKMARK [2][-]{subsection.3.3.2}{Tdf model true posteriors}{section.3.3}

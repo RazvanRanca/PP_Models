@@ -125,9 +125,10 @@ if __name__ == "__main__":
       ls = cls
 
   elif tp == "rl": 
-    title = "Posterior for tdf"
-    with open("Posterior4",'r') as f:
+    title = "Posterior for Tdf - Continuous"
+    with open("Posterior4Cont",'r') as f:
       ds, ls = cPickle.load(f)
+    plt.xlim([2,8])
 
   elif tp == "rl21": 
     title = "True posterior of Tdf21"
@@ -137,7 +138,7 @@ if __name__ == "__main__":
   elif tp == "rll21": 
     title = "True posterior of Tdf21"
     with open("posteriorDict21",'r') as f:
-      print cPickle.load(f)
+      ds, ls = cPickle.load(f)
 
   elif tp == "ul":
     norm = 0.0
@@ -156,12 +157,12 @@ if __name__ == "__main__":
     print maxL, maxD
 
   elif tp == "ll":
-    title = "Log Likelihood for Tdf"
+    title = "Log Likelihood for Tdf21 - Continuous"
     for d in np.arange(2,100,0.1):
       ls.append(logLiks(samples, d))
       ds.append(d)
 
-    with open("PosteriorLL4",'w') as f:
+    with open("PosteriorLL21",'w') as f:
       cPickle.dump((ds,ls), f)
     print sum(ls)
 

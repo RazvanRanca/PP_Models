@@ -1,15 +1,33 @@
 \chapter{Comparing Venture and OpenBUGS}
 
-In this chapter I perform an empirical comparison of the Venture and OpenBUGS probabilistic programming languages on several models, in order to gain a better understanding of these systems' strengths and limitations.
+In this chapter we perform an empirical comparison of the Venture and OpenBUGS probabilistic programming languages on several models, in order to gain a better understanding of these systems' strengths and limitations.
 
 \section{Motivation}
 
 A lot of current research in probabilistic programming is focused on achieving more efficient automatic inference on different types of models. This problem has been approached from many angles, ranging from the development of specialized inference methods that work well on certain, restricted, classes of models, to employing general inference techniques on models transformed by the application of optimization techniques similar to those used in compiler architecture. These distinct approaches have lead to the development of probabilistic programming languages (and implementations of these languages) which differ in significant ways.  At the moment, the relative benefits and drawbacks of these languages on different classes of models are not very well understood. 
 
-In this chapter I attempt to take a step towards better understanding the relative benefits and drawbacks these languages by looking at two PPLs which fall at different ends of the specialization/generality spectrum. I do this by implementing a few different models and evaluating the performance of the two different PPL's inference engines on these models. The insight thus gained will give us an idea of where the current systems most need improving and thus reveal where future work should focus in order to alleviate these problems.
+In this chapter we attempt to take a step towards better understanding the relative benefits and drawbacks these languages by looking at two PPLs which fall at different ends of the specialization/generality spectrum. We do this by implementing a few different models and evaluating the performance of the two different PPL's inference engines on these models. The insight thus gained will give us an idea of where the current systems most need improving and thus reveal where future work should focus in order to alleviate these problems.
 
 \section{Preliminaries}
-\todo{Add background info on Venture and OpenBUGS}
+\subsection{OpenBUGS}
+
+OpenBUGS (the latest version of the BUGS project) defines a bespoke programming language that can be used to specify and perform bayesian inference on probabilistic models. The models that can be specified in OpenBUGS are finite directed acyclic graphical models, which have a certain useful mathematical properties that eases the task of performing inference. OpenBUGS takes advantage of these mathematical properties by making use of an ``expert system'' which tries to pick a Markov Chain Monte Carlo inference method that will be efficient on the user's particular model.
+
+By restricting their languages expresivity to defining finite graphical models, OpenBUGS sacrifices expresiveness for efficiency. 
+One essential restriction on OpenBUGS models is that they cannot use stochastic choices that will influence control flow in the program. Allowing such randomenss would result in trans-dimensional program traces of varying and, through recursion, potentially unbounded size. This flexibility would no longer allow us to compile the program into a graphical model. Other potentially usefull constructs that are not allowed under the graphical model paradigm include random compound data types and any procedures that could lead to a priori unbounded executions.
+
+However, many probabilistic models can be expressed as finite, directed, acyclic graphs, and on such models OpenBUGS's efficiency and ease of use makes it one of the most popular choices.
+
+\subsection{Venture}
+
+Venture aims to give users a greater flexibility in defining models than OpenBUGS does, while also being sufficiently efficient and extensible for use on a wide variety of probabilistic models. Venture is an interactive virtual machine in which probabilistic programs are specified via a Turing-complete functional language build on top of Lisp. Venture also allows the user to build custom inference strategies, specified in a compositional manner from simpler inference building blocks or even optimized external inference code. 
+
+Venture's flexibility means that it support stochastic choices affecting control flow, recursive functions and, in general, higher-order prob-
+abilistic procedures. This means Venture can represent models outside of the scope of OpenBUGS, such as some nonparametric Bayesian models (Roy et al., 2008), and some cognition models involving aspects such as reasoning about reasoning, and theory of mind (Goodman and Tenenbaum, 2013; Mansinghka, 2009). Additionally, Venture supports a large number of probabilistic primitves, including ``likelihood-free''
+primitives. Finally, it has been shown possible to specify learning of Venture programs (program structure and parameters) from data as an inference problem in a Venture program (Mansinghka, 2009).
+
+Other than it's flexibility, Venture proposes a number of changes when compared to previous Turin-Complete languages, such as Church, that should make it significantly more efficient. The question of how Venture measures up against more restricted PPLs, such as OpenBUGS, is still not settled though. 
+
 
 \subsection{Number of MCMC steps}
 Venture and OpenBUGS have a different interpretation of what an MCMC step is. This difference must be taken into account so that the empirical results of the two PPLs are comparable.
@@ -45,7 +63,7 @@ The Tdf models attempt to infer a Student t distribution's degrees of freedom, b
 & \text{observe (student-t } \nu) = x \text{; } \forall x \in X \tag{X being the data we're conditioning on} & \\
 \end{flalign*}
 
-For all 3 Tdf models, OpenBUGS uses 1,000 steps for burn-in and then extracts 10,000 consecutive samples (i.e. using a lag of 1). The Tdf model has only 1 unconditioned variable and so, as explained in Table \ref{tab:noSteps}, this would correspond to \( 1 * (1000 + 1 * 10000) = 11,000 \) MCMC steps in Venture. However, as seen below, the different inference engines employed means that Venture needs more samples than OpenBUGS to derive a reasonable posterior estimate on this model. For this reason, I used a burn-in of 1000 and then extracted an additional 1000 samples using a lag of 100. The total number of steps performed by Venture is therefore \( 1000 + 1000 * 100 = 101,000 \).
+For all 3 Tdf models, OpenBUGS uses 1,000 steps for burn-in and then extracts 10,000 consecutive samples (i.e. using a lag of 1). The Tdf model has only 1 unconditioned variable and so, as explained in Table \ref{tab:noSteps}, this would correspond to \( 1 * (1000 + 1 * 10000) = 11,000 \) MCMC steps in Venture. However, as seen below, the different inference engines employed means that Venture needs more samples than OpenBUGS to derive a reasonable posterior estimate on this model. For this reason, we used a burn-in of 1000 and then extracted an additional 1000 samples using a lag of 100. The total number of steps performed by Venture is therefore \( 1000 + 1000 * 100 = 101,000 \).
 
 \subsection{Tdf model true posteriors}
 \label{sect:truePost}
@@ -174,6 +192,6 @@ This difference can be explained by the different inference strategies employed 
 \todo{Decide is there's anything worth reporting from the performance tests done on Venture. Log dates: 2014.02.19 and 2014.02.20}
 
 \subsection{Webchurch's performance}
-One alternative to Venture which I considered is WebChurch. WebChurch is a compiler which translated the Church PPL into JavaScript, and thus allows for in-browser execution.
+One alternative to Venture which we considered is WebChurch. WebChurch is a compiler which translated the Church PPL into JavaScript, and thus allows for in-browser execution.
 
-I implemented a few very simple models (similar to the ones discussed below) in WebChurch, however the execution tended to hang even when conditioning on very few variables (less than 5) and when extracting very few samples (less than 100). Asking one of the WebChurch creators confirmed that the publicly available implementation is meant for didactic purposes and not designed to scale well. I therefore chose to focus only on Venture and OpenBUGS.
+We implemented a few very simple models (similar to the ones discussed below) in WebChurch, however the execution tended to hang even when conditioning on very few variables (less than 5) and when extracting very few samples (less than 100). Asking one of the WebChurch creators confirmed that the publicly available implementation is meant for didactic purposes and not designed to scale well. We therefore chose to focus only on Venture and OpenBUGS.
