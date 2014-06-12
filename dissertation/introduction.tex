@@ -3,6 +3,29 @@
 \pagenumbering{arabic} 
 \setcounter{page}{1} 
 
+Probabilistic programming languages (PPLs) have garnered a lot of attention recently, especially since the announcement of a DARPA\footnote{Defense Advanced Research Projects Agency} initiative to support their research and development \cite{ppaml}. However, a lot of progress has to be made before the promise of PPLs can be reached, with one of the critical areas of current research being the inference engines used to convert programs in these languages into statistical inference algorithms. This project aims to better understand the complex interactions and performance trade-offs between choice of probabilistic programming language, of model type and of inference method. By better understanding these interactions we hope to discover the areas where improvements are most needed and suggest ways in which such improvements can be carried out.
+
+\section{Importance}
+\label{sect:importance}
+Machine learning has become ubiquitous, with applications ranging from self-driving cars to gene sequencing. However, building any significant machine learning application currently involves a great deal of expertise in both defining an adequate statistical model and implementing inference algorithms for this model in order to extract useful information from your data. These challenges create a significant bottleneck towards wide-range adoption of machine learning solutions.
+
+Probabilistic programming attempts to alleviate this problem by letting the user describe their model and statistical queries in a high level programming language, which provides convenient methods of
+describing complex probability distributions, and having an inference engine automatically generate the necessary statistical inference code. This higher-level approach to modelling aims to duplicate some of the benefits gained by the switch from assembly to higher-level programming languages, namely allowing a wider range of developers to work on more complex problems with less effort and at a lower cost. If successful, these techniques could not only make probabilistic modelling cheap and simple enough to become ubiquitous, but also enable the construction of applications that are inconceivable today.
+
+A lot of current research in probabilistic programming is focused on achieving more efficient automatic inference on different types of models (eg: \cite{goodman2013principles, wingate2011nonstandard, wood2014new}). This problem has been approached from many angles, ranging from the development of specialized inference methods that work well on certain, restricted, classes of models (eg: \cite{stuhlmuller2012dynamic, yeh2012synthesizing}), to employing general inference techniques on models transformed by the application of optimization techniques similar to those used in compiler architecture (eg: \cite{mansinghka2014venture, yang2013incrementalizing}).
+
+In this project I propose to address this gap in our understanding, by implementing various modern machine learning models on different inference engines and analysing their performance. The insight thus gained should give us a better idea of where the current systems most need improving and may suggest new approaches towards solving the inference problem. Time permitting, new inference approaches may be explored and their effect on the various classes of models tested.
+
+
+One early example of the types of applications these techniques could make possible is the modeling of natural language understanding by the mutually recursive simulation of a listener reasoning about a speaker who is in turn reasoning about his listener \cite{goodman2013knowledge, frank2012predicting}. A major hurdle we need to pass before such applications can reach their full potential is the construction of generic inference engines which are efficient on a wide range of models and model representations. 
+
+One possibility is to perform exact inference by applying dynamic programming (DP) techniques to manage the exponential number of possible execution paths \cite{stuhlmuller2012dynamic}. There is potential for future work in this area by analysing the performance of different DP and approximate-DP techniques. More generally, it is clear that DP won’t work on all models, but understanding what the subclass
+of models is on which exact inference might be tractable remains an open problem. 
+
+When exact inference is intractable, we have to settle for approximate solutions, usually obtained via Markov chain Monte Carlo (MCMC). Figuring out how to best take advantage of the underlying structure
+of the distributions, as to obtain better mixing rates and therefore faster inference, is currently an area of active research. One attempt uses nonstandard interpretations to create monad-like side computations which can extract structural information, such as gradients \cite{wingate2011nonstandard}. This information can then enable the use of sophisticated MCMC techniques, such as Hamiltonian MC, which can lead to big boosts in performance over more naive MCMC methods. There is much potential for future work in applying further compiler design and program analysis techniques towards speeding up inference. For instance, speed-ups of over an order of magnitude were shown to be possible by applying techniques such as JIT compilation, dead code elimination, allocation removal and incremental optimization \cite{yang2013incrementalizing}.
+
+
 This is the introduction where you should introduce your work.  In
 general the thing to aim for here is to describe a little bit of the
 context for your work --- why did you do it (motivation), what was the
@@ -17,15 +40,3 @@ It's also traditional to give an outline of the rest of the
 document, although without care this can appear formulaic 
 and tedious. Your call. 
 
-\section{Background}
-A more extensive coverage of what's required to understand your 
-work. In general you should assume the reader has a good undergraduate 
-degree in computer science, but is not necessarily an expert in 
-the particular area you've been working on. Hence this chapter 
-may need to summarize some ``text book'' material. 
-
-This is not something you'd normally require in an academic paper, 
-and it may not be appropriate for your particular circumstances. 
-Indeed, in some cases it's possible to cover all of the ``background'' 
-material either in the introduction or at appropriate places in 
-the rest of the dissertation.

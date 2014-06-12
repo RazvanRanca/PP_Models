@@ -1,5 +1,17 @@
 \begin{thebibliography}{10}
 
+\bibitem{ppaml}
+DARPA.
+\newblock Probabilistic programming for advancing machine learning.
+\newblock
+  \url{http://www.darpa.mil/Our_Work/I2O/Programs/Probabilistic_Programming_fo%
+r_Advanced_Machine_Learning_\%28PPAML\%29.aspx}, 2013.
+
+\bibitem{frank2012predicting}
+Michael~C Frank and Noah~D Goodman.
+\newblock Predicting pragmatic reasoning in language games.
+\newblock {\em Science}, 336(6084):998--998, 2012.
+
 \bibitem{gerstenberg2012ping}
 Tobias Gerstenberg and Noah~D Goodman.
 \newblock Ping pong in church: Productive use of concepts in human
@@ -21,6 +33,12 @@ Noah Goodman.
 Noah~D Goodman.
 \newblock The principles and practice of probabilistic programming.
 \newblock In {\em ACM SIGPLAN Notices}, volume~48, pages 399--402. ACM, 2013.
+
+\bibitem{goodman2013knowledge}
+Noah~D Goodman and Andreas Stuhlm{\"u}ller.
+\newblock Knowledge and implicature: Modeling language understanding as social
+  cognition.
+\newblock {\em Topics in cognitive science}, 5(1):173--184, 2013.
 
 \bibitem{green2009reversible}
 Peter~J Green and David~I Hastie.

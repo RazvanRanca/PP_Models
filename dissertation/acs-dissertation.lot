@@ -1,10 +1,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Strategies for extracting S samples from a model with V unconditioned variables\relax }}{7}{table.caption.5}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Strategies for extracting S samples from a model with V unconditioned variables\relax }}{7}{table.caption.5}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Expected number of steps to mode neighbourhoods on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.\relax }}{20}{table.caption.17}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Average distance travelled around the mode on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.\relax }}{21}{table.caption.18}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Expected number of steps to neighbourhoods of the mode on the Tdf and Tdf21 continuous models for an unpartitioned prior, the (1,2,95) sum decomposition and 2 bit decompositions.\relax }}{27}{table.caption.33}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Expected number of steps to mode neighbourhoods on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.\relax }}{20}{table.caption.17}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Average distance travelled around the mode on the Tdf continuous model for an unpartitioned prior and some of the best sum decomposition priors.\relax }}{21}{table.caption.18}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Expected number of steps to neighbourhoods of the mode on the Tdf and Tdf21 continuous models for an unpartitioned prior, the (1,2,95) sum decomposition and 2 bit decompositions.\relax }}{27}{table.caption.33}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
