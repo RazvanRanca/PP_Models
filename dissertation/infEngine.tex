@@ -1,14 +1,14 @@
 \chapter{Novel PPL inference techniques}
 \label{chap:infEngines}
 
-In the previous chapter we attempted to re-write probabilistic programs in such a way as to improve the performance of local, single-site, Metropolis-Hastings inference. However this approach may prove limiting, so we are also interested in exploring different inference techniques that may perform better, at least on some subset of possible models. In this chapter we explore one such technique, slice sampling, while also briefly looking at some issues of tangential interest.
+In the previous chapter we attempted to re-write probabilistic programs in such a way as to improve the performance of basic Metropolis-Hastings inference. However this approach may prove limiting, so we are also interested in exploring different inference techniques that may perform better, at least on some subset of possible models. In this chapter we explore one such technique, slice sampling, while also briefly looking at some issues of tangential interest.
 
 \section{Preliminaries}
-In order to implement a PPL based on a new inference technique we need to understand both how the inference technique in question works and how we may build a PPL in general.
+In order to implement a PPL based on a new inference technique we need to understand both how the inference technique in question works and how we may build a PPL in general. In this section we give a description of the main idea behind slice sampling and briefly explain one PPL construction technique.
 
 \subsection{Slice sampling}
 \label{sect:sliceBack}
-Like the Metropolis-Hastings method presented in Section \ref{sect:MH}, slice sampling is a Markov Chain Monte Carlo algorithm that can extract samples from a distribution $P(x)$ given that we have a function $P^*(x)$ which we can evaluate and that respects $P^*(x) = P(x)*Z$. The idea behind slice sampling is that, by using an auxiliary heigh variable $u$, we can sample uniformly from the region under the graph of the density function of $P(x)$.
+Like the Metropolis-Hastings method presented in Section \ref{sect:MH}, slice sampling is a Markov Chain Monte Carlo algorithm that can extract samples from a distribution $P(x)$ given that we have a function $P^*(x)$ which we can evaluate and that respects $P^*(x) = P(x)*Z$. The idea behind slice sampling is that, by using an auxiliary heigh variable $u$, we can sample uniformly from the region under the graph of the density function of $P(x)$ \cite{neal2003slice}.
 
 For ease of explanation, we consider slice-sampling in a one dimensional setting. Here we can view the algorithm as a method of transitioning from a point $(x,u)$ which lies under the curve $P^*(x)$ to another point $(x',u')$ lying under the same curve. The addition of the auxiliary variable $u$ means that we need only sample uniformly from the area under the curve $P^*(x)$.
 
@@ -38,15 +38,17 @@ A basic slice sampling algorithm can be described as:
 
 One of the main advantages of the above formulation over Metropolis-Hastings is that slice sampling self-tunes the step size. In MH, picking a wrong step size can significantly hamper progress either by unnecesarily slowing down the random walk's progress or by resulting in a large proportion of rejected sampled. Slice sampling, however, adjusts an inadequate step size of size N with a cost that is only logarithmic in the size of N (because of the exponential stepping out and shrinking methods).
 
+For a more complete discussion of slice sampling please see \cite{neal2003slice, mackay2003information}.
+
 \subsection{Basic PPL Construction}
 \label{pplBack}
-There are many PPLs in existance and therefore many different techniques for building PPLs. Here we the ``Lightweight implementation'' method proposed by Wingate \cite{wingate2011lightweight}, which can be used to modify any existing programming language into a PPL with relative ease.
+There are many PPLs in existance and therefore many different techniques for building PPLs. Here we use the ``Lightweight implementation'' method proposed by Wingate \cite{wingate2011lightweight}, which can be used to modify any existing programming language into a PPL with relative ease.
 
 The idea behind this approach is to perform Metropolis-Hastings over probabilistic programs by evaluating the program's traces and accumulating the likelihood of each random choice. The proposal kernels used in this variant of Metropolis-Hastings consist simply of the prior probability distribution of each variable in the program, and updates are performed one variable at a time.
 
 Therefore, in order to create a proposal for our program we must pick a random variable and resample it. We then calculate the likelihood of the trace containing this resampled value, as well as all values we are conditioning on. In calculating the likelihood of this trace we would like to have to resample as few additional values as possible. This is both for efficiency reasons (we'd like to re-use variable samples), as to increase the likelihood of accepting the proposal (since a variable resampled from its prior could well result in a bad trace likelihood) and because we would like to propose a trace that is ``close'' to our current sample.
 
-An additional complication arises from the fact that many probabilistic programs are trans-dimensional, which is to say different traces may evaluate different numbers of variables. Therefore, in order for the likelihoods of different traces to be comparable we need to keep track of the likelihoods of variables which either have just appeared in our current trace (fresh variables), or which were present in the previous trace but not in the current one (stale variables). 
+An additional complication arises from the fact that many probabilistic programs are trans-dimensional, which is to say different traces may evaluate different numbers of variables. Therefore, in order for the likelihoods of different traces to be comparable we need to keep track of the likelihoods of variables which either have just appeared in our current trace (fresh variables), or which were present in the previous trace but not in the current one (stale variables) \cite{wingate2011lightweight}. In doing this, we are now implementing a reversible jump mMarkov chain monte carlo method, which can be viewed as performing inference on the joint space of different dimensional models \cite{green2009reversible}.  
 
 \section{Stochastic Python}
 \label{sect:StocPy}
@@ -59,7 +61,7 @@ Since we created Stochastic Python in order to test slice sampling, we are curre
 \section{Slice sampling inference engine}
 \subsection{Custom Slice Sampling and Metropolis on Tdf models}
 
-As a preliminary test, we implement custom slice sampling and local metropolis-hastings algorithms for the Tdf continuous and Tdf21 continuous models. A comparison of the burn-in needed to reach a neighbourhood of the mode is presented in Figure \ref{fig:SliceMetCustPerf}. Slice sampling has a much shorter burn-in on these models. In fact slice sampling does better than any of the partitioned priors did (averaged over all the posterior mode placements).
+As a preliminary test, we implement custom slice sampling and local metropolis-hastings algorithms for the Tdf continuous and Tdf21 continuous models (presented in Section \ref{sect:tdfDesc}). A comparison of the burn-in needed to reach a neighbourhood of the mode is presented in Figure \ref{fig:SliceMetCustPerf}. Slice sampling has a much shorter burn-in on these models. In fact slice sampling does better than any of the partitioned priors did (averaged over all the posterior mode placements).
 
 \begin{figure}[h]
     \centering
@@ -353,7 +355,7 @@ In order to evaluate the engines, we use each to generate 100 independent sample
 
 As for the previous trans-dimensional model (NormalMode3), we see that the slice inference does not converge to the correct distribution since it cannot properly handle trans-dimensional jumps. The Metropolis:Slice mixtures do converge correctly but, on this model, are less efficient than the local Metropolis-Hastings.
 
-One thing worth noting on this model, is that slice sampling proposes some values of pois1 that are extremely unlikely (such as 60). The reason it proposes these values is that it picks a slice height based on the trace log-likelihood which in this model can be extremely low due to the distribution of the conditioned upon variable (x). In the Branching model, likely values of the 2 random variables (based on their priors) can result in very unlikely program traces and these traces can then result in accepting very unlikely values of our 2 random variables, since the acceptance criterion is simply that the proposed trace have likelihood higher than a number drawn uniformly from [0, oldTraceLL]
+One thing worth noting on this model, is that slice sampling proposes some values of pois1 that are extremely unlikely (such as 60). The reason it proposes these values is that it picks a slice height based on the trace log-likelihood which in this model can be extremely low due to the distribution of the conditioned upon variable (x). In the Branching model, likely values of the 2 random variables (based on their priors) can result in very unlikely program traces and these traces can then result in accepting very unlikely values of our 2 random variables, since the acceptance criterion is simply that the proposed trace have likelihood higher than a number drawn uniformly from [0, oldTraceLL].
 
 However, we would expect this behaviour to only occur at the begining of a run, so the 1000 trace likelihood calculations burn-in period we are using should mitigate any influence this factor may have.
 
@@ -457,7 +459,7 @@ However, the specification appears to be wrong since it does not converge to the
 \end{figure}
 
 \section{Quasi-Monte Carlo}
-Another possible improvement on naive MC is, rather than sampling randomly from the unit interval, to instead make use of a low-discrepancy sequence that will tend to cover the interval faster.
+Another possible improvement on naive MC is, rather than sampling randomly from the unit interval, to instead make use of a low-discrepancy sequence that will tend to cover the interval faster \cite{robert2004monte}.
 
 A simple sequence we can use in the 1-dimensional case is the Van der Corput sequence.
 We test the performance of this sequence by considering time to mode of neighbourhood for a interval of size 100, neighbourhood of size 1 and modes in the range $[0.5, 1.5, \ldots 99.5]$

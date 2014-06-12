@@ -8,7 +8,7 @@ For simplicity, we focus on models with a uni-modal posterior distribution. The 
 
 \section{Preliminaries}
 
-In order to explore the partitioned prior idea we need to have an understanding of the basic Metropolis-Hastings algorithm. We also need a way to evaluate the performance of a certain partition, which we propose to do by looking separately at the time it takes for our Markov Chain to reach the true posterior's mode and at the chain's mixing properties around this mode.
+In order to explore the partitioned prior idea we need to have an understanding of the basic Metropolis-Hastings algorithm. We also need a way to evaluate the performance of a certain partition, which we propose to do by looking separately at the time it takes for our Markov Chain to reach the true posterior's mode and at the chain's mixing properties around this mode. Finally, we can also consider the empirical distributions created by a fixed number of samples, which can be compared to a ground-truth distribution which is computer analytically. We perform this comparison by taking either the Kullback–Leibler divergence \cite{kullback1951information} (in the case of discrete distributions) or the Kolmogorov–Smirnov distance \cite{massey1951kolmogorov} (for continuous ones) between the correct posterior and the empirical distribution under consideration. 
 
 \subsection{Metropolis-Hastings}
 \label{sect:MH}

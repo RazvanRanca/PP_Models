@@ -22,6 +22,11 @@ Noah~D Goodman.
 \newblock The principles and practice of probabilistic programming.
 \newblock In {\em ACM SIGPLAN Notices}, volume~48, pages 399--402. ACM, 2013.
 
+\bibitem{green2009reversible}
+Peter~J Green and David~I Hastie.
+\newblock Reversible jump mcmc.
+\newblock {\em Genetics}, 155(3):1391--1403, 2009.
+
 \bibitem{hastings1970monte}
 W~Keith Hastings.
 \newblock Monte carlo sampling methods using markov chains and their
@@ -33,6 +38,11 @@ Jonathan Keith, George Sofronov, and Dirk Kroese.
 \newblock The generalized gibbs sampler and the neighborhood sampler.
 \newblock In {\em Monte Carlo and Quasi-Monte Carlo Methods 2006}, pages
   537--547. Springer, 2008.
+
+\bibitem{kullback1951information}
+Solomon Kullback and Richard~A Leibler.
+\newblock On information and sufficiency.
+\newblock {\em The Annals of Mathematical Statistics}, pages 79--86, 1951.
 
 \bibitem{lunn2009bugs}
 David Lunn, David Spiegelhalter, Andrew Thomas, and Nicky Best.
@@ -61,6 +71,12 @@ Vikash~Kumar Mansinghka.
 \newblock {\em Natively probabilistic computation}.
 \newblock PhD thesis, Massachusetts Institute of Technology, 2009.
 
+\bibitem{massey1951kolmogorov}
+Frank~J Massey~Jr.
+\newblock The kolmogorov-smirnov test for goodness of fit.
+\newblock {\em Journal of the American statistical Association},
+  46(253):68--78, 1951.
+
 \bibitem{metropolis1953equation}
 Nicholas Metropolis, Arianna~W Rosenbluth, Marshall~N Rosenbluth, Augusta~H
   Teller, and Edward Teller.
@@ -72,6 +88,11 @@ Radford~M Neal.
 \newblock Probabilistic inference using markov chain monte carlo methods.
 \newblock Technical report, Department of Computer Science, University of
   Toronto Toronto, Ontario, Canada, 1993.
+
+\bibitem{neal2003slice}
+Radford~M Neal.
+\newblock Slice sampling.
+\newblock {\em Annals of statistics}, pages 705--741, 2003.
 
 \bibitem{bugsOverview}
 Thomas Neal.
@@ -87,6 +108,11 @@ Razvan Ranca.
 OpenBUGS~Model Repository.
 \newblock Tdf models.
 \newblock \url{http://www.openbugs.net/Examples/t-df.html}.
+
+\bibitem{robert2004monte}
+Christian~P Robert and George Casella.
+\newblock {\em Monte Carlo statistical methods}, volume 319.
+\newblock Citeseer, 2004.
 
 \bibitem{roy2008stochastic}
 DM~Roy, VK~Mansinghka, ND~Goodman, and JB~Tenenbaum.
