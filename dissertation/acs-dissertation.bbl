@@ -1,14 +1,75 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{gerstenberg2012ping}
+Tobias Gerstenberg and Noah~D Goodman.
+\newblock Ping pong in church: Productive use of concepts in human
+  probabilistic inference.
+\newblock In {\em Proceedings of the 34th annual conference of the cognitive
+  science society}, 2012.
+
+\bibitem{probMods}
+ND~Goodman and JB~Tenenbaum.
+\newblock {\em Probabilistic Models of Cognition}.
+\newblock (electronic), 2013.
+
+\bibitem{webChurch}
+Noah Goodman.
+\newblock Webchurch.
+\newblock \url{https://github.com/probmods/webchurch}.
 
 \bibitem{goodman2013principles}
 Noah~D Goodman.
 \newblock The principles and practice of probabilistic programming.
 \newblock In {\em ACM SIGPLAN Notices}, volume~48, pages 399--402. ACM, 2013.
 
+\bibitem{keith2008generalized}
+Jonathan Keith, George Sofronov, and Dirk Kroese.
+\newblock The generalized gibbs sampler and the neighborhood sampler.
+\newblock In {\em Monte Carlo and Quasi-Monte Carlo Methods 2006}, pages
+  537--547. Springer, 2008.
+
+\bibitem{lunn2009bugs}
+David Lunn, David Spiegelhalter, Andrew Thomas, and Nicky Best.
+\newblock The bugs project: Evolution, critique and future directions.
+\newblock {\em Statistics in medicine}, 28(25):3049--3067, 2009.
+
+\bibitem{mansinghka2014venture}
+Vikash Mansinghka, Daniel Selsam, and Yura Perov.
+\newblock Venture: a higher-order probabilistic programming platform with
+  programmable inference.
+\newblock {\em arXiv preprint arXiv:1404.0099}, 2014.
+
+\bibitem{mansinghka2009natively}
+Vikash~Kumar Mansinghka.
+\newblock {\em Natively probabilistic computation}.
+\newblock PhD thesis, Massachusetts Institute of Technology, 2009.
+
+\bibitem{bugsOverview}
+Thomas Neal.
+\newblock Openbugs overview.
+\newblock \url{http://www.openbugs.net/w/Overview}, 2010.
+
 \bibitem{stocPy}
 Razvan Ranca.
 \newblock Stochastic python.
 \newblock \url{https://github.com/RazvanRanca/StocPy}, 2014.
+
+\bibitem{TdfBugsRepo}
+OpenBUGS~Model Repository.
+\newblock Tdf models.
+\newblock \url{http://www.openbugs.net/Examples/t-df.html}.
+
+\bibitem{roy2008stochastic}
+DM~Roy, VK~Mansinghka, ND~Goodman, and JB~Tenenbaum.
+\newblock A stochastic programming perspective on nonparametric bayes.
+\newblock In {\em Nonparametric Bayesian Workshop, Int. Conf. on Machine
+  Learning}, volume~22, page~26, 2008.
+
+\bibitem{stuhlmuller2012dynamic}
+Andreas Stuhlm{\"u}ller and Noah~D Goodman.
+\newblock A dynamic programming algorithm for inference in recursive
+  probabilistic programs.
+\newblock {\em Statistical Relational AI workshop at UAI. 2012.}, 2012.
 
 \bibitem{wingate2011nonstandard}
 David Wingate, Noah~D Goodman, Andreas Stuhlmueller, and Jeffrey~Mark Siskind.
@@ -28,5 +89,17 @@ Frank Wood, Jan~Willem van~de Meent, and Vikash Mansinghka.
 \newblock A new approach to probabilistic programming inference.
 \newblock In {\em Proceedings of the 17th International conference on
   Artificial Intelligence and Statistics}, 2014.
+
+\bibitem{yang2013incrementalizing}
+Lingfeng Yang, P~Hanrahan, and N~Goodman.
+\newblock Incrementalizing mcmc on probabilistic programs through tracing and
+  slicing.
+\newblock {\em Under review}, 2013.
+
+\bibitem{yeh2012synthesizing}
+Yi-Ting Yeh, Lingfeng Yang, Matthew Watson, Noah~D Goodman, and Pat Hanrahan.
+\newblock Synthesizing open worlds with constraints using locally annealed
+  reversible jump mcmc.
+\newblock {\em ACM Transactions on Graphics (TOG)}, 31(4):56, 2012.
 
 \end{thebibliography}
