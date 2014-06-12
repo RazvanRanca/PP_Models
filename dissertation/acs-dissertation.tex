@@ -36,8 +36,16 @@
 \usepackage{amsmath}
 \setlength{\mathindent}{0pt}
 
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{%
+    \ifcase #1 (Not cited.)%
+    \or        (Cited on page~#2.)%
+    \else      (Cited on pages~#2.)%
+    \fi}
 
-\graphicspath{ {/home/haggis/Desktop/PP_Models/dissertation/imgs/} }
+\graphicspath{ {/auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/} }
+%\graphicspath{ {/home/haggis/Desktop/PP_Models/dissertation/imgs/} }
+
 %% START OF DOCUMENT
 \begin{document}
 
@@ -73,7 +81,7 @@
 \appendix
 \singlespacing
 
-\bibliographystyle{unsrt} 
-%\bibliography{dissertation} 
+\bibliographystyle{plain} 
+\bibliography{dissertation} 
 
 \end{document}

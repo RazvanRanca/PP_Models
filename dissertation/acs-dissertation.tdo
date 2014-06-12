@@ -15,11 +15,8 @@
 \contentsline {todo}{{talk about distributions over shifts, and more about benefits/drawback of shifts and/or changing depths}}{33}{section*.45}
 \contentsline {todo}{{There seem to be heuristic ways to address this}}{34}{section*.48}
 \contentsline {todo}{{try to get some results using markov chain implementation. Otherwise there's not much point in describing it ...}}{34}{section*.49}
-\contentsline {todo}{{citation}}{37}{section*.50}
-\contentsline {todo}{{link to github}}{37}{section*.51}
-\contentsline {todo}{{add citation}}{38}{section*.52}
-\contentsline {todo}{{change this after bibliography exists}}{40}{section*.59}
-\contentsline {todo}{{change this once bibliography exists}}{45}{section*.69}
-\contentsline {todo}{{mention the discrepancy with the paper?}}{46}{section*.70}
-\contentsline {todo}{{talk about the continuous vs. discrete aspect and the domain in which we expect slice to be good}}{47}{section*.73}
-\contentsline {todo}{{mention buggy metropolis version that also samples from this}}{49}{section*.77}
+\contentsline {todo}{{change this after bibliography exists}}{40}{section*.56}
+\contentsline {todo}{{change this once bibliography exists}}{45}{section*.66}
+\contentsline {todo}{{mention the discrepancy with the paper?}}{46}{section*.67}
+\contentsline {todo}{{talk about the continuous vs. discrete aspect and the domain in which we expect slice to be good}}{47}{section*.70}
+\contentsline {todo}{{mention buggy metropolis version that also samples from this}}{49}{section*.74}

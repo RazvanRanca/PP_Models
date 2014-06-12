@@ -1,17 +1,11 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.5.30)  11 JUN 2014 15:11
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.13)  12 JUN 2014 00:58
 entering extended mode
  %&-line parsing enabled.
 **acs-dissertation
 (./acs-dissertation.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
-ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
-9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
-skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
-orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
-, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
-rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
+yphenation, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/fleqn.clo
@@ -624,20 +618,20 @@ LaTeX Warning: Label `fig:tdfSampDists' multiply defined.
 )
 \openout1 = `acs-dissertation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
  (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count140
@@ -656,7 +650,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
  ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring OFF on input line 42.
+Package hyperref Info: Link coloring OFF on input line 50.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -666,8 +660,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count145
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
+LaTeX Info: Redefining \ref on input line 50.
+LaTeX Info: Redefining \pageref on input line 50.
 
 (./acs-dissertation.out) (./acs-dissertation.out)
 \@outlinefile=\write4
@@ -682,7 +676,7 @@ LaTeX Info: Redefining \pageref on input line 42.
 (./titlepage.tex [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<CUni3.pdf, id=221, 330.23375pt x 69.25874pt>
+<CUni3.pdf, id=215, 330.23375pt x 69.25874pt>
 File: CUni3.pdf Graphic file (type pdf)
  <use CUni3.pdf>pdfTeX warning (ext4): destination with the same identifier (na
 me{page.1}) has been already used, duplicate ignored
@@ -780,13 +774,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.11 \section
-             {Preliminaries} [5] [6] [7]
+l.10 
+      [5] [6] [7]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 56.
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 59.
-
-(/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
+ (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [8]
 Overfull \hbox (35.2136pt too wide) detected at line 85
@@ -795,79 +788,84 @@ cmm/m/it/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 / [] [] [][] []$
  []
 
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf, id=500
-, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf Gr
-aphic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf, i
+d=500, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.p
+df Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf, id=502, 
-587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf Grap
-hic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pd
+f>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf, id=
+502, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf
+ Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf, id=504, 587.
-19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf Graphic 
-file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf>
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf, id=50
-7, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf G
-raphic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf, id=504,
+ 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf, id=509
-, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf Gr
-aphic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf, 
+id=507, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.
+pdf Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.p
+df>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf, i
+d=509, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.p
+df Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pd
+f>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf> </h
-ome/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf> </home/hagg
-is/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf, id=635,
+[9 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf
+> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf> <
+/auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf, id
+=635, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pd
+f Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf
+>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf, id=
+637, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf
+ Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf>
+[10 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.p
+df> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pd
+f> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf>
+ </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf, id=826
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf Gr
+aphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf, id=828,
  587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf Gra
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf Gra
 phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf, id=637, 
-587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf Grap
-hic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf>
+[11 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf> </
+auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf, id=923,
+ 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf>
-[10 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf> <
-/home/haggis/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf> </home/
-haggis/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf> </home/haggis/
-Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf, id=826, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf Graphic
- file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf, id=828, 587.
-19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf Graphic 
-file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf> [11 </ho
-me/haggis/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf> </home/haggis/D
-esktop/PP_Models/dissertation/imgs/TdfContConv.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf, id=923, 587.
-19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf Graphic 
-file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf> [12 </ho
-me/haggis/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf>]
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf>
+[12 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf>]
 
 LaTeX Warning: Marginpar on page 13 moved.
 
@@ -880,12 +878,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
 [17]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf, id=997, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf Graphic
- file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf, id=997
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf Gr
+aphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -893,7 +891,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19 </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf>]
+[19 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf>]
 Overfull \hbox (1.95189pt too wide) in paragraph at lines 103--120
  [][] 
  []
@@ -905,151 +903,155 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf, id=1060, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf Graphic 
-file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf, id=1060
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf, id=1062,
- 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf Grap
-hic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf, id=
+1062, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf
+ Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf, id=1064, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf Graphic 
-file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf>
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf, id=1066,
- 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf Grap
-hic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf, id=1064
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf, id=
+1066, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf
+ Graphic file (type pdf)
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[21 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf> </home/h
-aggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf, id=1146, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf Graphic 
-file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf, id=1148,
- 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf Grap
-hic file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf Graphic 
-file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf, id=1151, 587.1
-9376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf Graphic fi
-le (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf> [22 </home
-/haggis/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf> </home/haggis/Desk
-top/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf> </home/haggis/Desktop/PP_M
-odels/dissertation/imgs/TdfSampDist.pdf> </home/haggis/Desktop/PP_Models/disser
-tation/imgs/Tdf1295SampDist.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf, id=1312, 587.1
-9376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf Graphic fi
-le (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf, id=1314, 594.420
-76pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf Graphic file
- (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf, id=1317, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf Graphi
-c file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf, id=131
-9, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf Gr
-aphic file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[23 </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf> </home/hag
-gis/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf> </home/haggis/Desktop/PP
-_Models/dissertation/imgs/Tdf21LL.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf, id=1441, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf Graphi
-c file (type pdf)
+[21 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf> </a
+uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf, id=1146
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf, id=144
-3, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf Gr
-aphic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf, id=
+1148, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf
+ Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf, id=1446, 6
-10.68152pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf Gra
+phic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf, id=1151, 
+587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf Graph
+ic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf, id=144
-8, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf Gr
-aphic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf>
+[22 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf> </a
+uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf> </auto
+/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf> </auto/homes/
+rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf, id=1312, 
+587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf Graph
+ic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf, id=1314, 59
+4.42076pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf Graphic
+ file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf, id=13
+17, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf G
+raphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf, i
+d=1319, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.p
+df Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pd
+f>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24 </home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf> </home
-/haggis/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf> </home/haggi
-s/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf> </home/haggis/Desktop/
-PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf>] [25 </home/haggis/Desktop/P
-P_Models/dissertation/imgs/Tdf21SampDist.pdf> </home/haggis/Desktop/PP_Models/d
-issertation/imgs/Tdf211295SampDist.pdf>]
+[23 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf> </aut
+o/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf> </auto/homes/r
+r463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf, id=14
+41, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf G
+raphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf, i
+d=1443, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.p
+df Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pd
+f>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf, id=14
+46, 610.68152pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf G
+raphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf, i
+d=1448, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.p
+df Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pd
+f>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[24 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf> <
+/auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf> </
+auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf> </auto/
+homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf>]
+[25 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf> <
+/auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf>]
 
 LaTeX Warning: Marginpar on page 26 moved.
 
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf Graphic 
-file (type pdf)
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf, id=1689,
- 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf Grap
-hic file (type pdf)
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf Gra
+phic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf, id=
+1689, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf
+ Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf G
+raphic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf, i
+d=1691, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.p
+df Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf, id=169
-1, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf Gr
-aphic file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pd
+f>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [26 </home/haggis/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf> </h
-ome/haggis/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf>] [27] [28
-]
+ [26 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf
+> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf>
+] [27]
+[28]
 
 LaTeX Warning: Marginpar on page 29 moved.
 
@@ -1063,48 +1065,51 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ¦ in font cmr10!
 [31]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf, id=1802
-, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf Gra
-phic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf, id
+=1802, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pd
+f Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf, id=1804
-, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf Gra
-phic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf
+>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf, id
+=1804, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pd
+f Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf, id=1809,
- 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf Grap
-hic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf
+>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf, id=
+1809, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf
+ Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[32 </home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf> </h
-ome/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf>]
+[32 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf
+> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf>]
 
 LaTeX Warning: Marginpar on page 33 moved.
 
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf, id=1897, 587.
-19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf Graphic f
-ile (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf, id=1897,
+ 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf Grap
+hic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf, id=1899, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf, id=18
+99, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf G
+raphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf>
-[33 </home/haggis/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf> </ho
-me/haggis/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf> </home/haggis/Des
-ktop/PP_Models/dissertation/imgs/02505Shift001.pdf>]) (./infEngine.tex [34]
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf>
+[33 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf>
+ </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf> </auto/
+homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf>])
+(./infEngine.tex [34]
 Chapter 5.
 [35
 
@@ -1114,133 +1119,130 @@ Overfull \hbox (9.16382pt too wide) in paragraph at lines 37--37
  []
 
 [36] [37]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf, id
+=2051, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pd
+f Graphic file (type pdf)
 
-LaTeX Warning: Reference `' on page 38 undefined on input line 57.
-
-
-</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf, id=2046
-, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf Gra
-phic file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf
+>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf, id=2049, 
-587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf Graph
-ic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf, id=2
+054, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf 
+Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf, id=2051, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf, id=20
+56, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf G
+raphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf, id=2054, 587.1937
-6pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf Graphic file 
-(type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf, id=2059, 587
+.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf Graphic 
+file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf, id=2056, 587.193
-76pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf Graphic file
- (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf, id=2061, 58
+7.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf Graphic
+ file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [38]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf, id=2067, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf Graphic 
-file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf, id=2072
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf, id=2069, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf, id=20
+74, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf G
+raphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-</home/haggis/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf, id=2071, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf Graphic 
-file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf, id=2073, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf Graphi
-c file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf, id=2075, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf Graphic 
-file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf, id=2076
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf, id=2077, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf, id=20
+78, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf G
+raphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf>
-Underfull \vbox (badness 4556) has occurred while \output is active []
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf>
 
- [39 </home/haggis/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf> </
-home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf> </home/haggis/
-Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf>] [40 </home/haggis/Deskt
-op/PP_Models/dissertation/imgs/SliceSampsMean.pdf> </home/haggis/Desktop/PP_Mod
-els/dissertation/imgs/SliceSampsStd.pdf> </home/haggis/Desktop/PP_Models/disser
-tation/imgs/Gauss2.pdf> </home/haggis/Desktop/PP_Models/dissertation/imgs/Gauss
-20.pdf>]
-[41 </home/haggis/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf> </home/h
-aggis/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf> </home/haggis/Desk
-top/PP_Models/dissertation/imgs/MetAutoCorr.pdf> </home/haggis/Desktop/PP_Model
-s/dissertation/imgs/SliceAutoCorr.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf, id=2474, 6
-12.48827pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf Graphi
-c file (type pdf)
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf, id=247
-6, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf Gr
-aphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf, id=2478,
- 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf Grap
-hic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf, id=2080
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf, id=2481, 
-587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf Graph
-ic file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf, id=20
+82, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf G
+raphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf>
+[39 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf
+> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf> </aut
+o/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf>] [40 </aut
+o/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf> </auto/ho
+mes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf> </auto/homes/r
+r463/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf> </auto/homes/rr463/Desktop
+/PP_Models/dissertation/imgs/Gauss20.pdf>] [41 </auto/homes/rr463/Desktop/PP_Mo
+dels/dissertation/imgs/MetSampEvol.pdf> </auto/homes/rr463/Desktop/PP_Models/di
+ssertation/imgs/SliceSampEvol.pdf> </auto/homes/rr463/Desktop/PP_Models/dissert
+ation/imgs/MetAutoCorr.pdf> </auto/homes/rr463/Desktop/PP_Models/dissertation/i
+mgs/SliceAutoCorr.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf, id=24
+79, 612.48827pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf G
+raphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf, i
+d=2481, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.p
+df Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pd
+f>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf, id=
+2483, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf
+ Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf>
+
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf, id=2
+486, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf 
+Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1265,211 +1267,223 @@ Overfull \hbox (36.89023pt too wide) in paragraph at lines 206--235
  []
 
 
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf, id=2483, 604
-.35785pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf Graphic 
-file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf, id=2488
+, 604.35785pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf, id=2485, 607
-.068pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf Graphic 
-file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf, id=2490
+, 607.068pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf, id=2487, 617
-.00514pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf Graphic 
-file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf, id=2492
+, 617.00514pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42 </home/haggis/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf> </hom
-e/haggis/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf> </home/hagg
-is/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf>] [43 </home/haggis/
-Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf> </home/haggis/Desktop/P
-P_Models/dissertation/imgs/Normal1Post.pdf> </home/haggis/Desktop/PP_Models/dis
-sertation/imgs/Normal2Post.pdf> </home/haggis/Desktop/PP_Models/dissertation/im
-gs/Normal4Post.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf, id=2748, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf Graphic 
-file (type pdf)
+ [42 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf> 
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf> <
+/auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf>] [43
+ </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf> </a
+uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf> </auto/hom
+es/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf> </auto/homes/rr46
+3/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf, id=2753
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf, id=2750, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf, id=27
+55, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf G
+raphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf, id=2752, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf Graphic 
-file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf, id=2757
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf, id=2754, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf, id=27
+59, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf G
+raphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf>
-[44 </home/haggis/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf> </home/h
-aggis/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf> </home/haggis/Desk
-top/PP_Models/dissertation/imgs/Normal2Runs.pdf> </home/haggis/Desktop/PP_Model
-s/dissertation/imgs/Normal2Quarts.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf, id=2921, 587
-.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf Graphic 
-file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf>
+[44 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf> </a
+uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf> </auto/h
+omes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf> </auto/homes/rr
+463/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf, id=2926
+, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf Gra
+phic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf, id=2923, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf, id=29
+28, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf G
+raphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>
-[45 </home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf> </home/h
-aggis/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf, id=3014, 587.
-19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf Graphic f
-ile (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf, id=3017, 587.
-19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf Graphic f
-ile (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf, id=3019, 58
-7.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf Graphic
- file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[46 </home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>] [47 </ho
-me/haggis/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf> </home/haggis/Des
-ktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf, id=3148,
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>
+[45 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf> </a
+uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf, id=3019,
  587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf Grap
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf Grap
 hic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf, id=315
-0, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf Gr
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf, id=3022,
+ 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf Grap
+hic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf, id=302
+4, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf Gr
 aphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf, id=3155, 
-587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf Graph
-ic file (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf Graphic f
-ile (type pdf)
-
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[48 </home/haggis/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf> </ho
-me/haggis/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf, id=3
-245, 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf 
+[46 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>]
+[47 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf> </au
+to/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf, id=
+3153, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf
+ Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf>
+
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf, i
+d=3155, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.p
+df Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pd
+f>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf, id=3
+160, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf 
 Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf, id=3247,
- 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf Grap
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf Grap
 hic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf>
-[49 </home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf> </hom
-e/haggis/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf> </home/ha
-ggis/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf>]
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf, id=3351, 5
-87.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf Graphi
-c file (type pdf)
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf, id=3353,
- 587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf Grap
-hic file (type pdf)
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf, id=3356, 58
-7.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf Graphic
- file (type pdf)
+[48 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf>
+ </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf>]
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf>
-</home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf, id=3358, 
-587.19376pt x 442.65375pt>
-File: /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf Graph
-ic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf,
+ id=3250, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik
+.pdf Graphic file (type pdf)
 
-<use /home/haggis/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.
+pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf, id=
+3252, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf
+ Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf>
+[49 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf> 
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf>
+ </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf, id=33
+56, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf G
+raphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf, id=
+3358, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf
+ Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf>
+
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf, id=336
+1, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf Gr
+aphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf, id=3
+363, 587.19376pt x 442.65375pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf 
+Graphic file (type pdf)
+
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50 </home/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf> </hom
-e/haggis/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf> </home/haggis
-/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf> </home/haggis/Desktop/PP
-_Models/dissertation/imgs/BranchTDQuarts.pdf>]) (./conclusions.tex [51] [52
+ [50 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf> 
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf> </a
+uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf> </auto/ho
+mes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf>]) (./conclusi
+ons.tex
+[51] [52
 
 ]
 Chapter 6.
-) [53] (./acs-dissertation.aux)
+) (./acs-dissertation.bbl (./acs-dissertation.brf)
+\tf@brf=\write9
+\openout9 = `acs-dissertation.brf'.
 
-LaTeX Warning: There were undefined references.
+ [53] [54
 
+]) [55]
+(./acs-dissertation.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15914 strings out of 493848
- 295340 string characters out of 1152823
- 358010 words of memory out of 3000000
- 18573 multiletter control sequences out of 15000+50000
- 15781 words of font info for 32 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
+ 15942 strings out of 495061
+ 297115 string characters out of 1182621
+ 356041 words of memory out of 3000000
+ 18490 multiletter control sequences out of 15000+50000
+ 16467 words of font info for 33 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
  63i,16n,90p,1070b,802s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-
-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/pu
-blic/amsfonts/cm/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
-s/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/s
-hare/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/typ
-e1/public/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
-fbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1000.pfb></usr/sh
-are/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type
-1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-rm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/sha
-re/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sftt1000.pfb>
-Output written on acs-dissertation.pdf (66 pages, 46385375 bytes).
+ </home/rr463/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/r
+r463/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/rr463/.texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/rr463/.texmf-var/fonts/
+pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/rr463/.texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecbx2074.600pk> </home/rr463/.texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecbx1000.600pk> </home/rr463/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.60
+0pk> </home/rr463/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk> </home
+/rr463/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/rr463/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/rr463/.texmf-var/font
+s/pk/ljfour/jknappen/ec/ecrm2074.600pk> </home/rr463/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecrm1000.600pk> </home/rr463/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ecbx1440.600pk></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex1
+0.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on acs-dissertation.pdf (68 pages, 46325375 bytes).
 PDF statistics:
- 3651 PDF objects out of 4296 (max. 8388607)
- 181 named destinations out of 1000 (max. 500000)
+ 4144 PDF objects out of 4296 (max. 8388607)
+ 186 named destinations out of 1000 (max. 500000)
  667 words of extra memory for PDF output out of 10000 (max. 10000000)
 

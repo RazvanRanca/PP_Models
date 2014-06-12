@@ -1,0 +1,32 @@
+\begin{thebibliography}{1}
+
+\bibitem{goodman2013principles}
+Noah~D Goodman.
+\newblock The principles and practice of probabilistic programming.
+\newblock In {\em ACM SIGPLAN Notices}, volume~48, pages 399--402. ACM, 2013.
+
+\bibitem{stocPy}
+Razvan Ranca.
+\newblock Stochastic python.
+\newblock \url{https://github.com/RazvanRanca/StocPy}, 2014.
+
+\bibitem{wingate2011nonstandard}
+David Wingate, Noah~D Goodman, Andreas Stuhlmueller, and Jeffrey~Mark Siskind.
+\newblock Nonstandard interpretations of probabilistic programs for efficient
+  inference.
+\newblock In {\em NIPS}, pages 1152--1160, 2011.
+
+\bibitem{wingate2011lightweight}
+David Wingate, Andreas Stuhlm{\"u}ller, and Noah~D Goodman.
+\newblock Lightweight implementations of probabilistic programming languages
+  via transformational compilation.
+\newblock In {\em International Conference on Artificial Intelligence and
+  Statistics}, pages 770--778, 2011.
+
+\bibitem{wood2014new}
+Frank Wood, Jan~Willem van~de Meent, and Vikash Mansinghka.
+\newblock A new approach to probabilistic programming inference.
+\newblock In {\em Proceedings of the 17th International conference on
+  Artificial Intelligence and Statistics}, 2014.
+
+\end{thebibliography}

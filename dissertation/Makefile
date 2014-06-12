@@ -12,10 +12,9 @@ acs-dissertation.pdf: acs-dissertation.ps
 acs-dissertation.ps: acs-dissertation.dvi
 	$(DVIPS) -Pdownload35 -ta4 acs-dissertation.dvi
 
-#acs-dissertation.dvi: acs-dissertation.tex dissertation.bib
-acs-dissertation.dvi: *.tex
+acs-dissertation.dvi: *.tex dissertation.bib
 	$(LATEX) acs-dissertation
-#       $(BIBTEX) acs-dissertation
+	$(BIBTEX) acs-dissertation
 	$(LATEX) acs-dissertation
 	$(LATEX) acs-dissertation
 

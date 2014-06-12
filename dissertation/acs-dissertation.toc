@@ -39,9 +39,9 @@
 \contentsline {section}{\numberline {5.3}Slice sampling inference engine}{38}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Custom Slice Sampling and Metropolis on Tdf models}{38}{subsection.5.3.1}
 \contentsline {subsection}{\numberline {5.3.2}Generic, lightweight, slice sampling inference engine}{40}{subsection.5.3.2}
-\contentsline {subsubsection}{Slice sampling on the Tdf model}{42}{section*.60}
-\contentsline {subsubsection}{Slice sampling on gaussian mean inference models}{42}{section*.63}
-\contentsline {subsubsection}{Branching Model}{45}{section*.68}
-\contentsline {subsubsection}{Trans-dimensional slice sampling}{48}{section*.75}
+\contentsline {subsubsection}{Slice sampling on the Tdf model}{42}{section*.57}
+\contentsline {subsubsection}{Slice sampling on gaussian mean inference models}{42}{section*.60}
+\contentsline {subsubsection}{Branching Model}{45}{section*.65}
+\contentsline {subsubsection}{Trans-dimensional slice sampling}{48}{section*.72}
 \contentsline {section}{\numberline {5.4}Quasi-Monte Carlo}{51}{section.5.4}
 \contentsline {chapter}{\numberline {6}Summary and Conclusions}{53}{chapter.6}
