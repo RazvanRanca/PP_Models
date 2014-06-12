@@ -22,6 +22,12 @@ Noah~D Goodman.
 \newblock The principles and practice of probabilistic programming.
 \newblock In {\em ACM SIGPLAN Notices}, volume~48, pages 399--402. ACM, 2013.
 
+\bibitem{hastings1970monte}
+W~Keith Hastings.
+\newblock Monte carlo sampling methods using markov chains and their
+  applications.
+\newblock {\em Biometrika}, 57(1):97--109, 1970.
+
 \bibitem{keith2008generalized}
 Jonathan Keith, George Sofronov, and Dirk Kroese.
 \newblock The generalized gibbs sampler and the neighborhood sampler.
@@ -33,6 +39,17 @@ David Lunn, David Spiegelhalter, Andrew Thomas, and Nicky Best.
 \newblock The bugs project: Evolution, critique and future directions.
 \newblock {\em Statistics in medicine}, 28(25):3049--3067, 2009.
 
+\bibitem{lunn2000winbugs}
+David~J Lunn, Andrew Thomas, Nicky Best, and David Spiegelhalter.
+\newblock Winbugs-a bayesian modelling framework: concepts, structure, and
+  extensibility.
+\newblock {\em Statistics and computing}, 10(4):325--337, 2000.
+
+\bibitem{mackay2003information}
+David~JC MacKay.
+\newblock {\em Information theory, inference and learning algorithms}.
+\newblock Cambridge university press, 2003.
+
 \bibitem{mansinghka2014venture}
 Vikash Mansinghka, Daniel Selsam, and Yura Perov.
 \newblock Venture: a higher-order probabilistic programming platform with
@@ -43,6 +60,18 @@ Vikash Mansinghka, Daniel Selsam, and Yura Perov.
 Vikash~Kumar Mansinghka.
 \newblock {\em Natively probabilistic computation}.
 \newblock PhD thesis, Massachusetts Institute of Technology, 2009.
+
+\bibitem{metropolis1953equation}
+Nicholas Metropolis, Arianna~W Rosenbluth, Marshall~N Rosenbluth, Augusta~H
+  Teller, and Edward Teller.
+\newblock Equation of state calculations by fast computing machines.
+\newblock {\em The journal of chemical physics}, 21(6):1087--1092, 1953.
+
+\bibitem{neal1993probabilistic}
+Radford~M Neal.
+\newblock Probabilistic inference using markov chain monte carlo methods.
+\newblock Technical report, Department of Computer Science, University of
+  Toronto Toronto, Ontario, Canada, 1993.
 
 \bibitem{bugsOverview}
 Thomas Neal.

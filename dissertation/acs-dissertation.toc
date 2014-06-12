@@ -21,16 +21,16 @@
 \contentsline {section}{\numberline {4.2}Sum of uniforms}{18}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Finding a good sum decomposition}{19}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Evaluating the (1,2,95) sum decomposition}{21}{subsection.4.2.2}
-\contentsline {subsubsection}{The Tdf21 model}{22}{section*.23}
-\contentsline {subsubsection}{Evaluating the decomposition on the Tdf21 model}{23}{section*.26}
+\contentsline {subsubsection}{The Tdf21 model}{22}{section*.22}
+\contentsline {subsubsection}{Evaluating the decomposition on the Tdf21 model}{23}{section*.25}
 \contentsline {section}{\numberline {4.3}Bit decomposition}{24}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Definition}{25}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Evaluation on Tdf and Tdf21}{25}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Getting stuck on a bad sample}{27}{subsection.4.3.3}
 \contentsline {subsection}{\numberline {4.3.4}Mixtures of shifted bit decompositions}{29}{subsection.4.3.4}
-\contentsline {subsubsection}{Avoiding getting stuck}{29}{section*.38}
-\contentsline {subsubsection}{Empirical performance}{31}{section*.40}
-\contentsline {subsubsection}{Determining optimal shifts and shift transitions}{33}{section*.45}
+\contentsline {subsubsection}{Avoiding getting stuck}{29}{section*.36}
+\contentsline {subsubsection}{Empirical performance}{32}{section*.38}
+\contentsline {subsubsection}{Determining optimal shifts and shift transitions}{33}{section*.43}
 \contentsline {chapter}{\numberline {5}Novel PPL inference techniques}{35}{chapter.5}
 \contentsline {section}{\numberline {5.1}Preliminaries}{35}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Slice sampling}{35}{subsection.5.1.1}
@@ -39,9 +39,9 @@
 \contentsline {section}{\numberline {5.3}Slice sampling inference engine}{38}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Custom Slice Sampling and Metropolis on Tdf models}{38}{subsection.5.3.1}
 \contentsline {subsection}{\numberline {5.3.2}Generic, lightweight, slice sampling inference engine}{40}{subsection.5.3.2}
-\contentsline {subsubsection}{Slice sampling on the Tdf model}{42}{section*.55}
-\contentsline {subsubsection}{Slice sampling on gaussian mean inference models}{42}{section*.58}
-\contentsline {subsubsection}{Branching Model}{45}{section*.63}
-\contentsline {subsubsection}{Trans-dimensional slice sampling}{48}{section*.70}
+\contentsline {subsubsection}{Slice sampling on the Tdf model}{42}{section*.52}
+\contentsline {subsubsection}{Slice sampling on gaussian mean inference models}{42}{section*.55}
+\contentsline {subsubsection}{Branching Model}{45}{section*.60}
+\contentsline {subsubsection}{Trans-dimensional slice sampling}{48}{section*.66}
 \contentsline {section}{\numberline {5.4}Quasi-Monte Carlo}{51}{section.5.4}
 \contentsline {chapter}{\numberline {6}Summary and Conclusions}{53}{chapter.6}

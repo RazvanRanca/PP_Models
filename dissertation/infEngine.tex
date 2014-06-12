@@ -145,7 +145,7 @@ Based on these preliminary experiments slice sampling seems to confer a signific
 
 \subsection{Generic, lightweight, slice sampling inference engine}
 
-Since the custom slice sampling tests on the Tdf models gave promising results we next look at creating a generic slice sampling implementation that can run on arbitrary probabilistic programs. Our implementation, described in Section \ref{sect:StocPy}, follows the style of the PPLs presented in ``Lightweight Implementations of Probabilistic Programming Languages via Transformational compilation''. \todo{change this after bibliography exists}. 
+Since the custom slice sampling tests on the Tdf models gave promising results we next look at creating a generic slice sampling implementation that can run on arbitrary probabilistic programs. Our implementation, described in Section \ref{sect:StocPy}, follows the `Lightweight Implementations'' style of the PPLs \cite{wingate2011lightweight}. 
 
 The slice sampling technique we use follows the basic ideas presented in Section \ref{sect:sliceBack}. The main points are:
 \begin{itemize}
@@ -310,7 +310,7 @@ The third model, seen in Figure \ref{fig:normal4Perf}, reveals several things wo
 
 \subsubsection{Branching Model}
 \label{sect:branching}
-In order to further test the slice sampling inference engine we look at the Branching model from the paper ``A New Approach to Probabilistic Programming Inference''. This is also a trans-dimensional model, but this time operating on discrete data. \todo{change this once bibliography exists} The model specification I use is:
+In order to further test the slice sampling inference engine we look at the Branching model considered in \cite{wood2014new}. This is also a trans-dimensional model, but this time operating on discrete data. The model specification we use is:
 
 \begin{align*}
   Branching3:

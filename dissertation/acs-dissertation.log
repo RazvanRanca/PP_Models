@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.13)  12 JUN 2014 13:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.13)  12 JUN 2014 15:48
 entering extended mode
  %&-line parsing enabled.
 **acs-dissertation
@@ -676,7 +676,7 @@ LaTeX Info: Redefining \pageref on input line 50.
 (./titlepage.tex [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<CUni3.pdf, id=211, 330.23375pt x 69.25874pt>
+<CUni3.pdf, id=203, 330.23375pt x 69.25874pt>
 File: CUni3.pdf Graphic file (type pdf)
  <use CUni3.pdf>pdfTeX warning (ext4): destination with the same identifier (na
 me{page.1}) has been already used, duplicate ignored
@@ -790,34 +790,34 @@ cmm/m/it/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 / [] [] [][] []$
 
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf, i
-d=516, 587.19376pt x 442.65375pt>
+d=508, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.p
 df Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pd
 f>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf, id=
-518, 587.19376pt x 442.65375pt>
+510, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf
  Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf>
 
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf, id=520,
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf, id=512,
  587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.pdf, 
-id=523, 587.19376pt x 442.65375pt>
+id=515, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.
 pdf Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.p
 df>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pdf, i
-d=525, 587.19376pt x 442.65375pt>
+d=517, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.p
 df Graphic file (type pdf)
 
@@ -828,14 +828,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf, id
-=528, 587.19376pt x 442.65375pt>
+=520, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pd
 f Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscSamps.pdf
 >
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf, id=
-530, 587.19376pt x 442.65375pt>
+522, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscConv.pdf
  Graphic file (type pdf)
 
@@ -846,13 +846,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [9 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscPost.pdf
 > </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfFineDiscPost.pdf> <
 /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf, id=657
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf, id=649
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf Gr
 aphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContSamps.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf, id=659,
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf, id=651,
  587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContConv.pdf Gra
 phic file (type pdf)
@@ -864,7 +864,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [10 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscSamps.p
 df> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfCourseDiscConv.pd
 f>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf, id=758,
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf, id=750,
  587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContRuns.pdf Gra
 phic file (type pdf)
@@ -890,8 +890,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
 [17]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf, id=101
-7, 587.19376pt x 442.65375pt>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf, id=102
+0, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf Gr
 aphic file (type pdf)
 
@@ -904,7 +904,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [19 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295Prior.pdf>]
-Overfull \hbox (1.95189pt too wide) in paragraph at lines 103--120
+Overfull \hbox (1.95189pt too wide) in paragraph at lines 105--122
  [][] 
  []
 
@@ -915,27 +915,27 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf, id=1080
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf, id=1083
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf, id=
-1082, 587.19376pt x 442.65375pt>
+1085, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf
  Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf>
 
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf, id=1084
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf, id=1087
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfAutoCorr.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf, id=
-1086, 587.19376pt x 442.65375pt>
+1089, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf
  Graphic file (type pdf)
 
@@ -945,14 +945,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [21 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampEvol.pdf> </a
 uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampEvol.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf, id=1166
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf, id=1169
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf, id=
-1168, 587.19376pt x 442.65375pt>
+1171, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf
  Graphic file (type pdf)
 
@@ -960,7 +960,7 @@ File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf Gra
 phic file (type pdf)
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContPost.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf, id=1171, 
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf, id=1174, 
 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Post.pdf Graph
 ic file (type pdf)
@@ -970,26 +970,26 @@ ic file (type pdf)
 uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295AutoCorr.pdf> </auto
 /homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf> </auto/homes/
 rr463/Desktop/PP_Models/dissertation/imgs/Tdf1295SampDist.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf, id=1332, 
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf, id=1335, 
 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf Graph
 ic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf, id=1334, 59
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf, id=1337, 59
 4.42076pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf Graphic
  file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf, id=13
-37, 587.19376pt x 442.65375pt>
+40, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampEvol.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.pdf, i
-d=1339, 587.19376pt x 442.65375pt>
+d=1342, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampEvol.p
 df Graphic file (type pdf)
 
@@ -1002,26 +1002,26 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 o/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfContLL.pdf> </auto/homes/r
 r463/Desktop/PP_Models/dissertation/imgs/Tdf21LL.pdf>]
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf, id=14
-61, 587.19376pt x 442.65375pt>
+64, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21AutoCorr.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pdf, i
-d=1463, 587.19376pt x 442.65375pt>
+d=1466, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.p
 df Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295AutoCorr.pd
 f>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf, id=14
-66, 610.68152pt x 442.65375pt>
+69, 610.68152pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.pdf, i
-d=1468, 587.19376pt x 442.65375pt>
+d=1471, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf211295SampDist.p
 df Graphic file (type pdf)
 
@@ -1043,7 +1043,7 @@ File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf Gra
 phic file (type pdf)
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSampDist.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf, id=
-1709, 587.19376pt x 442.65375pt>
+1712, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf
  Graphic file (type pdf)
 
@@ -1052,7 +1052,7 @@ File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf G
 raphic file (type pdf)
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21SampDist.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf, i
-d=1711, 587.19376pt x 442.65375pt>
+d=1714, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.p
 df Graphic file (type pdf)
 
@@ -1063,12 +1063,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [26 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfBin3SampDist.pdf
 > </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Tdf21Bin3SampDist.pdf>
 ] [27]
-[28]
-
-LaTeX Warning: Marginpar on page 29 moved.
-
-[29] [30]
-Overfull \hbox (87.97089pt too wide) in paragraph at lines 417--418
+[28] [29] [30]
+Overfull \hbox (87.97089pt too wide) in paragraph at lines 419--420
 []\T1/cmr/m/n/10 Note that, in this sit-u-a-tion we are not stuck. For in-stanc
 e, if we ac-cept $[] \OT1/cmr/m/n/10 =
  []
@@ -1076,52 +1072,52 @@ e, if we ac-cept $[] \OT1/cmr/m/n/10 =
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ¦ in font cmr10!
-[31]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31]
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf, id
-=1822, 587.19376pt x 442.65375pt>
+=1825, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pd
 f Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf
 >
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf, id
-=1824, 587.19376pt x 442.65375pt>
+=1827, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pd
 f Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf
->
+> [32 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.p
+df> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf
+>]
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf, id=
-1829, 587.19376pt x 442.65375pt>
+1917, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf
  Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[32 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax0001.pdf
-> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMin0001.pdf>]
-
-LaTeX Warning: Marginpar on page 33 moved.
-
-
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf, id=1917,
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf, id=1921,
  587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf Grap
 hic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf, id=19
-19, 587.19376pt x 442.65375pt>
+23, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [33 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/AllShiftsMax001.pdf>
- </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/05Shift001.pdf> </auto/
-homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shift001.pdf>])
-(./infEngine.tex [34]
+]) (./infEngine.tex [34 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/
+05Shift001.pdf> </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/02505Shi
+ft001.pdf>]
 Chapter 5.
 [35
 
@@ -1132,7 +1128,7 @@ Overfull \hbox (9.16382pt too wide) in paragraph at lines 37--37
 
 [36] [37]
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pdf, id
-=2071, 587.19376pt x 442.65375pt>
+=2075, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceMetCustPerf.pd
 f Graphic file (type pdf)
 
@@ -1143,13 +1139,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf, id=2
-074, 587.19376pt x 442.65375pt>
+078, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf 
 Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsMean.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf, id=20
-76, 587.19376pt x 442.65375pt>
+80, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampsStd.pdf G
 raphic file (type pdf)
 
@@ -1158,13 +1154,13 @@ raphic file (type pdf)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf, id=2079, 587
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf, id=2083, 587
 .19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf Graphic 
 file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss2.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf, id=2081, 58
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf, id=2085, 58
 7.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf Graphic
  file (type pdf)
@@ -1174,14 +1170,14 @@ File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Gauss20.pdf Graphic
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [38]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf, id=2092
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf, id=2096
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampEvol.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf, id=20
-94, 587.19376pt x 442.65375pt>
+98, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampEvol.pdf G
 raphic file (type pdf)
 
@@ -1190,14 +1186,14 @@ raphic file (type pdf)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf, id=2096
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf, id=2100
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetAutoCorr.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf, id=20
-98, 587.19376pt x 442.65375pt>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf, id=21
+02, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceAutoCorr.pdf G
 raphic file (type pdf)
 
@@ -1206,14 +1202,14 @@ raphic file (type pdf)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf, id=2100
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf, id=2104
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetSampDist.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf, id=21
-02, 587.19376pt x 442.65375pt>
+06, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceSampDist.pdf G
 raphic file (type pdf)
 
@@ -1229,28 +1225,28 @@ dels/dissertation/imgs/MetSampEvol.pdf> </auto/homes/rr463/Desktop/PP_Models/di
 ssertation/imgs/SliceSampEvol.pdf> </auto/homes/rr463/Desktop/PP_Models/dissert
 ation/imgs/MetAutoCorr.pdf> </auto/homes/rr463/Desktop/PP_Models/dissertation/i
 mgs/SliceAutoCorr.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf, id=24
-99, 612.48827pt x 442.65375pt>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf, id=25
+04, 612.48827pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/MetLISampDist.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pdf, i
-d=2501, 587.19376pt x 442.65375pt>
+d=2506, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.p
 df Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/VentureLISampDist.pd
 f>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf, id=
-2503, 587.19376pt x 442.65375pt>
+2508, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf
  Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/SliceLISampDist.pdf>
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf, id=2
-506, 587.19376pt x 442.65375pt>
+511, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/TdfSliceLIComp.pdf 
 Graphic file (type pdf)
 
@@ -1279,19 +1275,19 @@ Overfull \hbox (36.89023pt too wide) in paragraph at lines 206--235
  []
 
 
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf, id=2508
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf, id=2513
 , 604.35785pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf, id=2510
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf, id=2515
 , 607.068pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf, id=2512
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf, id=2517
 , 617.00514pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf Gra
 phic file (type pdf)
@@ -1306,26 +1302,26 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Post.pdf> </auto/hom
 es/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Post.pdf> </auto/homes/rr46
 3/Desktop/PP_Models/dissertation/imgs/Normal4Post.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf, id=2773
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf, id=2778
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Runs.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf, id=27
-75, 587.19376pt x 442.65375pt>
+80, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf, id=2777
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf, id=2782
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf, id=27
-79, 587.19376pt x 442.65375pt>
+84, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf G
 raphic file (type pdf)
 
@@ -1334,34 +1330,36 @@ raphic file (type pdf)
 uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal1Quarts.pdf> </auto/h
 omes/rr463/Desktop/PP_Models/dissertation/imgs/Normal2Runs.pdf> </auto/homes/rr
 463/Desktop/PP_Models/dissertation/imgs/Normal2Quarts.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf, id=2946
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf, id=2951
 , 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf Gra
 phic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf, id=29
-48, 587.19376pt x 442.65375pt>
+53, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>
-[45 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf> </a
-uto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf, id=3039,
+Underfull \vbox (badness 3407) has occurred while \output is active []
+
+ [45 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Runs.pdf> </
+auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4Quarts.pdf>]
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf, id=3045,
  587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf Grap
 hic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf, id=3042,
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf, id=3048,
  587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf Grap
 hic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf>
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf, id=304
-4, 587.19376pt x 442.65375pt>
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf, id=305
+0, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf Gr
 aphic file (type pdf)
 
@@ -1373,21 +1371,21 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [47 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf> </au
 to/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>]
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf, id=
-3173, 587.19376pt x 442.65375pt>
+3179, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf
  Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf>
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf, i
-d=3175, 587.19376pt x 442.65375pt>
+d=3181, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.p
 df Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pd
 f>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf, id=3
-180, 587.19376pt x 442.65375pt>
+186, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf 
 Graphic file (type pdf)
 
@@ -1403,14 +1401,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
  </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf>]
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf,
- id=3270, 587.19376pt x 442.65375pt>
+ id=3276, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik
 .pdf Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.
 pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf, id=
-3272, 587.19376pt x 442.65375pt>
+3278, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf
  Graphic file (type pdf)
 
@@ -1419,26 +1417,26 @@ File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf>
  </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf>]
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf, id=33
-76, 587.19376pt x 442.65375pt>
+82, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf, id=
-3378, 587.19376pt x 442.65375pt>
+3384, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf
  Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf>
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf, id=338
-1, 587.19376pt x 442.65375pt>
+7, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf Gr
 aphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf, id=3
-383, 587.19376pt x 442.65375pt>
+389, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf 
 Graphic file (type pdf)
 
@@ -1465,22 +1463,22 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
 
 (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-Underfull \hbox (badness 1270) in paragraph at lines 51--51
+) [55]
+Underfull \hbox (badness 1270) in paragraph at lines 80--80
 []\T1/cmr/m/n/10 Thomas Neal.  Open-bugs overview.  []$\T1/cmtt/m/n/10 http : /
  / www . openbugs . net / w /
  []
 
-[55]) [56] (./acs-dissertation.aux)
+) [56] (./acs-dissertation.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16022 strings out of 495061
- 298686 string characters out of 1182621
- 356393 words of memory out of 3000000
- 18558 multiletter control sequences out of 15000+50000
+ 16033 strings out of 495061
+ 298893 string characters out of 1182621
+ 355285 words of memory out of 3000000
+ 18568 multiletter control sequences out of 15000+50000
  16467 words of font info for 33 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  63i,16n,90p,1070b,802s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1503,9 +1501,9 @@ ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/pub
 lic/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
 cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on acs-dissertation.pdf (69 pages, 46344492 bytes).
+Output written on acs-dissertation.pdf (69 pages, 46348727 bytes).
 PDF statistics:
- 4218 PDF objects out of 4296 (max. 8388607)
- 198 named destinations out of 1000 (max. 500000)
+ 4236 PDF objects out of 4296 (max. 8388607)
+ 199 named destinations out of 1000 (max. 500000)
  667 words of extra memory for PDF output out of 10000 (max. 10000000)
 

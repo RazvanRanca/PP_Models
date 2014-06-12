@@ -3,45 +3,46 @@ The top-level auxiliary file: acs-dissertation.aux
 The style file: plain.bst
 Database file #1: dissertation.bib
 Warning--can't use both volume and number fields in goodman2013principles
-You've used 18 entries,
+Warning--empty institution in neal1993probabilistic
+You've used 23 entries,
             2118 wiz_defined-function locations,
-            596 strings with 6995 characters,
-and the built_in function-call counts, 5824 in all, are:
-= -- 559
-> -- 268
+            630 strings with 7898 characters,
+and the built_in function-call counts, 7367 in all, are:
+= -- 712
+> -- 340
 < -- 7
-+ -- 112
-- -- 88
-* -- 341
-:= -- 948
-add.period$ -- 56
-call.type$ -- 18
-change.case$ -- 96
++ -- 141
+- -- 112
+* -- 456
+:= -- 1216
+add.period$ -- 71
+call.type$ -- 23
+change.case$ -- 123
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 243
-empty$ -- 481
-format.name$ -- 88
-if$ -- 1252
+cite$ -- 25
+duplicate$ -- 296
+empty$ -- 600
+format.name$ -- 112
+if$ -- 1561
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 14
-newline$ -- 93
-num.names$ -- 36
-pop$ -- 134
+int.to.str$ -- 23
+missing$ -- 19
+newline$ -- 118
+num.names$ -- 46
+pop$ -- 158
 preamble$ -- 1
-purify$ -- 80
+purify$ -- 102
 quote$ -- 0
-skip$ -- 187
+skip$ -- 219
 stack$ -- 0
-substring$ -- 273
-swap$ -- 70
+substring$ -- 376
+swap$ -- 74
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 70
-warning$ -- 1
-while$ -- 52
-width$ -- 20
-write$ -- 192
-(There was 1 warning)
+type$ -- 88
+warning$ -- 2
+while$ -- 68
+width$ -- 25
+write$ -- 246
+(There were 2 warnings)

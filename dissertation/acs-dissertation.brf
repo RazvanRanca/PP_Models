@@ -8,8 +8,14 @@
 \backcite {probMods, gerstenberg2012ping}{{7}{3.2.2}{subsection.3.2.2}}
 \backcite {mansinghka2009natively}{{7}{3.2.2}{subsection.3.2.2}}
 \backcite {TdfBugsRepo}{{8}{3.3.1}{subsection.3.3.1}}
-\backcite {keith2008generalized}{{11}{3.4}{figure.caption.12}}
+\backcite {lunn2000winbugs, keith2008generalized}{{11}{3.4}{figure.caption.12}}
 \backcite {webChurch}{{12}{3.4.1}{subsection.3.4.1}}
+\backcite {metropolis1953equation, hastings1970monte}{{16}{4.1.1}{subsection.4.1.1}}
+\backcite {neal1993probabilistic}{{16}{4.1.1}{subsection.4.1.1}}
+\backcite {mackay2003information, neal1993probabilistic}{{17}{4.1.1}{subsection.4.1.1}}
+\backcite {mackay2003information}{{29}{4.3.3}{section*.35}}
 \backcite {wingate2011lightweight}{{37}{5.1.2}{subsection.5.1.2}}
 \backcite {stocPy}{{37}{5.2}{section.5.2}}
 \backcite {wingate2011lightweight}{{38}{5.2}{section.5.2}}
+\backcite {wingate2011lightweight}{{40}{5.3.2}{subsection.5.3.2}}
+\backcite {wood2014new}{{45}{5.3.2}{section*.60}}

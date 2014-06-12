@@ -181,7 +181,7 @@ In order to understand why Venture seems to perform so badly on the Tdf models, 
 
 Figure \ref{fig:tdfContRun} shows that Venture has a much higher propensity for identical sample runs than OpenBUGS. Keeping in mind that Venture takes a lag of 100 samples between each 2 extracted samples, we see that Venture exhibits several runs of over 500 MCMC iterations where the observed variable does not change at all. On the other hand, OpenBUGS has no two identical consecutive samples.
 
-This difference can be explained by the different inference strategies employed by the two engines. Venture makes use of single-site Metropolis whereas OpenBUGS uses a slice sampler on one dimensional models such as Tdf \cite{keith2008generalized}. We take a closer look at these different inference techniques and their performance in Chapter \ref{chap:infEngines}.
+This difference can be explained by the different inference strategies employed by the two engines. Venture makes use of single-site Metropolis whereas OpenBUGS uses a slice sampler on one dimensional models such as Tdf \cite{lunn2000winbugs, keith2008generalized}. We take a closer look at these different inference techniques and their performance in Chapter \ref{chap:infEngines}.
 
 \todo{Decide is there's anything worth reporting from the performance tests done on Venture. Log dates: 2014.02.19 and 2014.02.20}
 
