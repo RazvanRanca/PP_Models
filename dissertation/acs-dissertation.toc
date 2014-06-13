@@ -47,3 +47,5 @@
 \contentsline {section}{\numberline {4.4}Quasi-Monte Carlo}{50}{section.4.4}
 \contentsline {chapter}{\numberline {5}Related Work}{53}{chapter.5}
 \contentsline {chapter}{\numberline {6}Summary and Conclusions}{55}{chapter.6}
+\contentsline {section}{\numberline {6.1}Overview}{55}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Directions}{56}{section.6.2}
