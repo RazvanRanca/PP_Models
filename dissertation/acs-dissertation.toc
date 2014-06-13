@@ -46,6 +46,8 @@
 \contentsline {subsubsection}{Trans-dimensional slice sampling}{48}{section*.67}
 \contentsline {section}{\numberline {4.4}Quasi-Monte Carlo}{50}{section.4.4}
 \contentsline {chapter}{\numberline {5}Related Work}{53}{chapter.5}
-\contentsline {chapter}{\numberline {6}Summary and Conclusions}{55}{chapter.6}
-\contentsline {section}{\numberline {6.1}Overview}{55}{section.6.1}
-\contentsline {section}{\numberline {6.2}Future Directions}{56}{section.6.2}
+\contentsline {section}{\numberline {5.1}Probabilistic Programming Languages}{53}{section.5.1}
+\contentsline {section}{\numberline {5.2}Speeding up inference}{54}{section.5.2}
+\contentsline {chapter}{\numberline {6}Summary and Conclusions}{57}{chapter.6}
+\contentsline {section}{\numberline {6.1}Overview}{57}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Directions}{58}{section.6.2}

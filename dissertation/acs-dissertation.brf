@@ -29,7 +29,18 @@
 \backcite {wingate2011lightweight}{{41}{4.3.2}{subsection.4.3.2}}
 \backcite {wood2014new}{{46}{4.3.2}{section*.61}}
 \backcite {robert2004monte}{{50}{4.4}{section.4.4}}
-\backcite {stuhlmuller2012dynamic}{{53}{5}{chapter.5}}
-\backcite {wingate2011nonstandard}{{53}{5}{chapter.5}}
-\backcite {yang2013incrementalizing}{{53}{5}{chapter.5}}
-\backcite {}{{56}{6.2}{section.6.2}}
+\backcite {jones1989probabilistic}{{53}{5.1}{section.5.1}}
+\backcite {ppw}{{53}{5.1}{section.5.1}}
+\backcite {kimmig2011implementation, de2008probabilistic, sato1997prism, poole2008independent}{{53}{5.1}{section.5.1}}
+\backcite {goodman2008church, mansinghka2014venture, wood2014new}{{53}{5.1}{section.5.1}}
+\backcite {abelson1991revised}{{53}{5.1}{section.5.1}}
+\backcite {kiselyov2009embedded}{{53}{5.1}{section.5.1}}
+\backcite {lunn2009bugs}{{54}{5.1}{section.5.1}}
+\backcite {lunn2009bugs, richardson2006markov, mccallum2009factorie, stan-software:2014, minkainfer}{{54}{5.1}{section.5.1}}
+\backcite {milch20071, pfeffer2001ibal, pfeffer2009figaro, goodman2008church}{{54}{5.1}{section.5.1}}
+\backcite {stuhlmuller2012dynamic}{{54}{5.2}{section.5.2}}
+\backcite {wingate2011nonstandard}{{54}{5.2}{section.5.2}}
+\backcite {yang2013incrementalizing}{{55}{5.2}{section.5.2}}
+\backcite {wood2014new}{{55}{5.2}{section.5.2}}
+\backcite {yeh2012synthesizing}{{55}{5.2}{section.5.2}}
+\backcite {}{{58}{6.2}{section.6.2}}

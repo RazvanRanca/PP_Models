@@ -37,6 +37,8 @@
 \BOOKMARK [2][-]{subsection.4.3.2}{Generic, lightweight, slice sampling inference engine}{section.4.3}
 \BOOKMARK [1][-]{section.4.4}{Quasi-Monte Carlo}{chapter.4}
 \BOOKMARK [0][-]{chapter.5}{Related Work}{}
+\BOOKMARK [1][-]{section.5.1}{Probabilistic Programming Languages}{chapter.5}
+\BOOKMARK [1][-]{section.5.2}{Speeding up inference}{chapter.5}
 \BOOKMARK [0][-]{chapter.6}{Summary and Conclusions}{}
 \BOOKMARK [1][-]{section.6.1}{Overview}{chapter.6}
 \BOOKMARK [1][-]{section.6.2}{Future Directions}{chapter.6}

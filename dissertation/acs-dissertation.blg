@@ -2,47 +2,48 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: acs-dissertation.aux
 The style file: plain.bst
 Database file #1: dissertation.bib
+Warning--to sort, need author or key in ppw
 Warning--can't use both volume and number fields in goodman2013principles
 Warning--empty institution in neal1993probabilistic
-You've used 31 entries,
+You've used 47 entries,
             2118 wiz_defined-function locations,
-            679 strings with 9001 characters,
-and the built_in function-call counts, 9909 in all, are:
-= -- 978
-> -- 426
-< -- 10
-+ -- 176
-- -- 138
-* -- 617
-:= -- 1623
-add.period$ -- 95
-call.type$ -- 31
-change.case$ -- 159
+            761 strings with 11411 characters,
+and the built_in function-call counts, 16104 in all, are:
+= -- 1602
+> -- 708
+< -- 19
++ -- 290
+- -- 234
+* -- 1005
+:= -- 2572
+add.period$ -- 147
+call.type$ -- 47
+change.case$ -- 253
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 397
-empty$ -- 813
-format.name$ -- 138
-if$ -- 2104
+cite$ -- 50
+duplicate$ -- 656
+empty$ -- 1306
+format.name$ -- 234
+if$ -- 3473
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 27
-newline$ -- 158
-num.names$ -- 62
-pop$ -- 194
+int.to.str$ -- 47
+missing$ -- 41
+newline$ -- 237
+num.names$ -- 92
+pop$ -- 323
 preamble$ -- 1
-purify$ -- 131
+purify$ -- 210
 quote$ -- 0
-skip$ -- 301
+skip$ -- 510
 stack$ -- 0
-substring$ -- 573
-swap$ -- 99
-text.length$ -- 10
+substring$ -- 941
+swap$ -- 194
+text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 118
-warning$ -- 2
-while$ -- 98
-width$ -- 33
-write$ -- 333
-(There were 2 warnings)
+type$ -- 180
+warning$ -- 3
+while$ -- 154
+width$ -- 49
+write$ -- 507
+(There were 3 warnings)

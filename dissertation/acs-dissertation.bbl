@@ -1,11 +1,26 @@
 \begin{thebibliography}{10}
 
+\bibitem{ppw}
+Probabilistic programming wiki.
+\newblock \url{http://probabilistic-programming.org/}, 2014.
+
+\bibitem{abelson1991revised}
+Harold Abelson, RK~Dybvig, CT~Haynes, GJ~Rozas, NI~Adams~IV, DP~Friedman,
+  E~Kohlbecker, GL~Steele~Jr, DH~Bartley, R~Halstead, et~al.
+\newblock Revised report on the algorithmic language scheme.
+\newblock {\em ACM SIGPLAN Lisp Pointers}, 4(3):1--55, 1991.
+
 \bibitem{ppaml}
 DARPA.
 \newblock Probabilistic programming for advancing machine learning.
 \newblock
   \url{http://www.darpa.mil/Our_Work/I2O/Programs/Probabilistic_Programming_fo%
 r_Advanced_Machine_Learning_\%28PPAML\%29.aspx}, 2013.
+
+\bibitem{de2008probabilistic}
+Luc De~Raedt and Kristian Kersting.
+\newblock {\em Probabilistic inductive logic programming}.
+\newblock Springer, 2008.
 
 \bibitem{frank2012predicting}
 Michael~C Frank and Noah~D Goodman.
@@ -34,6 +49,12 @@ Noah~D Goodman.
 \newblock The principles and practice of probabilistic programming.
 \newblock In {\em ACM SIGPLAN Notices}, volume~48, pages 399--402. ACM, 2013.
 
+\bibitem{goodman2008church}
+Noah~D Goodman, Vikash~K Mansinghka, Daniel~M Roy, Keith Bonawitz, and Joshua~B
+  Tenenbaum.
+\newblock Church: A language for generative models.
+\newblock In {\em In Uncertainty in Artificial Intelligence}, 2008.
+
 \bibitem{goodman2013knowledge}
 Noah~D Goodman and Andreas Stuhlm{\"u}ller.
 \newblock Knowledge and implicature: Modeling language understanding as social
@@ -51,11 +72,30 @@ W~Keith Hastings.
   applications.
 \newblock {\em Biometrika}, 57(1):97--109, 1970.
 
+\bibitem{jones1989probabilistic}
+Claire Jones and Gordon~D Plotkin.
+\newblock A probabilistic powerdomain of evaluations.
+\newblock In {\em Logic in Computer Science, 1989. LICS'89, Proceedings.,
+  Fourth Annual Symposium on}, pages 186--195. IEEE, 1989.
+
 \bibitem{keith2008generalized}
 Jonathan Keith, George Sofronov, and Dirk Kroese.
 \newblock The generalized gibbs sampler and the neighborhood sampler.
 \newblock In {\em Monte Carlo and Quasi-Monte Carlo Methods 2006}, pages
   537--547. Springer, 2008.
+
+\bibitem{kimmig2011implementation}
+Angelika Kimmig, Bart Demoen, Luc De~Raedt, Vitor~Santos Costa, and Ricardo
+  Rocha.
+\newblock On the implementation of the probabilistic logic programming language
+  problog.
+\newblock {\em Theory and Practice of Logic Programming}, 11(2-3):235--262,
+  2011.
+
+\bibitem{kiselyov2009embedded}
+Oleg Kiselyov and Chung-chieh Shan.
+\newblock Embedded probabilistic programming.
+\newblock In {\em Domain-Specific Languages}, pages 360--384. Springer, 2009.
 
 \bibitem{kullback1951information}
 Solomon Kullback and Richard~A Leibler.
@@ -95,11 +135,28 @@ Frank~J Massey~Jr.
 \newblock {\em Journal of the American statistical Association},
   46(253):68--78, 1951.
 
+\bibitem{mccallum2009factorie}
+Andrew McCallum, Karl Schultz, and Sameer Singh.
+\newblock Factorie: Probabilistic programming via imperatively defined factor
+  graphs.
+\newblock In {\em NIPS}, pages 1249--1257, 2009.
+
 \bibitem{metropolis1953equation}
 Nicholas Metropolis, Arianna~W Rosenbluth, Marshall~N Rosenbluth, Augusta~H
   Teller, and Edward Teller.
 \newblock Equation of state calculations by fast computing machines.
 \newblock {\em The journal of chemical physics}, 21(6):1087--1092, 1953.
+
+\bibitem{milch20071}
+Brian Milch, Bhaskara Marthi, Stuart Russell, David Sontag, Daniel~L Ong, and
+  Andrey Kolobov.
+\newblock Blog: Probabilistic models with unknown objects.
+\newblock {\em Statistical relational learning}, page 373, 2007.
+
+\bibitem{minkainfer}
+Tom Minka, John Winn, John Guiver, and David Knowles.
+\newblock Infer .net 2.4, 2010. microsoft research cambridge.
+\newblock \url{http://research.microsoft.com/infernet/}.
 
 \bibitem{neal1993probabilistic}
 Radford~M Neal.
@@ -117,6 +174,22 @@ Thomas Neal.
 \newblock Openbugs overview.
 \newblock \url{http://www.openbugs.net/w/Overview}, 2010.
 
+\bibitem{pfeffer2001ibal}
+Avi Pfeffer.
+\newblock Ibal: A probabilistic rational programming language.
+\newblock In {\em IJCAI}, pages 733--740. Citeseer, 2001.
+
+\bibitem{pfeffer2009figaro}
+Avi Pfeffer.
+\newblock Figaro: An object-oriented probabilistic programming language.
+\newblock {\em Charles River Analytics Technical Report}, page 137, 2009.
+
+\bibitem{poole2008independent}
+David Poole.
+\newblock The independent choice logic and beyond.
+\newblock In {\em Probabilistic inductive logic programming}, pages 222--243.
+  Springer, 2008.
+
 \bibitem{stocPy}
 Razvan Ranca.
 \newblock Stochastic python.
@@ -126,6 +199,11 @@ Razvan Ranca.
 OpenBUGS~Model Repository.
 \newblock Tdf models.
 \newblock \url{http://www.openbugs.net/Examples/t-df.html}.
+
+\bibitem{richardson2006markov}
+Matthew Richardson and Pedro Domingos.
+\newblock Markov logic networks.
+\newblock {\em Machine learning}, 62(1-2):107--136, 2006.
 
 \bibitem{robert2004monte}
 Christian~P Robert and George Casella.
@@ -137,6 +215,16 @@ DM~Roy, VK~Mansinghka, ND~Goodman, and JB~Tenenbaum.
 \newblock A stochastic programming perspective on nonparametric bayes.
 \newblock In {\em Nonparametric Bayesian Workshop, Int. Conf. on Machine
   Learning}, volume~22, page~26, 2008.
+
+\bibitem{sato1997prism}
+Taisuke Sato and Yoshitaka Kameya.
+\newblock Prism: a language for symbolic-statistical modeling.
+\newblock In {\em IJCAI}, volume~97, pages 1330--1339. Citeseer, 1997.
+
+\bibitem{stan-software:2014}
+{Stan Development Team}.
+\newblock Stan: A c++ library for probability and sampling, version 2.2.
+\newblock \url{http://mc-stan.org/}, 2014.
 
 \bibitem{stuhlmuller2012dynamic}
 Andreas Stuhlm{\"u}ller and Noah~D Goodman.
