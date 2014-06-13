@@ -1,4 +1,5 @@
 \chapter{Partitioned Priors}
+\label{chap:partPriors}
 
 In this chapter we look at a novel idea of improve the inference performance of basic Metropolis-Hastings by paritioning the prior distribution into several component parts. The idea behind this approach is that we may be able to guide the resampling process as to improve the rate of convergence to the mode and the mixing properties of local Metropolis-Hastings. \todo{say something about proposal kernels vs. sampling from prior?} If this approach proves succesful, it would enable us to design a light pre-inference rewriting of a probabilistic program which splits up its priors so that the subsequent inference step is performed more efficiently.
 

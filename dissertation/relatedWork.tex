@@ -1,3 +1,8 @@
 \chapter{Related Work} 
+\label{chap:relWork}
 
+One possibility is to perform exact inference by applying dynamic programming (DP) techniques to manage the exponential number of possible execution paths \cite{stuhlmuller2012dynamic}. There is potential for future work in this area by analysing the performance of different DP and approximate-DP techniques. More generally, it is clear that DP won’t work on all models, but understanding what the subclass
+of models is on which exact inference might be tractable remains an open problem. 
 
+When exact inference is intractable, we have to settle for approximate solutions, usually obtained via Markov chain Monte Carlo (MCMC). Figuring out how to best take advantage of the underlying structure
+of the distributions, as to obtain better mixing rates and therefore faster inference, is currently an area of active research. One attempt uses nonstandard interpretations to create monad-like side computations which can extract structural information, such as gradients \cite{wingate2011nonstandard}. This information can then enable the use of sophisticated MCMC techniques, such as Hamiltonian MC, which can lead to big boosts in performance over more naive MCMC methods. There is much potential for future work in applying further compiler design and program analysis techniques towards speeding up inference. For instance, speed-ups of over an order of magnitude were shown to be possible by applying techniques such as JIT compilation, dead code elimination, allocation removal and incremental optimization \cite{yang2013incrementalizing}.

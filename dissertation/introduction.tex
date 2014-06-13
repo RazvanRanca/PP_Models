@@ -5,38 +5,26 @@
 
 Probabilistic programming languages (PPLs) have garnered a lot of attention recently, especially since the announcement of a DARPA\footnote{Defense Advanced Research Projects Agency} initiative to support their research and development \cite{ppaml}. However, a lot of progress has to be made before the promise of PPLs can be reached, with one of the critical areas of current research being the inference engines used to convert programs in these languages into statistical inference algorithms. This project aims to better understand the complex interactions and performance trade-offs between choice of probabilistic programming language, of model type and of inference method. By better understanding these interactions we hope to discover the areas where improvements are most needed and suggest ways in which such improvements can be carried out.
 
-\section{Importance}
+\section{Importance of Probabilistic Programming Languages}
 \label{sect:importance}
 Machine learning has become ubiquitous, with applications ranging from self-driving cars to gene sequencing. However, building any significant machine learning application currently involves a great deal of expertise in both defining an adequate statistical model and implementing inference algorithms for this model in order to extract useful information from your data. These challenges create a significant bottleneck towards wide-range adoption of machine learning solutions.
 
 Probabilistic programming attempts to alleviate this problem by letting the user describe their model and statistical queries in a high level programming language, which provides convenient methods of
 describing complex probability distributions, and having an inference engine automatically generate the necessary statistical inference code. This higher-level approach to modelling aims to duplicate some of the benefits gained by the switch from assembly to higher-level programming languages, namely allowing a wider range of developers to work on more complex problems with less effort and at a lower cost. If successful, these techniques could not only make probabilistic modelling cheap and simple enough to become ubiquitous, but also enable the construction of applications that are inconceivable today.
 
-A lot of current research in probabilistic programming is focused on achieving more efficient automatic inference on different types of models (eg: \cite{goodman2013principles, wingate2011nonstandard, wood2014new}). This problem has been approached from many angles, ranging from the development of specialized inference methods that work well on certain, restricted, classes of models (eg: \cite{stuhlmuller2012dynamic, yeh2012synthesizing}), to employing general inference techniques on models transformed by the application of optimization techniques similar to those used in compiler architecture (eg: \cite{mansinghka2014venture, yang2013incrementalizing}).
+\section{Need for better inference}
+A lot of current research in probabilistic programming is focused on achieving more efficient automatic inference on different types of models (eg: \cite{goodman2013principles, wingate2011nonstandard, wood2014new}). This problem has been approached from many angles, ranging from the development of specialized inference methods that work well on certain, restricted, classes of models (eg: \cite{stuhlmuller2012dynamic, yeh2012synthesizing}), to employing general inference techniques on models transformed by the application of optimization techniques similar to those used in compilers (eg: \cite{mansinghka2014venture, yang2013incrementalizing}). We look at these research avenues in more depth in Chapter \ref{chap:relWork}.
 
-In this project I propose to address this gap in our understanding, by implementing various modern machine learning models on different inference engines and analysing their performance. The insight thus gained should give us a better idea of where the current systems most need improving and may suggest new approaches towards solving the inference problem. Time permitting, new inference approaches may be explored and their effect on the various classes of models tested.
+If we manage to surpass the major hurdle of the construction of generic inference engines which are efficient on a wide range of models and model representations, then many currently incipient modeling areas would reach their full potential. One early example of the types of applications these techniques could make possible is the modeling of natural language understanding by the mutually recursive simulation of a listener reasoning about a speaker who is in turn reasoning about his listener \cite{goodman2013knowledge, frank2012predicting}. 
+\todo{describe more cognition scheisse or other projects}
 
+\section{Approach and Roadmap}
+In Chapter \ref{chap:perfComp} we perform an empirical performance of the inference performance of Venture and OpenBUGS, which are two PPLs which make very different efficiency/expresiveness compromises. By testing different models on these engines we can gain a better idea of where the current systems most need improving, and how such improvements might be carried out. 
 
-One early example of the types of applications these techniques could make possible is the modeling of natural language understanding by the mutually recursive simulation of a listener reasoning about a speaker who is in turn reasoning about his listener \cite{goodman2013knowledge, frank2012predicting}. A major hurdle we need to pass before such applications can reach their full potential is the construction of generic inference engines which are efficient on a wide range of models and model representations. 
+In Chapter\ref{chap:partPriors} we pursue one such possible area of improvement, by analyzing the possiblity of pre-processing step which compiles a probabilistic program into an equivalent, but more efficient, form. As far as we are aware the idea for this pre-processing step is novel, and the empirical results suggest that a speed-up of anywhere between 1.5x to 20x is possible depending on the model being re-written. 
 
-One possibility is to perform exact inference by applying dynamic programming (DP) techniques to manage the exponential number of possible execution paths \cite{stuhlmuller2012dynamic}. There is potential for future work in this area by analysing the performance of different DP and approximate-DP techniques. More generally, it is clear that DP won’t work on all models, but understanding what the subclass
-of models is on which exact inference might be tractable remains an open problem. 
+In \ref{chap:infEngines} we explore another possible inference engine improvement, this time by looking at a different type of inference technique. As part of this investigation we create a novel probabilistic programming language, called stochastic python, and use this language to implement a inference method, slice sampling. Slice sampling has not been previously used as part of a Turing Complete PPL, and in our empirical comparison shows promising results on several models when compared to the traditionally employed inference method. Stochastic Python is made avaialble online \cite{stocPy}. 
 
-When exact inference is intractable, we have to settle for approximate solutions, usually obtained via Markov chain Monte Carlo (MCMC). Figuring out how to best take advantage of the underlying structure
-of the distributions, as to obtain better mixing rates and therefore faster inference, is currently an area of active research. One attempt uses nonstandard interpretations to create monad-like side computations which can extract structural information, such as gradients \cite{wingate2011nonstandard}. This information can then enable the use of sophisticated MCMC techniques, such as Hamiltonian MC, which can lead to big boosts in performance over more naive MCMC methods. There is much potential for future work in applying further compiler design and program analysis techniques towards speeding up inference. For instance, speed-ups of over an order of magnitude were shown to be possible by applying techniques such as JIT compilation, dead code elimination, allocation removal and incremental optimization \cite{yang2013incrementalizing}.
+Chapter \ref{chap:relWork} first does a short review of the types of PPLs currently in existance, so that out empirical comparison of Venture and OpenBUGS can be placed in context. We then look at work related to speeding up inference in PPLs and specifically related to rewriting probabilistic programs to improve their performance and to exploring new inference techniques. 
 
-
-This is the introduction where you should introduce your work.  In
-general the thing to aim for here is to describe a little bit of the
-context for your work --- why did you do it (motivation), what was the
-hoped-for outcome (aims) --- as well as trying to give a brief
-overview of what you actually did.
-
-It's often useful to bring forward some ``highlights'' into 
-this chapter (e.g.\ some particularly compelling results, or 
-a particularly interesting finding). 
-
-It's also traditional to give an outline of the rest of the
-document, although without care this can appear formulaic 
-and tedious. Your call. 
-
+Finally, Chapter \ref{chap:conc} discusses the implications of the analysis done in earlier chapters and presents some possible avenues of future work.
