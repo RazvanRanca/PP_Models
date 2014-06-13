@@ -2,9 +2,11 @@
 {\Huge \bf Abstract}
 \vspace{24pt} 
 
+In this thesis we look at the challenges involved in constructing efficient inference engines for probabilistic programming languages (PPL). Improving inference performance is one of the main obstacles that must be surpassed before PPLs can be widely adopted.
 
-This is the abstract. Write a summary of the whole thing. Make 
-sure it fits in one page. 
+We start by empirically comparing the performance of two PPLs from different programming paradigms and with different design objectives. Based on these experiments we identify some areas of possible improvement. The first area is concerned with automatically re-writing probabilistic programs by decomposing their prior distributions, such that the inference result is left invariant but inference speed improves. The second aspect we look at is the implementation of a novel inference engine based on slice sampling.
+
+The main novel contributions of this thesis are the prior distribution decomposition method which aims to improve inference performance under Metropolis-Hastings, and the usage of slice sampling towards the implementation of a new PPL, called ``Stochastic Python''. We make Stochastic Python, which also supports Metropolis-Hastings inference, freely available online. 
 
 
 \newpage

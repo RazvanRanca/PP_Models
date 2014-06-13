@@ -1,11 +1,11 @@
 \chapter{Partitioned Priors}
 \label{chap:partPriors}
 
-In this chapter we look at a novel idea of improve the inference performance of basic Metropolis-Hastings by paritioning the prior distribution into several component parts. The idea behind this approach is that we may be able to guide the resampling process as to improve the rate of convergence to the mode and the mixing properties of local Metropolis-Hastings. \todo{say something about proposal kernels vs. sampling from prior?} If this approach proves succesful, it would enable us to design a light pre-inference rewriting of a probabilistic program which splits up its priors so that the subsequent inference step is performed more efficiently.
+In this chapter we look at a novel approach towards improving the inference performance of basic Metropolis-Hastings by paritioning the model's prior distribution into several component parts. The idea behind this approach is that we may be able to guide the resampling process as to improve the rate of convergence to the mode and the mixing properties of local Metropolis-Hastings. If this approach proves succesful, it would enable us to design a light pre-inference compiler of a probabilistic program which splits up its priors so that the subsequent inference step is performed more efficiently.
 
-In the first instance, we focus on the splitting of uniform continuous priors. Not only are such priors commonly used in models, but sampling from any distribution ultimately relies on uniformly drawn random bits. Speeding up inference on uniform priors may therefore lead to speed ups on other distributions, assuming certain desirable properties, such that small changes in the uniform bits correspond to small changes in the final distribution. \todo{not sure if this makes much sense. Need to research it or remove}
+In the first instance, we focus on the splitting of uniform continuous priors. Not only are such priors commonly used in models, but sampling from any distribution ultimately relies on uniformly drawn random bits. Speeding up inference on uniform priors may therefore be a step towards speeding up inference on other prior distributions, assuming certain desirable properties, such that small changes in the uniform bits correspond to small changes in the final distributions.
 
-For simplicity, we focus on models with a uni-modal posterior distribution. The analysis for multi-modal distributions would follow similar lines to the one presented here, but would also have to additionally account for mode-switching.
+For simplicity, we focus on models with a unimodal posterior distribution. The analysis for multimodal distributions would follow similar lines to the one presented here, but would have to additionally account for mode-switching.
 
 \section{Preliminaries}
 
@@ -13,14 +13,14 @@ In order to explore the partitioned prior idea we need to have an understanding 
 
 \subsection{Metropolis-Hastings}
 \label{sect:MH}
-The Metropolis-Hastings algorithm is a method of drawing samples from a probability distribution $P(x)$ when we can only compute values of the proportional function $P^*(x) = P(x)*Z$ \cite{metropolis1953equation, hastings1970monte}. This method is usefull when we want to estimate distributions (or expectations under distributions) that we cannot directly evaluate, which is a common problem in Bayesian modeling, since the probability distribution's normalization factor is often difficult to estimate.
+The Metropolis-Hastings algorithm is a method of drawing samples from a probability distribution $P(x)$ when we can only compute values of the proportional function $P^*(x) = P(x)*Z$ \cite{metropolis1953equation, hastings1970monte}. This method is useful when we want to estimate distributions (or expectations under distributions) that we cannot directly evaluate. This is a common problem in Bayesian modeling, since the probability distribution's normalization factor is often difficult to estimate.
 
-Metropolis-Hastings is a Markov Chain Monte Carlo algorithm, which is to say that the algorithm will generate samples according to the Markov, memoryless, property where the choice of current sample depends only on the previous sample. Additionally, the markov chain implied by this sequence of samples will have $P(x)$ as its stationary distribution. This implies that, if we run metropolis-hastings long enough for the underlying markov chain to be sampling from it's stationary distribution, then we will be drawing samples from $P(x)$.
+Metropolis-Hastings is a Markov Chain Monte Carlo algorithm, which is to say that the algorithm will generate samples according to the Markov, memoryless, property where the choice of current sample depends only on the previous sample. Additionally, the markov chain implied by this sequence of samples will have $P(x)$ as its stationary distribution. This implies that, if we run Metropolis-Hastings long enough for the underlying markov chain to be sampling from it's stationary distribution, then we will be drawing samples from $P(x)$.
 
-In order to create an underlying markov chain that has $P(x)$ as its stationary distribution it is usefull to split the state transition into two components, a proposal function and an acceptance probability. Since we must respect the Markov, memoryless, property, the proposal function can only take the current sample as its input and is therefore of the form $Q(x_{n+1} | x_{n})$. It can then be shown \cite{neal1993probabilistic} that in order for the markov chain to converge to the right distribution, it is sufficient to define the acceptance ratio for as:
+In order to create an underlying markov chain that has $P(x)$ as its stationary distribution it is useful to split the state transition into two components, a proposal function and an acceptance probability. Since we must respect the markov, memoryless, property, the proposal function can only take the current sample as its input and is therefore of the form $Q(x_{n+1} | x_{n})$. It can then be shown \cite{neal1993probabilistic} that in order for the markov chain to converge to the right distribution, it is sufficient to define the acceptance ratio as:
 \[ \alpha = \frac{P(x_{n+1})}{P(x_{n})}\frac{Q(x_{n} | x_{n+1})}{Q(x_{n+1} | x_{n})} = \frac{P^*(x_{n+1})}{P^*(x_{n})}\frac{Q(x_{n} | x_{n+1})}{Q(x_{n+1} | x_{n})} \]
 
-For the purpose of inference in probabilistic programming languages, a simplification to the Metropolis-Hastings algorithm is usually made by assuming that the proposal kernel is symmetric: $Q(x_{n+1} | x_{n}) = Q(x_{n} | x_{n+1}) \forall x_{n+1}, x_{n}$, which leads to removing the 2nd term for the acceptance ration. The full algorithm can then be described as:
+For the purpose of inference in probabilistic programming languages, a simplification to the Metropolis-Hastings algorithm is usually made by assuming that the proposal kernel is symmetric: $Q(x_{n+1} | x_{n}) = Q(x_{n} | x_{n+1}) \forall x_{n+1}, x_{n}$, which leads to removing the 2nd term of the acceptance ratio. The full algorithm can then be described as:
 
 \begin{flalign*}
 &\text{1 Pick a first sample }x_0 &\\
@@ -52,7 +52,7 @@ When using local Metropolis-Hastings with an unpartitioned uniform prior, it is 
 For partitioned priors it will usually not be possible to analytically determine the expected number of steps to $[mode - \epsilon, mode + \epsilon]$, so we shall instead perform empirical tests.
 
 \subsection{Mixing properties around the mode}
-Once the markov chain has reached the mode we wish to see how well it manages to mix around it. Here we look at different metrics that might give us an idea of the mixing properties. Visually inspecting the sample evolution will show if the inference tends to get stuck on certain values for long stretches. A numerical estimate of this can be obtained by measuring the ''distance'' traveled by the markov chain around the mode (i.e. the sum of absolute differences between consecutive samples). We can also inspect the sample autocorrelation, based on the idea that good mixing should imply a small autocorrelation within a sample run.
+Once the markov chain has reached the mode we wish to see how well it manages to mix around it. Here we look at different metrics that might give us an idea of the mixing properties. Visually inspecting the sample evolution will show if the inference tends to get stuck on certain values for long stretches. A numerical estimate of this can be obtained by measuring the ``distance'' traveled by the markov chain around the mode (i.e. the sum of absolute differences between consecutive samples). We can also inspect the sample autocorrelation, based on the idea that good mixing should imply a small autocorrelation within a sample run.
 
 \section{Sum of uniforms}
 \label{sect:sumUnif}
@@ -263,7 +263,7 @@ In order to partition the interval (uniform-continuous 0 1) we first pick a bit 
 
 \subsection{Evaluation on Tdf and Tdf21}
 
-To get an idea of the properties of bit decomposition we perform empirical evaluations on the Tdf and Tdf21 continuous models. Looking at the sample distributions in Figures \ref{fig:tdfPSampDist} and \ref{fig:tdf21PSampDist} we can see that a 3rd degree bit decomposition obtains similar performance to an unpartitioned prior. Intuitively this is because we are still subjecting proposals to the Metropolis-Hastings acceptance ratio, so if our program decides to flip one of the leading bits the proposal will be rejected, leading to bad mixing. As the depth of the bit decomposition increases, however, the probability that one of the leading bits is picked diminishes and therefore we will expect the mixing rate to improve. \todo{Should be possible to give some more formal results here.} We, however, restrict ourselves to a 3rd degree decomposition here since a higher degree variant would exhibit the problem ``stuck samples'', which is discussed in Section \ref{sect:stuckSamples}.
+To get an idea of the properties of bit decomposition we perform empirical evaluations on the Tdf and Tdf21 continuous models. Looking at the sample distributions in Figures \ref{fig:tdfPSampDist} and \ref{fig:tdf21PSampDist} we can see that a 3rd degree bit decomposition obtains similar performance to an unpartitioned prior. Intuitively this is because we are still subjecting proposals to the Metropolis-Hastings acceptance ratio, so if our program decides to flip one of the leading bits the proposal will be rejected, leading to bad mixing. As the depth of the bit decomposition increases, however, the probability that one of the leading bits is picked diminishes and therefore we will expect the mixing rate to improve. We, however, restrict ourselves to a 3rd degree decomposition here since a higher degree variant would exhibit the problem ``stuck samples'', which is discussed in Section \ref{sect:stuckSamples}.
 
 \begin{figure}[h]
     \centering
@@ -291,7 +291,7 @@ To get an idea of the properties of bit decomposition we perform empirical evalu
     \label{fig:tdf21PSampDist}
 \end{figure}
 
-The expected time to reach a mode neighbourhood is analyzed in Table \ref{tab:bestParts}. Here we can see that the 3rd degree binomial provides a significant improvement over the unpartitioned prior, though not as significant as the sum of uniforms does. \todo{talk about how binomials of different depth perform here}. On the depth 7 bit decomposition, we see good results on the small neighbourhoods but erratic ones on the larger neighbourhoods. The reason is again the fact that bit decompositions can result in ``stuck samples'', which are discussed in Section \ref{sect:stuckSamples}.
+The expected time to reach a mode neighbourhood is analyzed in Table \ref{tab:bestParts}. Here we can see that the 3rd degree binomial provides a significant improvement over the unpartitioned prior, though not as significant as the sum of uniforms does. On the depth 7 bit decomposition, we see good results on the small neighbourhoods but erratic ones on the larger neighbourhoods. The reason is again the fact that bit decompositions can result in ``stuck samples'', which are discussed in Section \ref{sect:stuckSamples}.
 
 \begin{table}[H]
   \centering
@@ -337,13 +337,13 @@ Some possible solutions to avoid getting stuck would be:
 \begin{itemize}
 
 \item
-Having the option of changing multiple bits at a time (eg: sample a variable to determine how many bits to change). This would ensure there are no hard local maximas. However, situations would still arise where a large number of bits would need to be concurrently changed to specific values in order for a sample to be accepted, which means we might still be stuck in a certain position for a long time untill just the right combination of bits is picked. \todo{is a more thorough analysis feasible here?}
+Having the option of changing multiple bits at a time (eg: sample a variable to determine how many bits to change). This would ensure there are no hard local maximas. However, situations would still arise where a large number of bits would need to be concurrently changed to specific values in order for a sample to be accepted, which means we might still be stuck in a certain position for a long time untill just the right combination of bits is picked. 
 
 \item
 Using multiple shifted variants of the prior, where shifting by $shift$ means mapping sample $x$ to $(x + shift)\%1$). It can be shown that a single shift is enough to avoid getting stuck. However the effect on performance of adding shifts is complex, since performing a shift in an unstuck position can lead to us moving further away from the mode. More analysis of the effect of shifts is presented in \ref{sect:shifts}.
 
 \item
-Using multiple variants of the prior with different bit depths. If a sample is stuck on bit b, then moving it into a prior with depth < b will unstick it. However, this will result in the bits with the highest values being resampled more often, since they will be present in the most priors, which will have a negative effect on the mixing benefits offered by the decomposition. \todo{add more analysis on this}
+Using multiple variants of the prior with different bit depths. If a sample is stuck on bit b, then moving it into a prior with depth < b will unstick it. However, this will result in the bits with the highest values being resampled more often, since they will be present in the most priors, which will have a negative effect on the mixing benefits offered by the decomposition.
 
 \end{itemize}
 
@@ -357,7 +357,6 @@ In this section we explore two variants of the mixture of shifted bits. First we
 
 \subsubsection{Avoiding getting stuck}
 \label{sect:stuckMath}
-\todo{not sure if this section is clear enough. add diagrams?}
 
 It turns out that a mixture of 2 bit decompositions, one of which is a shifted variant of the other, is sufficient to ensure that it is impossible to get stuck. However it seems we need to use a mixture of K priors in order to ensure that the binomial of depth K can move from any stuck position to the mode in one step. 
 
@@ -448,7 +447,6 @@ In \ref{fig:allMaxShifts} we look at the case where we resample the shift on eac
     \label{fig:allShifts}
 \end{figure}
 
-
 As explained in Section \ref{sect:stuckMath}, the shift size $s$ for bit $k$ needs to respect $2^{-k-1} <= s <= 2^{-k}$ in order for us to be able to jump to the mode in one step. In \ref{fig:allMinShifts} we check whether the choice of shift size within this interval is significant, by looking at the burn-in rate for shifts of size $2^{-k-1}$ (called minimum shifts) for each bit position k. The results are quite similar to those obtained for the maximum shifts, which suggests that the performance isn't sensitive to the choice of shift length within $[2^{-k-1}, 2^{-k}]$.
 
 We would also like to see what happens as the size of the target neighbourhood changes. In Figure \ref{fig:AllShiftsMax001} we repeat the max shift experiment for a target neighbourhood of size 0.01 (10x larger). While the bit decomposition still gives some advantage, as the size of the target neighbourhood increases this advantage appears to become less significant. Intuitively this happens because a larger number of the less significant bits become irrelevant as far as ending up in the desired region is concerned.
@@ -460,7 +458,7 @@ We would also like to see what happens as the size of the target neighbourhood c
     \label{fig:AllShiftsMax001}
 \end{figure}
 
-Finally, we would also like to see what happens to the performance if we do not provide k shifts for k bits, but instead only 1 or 2 shifts. As explained in section \ref{sect:stuckMath}, a single properly sized shift is sufficient to stop us from getting stuck. However, without k shifts for k bits, we sacrifice the ability of always moving from a stuck position to the mode in one step. As seen in Figure \ref{fig:fewShifts}, this seems to have a significant negative effect on the decompositions' performance. \todo{talk about distributions over shifts, and more about benefits/drawback of shifts and/or changing depths}
+Finally, we would also like to see what happens to the performance if we do not provide k shifts for k bits, but instead only 1 or 2 shifts. As explained in section \ref{sect:stuckMath}, a single properly sized shift is sufficient to stop us from getting stuck. However, without k shifts for k bits, we sacrifice the ability of always moving from a stuck position to the mode in one step. As seen in Figure \ref{fig:fewShifts}, this seems to have a significant negative effect on the decompositions' performance. 
 
 \begin{figure}[h]
     \centering
@@ -476,32 +474,3 @@ Finally, we would also like to see what happens to the performance if we do not 
     \caption{Time to 0.01 neighbourhood of mode, averaged over all mode placements, for bit decompositions of different depth using a small number of shifts.}
     \label{fig:fewShifts}
 \end{figure}
-
-\subsubsection{Determining optimal shifts and shift transitions}
-It seems we have a wide variety of options regarding what shifts to use and how to transition between them. It therefore seems worthwhile to consider the question of whether we can determine any optimal solutions analytically. 
-
-In order to do so, we make some observations:
-\begin{itemize}
-
-\item
-The location of the mode neighbourhood determines which regions are traps (i.e. in which regions, once you enter, you can no longer reach the mode without shifting)
-
-\item
-The current sample determines what portion of the traps (if any) are still accessible (based on the assumption that it is arbitrarily unlikely for the log-likelihood to decrease between consecutive samples).
-
-\item
-The probability of getting to the mode or falling in a trap cannot be modelled with (mixtures of) geometric distributions since a sample's probability distribution depends on the previous samples (and is therefore not uniform, unless we integrate out its history)
-
-\item
-For a set mode and log-likelihood function we can represent the transition between samples via a bit-level markov chain which ignores the trailing uniform. We can then create absorbing states representing the mode neighbourhood and the traps.
-
-\item
-If, for instance, the neighbourhood is only 0.1 of the length of the smallest bit we would implicitly represent the uniform only in the corresponding bit state by giving a 0.1 transition from this bit state to the mode-neighbourhood absorbing state. This however ignores the movement of the uniform during normal sampling which may end up biasing the results since, for instance, if the mode is in the leftmost bit the uniform will likely already have a very small value by the time the correct bit state is reached. \todo{There seem to be heuristic ways to address this}
-
-\item
-Using this formulation we can analytically derive the probability of getting stuck and the expected number of steps to the mode. Representing shifted priors is also possible. The simplest way would be to have 2x the nodes for a combination of 2 shifted priors.
-
-\end{itemize}
-\todo{try to get some results using markov chain implementation. Otherwise there's not much point in describing it ...}
-
-

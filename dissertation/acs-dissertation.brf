@@ -11,14 +11,14 @@
 \backcite {probMods, gerstenberg2012ping}{{7}{2.2.2}{subsection.2.2.2}}
 \backcite {mansinghka2009natively}{{7}{2.2.2}{subsection.2.2.2}}
 \backcite {TdfBugsRepo}{{8}{2.3.1}{subsection.2.3.1}}
-\backcite {lunn2000winbugs, keith2008generalized}{{11}{2.4}{figure.caption.13}}
+\backcite {lunn2000winbugs, keith2008generalized}{{11}{2.4}{figure.caption.7}}
 \backcite {webChurch}{{12}{2.4.1}{subsection.2.4.1}}
 \backcite {kullback1951information}{{16}{3.1}{section.3.1}}
 \backcite {massey1951kolmogorov}{{16}{3.1}{section.3.1}}
 \backcite {metropolis1953equation, hastings1970monte}{{16}{3.1.1}{subsection.3.1.1}}
 \backcite {neal1993probabilistic}{{16}{3.1.1}{subsection.3.1.1}}
 \backcite {mackay2003information, neal1993probabilistic}{{17}{3.1.1}{subsection.3.1.1}}
-\backcite {mackay2003information}{{29}{3.3.3}{section*.36}}
+\backcite {mackay2003information}{{29}{3.3.3}{subsection.3.3.3}}
 \backcite {neal2003slice}{{35}{4.1.1}{subsection.4.1.1}}
 \backcite {neal2003slice, mackay2003information}{{37}{4.1.1}{subsection.4.1.1}}
 \backcite {wingate2011lightweight}{{37}{4.1.2}{subsection.4.1.2}}
@@ -27,8 +27,8 @@
 \backcite {stocPy}{{37}{4.2}{section.4.2}}
 \backcite {wingate2011lightweight}{{38}{4.2}{section.4.2}}
 \backcite {wingate2011lightweight}{{41}{4.3.2}{subsection.4.3.2}}
-\backcite {wood2014new}{{46}{4.3.2}{section*.61}}
-\backcite {robert2004monte}{{50}{4.4}{section.4.4}}
+\backcite {wood2014new}{{46}{4.3.2}{section*.43}}
+\backcite {robert2004monte}{{51}{4.4}{section.4.4}}
 \backcite {jones1989probabilistic}{{53}{5.1}{section.5.1}}
 \backcite {ppw}{{53}{5.1}{section.5.1}}
 \backcite {kimmig2011implementation, de2008probabilistic, sato1997prism, poole2008independent}{{53}{5.1}{section.5.1}}
@@ -43,4 +43,3 @@
 \backcite {yang2013incrementalizing}{{55}{5.2}{section.5.2}}
 \backcite {wood2014new}{{55}{5.2}{section.5.2}}
 \backcite {yeh2012synthesizing}{{55}{5.2}{section.5.2}}
-\backcite {}{{58}{6.2}{section.6.2}}

@@ -5,26 +5,26 @@ In this chapter we perform an empirical comparison of the Venture and OpenBUGS p
 
 \section{Motivation}
 
-As discussed in Section \ref{}, there are currently a plethora of PPLs which differ in significant ways, including in expresivity, efficiency, programming paradigm and intended usage.  At the moment, there are very few surveys comparing the relative benefits and drawbacks of these languages on different classes of models and so their relative performance is not very well understood. 
+As discussed in Section \ref{sect:ppl}, there are currently a plethora of PPLs which differ in significant ways, including in expresivity, efficiency, programming paradigm and intended usage.  At the moment, there are very few surveys comparing the relative benefits and drawbacks of these languages on different classes of models and so their relative performance is not very well understood. 
 
-In this chapter we attempt to take a step towards better understanding the characteristics of these languages by looking at two PPLs which fall at different ends of the specialization/generality spectrum. We do this by implementing a few different models and evaluating the performance of the two different PPL's inference engines on these models. The insight thus gained will give us an idea of where the current systems most need improving and thus reveal where future work should focus in order to alleviate these problems.
+In this chapter we attempt to take a step towards better understanding the characteristics of these languages by looking at two PPLs which fall at different ends of the efficiency/flexibility spectrum. We do this by implementing a few different models and evaluating the performance of the two different PPL's inference engines on these models. The insight thus gained will give us an idea of where the current systems most need improving and thus guide future work towards improving inference performance in these languages.
 
 \section{Preliminaries}
 \subsection{OpenBUGS}
 
-OpenBUGS, the latest version of the BUGS project, defines a bespoke programming language that can be used to specify and perform bayesian inference on probabilistic models. The models that can be specified in OpenBUGS are finite directed acyclic graphical models, which have a certain useful mathematical properties that eases the task of performing inference. OpenBUGS takes advantage of these mathematical properties by making use of an ``expert system'' which tries to pick a Markov Chain Monte Carlo inference method that will be efficient on the user's particular model \cite{bugsOverview}.
+OpenBUGS, the latest version of the BUGS project, defines a bespoke programming language that can be used to specify and perform bayesian inference on probabilistic models. The models that can be specified in OpenBUGS are finite directed acyclic graphical models, which have well-understood mathematical properties. These properties can ease the task of performing inference, and OpenBUGS aims to take advantage of them by employing an ``expert system'' which picks Markov Chain Monte Carlo inference methods that are efficient on the user's particular model \cite{bugsOverview}.
 
-By restricting their languages expresivity to defining finite graphical models, OpenBUGS sacrifices expresiveness for efficiency. One essential restriction on OpenBUGS models is that they cannot use stochastic choices that will influence control flow in the program \cite{lunn2009bugs}. Allowing such randomenss would result in trans-dimensional program traces of varying and, through recursion, potentially unbounded size. This flexibility would no longer allow us to compile the program into a graphical model. Other potentially usefull constructs that are not allowed under the graphical model paradigm include random compound data types and any procedures that could lead to a priori unbounded executions.
+By restricting their language's expresivity to that of finite graphical models, OpenBUGS sacrifices flexibility for efficiency. One essential restriction on OpenBUGS models is that they cannot use stochastic choices that will influence control flow in the program \cite{lunn2009bugs}. Allowing such randomenss would result in trans-dimensional program traces of varying and, through recursion, potentially unbounded size, which would no longer allow OpenBUGS to compile the program into a graphical model. Other potentially useful constructs that are not allowed under the graphical model paradigm include random compound data types and any procedures that could lead to a priori unbounded executions.
 
-However, many probabilistic models can be expressed as finite, directed, acyclic graphs, and on such models OpenBUGS's efficiency and ease of use makes it one of the most popular choices.
+However, many probabilistic models can be expressed as finite, directed, acyclic graphs, and on such models OpenBUGS's efficiency and ease of use makes it one of the most popular PPLs.
 
 \subsection{Venture}
 
-Venture aims to give users a greater flexibility in defining models than OpenBUGS does, while also being sufficiently efficient and extensible for use on a wide variety of probabilistic models. Venture is an interactive virtual machine in which probabilistic programs are specified via a Turing-complete functional language build on top of Lisp. Venture also allows the user to build custom inference strategies, specified in a compositional manner from simpler inference building blocks or even optimized external inference code \cite{mansinghka2014venture}. 
+Venture aims to give users a greater flexibility in defining models than OpenBUGS does, while also being sufficiently efficient and extensible for use on a wide variety of probabilistic models. Venture is an interactive virtual machine in which probabilistic programs are specified via a Turing-complete functional language build on top of Lisp. Venture also allows the user to build custom inference strategies, specified in a compositional manner from simpler inference building blocks, or even from optimized external inference code \cite{mansinghka2014venture}. 
 
-Venture's flexibility means that it support stochastic choices affecting control flow, recursive functions and, in general, higher-order probabilistic procedures. This means Venture can represent models outside of the scope of OpenBUGS, such as some nonparametric Bayesian models \cite{roy2008stochastic}, and some cognition models involving aspects such as reasoning about reasoning, and theory of mind (eg: \cite{probMods, gerstenberg2012ping}). Additionally, Venture supports a large number of probabilistic primitves, including ``likelihood-free'' primitives. Finally, it has been shown possible to specify learning of Venture programs (program structure and parameters) from data as an inference problem in a Venture program \cite{mansinghka2009natively}.
+Venture's flexibility means that it supports stochastic choices affecting control flow, as well as any type of higher-order probabilistic procedure. This means Venture can represent models outside of the scope of OpenBUGS, such as nonparametric Bayesian models \cite{roy2008stochastic}, and cognition models involving aspects such as reasoning about reasoning, and theory of mind (eg: \cite{probMods, gerstenberg2012ping}). Additionally, Venture supports a large number of probabilistic primitves, including ``likelihood-free'' primitives. Finally, Venture's higher-order nature allows it to specify the learning of Venture programs from data (including the program structure and parameters) as an inference problem in a Venture program \cite{mansinghka2009natively}.
 
-Other than it's flexibility, Venture proposes a number of changes when compared to previous Turin-Complete languages, such as Church, that should make it significantly more efficient. The question of how Venture measures up against more restricted PPLs, such as OpenBUGS, is still not settled though. 
+When compared to other Turing complete, flexible, higher-order PPLs, such as Church, Venture proposes a number of changes that should make it significantly more efficient. The question of how Venture measures up against more restricted PPLs, such as OpenBUGS, is still not settled though. 
 
 \subsection{Number of MCMC steps}
 Venture and OpenBUGS have a different interpretation of what an MCMC step is. This difference must be taken into account so that the empirical results of the two PPLs are comparable.
@@ -50,11 +50,11 @@ Specifically, OpenBUGS updates all currently unconditioned variables during one 
 However, in some cases it can make sense to not follow the above specification. For instance, when the performance gap between the two PPLs is very large, we may prefer not to generate very few samples with the faster PPL just so that the slower one can terminate the same amount of work in a reasonable timeframe. 
 
 \section{Empirical results}
-In this section consider a few simple models taken from the OpenBUGS model repository, and test inference performance on then for both OpenBUGS and Venture. \todo{Maybe also evaluate one model that's not from the OpenBUGS repository, since BUGS might be unreasonably optimized on its own models.}
+In this section, we consider a few simple models taken from the OpenBUGS model repository, and test inference performance on them for both OpenBUGS and Venture.
 
 \subsection{Tdf model description}
 \label{sect:tdfDesc}
-The Tdf models attempt to infer a Student t distribution's degrees of freedom, by considering 1,000 samples drawn from said Student t distribution. The Tdf models come in 3 variations, which just change the prior distribution of the degrees of freedom parameter (called d). In the course discrete version d is drawn from the uniform discrete distribution between 2 and 50. In the fine discrete distribution, d is drawn uniformly from the set: \{2.0, 2.1, 2.2, \ldots 6.0\}. Finally, in the continuous version d is drawn from the continuous uniform distribution between 2 and 100. The specification for the continuous version of the model is given below. The models' OpenBUGS implementations and results can be found in the OpenBUGS model repository \cite{TdfBugsRepo}.
+The Tdf models attempt to infer a student t distribution's degrees of freedom, by considering 1,000 samples drawn from said Student t distribution. The Tdf models come in 3 variations, which just change the prior distribution of the degrees of freedom parameter (called d). In the course discrete version, d is drawn from the uniform discrete distribution ranging from 2 to 50. In the fine discrete distribution, d is drawn uniformly from the set: \{2.0, 2.1, 2.2, \ldots 6.0\}. Finally, in the continuous version, d is drawn from the continuous uniform distribution between 2 and 100. The specification for the continuous version of the model is given below. The models' OpenBUGS implementations and inference results can be found in the OpenBUGS model repository \cite{TdfBugsRepo}.
 
 \begin{flalign*}
 & \nu \sim \text{(uniform-continuous 2 100)} & \\
@@ -66,12 +66,12 @@ For all 3 Tdf models, OpenBUGS uses 1,000 steps for burn-in and then extracts 10
 \subsection{Tdf model true posteriors}
 \label{sect:truePost}
 
-Given the simplicity of the Tdf models, we can calculate the true posteriors analytically. If $X$ represents a vector of the observed datapoints ($x$), and $\nu$ represents the student T distribution's degrees of freedom, then: 
+Given the simplicity of the Tdf models, we can calculate the true posteriors analytically. If $X$ represents a vector of the observed datapoints ($x$), and $\nu$ represents the student t distribution's degrees of freedom, then: 
 
 \[P(\nu|X) \propto P(X|\nu)P(\nu)\]
 \[P(X|\nu) = \prod_{x \in X} P(x|\nu) = \prod_{x \in X} \frac{\Gamma \left( \frac{\nu+1}{2} \right)}{\Gamma \left( \frac{\nu}{2} \right) \sqrt{\nu \pi}} \left( 1 + \frac{x^2}{\nu} \right)^{-\frac{\nu+1}{2}} \]
 
-Further, in all of the Tdf models the prior on $\nu$ is uniform, therefore the posterior will be directly proportional to the likelihood. The only role of the prior is to determine the normalization constant by defining what the domain of our posterior is. Specifically, we have:
+Further, in all of the Tdf models, the prior on $\nu$ is uniform, therefore the posterior will be directly proportional to the likelihood. The only role of the prior is to determine the normalization constant by defining what the domain of our posterior is. Specifically, we have:
 \[P(\nu|X) \propto 
   \prod_{x \in X} \frac{\Gamma \left( \frac{\nu+1}{2} \right)}{\Gamma \left( \frac{\nu}{2} \right) \sqrt{\nu \pi}} \left( 1 + \frac{x^2}{\nu} \right)^{-\frac{\nu+1}{2}}
   \left\{
@@ -126,8 +126,6 @@ On the course discrete model (Figure \ref{fig:tdfCourseDiscSamp}) we see that th
 
 As seen in Figure \ref{fig:tdfCourseDiscConv}, due to the course discrete prior, the convergence rate here is quite choppy and no significant conclusions can be drawn from this single run. 
 
-\todo{Maybe do more runs and plot quartiles}
-
 \begin{figure}[h]
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
@@ -176,7 +174,7 @@ In order to understand why Venture seems to perform so badly on the Tdf models, 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{TdfContRuns}
+    \includegraphics[width=0.8\textwidth]{TdfContRuns}
     \caption{Number and size of identical sample runs generated by the two PPLs on the continuous model.}
     \label{fig:tdfContRun}
 \end{figure}
@@ -184,8 +182,6 @@ In order to understand why Venture seems to perform so badly on the Tdf models, 
 Figure \ref{fig:tdfContRun} shows that Venture has a much higher propensity for identical sample runs than OpenBUGS. Keeping in mind that Venture takes a lag of 100 samples between each 2 extracted samples, we see that Venture exhibits several runs of over 500 MCMC iterations where the observed variable does not change at all. On the other hand, OpenBUGS has no two identical consecutive samples.
 
 This difference can be explained by the different inference strategies employed by the two engines. Venture makes use of single-site Metropolis whereas OpenBUGS uses a slice sampler on one dimensional models such as Tdf \cite{lunn2000winbugs, keith2008generalized}. We take a closer look at these different inference techniques and their performance in Chapter \ref{chap:infEngines}.
-
-\todo{Decide is there's anything worth reporting from the performance tests done on Venture. Log dates: 2014.02.19 and 2014.02.20}
 
 \subsection{Webchurch's performance}
 One alternative to Venture which we considered is WebChurch. WebChurch is a compiler which translated the Church PPL into JavaScript, and thus allows for in-browser execution \cite{webChurch}.
