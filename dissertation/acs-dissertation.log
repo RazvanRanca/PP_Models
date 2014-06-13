@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.13)  13 JUN 2014 11:03
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.13)  13 JUN 2014 12:31
 entering extended mode
  %&-line parsing enabled.
 **acs-dissertation
@@ -1314,36 +1314,36 @@ hic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>
 [46 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchPost.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf, id=2989,
- 587.19376pt x 442.65375pt>
-File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf Grap
-hic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.png, id=2989,
+ 586.8324pt x 442.2924pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.png Grap
+hic file (type png)
 
-<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.png>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf, id=299
 1, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf Gr
 aphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>
-[47 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.pdf> </au
+[47 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRuns.png> </au
 to/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuarts.pdf>]
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf, id=
-3085, 587.19376pt x 442.65375pt>
-File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf
- Graphic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.png, id=
+3044, 586.8324pt x 442.2924pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.png
+ Graphic file (type png)
 
-<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.png>
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf, i
-d=3087, 587.19376pt x 442.65375pt>
+d=3045, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.p
 df Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pd
 f>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf, id=3
-092, 587.19376pt x 442.65375pt>
+050, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTraceLik.pdf 
 Graphic file (type pdf)
 
@@ -1355,18 +1355,18 @@ hic file (type pdf)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[48 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.pdf>
+[48 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchRunsSamps.png>
  </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchQuartsSamps.pdf>]
 
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf,
- id=3181, 587.19376pt x 442.65375pt>
+ id=3101, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik
 .pdf Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.
 pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf, id=
-3183, 587.19376pt x 442.65375pt>
+3103, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf
  Graphic file (type pdf)
 
@@ -1375,33 +1375,33 @@ File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongTraceLik.pdf>
  </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchWrongPost.pdf>]
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf, id=32
-87, 587.19376pt x 442.65375pt>
+07, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf G
 raphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf, id=
-3289, 587.19376pt x 442.65375pt>
+3209, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf
  Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf>
 
-</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf, id=329
-2, 587.19376pt x 442.65375pt>
-File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf Gr
-aphic file (type pdf)
+</auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.png, id=321
+2, 586.8324pt x 442.2924pt>
+File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.png Gr
+aphic file (type png)
 
-<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf>
+<use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.png>
 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf, id=3
-294, 587.19376pt x 442.65375pt>
+213, 587.19376pt x 442.65375pt>
 File: /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf 
 Graphic file (type pdf)
 
 <use /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf>
 [50 </auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDRuns.pdf> <
 /auto/homes/rr463/Desktop/PP_Models/dissertation/imgs/Normal4TDQuarts.pdf> </au
-to/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.pdf> </auto/hom
+to/homes/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDRuns.png> </auto/hom
 es/rr463/Desktop/PP_Models/dissertation/imgs/BranchTDQuarts.pdf>])
 (./relatedWork.tex [51] [52
 
@@ -1475,9 +1475,9 @@ nts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10
 are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on acs-dissertation.pdf (70 pages, 46367301 bytes).
+Output written on acs-dissertation.pdf (70 pages, 4949995 bytes).
 PDF statistics:
- 4301 PDF objects out of 5155 (max. 8388607)
+ 4178 PDF objects out of 4296 (max. 8388607)
  209 named destinations out of 1000 (max. 500000)
  715 words of extra memory for PDF output out of 10000 (max. 10000000)
 
